@@ -1,1 +1,1 @@
-# ai-hackathon-2026
+# AI Intelligence Platform
