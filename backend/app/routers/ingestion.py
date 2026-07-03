@@ -1,5 +1,9 @@
-from fastapi import APIRouter, UploadFile, File, HTTPException, BackgroundTasks
-from app.services.document_parser import DocumentParser
+from fastapi import APIRouter, UploadFile, File, HTTPException
+from app.tasks.ingestion_tasks import process_document_task
+from app.database.session import get_db
+from app.models.core import Document
+from fastapi import Depends
+from sqlalchemy.orm import Session
 import os
 import uuid
 
@@ -9,36 +13,15 @@ router = APIRouter()
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
-def process_document(file_path: str, filename: str):
-    """
-    Background task to process the uploaded document.
-    """
-    try:
-        # Extract and parse text
-        if file_path.endswith('.pdf'):
-            pages = DocumentParser.parse_pdf(file_path)
-        else:
-            # Handle other types like CSV later
-            pages = []
-            
-        # Chunk text (512 tokens with 50 overlap as per SRS)
-        chunks = DocumentParser.chunk_text(pages, chunk_size=512, overlap=50)
-        
-        # TODO: Vectorize chunks using Voyage AI or OpenAI and store in Supabase pgvector
-        print(f"Processed {filename}: extracted {len(chunks)} chunks.")
-        
-    except Exception as e:
-        print(f"Error processing {filename}: {e}")
-    finally:
-        # Clean up local file
-        if os.path.exists(file_path):
-            os.remove(file_path)
-
 @router.post("/upload")
-async def upload_document(background_tasks: BackgroundTasks, file: UploadFile = File(...)):
+async def upload_document(
+    file: UploadFile = File(...),
+    db: Session = Depends(get_db)
+):
     """
-    Uploads a document for ingestion. Returns a unique document ID immediately,
-    and processes the document asynchronously in the background.
+    Chapter 20: Intelligent Document Ingestion
+    Uploads a document for ingestion and queues it via Celery (EDR 20-C).
+    Returns a unique document ID immediately for polling.
     """
     if not file.filename:
         raise HTTPException(status_code=400, detail="No file provided")
@@ -56,11 +39,22 @@ async def upload_document(background_tasks: BackgroundTasks, file: UploadFile = 
             content = await file.read()
             f.write(content)
             
-        # Add background processing task
-        background_tasks.add_task(process_document, file_path, file.filename)
+        # Register in database with "Queued" status
+        new_doc = Document(
+            id=doc_id,
+            project_id="default-project", # Stub for hackathon
+            filename=file.filename,
+            storage_path=file_path,
+            processing_status="Queued"
+        )
+        db.add(new_doc)
+        db.commit()
+
+        # Submit to Celery Queue
+        process_document_task.delay(doc_id, file_path, file.filename)
         
         return {
-            "message": "Document uploaded successfully and is being processed.",
+            "message": "Document uploaded successfully and queued for background processing.",
             "document_id": doc_id,
             "filename": file.filename
         }
@@ -68,3 +62,18 @@ async def upload_document(background_tasks: BackgroundTasks, file: UploadFile = 
         if os.path.exists(file_path):
             os.remove(file_path)
         raise HTTPException(status_code=500, detail=f"Failed to upload document: {str(e)}")
+
+@router.get("/status/{document_id}")
+def get_document_status(document_id: str, db: Session = Depends(get_db)):
+    """
+    Endpoint to poll processing status of a document.
+    """
+    doc = db.query(Document).filter(Document.id == document_id).first()
+    if not doc:
+        raise HTTPException(status_code=404, detail="Document not found")
+        
+    return {
+        "document_id": doc.id,
+        "filename": doc.filename,
+        "status": doc.processing_status
+    }
