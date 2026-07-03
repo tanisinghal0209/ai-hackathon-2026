@@ -123,3 +123,24 @@ class Embedding(Base):
     vector = Column(Vector(1536))
 
     chunk = relationship("Chunk")
+
+
+# 20.37: Citation Graph — links every AI response statement to its source evidence
+class CitationRecord(Base):
+    __tablename__ = "citation_records"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    # The AI response this citation belongs to (e.g. copilot session or compliance run)
+    response_session_id = Column(String, nullable=False, index=True)
+    chunk_id = Column(String, ForeignKey("chunks.id"), nullable=False)
+    document_id = Column(String, ForeignKey("documents.id"), nullable=False)
+    # Exact text excerpt cited
+    cited_text = Column(Text)
+    # Position in the response where this citation was used
+    citation_order = Column(Integer, default=0)
+    retrieval_score = Column(Float)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    chunk = relationship("Chunk")
+    document = relationship("Document")
+

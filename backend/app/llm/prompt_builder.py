@@ -25,15 +25,39 @@ class PromptAssemblyService:
             return "You are an engineering assistant. Answer based on context."
 
     def _format_context(self, chunks: List[Dict]) -> str:
+        """
+        20.36: Assembles context package for Claude.
+        Includes all metadata required for citation graph construction (20.37).
+        Adjacent chunks from the same section are grouped together.
+        """
         context_str = "--- PROJECT CONTEXT ---\n\n"
+        current_section = None
+
         for idx, chunk in enumerate(chunks):
-            # 17.12 includes document name, page, heading, and identifier
+            section = chunk.get("section_heading") or "General"
+            # Group same-section chunks visually
+            if section != current_section:
+                context_str += f"\n=== Section: {section} ===\n"
+                current_section = section
+
+            clause = chunk.get("clause_identifier", "")
+            role = chunk.get("semantic_role", "Informational Content")
+            discipline = chunk.get("engineering_discipline", "")
+            page = chunk.get("page_number", "?")
+            score = chunk.get("composite_score") or chunk.get("similarity", 0)
+            source = chunk.get("retrieval_source", "vector")
+
             context_str += f"[CHUNK_ID: {chunk.get('chunk_id', idx)}]\n"
-            context_str += f"Source: {chunk.get('filename', 'Unknown')}\n"
-            context_str += f"Category: {chunk.get('category', 'General')}\n"
-            context_str += f"Retrieval Score: {chunk.get('similarity', 'N/A')}\n"
+            context_str += f"Source: {chunk.get('filename', 'Unknown')} | Page: {page}"
+            if clause:
+                context_str += f" | Clause: {clause}"
+            context_str += f"\nType: {chunk.get('category', 'General')} | Role: {role}"
+            if discipline:
+                context_str += f" | Discipline: {discipline}"
+            context_str += f"\nRetrieval: score={score:.3f} via {source}\n"
             context_str += f"Text:\n{chunk.get('text', '')}\n"
             context_str += "-" * 40 + "\n"
+
         return context_str
 
     def assemble_prompt(self, user_question: str, retrieved_chunks: List[Dict]) -> str:
