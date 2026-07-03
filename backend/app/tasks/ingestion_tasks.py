@@ -1,64 +1,66 @@
+"""
+Chapter 20: Full Ingestion Task
+Orchestrates the complete pipeline:
+  Parse → Chunk → [Entity Extraction] → [Embedding] → Completed
+Updates Document.processing_status at every stage.
+Celery autoretry handles transient failures (EDR 20-D).
+"""
 import os
-from celery.exceptions import SoftTimeLimitExceeded
 from app.worker import celery_app
 from app.services.document_parser import DocumentParser
+from app.rag.indexer import DocumentIndexer
 from app.database.session import SessionLocal
 from app.models.core import Document
+
 
 @celery_app.task(bind=True, max_retries=3, autoretry_for=(Exception,), retry_backoff=True)
 def process_document_task(self, document_id: str, file_path: str, filename: str):
     """
-    Chapter 20: Asynchronous Document Processing with Retry Policies.
-    Parses, chunks, and prepares documents for indexing.
-    Updates PostgreSQL state at each milestone.
+    Full Engineering Knowledge Acquisition pipeline (Chapter 20).
+    Every processing status change is persisted so the /status endpoint reflects
+    live progress even for 10,000-page documents.
     """
     db = SessionLocal()
     doc = db.query(Document).filter(Document.id == document_id).first()
-    
+
+    def _update_status(status: str):
+        if doc:
+            doc.processing_status = status
+            db.commit()
+
     try:
-        if doc:
-            doc.processing_status = "Parsing"
-            db.commit()
-
-        # 1. Parsing Phase
-        if file_path.endswith('.pdf'):
-            pages = DocumentParser.parse_pdf(file_path)
+        # ---- Stage 1: Parsing (20.13 / 20.14) ----
+        _update_status("Parsing")
+        if file_path.lower().endswith(".pdf"):
+            structured_blocks = DocumentParser.parse_pdf(file_path)
         else:
-            pages = []
-            
-        if doc:
-            doc.processing_status = "Chunking"
-            db.commit()
+            structured_blocks = []
 
-        # 2. Semantic Chunking Phase (512 tokens / 50 overlap)
-        chunks = DocumentParser.chunk_text(pages, chunk_size=512, overlap=50)
-        
-        if doc:
-            doc.processing_status = "Embedding"
-            db.commit()
+        # ---- Stage 2: Semantic Chunking (20.21 / 20.22) ----
+        _update_status("Chunking")
+        chunks = DocumentParser.chunk_text(structured_blocks, chunk_size=512, overlap=50)
 
-        # 3. Embedding and Indexing Phase
-        # For full implementation, DocumentIndexer logic is called here.
-        # e.g., indexer = DocumentIndexer(db)
-        # indexer.index_chunks(document_id, chunks)
+        # ---- Stage 3: Entity Recognition + Embedding Generation (20.25 / 20.28-20.30) ----
+        _update_status("Embedding")
+        if chunks:
+            indexer = DocumentIndexer(db)
+            total = indexer.index_chunks(document_id, chunks)
+            print(f"[Worker] {filename}: indexed {total} chunks with entity extraction and versioned embeddings.")
+        else:
+            print(f"[Worker] {filename}: no chunks produced — document may be empty or unsupported.")
 
-        print(f"Worker finished processing {filename}: generated {len(chunks)} semantic chunks.")
-        
-        if doc:
-            doc.processing_status = "Completed"
-            db.commit()
+        # ---- Completed ----
+        _update_status("Completed")
 
-    except Exception as e:
-        # EDR 20-D: Let Celery handle transient exceptions with exponential backoff.
-        # If it reaches max retries, mark as Failed (Dead-Letter queue logic)
-        print(f"Task Failed: {e}")
-        if self.request.retries == self.max_retries:
-            if doc:
-                doc.processing_status = "Failed"
-                db.commit()
-        raise e
+    except Exception as exc:
+        # EDR 20-D: autoretry_for handles transient errors with exponential backoff.
+        # On final retry exhaustion, mark as Failed (Dead-Letter logic).
+        print(f"[Worker ERROR] {filename}: {exc}")
+        if self.request.retries >= self.max_retries:
+            _update_status("Failed")
+        raise exc
     finally:
         db.close()
-        # Clean up local file in worker environment
         if os.path.exists(file_path):
             os.remove(file_path)
+

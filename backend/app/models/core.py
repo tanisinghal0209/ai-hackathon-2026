@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, Text, Float
+from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, Text, Float, JSON
 from sqlalchemy.orm import relationship
 from pgvector.sqlalchemy import Vector
 from datetime import datetime
@@ -51,30 +51,75 @@ class Page(Base):
 
 class Chunk(Base):
     __tablename__ = "chunks"
-    
+
     id = Column(String, primary_key=True, default=generate_uuid)
     page_id = Column(String, ForeignKey("pages.id"), nullable=False)
     document_id = Column(String, ForeignKey("documents.id"), nullable=False)
     text = Column(Text, nullable=False)
     chunk_order = Column(Integer, nullable=False)
     token_count = Column(Integer)
-    section_heading = Column(String)
+    # 20.24: Rich chunk metadata
+    section_heading = Column(String)          # parent section title
+    clause_identifier = Column(String)        # e.g. "4.2.1"
+    semantic_role = Column(String)            # Mandatory Requirement / Recommendation / etc.
+    engineering_discipline = Column(String)   # Electrical, Mechanical, Civil…
+    equipment_category = Column(String)       # UPS, Generator, Switchgear…
+    parser_confidence = Column(Float, default=1.0)
+    chunk_version = Column(Integer, default=1)
+    # 20.23: Parent-Child relationships
+    parent_chunk_id = Column(String, ForeignKey("chunks.id"), nullable=True)
+    previous_chunk_id = Column(String, nullable=True)
+    next_chunk_id = Column(String, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
-    
+
     page = relationship("Page")
     document = relationship("Document")
+    children = relationship("Chunk", backref="parent", primaryjoin="Chunk.id == Chunk.parent_chunk_id", foreign_keys="Chunk.parent_chunk_id")
+
+
+# 20.25: Engineering entity extracted from a chunk
+class EngineeringEntity(Base):
+    __tablename__ = "engineering_entities"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    chunk_id = Column(String, ForeignKey("chunks.id"), nullable=False)
+    document_id = Column(String, ForeignKey("documents.id"), nullable=False)
+    entity_type = Column(String, nullable=False)   # EQUIPMENT / STANDARD / RATING / MODEL / CABLE_TYPE
+    entity_value = Column(String, nullable=False)  # e.g. "Galaxy VX", "IEC 62040", "415V"
+    canonical_name = Column(String)                # mapped via ontology (20.26)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    chunk = relationship("Chunk", backref="entities")
+    document = relationship("Document")
+
+
+# 20.26: Ontology synonym mapping
+class OntologyEntry(Base):
+    __tablename__ = "ontology_entries"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    canonical_name = Column(String, nullable=False, unique=True)  # e.g. "Battery Runtime"
+    synonyms = Column(JSON, default=list)                          # ["Battery Autonomy", "Hold-Up Time"]
+    engineering_discipline = Column(String)
+    equipment_category = Column(String)
+    measurement_unit = Column(String)
+    created_at = Column(DateTime, default=datetime.utcnow)
 
 class Embedding(Base):
     __tablename__ = "embeddings"
-    
+
     id = Column(String, primary_key=True, default=generate_uuid)
     chunk_id = Column(String, ForeignKey("chunks.id"), nullable=False)
     model = Column(String, nullable=False)
+    # 20.29: Embedding versioning
+    model_version = Column(String)            # e.g. "text-embedding-3-small-v1"
+    pipeline_version = Column(String)         # the ingestion pipeline version
+    chunk_version = Column(Integer, default=1)
     vector_dimension = Column(Integer)
     created_at = Column(DateTime, default=datetime.utcnow)
-    model_version = Column(String)
-    
-    # Requires pgvector extension in PostgreSQL
-    vector = Column(Vector(1536)) # Assuming text-embedding-3-small (1536 dims)
-    
+    is_active = Column(Integer, default=1)    # 1 = active, 0 = archived (superseded)
+
+    # pgvector: text-embedding-3-small = 1536 dims
+    vector = Column(Vector(1536))
+
     chunk = relationship("Chunk")
