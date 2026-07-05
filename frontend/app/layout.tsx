@@ -18,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 import Sidebar from "@/components/Sidebar";
+import Providers from "@/components/Providers";
+import KeyboardShortcuts from "@/components/KeyboardShortcuts";
 
 export default function RootLayout({
   children,
@@ -27,12 +29,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        <div className="app-container">
-          <Sidebar />
-          <main className="main-content">
-            {children}
-          </main>
-        </div>
+        <Providers>
+          <KeyboardShortcuts />
+          <div className="app-container">
+            <Sidebar />
+            <main className="main-content">
+              {children}
+            </main>
+          </div>
+        </Providers>
       </body>
     </html>
   );

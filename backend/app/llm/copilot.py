@@ -1,16 +1,15 @@
-import os
 import json
-from anthropic import AsyncAnthropic
 from app.rag.retriever import DocumentRetriever
 from app.llm.prompt_builder import PromptAssemblyService
 from sqlalchemy.orm import Session
 import time
+from app.ai.claude_service import ClaudeService
 
 class KnowledgeCopilotService:
-    def __init__(self, db_session: Session):
+    def __init__(self, db_session: Session, claude_service: ClaudeService):
         self.retriever = DocumentRetriever(db_session)
         self.prompt_builder = PromptAssemblyService()
-        self.client = AsyncAnthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+        self.claude_service = claude_service
 
     async def stream_answer(self, project_id: str, question: str):
         """
@@ -34,14 +33,12 @@ class KnowledgeCopilotService:
         
         # 3. Stream Claude Response
         try:
-            stream = await self.client.messages.create(
-                model="claude-3-haiku-20240307",
+            stream = self.claude_service.stream_message(
                 max_tokens=1024,
                 temperature=0.0, # Deterministic answers
                 messages=[
                     {"role": "user", "content": full_prompt}
-                ],
-                stream=True
+                ]
             )
             
             async for chunk in stream:

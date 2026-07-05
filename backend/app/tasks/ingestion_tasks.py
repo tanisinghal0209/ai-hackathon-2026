@@ -11,9 +11,17 @@ from app.services.document_parser import DocumentParser
 from app.rag.indexer import DocumentIndexer
 from app.database.session import SessionLocal
 from app.models.core import Document
+from app.events import document_event
+from app.services.event_publisher import EventPublisher
 
 
-@celery_app.task(bind=True, max_retries=3, autoretry_for=(Exception,), retry_backoff=True)
+@celery_app.task(
+    bind=True,
+    max_retries=3,
+    autoretry_for=(Exception,),
+    retry_backoff=True,
+    queue="document_processing",
+)
 def process_document_task(self, document_id: str, file_path: str, filename: str):
     """
     Full Engineering Knowledge Acquisition pipeline (Chapter 20).
@@ -22,11 +30,22 @@ def process_document_task(self, document_id: str, file_path: str, filename: str)
     """
     db = SessionLocal()
     doc = db.query(Document).filter(Document.id == document_id).first()
+    event_publisher = EventPublisher()
+    correlation_id = document_id
 
     def _update_status(status: str):
         if doc:
             doc.processing_status = status
             db.commit()
+            event_publisher.publish(
+                document_event(
+                    f"Document{status}Event",
+                    document_id=document_id,
+                    correlation_id=correlation_id,
+                    filename=filename,
+                    status=status,
+                )
+            )
 
     try:
         # ---- Stage 1: Parsing (20.13 / 20.14) ----
@@ -35,16 +54,43 @@ def process_document_task(self, document_id: str, file_path: str, filename: str)
             structured_blocks = DocumentParser.parse_pdf(file_path)
         else:
             structured_blocks = []
+        event_publisher.publish(
+            document_event(
+                "DocumentParsedEvent",
+                document_id=document_id,
+                correlation_id=correlation_id,
+                filename=filename,
+                block_count=len(structured_blocks),
+            )
+        )
 
         # ---- Stage 2: Semantic Chunking (20.21 / 20.22) ----
         _update_status("Chunking")
         chunks = DocumentParser.chunk_text(structured_blocks, chunk_size=512, overlap=50)
+        event_publisher.publish(
+            document_event(
+                "ChunkGenerationCompletedEvent",
+                document_id=document_id,
+                correlation_id=correlation_id,
+                filename=filename,
+                chunk_count=len(chunks),
+            )
+        )
 
         # ---- Stage 3: Entity Recognition + Embedding Generation (20.25 / 20.28-20.30) ----
         _update_status("Embedding")
         if chunks:
             indexer = DocumentIndexer(db)
             total = indexer.index_chunks(document_id, chunks)
+            event_publisher.publish(
+                document_event(
+                    "KnowledgeIndexedEvent",
+                    document_id=document_id,
+                    correlation_id=correlation_id,
+                    filename=filename,
+                    indexed_chunks=total,
+                )
+            )
             print(f"[Worker] {filename}: indexed {total} chunks with entity extraction and versioned embeddings.")
         else:
             print(f"[Worker] {filename}: no chunks produced — document may be empty or unsupported.")
@@ -63,4 +109,3 @@ def process_document_task(self, document_id: str, file_path: str, filename: str)
         db.close()
         if os.path.exists(file_path):
             os.remove(file_path)
-

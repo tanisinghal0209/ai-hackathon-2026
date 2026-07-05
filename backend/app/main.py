@@ -1,10 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config.config import settings
+from app.core.exceptions import PlatformError, generic_error_handler, platform_error_handler
+from app.lifecycle import lifespan
+from app.middleware.rate_limit import rate_limit_middleware
+from app.middleware.request_context import request_context_middleware
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
-    openapi_url=f"{settings.API_V1_STR}/openapi.json"
+    openapi_url=f"{settings.API_V1_STR}/openapi.json",
+    lifespan=lifespan,
 )
 
 # Set up CORS
@@ -15,6 +20,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.middleware("http")(request_context_middleware)
+app.middleware("http")(rate_limit_middleware)
+app.add_exception_handler(PlatformError, platform_error_handler)
+app.add_exception_handler(Exception, generic_error_handler)
 
 @app.get("/")
 def read_root():

@@ -1,4 +1,4 @@
-from fastapi import APIRouter, UploadFile, File, HTTPException
+from fastapi import APIRouter, UploadFile, File
 from app.tasks.ingestion_tasks import process_document_task
 from app.database.session import get_db
 from app.models.core import Document
@@ -6,6 +6,8 @@ from fastapi import Depends
 from sqlalchemy.orm import Session
 import os
 import uuid
+from app.core.exceptions import DocumentNotFoundError, StorageError, UnsupportedFileTypeError, ValidationError
+from app.repositories.document_repository import DocumentRepository
 
 router = APIRouter()
 
@@ -24,14 +26,15 @@ async def upload_document(
     Returns a unique document ID immediately for polling.
     """
     if not file.filename:
-        raise HTTPException(status_code=400, detail="No file provided")
+        raise ValidationError("No file provided.", field="file")
         
     allowed_extensions = [".pdf", ".csv"]
     if not any(file.filename.endswith(ext) for ext in allowed_extensions):
-        raise HTTPException(status_code=400, detail="Unsupported file format")
+        raise UnsupportedFileTypeError(file.filename)
 
     doc_id = str(uuid.uuid4())
     file_path = os.path.join(UPLOAD_DIR, f"{doc_id}_{file.filename}")
+    document_repository = DocumentRepository(db)
 
     try:
         # Save file locally for background worker
@@ -47,8 +50,7 @@ async def upload_document(
             storage_path=file_path,
             processing_status="Queued"
         )
-        db.add(new_doc)
-        db.commit()
+        document_repository.create(new_doc)
 
         # Submit to Celery Queue
         process_document_task.delay(doc_id, file_path, file.filename)
@@ -61,19 +63,41 @@ async def upload_document(
     except Exception as e:
         if os.path.exists(file_path):
             os.remove(file_path)
-        raise HTTPException(status_code=500, detail=f"Failed to upload document: {str(e)}")
+        raise StorageError(f"Failed to upload document: {str(e)}") from e
 
 @router.get("/status/{document_id}")
 def get_document_status(document_id: str, db: Session = Depends(get_db)):
     """
     Endpoint to poll processing status of a document.
     """
-    doc = db.query(Document).filter(Document.id == document_id).first()
+    document_repository = DocumentRepository(db)
+    doc = document_repository.get_by_id(document_id)
     if not doc:
-        raise HTTPException(status_code=404, detail="Document not found")
+        raise DocumentNotFoundError(document_id)
         
     return {
         "document_id": doc.id,
         "filename": doc.filename,
         "status": doc.processing_status
     }
+
+@router.get("/")
+def list_documents(db: Session = Depends(get_db)):
+    """
+    Endpoint to list all uploaded documents.
+    """
+    document_repository = DocumentRepository(db)
+    docs = document_repository.find_all()
+    return [
+        {
+            "document_id": doc.id,
+            "filename": doc.filename,
+            "category": doc.category,
+            "status": doc.processing_status,
+            "upload_timestamp": doc.upload_timestamp.isoformat() if doc.upload_timestamp else None,
+            "page_count": doc.page_count,
+            "file_size": doc.file_size
+        }
+        for doc in docs
+    ]
+

@@ -1,7 +1,9 @@
-import os
 import json
-from anthropic import AsyncAnthropic
 from typing import List, Dict, Any
+
+from app.ai.claude_service import ClaudeService
+from app.llm.response_validator import StructuredOutputValidator
+from app.prompts.registry import PromptRegistry
 from app.services.schedule_analyzer import ScheduleAnalyzer
 
 class ScheduleRiskAgentService:
@@ -10,9 +12,16 @@ class ScheduleRiskAgentService:
     Takes the deterministic graph outputs (Float, Critical Path) and combines them
     with Procurement/RFI constraints to generate semantic risk mitigations via Claude.
     """
-    def __init__(self):
-        self.client = AsyncAnthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-        
+    def __init__(
+        self,
+        claude_service: ClaudeService,
+        prompt_registry: PromptRegistry | None = None,
+        prompt_version: str = "v1.0",
+    ):
+        self.claude_service = claude_service
+        self.prompt_registry = prompt_registry or PromptRegistry()
+        self.prompt_version = prompt_version
+
         # Output schema for AI Risk Mitigation
         self.tools = [
             {
@@ -55,17 +64,15 @@ class ScheduleRiskAgentService:
                 risk_candidates.append(act)
 
         # 3. AI Reasoning
-        system_prompt = (
-            "You are a Data Centre EPC Schedule Risk Engine. "
-            "You have been provided with deterministic Critical Path calculations. "
-            "Analyze the activities that have Procurement Delays, Open RFIs, or zero float (Critical). "
-            "Use the `flag_schedule_risk` tool to flag major risks and provide cascading impact analysis."
+        prompt = self.prompt_registry.get(
+            "schedule_risk_reasoning",
+            self.prompt_version,
         )
+        system_prompt = prompt.system_instructions
         
         user_prompt = f"SCHEDULE GRAPH DATA:\n{json.dumps(risk_candidates, indent=2)}"
         
-        response = await self.client.messages.create(
-            model="claude-3-haiku-20240307",
+        response = await self.claude_service.create_message(
             max_tokens=2048,
             temperature=0.0,
             system=system_prompt,
@@ -76,6 +83,24 @@ class ScheduleRiskAgentService:
         ai_risks = []
         for block in response.content:
             if block.type == "tool_use" and block.name == "flag_schedule_risk":
+                StructuredOutputValidator.validate_tool_payload(
+                    block.input,
+                    required_fields=[
+                        "activity_id",
+                        "activity_name",
+                        "risk_driver",
+                        "impact_analysis",
+                        "mitigation_strategy",
+                    ],
+                    enum_fields={
+                        "risk_driver": [
+                            "Procurement Delay",
+                            "Open RFI",
+                            "Compliance Finding",
+                            "Critical Path Dependency",
+                        ],
+                    },
+                )
                 ai_risks.append(block.input)
                 
         # Merge deterministic outputs with AI reasoning

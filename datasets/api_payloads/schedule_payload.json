@@ -1,0 +1,103 @@
+{
+  "activities": [
+    {
+      "id": "A1",
+      "name": "Site mobilization and clearance",
+      "duration": 5,
+      "predecessors": [],
+      "procurement_status": "Clear",
+      "open_rfis": 0,
+      "compliance_issues": 0
+    },
+    {
+      "id": "A2",
+      "name": "Civil foundation and equipment plinths",
+      "duration": 12,
+      "predecessors": ["A1"],
+      "procurement_status": "Clear",
+      "open_rfis": 0,
+      "compliance_issues": 0
+    },
+    {
+      "id": "A3",
+      "name": "MV switchgear procurement",
+      "duration": 28,
+      "predecessors": [],
+      "procurement_status": "Delayed",
+      "open_rfis": 1,
+      "compliance_issues": 0
+    },
+    {
+      "id": "A4",
+      "name": "UPS procurement and factory testing",
+      "duration": 24,
+      "predecessors": [],
+      "procurement_status": "At Risk",
+      "open_rfis": 0,
+      "compliance_issues": 2
+    },
+    {
+      "id": "A5",
+      "name": "Generator procurement",
+      "duration": 25,
+      "predecessors": [],
+      "procurement_status": "Clear",
+      "open_rfis": 0,
+      "compliance_issues": 0
+    },
+    {
+      "id": "A6",
+      "name": "MV switchgear installation",
+      "duration": 7,
+      "predecessors": ["A2", "A3"],
+      "procurement_status": "Clear",
+      "open_rfis": 0,
+      "compliance_issues": 0
+    },
+    {
+      "id": "A7",
+      "name": "UPS installation",
+      "duration": 6,
+      "predecessors": ["A2", "A4"],
+      "procurement_status": "Clear",
+      "open_rfis": 0,
+      "compliance_issues": 1
+    },
+    {
+      "id": "A8",
+      "name": "Generator installation",
+      "duration": 8,
+      "predecessors": ["A2", "A5"],
+      "procurement_status": "Clear",
+      "open_rfis": 0,
+      "compliance_issues": 0
+    },
+    {
+      "id": "A9",
+      "name": "BMS integration and alarm mapping",
+      "duration": 6,
+      "predecessors": ["A6", "A7", "A8"],
+      "procurement_status": "Clear",
+      "open_rfis": 1,
+      "compliance_issues": 0
+    },
+    {
+      "id": "A10",
+      "name": "Pre-functional commissioning checks",
+      "duration": 5,
+      "predecessors": ["A6", "A7", "A8"],
+      "procurement_status": "Clear",
+      "open_rfis": 0,
+      "compliance_issues": 0
+    },
+    {
+      "id": "A11",
+      "name": "Integrated systems testing",
+      "duration": 10,
+      "predecessors": ["A9", "A10"],
+      "procurement_status": "Clear",
+      "open_rfis": 0,
+      "compliance_issues": 0
+    }
+  ]
+}

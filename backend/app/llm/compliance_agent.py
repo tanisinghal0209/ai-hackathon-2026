@@ -1,16 +1,24 @@
-import os
-import json
-from anthropic import AsyncAnthropic
-from typing import List, Dict, Any
+from typing import Any, Dict
+
+from app.ai.claude_service import ClaudeService
+from app.llm.response_validator import StructuredOutputValidator
+from app.prompts.registry import PromptRegistry
 
 class ComplianceAgentService:
     """
     Chapter 18 - Specification Compliance Agent
     Performs requirement-level semantic comparison between specifications and vendor submittals.
     """
-    def __init__(self):
-        self.client = AsyncAnthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-        
+    def __init__(
+        self,
+        claude_service: ClaudeService,
+        prompt_registry: PromptRegistry | None = None,
+        prompt_version: str = "v1.0",
+    ):
+        self.claude_service = claude_service
+        self.prompt_registry = prompt_registry or PromptRegistry()
+        self.prompt_version = prompt_version
+
         # EDR 18-C: Claude produces structured JSON rather than narrative reports
         self.tools = [
             {
@@ -53,18 +61,16 @@ class ComplianceAgentService:
         Executes semantic reasoning by invoking Claude with tools.
         Returns a structured compliance report.
         """
-        system_prompt = (
-            "You are a Data Centre EPC Compliance Agent. "
-            "Compare the provided Vendor Submittal against the Specification Requirements. "
-            "If you detect ANY deviation, you MUST invoke the `flag_deviation` tool. "
-            "Do not output conversational text, only invoke tools for deviations."
+        prompt = self.prompt_registry.get(
+            "compliance_deviation_detection",
+            self.prompt_version,
         )
+        system_prompt = prompt.system_instructions
         
         user_prompt = f"SPECIFICATION:\n{spec_text}\n\nVENDOR SUBMITTAL:\n{vendor_text}"
         
         # 18.11 Semantic Validation via Claude
-        response = await self.client.messages.create(
-            model="claude-3-haiku-20240307",
+        response = await self.claude_service.create_message(
             max_tokens=2048,
             temperature=0.0,
             system=system_prompt,
@@ -79,6 +85,34 @@ class ComplianceAgentService:
         for block in response.content:
             if block.type == "tool_use" and block.name == "flag_deviation":
                 finding = block.input
+                StructuredOutputValidator.validate_tool_payload(
+                    finding,
+                    required_fields=[
+                        "requirement_id",
+                        "requirement_description",
+                        "vendor_value",
+                        "compliance_status",
+                        "severity",
+                        "explanation",
+                        "confidence",
+                    ],
+                    enum_fields={
+                        "compliance_status": [
+                            "Equivalent",
+                            "Partial Match",
+                            "Missing",
+                            "Contradictory",
+                            "Unknown",
+                        ],
+                        "severity": [
+                            "Critical",
+                            "Major",
+                            "Minor",
+                            "Informational",
+                        ],
+                    },
+                    confidence_field="confidence",
+                )
                 findings.append(finding)
                 total_penalty += self._calculate_severity_score(finding.get("severity", "Informational"))
                 

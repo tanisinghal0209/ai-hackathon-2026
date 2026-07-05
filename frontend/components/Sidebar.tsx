@@ -8,11 +8,13 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   const links = [
-    { href: '/', label: 'Dashboard', icon: '📊' },
-    { href: '/copilot', label: 'Knowledge Copilot', icon: '🧠' },
-    { href: '/compliance', label: 'Compliance Review', icon: '✅' },
-    { href: '/schedule', label: 'Schedule Risk', icon: '⏱️' },
+    { href: '/dashboard', label: 'Project Overview', icon: '📊' },
     { href: '/documents', label: 'Documents', icon: '📂' },
+    { href: '/knowledge', label: 'Knowledge Copilot', icon: '🧠' },
+    { href: '/compliance', label: 'Compliance', icon: '✅' },
+    { href: '/schedule', label: 'Schedule', icon: '⏱️' },
+    { href: '/risks', label: 'Risks', icon: '⚠️' },
+    { href: '/settings', label: 'Settings', icon: '⚙️' },
   ];
 
   return (

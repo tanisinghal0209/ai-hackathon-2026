@@ -9,7 +9,15 @@ from app.database.session import Base
 def generate_uuid():
     return str(uuid.uuid4())
 
-class Project(Base):
+
+class AuditMixin:
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    version = Column(Integer, default=1)
+    is_deleted = Column(Integer, default=0)
+
+
+class Project(AuditMixin, Base):
     __tablename__ = "projects"
     
     id = Column(String, primary_key=True, default=generate_uuid)
@@ -17,10 +25,8 @@ class Project(Base):
     client_org = Column(String)
     location = Column(String)
     lifecycle_stage = Column(String)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-class Document(Base):
+class Document(AuditMixin, Base):
     __tablename__ = "documents"
     
     id = Column(String, primary_key=True, default=generate_uuid)
@@ -144,3 +150,127 @@ class CitationRecord(Base):
     chunk = relationship("Chunk")
     document = relationship("Document")
 
+
+class SpecificationRequirement(AuditMixin, Base):
+    __tablename__ = "specification_requirements"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    project_id = Column(String, ForeignKey("projects.id"), nullable=False)
+    document_id = Column(String, ForeignKey("documents.id"))
+    requirement_code = Column(String, nullable=False)
+    requirement_text = Column(Text, nullable=False)
+    discipline = Column(String)
+    equipment_category = Column(String)
+    severity = Column(String)
+
+
+class VendorSubmittal(AuditMixin, Base):
+    __tablename__ = "vendor_submittals"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    project_id = Column(String, ForeignKey("projects.id"), nullable=False)
+    vendor_name = Column(String, nullable=False)
+    package_name = Column(String, nullable=False)
+    document_id = Column(String, ForeignKey("documents.id"))
+    review_status = Column(String, default="Pending")
+
+
+class RFI(AuditMixin, Base):
+    __tablename__ = "rfis"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    project_id = Column(String, ForeignKey("projects.id"), nullable=False)
+    rfi_number = Column(String, nullable=False)
+    discipline = Column(String)
+    equipment = Column(String)
+    question = Column(Text, nullable=False)
+    response_summary = Column(Text)
+    status = Column(String, default="Open")
+
+
+class Schedule(AuditMixin, Base):
+    __tablename__ = "schedules"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    project_id = Column(String, ForeignKey("projects.id"), nullable=False)
+    name = Column(String, nullable=False)
+    baseline_version = Column(String)
+    status = Column(String, default="Draft")
+
+
+class ScheduleTask(AuditMixin, Base):
+    __tablename__ = "schedule_tasks"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    schedule_id = Column(String, ForeignKey("schedules.id"), nullable=False)
+    external_task_id = Column(String, nullable=False)
+    name = Column(String, nullable=False)
+    duration_days = Column(Integer, nullable=False)
+    procurement_status = Column(String)
+    open_rfis = Column(Integer, default=0)
+    compliance_issues = Column(Integer, default=0)
+
+
+class TaskDependency(AuditMixin, Base):
+    __tablename__ = "task_dependencies"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    schedule_id = Column(String, ForeignKey("schedules.id"), nullable=False)
+    predecessor_task_id = Column(String, ForeignKey("schedule_tasks.id"), nullable=False)
+    successor_task_id = Column(String, ForeignKey("schedule_tasks.id"), nullable=False)
+
+
+class ProcurementItem(AuditMixin, Base):
+    __tablename__ = "procurement_items"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    project_id = Column(String, ForeignKey("projects.id"), nullable=False)
+    package_id = Column(String, nullable=False)
+    equipment = Column(String, nullable=False)
+    vendor = Column(String)
+    status = Column(String, default="Pending")
+    risk_reason = Column(Text)
+    linked_activity_id = Column(String)
+
+
+class ComplianceFinding(AuditMixin, Base):
+    __tablename__ = "compliance_findings"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    project_id = Column(String, ForeignKey("projects.id"), nullable=False)
+    requirement_id = Column(String)
+    vendor_submittal_id = Column(String, ForeignKey("vendor_submittals.id"))
+    compliance_status = Column(String, nullable=False)
+    severity = Column(String, nullable=False)
+    confidence = Column(Float)
+    explanation = Column(Text)
+    recommendation = Column(Text)
+    review_status = Column(String, default="Open")
+
+
+class RiskAssessment(AuditMixin, Base):
+    __tablename__ = "risk_assessments"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    project_id = Column(String, ForeignKey("projects.id"), nullable=False)
+    risk_type = Column(String, nullable=False)
+    source_ref = Column(String)
+    severity = Column(String)
+    probability = Column(Float)
+    impact = Column(Text)
+    mitigation = Column(Text)
+    status = Column(String, default="Open")
+
+
+class PromptVersion(AuditMixin, Base):
+    __tablename__ = "prompt_versions"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    prompt_id = Column(String, nullable=False)
+    version_label = Column(String, nullable=False)
+    agent = Column(String, nullable=False)
+    system_instructions = Column(Text, nullable=False)
+    developer_instructions = Column(Text)
+    expected_output_schema = Column(JSON)
+    tool_definitions = Column(JSON, default=list)
+    owner = Column(String)

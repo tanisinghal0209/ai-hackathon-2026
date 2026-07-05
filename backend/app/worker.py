@@ -1,5 +1,6 @@
 import os
 from celery import Celery
+from kombu import Queue
 
 redis_url = os.getenv("REDIS_URL", "redis://localhost:6379/0")
 
@@ -15,7 +16,21 @@ celery_app.conf.update(
     result_serializer="json",
     timezone="UTC",
     enable_utc=True,
-    # Configure retry behavior globally if desired, though we will set it per task
+    task_default_queue="document_processing",
+    task_queues=(
+        Queue("document_processing"),
+        Queue("ocr"),
+        Queue("embedding"),
+        Queue("compliance"),
+        Queue("schedule_analysis"),
+        Queue("notification"),
+        Queue("maintenance"),
+    ),
+    task_routes={
+        "app.tasks.ingestion_tasks.process_document_task": {
+            "queue": "document_processing"
+        },
+    },
 )
 
 # Auto-discover tasks in the app.tasks module

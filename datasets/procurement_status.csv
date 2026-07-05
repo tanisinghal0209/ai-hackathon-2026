@@ -1,0 +1,6 @@
+package_id,equipment,vendor,planned_release_date,forecast_delivery_date,status,risk_reason,linked_activity
+PKG-UPS-01,UPS System,PowerGrid Systems,2026-08-01,2026-09-10,At Risk,Vendor submittal has unresolved autonomy and redundancy deviations,A4
+PKG-SWG-01,MV Switchgear,VoltEdge Electricals,2026-07-20,2026-09-18,Delayed,Short-circuit rating RFI blocking manufacturing release,A3
+PKG-GEN-01,Diesel Generators,PrimeGen India,2026-07-25,2026-09-05,Clear,Factory slot confirmed,A5
+PKG-BMS-01,BMS Integration Panel,ControlNet Automation,2026-08-10,2026-09-22,At Risk,Alarm point list incomplete,A9
+

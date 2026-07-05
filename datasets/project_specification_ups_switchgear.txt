@@ -1,0 +1,68 @@
+PROJECT: HYDC-01 HYPERSCALE DATA CENTRE
+DOCUMENT: ELECTRICAL EQUIPMENT TECHNICAL SPECIFICATION
+REVISION: A
+
+1.0 GENERAL REQUIREMENTS
+
+REQ-GEN-001: All electrical equipment supplied for the HYDC-01 data centre shall be suitable for continuous operation in a Tier III concurrently maintainable facility.
+
+REQ-GEN-002: Vendor submittals shall include technical datasheets, type test certificates, factory acceptance test procedures, operation and maintenance manuals, recommended spares, and commissioning method statements.
+
+REQ-GEN-003: Deviations from this specification shall be listed in a dedicated deviation schedule. Any undocumented deviation shall be treated as non-compliant.
+
+2.0 UPS SYSTEM REQUIREMENTS
+
+REQ-UPS-001: UPS modules shall be configured in N+1 redundancy at the block level.
+
+REQ-UPS-002: UPS battery autonomy shall be minimum 15 minutes at full IT load.
+
+REQ-UPS-003: UPS output voltage shall be 415V, 3-phase, 50Hz.
+
+REQ-UPS-004: UPS system efficiency shall be minimum 96 percent at 50 percent load in double conversion mode.
+
+REQ-UPS-005: UPS shall comply with IEC 62040.
+
+REQ-UPS-006: Static bypass synchronization tolerance shall not exceed plus or minus 1 Hz.
+
+REQ-UPS-007: UPS monitoring shall integrate with the Building Management System using Modbus TCP/IP.
+
+REQ-UPS-008: Vendor shall provide factory witness test records for load bank test, battery discharge test, transfer to bypass, return from bypass, and alarm verification.
+
+3.0 MEDIUM VOLTAGE SWITCHGEAR REQUIREMENTS
+
+REQ-SWG-001: Medium voltage switchgear shall be rated for 11 kV service voltage.
+
+REQ-SWG-002: Switchgear short-circuit withstand rating shall be minimum 31.5 kA for 3 seconds.
+
+REQ-SWG-003: Protection relays shall support IEC 61850 communication.
+
+REQ-SWG-004: Switchgear panels shall include arc-flash mitigation features and mechanical interlocks.
+
+REQ-SWG-005: Vendor shall submit type test certificates for short-time withstand current, temperature rise, dielectric test, and internal arc classification.
+
+4.0 GENERATOR SYSTEM REQUIREMENTS
+
+REQ-GENSET-001: Diesel generator system shall support N+1 redundancy for critical IT load.
+
+REQ-GENSET-002: Each generator shall support 110 percent overload for 1 hour in every 12-hour period.
+
+REQ-GENSET-003: Generator controls shall support remote start, remote stop, alarms, and status monitoring through Modbus TCP/IP.
+
+5.0 COOLING AND MECHANICAL INTERFACE REQUIREMENTS
+
+REQ-CLG-001: Cooling plant controls shall provide status, alarms, and temperature trends to BMS.
+
+REQ-CLG-002: Chilled water pumps serving critical cooling loops shall be arranged with N+1 redundancy.
+
+REQ-CLG-003: Cooling equipment shall be available for integrated systems testing before energization of production IT load.
+
+6.0 COMMISSIONING REQUIREMENTS
+
+REQ-CX-001: Pre-functional checks shall be completed before functional performance testing.
+
+REQ-CX-002: Integrated Systems Testing shall include utility failure, generator start, UPS ride-through, transfer to generator, return to utility, cooling failure response, fire alarm interface, and BMS alarm verification.
+
+REQ-CX-003: Commissioning records shall capture test steps, acceptance criteria, measured results, pass/fail status, engineer name, date, and linked non-conformance references.
+
+REQ-CX-004: Any failed commissioning step shall create a non-conformance record and a retest action.
+

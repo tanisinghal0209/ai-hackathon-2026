@@ -1,0 +1,37 @@
+VENDOR: POWERGRID SYSTEMS PVT LTD
+PACKAGE: UPS SYSTEM SUBMITTAL
+PROJECT: HYDC-01 HYPERSCALE DATA CENTRE
+REVISION: 01
+
+1.0 PROPOSED UPS CONFIGURATION
+
+The proposed UPS system consists of modular UPS blocks configured as N redundancy. Each block is sized for the connected IT load. Additional redundant module capacity is not included in the base offer.
+
+2.0 BATTERY SYSTEM
+
+Battery runtime is 10 minutes at full IT load. Battery strings are valve regulated lead acid type. Battery cabinet monitoring is included locally at the UPS HMI.
+
+3.0 ELECTRICAL OUTPUT
+
+UPS output voltage is 415V, 3-phase, 50Hz. UPS system efficiency is 96.5 percent at 50 percent load in double conversion mode.
+
+4.0 STANDARDS COMPLIANCE
+
+The UPS system is designed and tested in accordance with IEC 62040.
+
+5.0 BYPASS AND SYNCHRONIZATION
+
+Static bypass synchronization tolerance is plus or minus 2 Hz. Automatic transfer to bypass is supported subject to source availability.
+
+6.0 MONITORING
+
+UPS monitoring supports Modbus TCP/IP for BMS integration. Alarm points include input failure, output overload, battery low voltage, bypass active, and module fault.
+
+7.0 FACTORY TESTING
+
+Factory acceptance test procedure includes visual inspection, insulation resistance test, functional energization, and alarm simulation. Battery discharge test and transfer-to-bypass witness records will be submitted after site commissioning.
+
+8.0 DEVIATION SCHEDULE
+
+No deviations are declared by the vendor.
+

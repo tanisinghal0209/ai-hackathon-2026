@@ -1,0 +1,6 @@
+rfi_id,discipline,equipment,question,status,linked_requirement,linked_activity,response_summary
+RFI-EL-017,Electrical,MV Switchgear,Confirm whether 25 kA short-circuit rating is acceptable in place of 31.5 kA.,Open,REQ-SWG-002,A3,Awaiting engineer response. Procurement cannot be released until rating is approved.
+RFI-EL-021,Electrical,UPS,Clarify whether N redundancy can be accepted for phase 1 capacity.,Closed,REQ-UPS-001,A4,N+1 redundancy remains mandatory for day-one operation.
+RFI-BMS-006,Controls,BMS,Confirm Modbus point list required for UPS and generator alarms.,Open,REQ-UPS-007,A9,Controls contractor to submit final point schedule.
+RFI-CX-004,Commissioning,IST,Confirm generator failure test sequence for integrated systems testing.,Closed,REQ-CX-002,A11,IST script shall include utility failure generator start and return-to-utility sequence.
+

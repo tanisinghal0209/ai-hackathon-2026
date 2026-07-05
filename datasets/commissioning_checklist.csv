@@ -1,0 +1,8 @@
+test_id,system,test_name,acceptance_criteria,linked_requirement,status,ncr_reference
+CX-UPS-001,UPS,Battery discharge test,UPS shall sustain full IT load for minimum 15 minutes,REQ-UPS-002,Pending,
+CX-UPS-002,UPS,Transfer to static bypass,Transfer shall complete without interruption to critical load,REQ-UPS-008,Pending,
+CX-SWG-001,Switchgear,Protection relay communication test,IEC 61850 communication shall be available to monitoring system,REQ-SWG-003,Pending,
+CX-BMS-001,BMS,UPS alarm verification,UPS critical alarms shall be visible in BMS through Modbus TCP/IP,REQ-UPS-007,Pending,
+CX-IST-001,Integrated Systems Testing,Utility failure and generator start,Generator shall start and UPS shall ride through transition without load drop,REQ-CX-002,Pending,
+CX-IST-002,Integrated Systems Testing,Return to utility,Facility shall transfer back to utility and restore normal operating state,REQ-CX-002,Pending,
+

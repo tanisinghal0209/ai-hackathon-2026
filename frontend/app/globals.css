@@ -18,6 +18,16 @@
   --border-color: rgba(255, 255, 255, 0.08);
   --border-radius: 12px;
   
+  /* Semantic Colors (Section 22.27) */
+  --color-success: #10b981;
+  --color-success-bg: rgba(16, 185, 129, 0.15);
+  --color-warning: #f59e0b;
+  --color-warning-bg: rgba(245, 158, 11, 0.15);
+  --color-critical: #ef4444;
+  --color-critical-bg: rgba(239, 68, 68, 0.15);
+  --color-info: #3b82f6;
+  --color-info-bg: rgba(59, 130, 246, 0.15);
+  
   /* Glassmorphism */
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: 1px solid rgba(255, 255, 255, 0.05);
