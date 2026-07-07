@@ -1,0 +1,304 @@
+================================================================================
+THE HYDC-01 PROJECT STORY
+Six Months in the Life of a Hyperscale Data Centre EPC Project
+================================================================================
+Document     : HYDC-01-PMO-STORY-001
+Compiled By  : Rajan Mehta, Project Controls Manager — Tata Projects Ltd
+Date         : 14 January 2026
+Purpose      : Continuous project narrative for knowledge base context
+               (This document serves as the AI Knowledge Copilot's primary
+               contextual anchor for understanding cause-and-effect relationships
+               across all project events)
+================================================================================
+
+CHAPTER 1 — THE BEGINNING (July 2025)
+======================================
+
+On 15 July 2025, NxtGen Cloud Infrastructure Ltd awarded the EPC contract for their
+flagship Tier IV Hyperscale Data Centre to Tata Projects Limited. The contract was
+worth INR 487 Crores. The project — code-named HYDC-01 — was to be constructed at
+Devanahalli Industrial Area, north of Bengaluru, close to the Kempegowda International
+Airport corridor that had become India's most important data centre belt.
+
+Vikram Sharma, a seasoned data centre project manager who had previously delivered
+two Tier III projects for global hyperscalers, was appointed Project Manager.
+Priya Nair, the regional Project Director, took overall accountability.
+The client's representative, Arjun Kapoor, had a personal deadline: the first
+colocation customer — a major Indian bank — had signed a 12 MW reservation agreement
+with a go-live commitment of 1 September 2026.
+
+That date would drive every decision for the next twelve months.
+
+Design was already at 60% completion when the contract was awarded, thanks to a
+parallel fast-track design engagement with Jacobs India led by Rahul Desai (electrical)
+and Anita Pillai (mechanical). Site possession was granted on 28 July 2025.
+L&T C&B mobilised within days.
+
+The first major procurement packages went to tender in August 2025:
+- PKG-EL-001: 11 kV Medium Voltage Switchgear — tendered to Schneider Electric India and Siemens India
+- PKG-EL-002: UPS System (8 × 1.6 MW modules) — tendered to PowerGrid Systems and ABB Power Protection
+- PKG-EL-003: Diesel Generators (4 × 3.5 MW) — tendered to Cummins India and Caterpillar India
+
+CHAPTER 2 — THE FIRST ALARM BELL (September–October 2025)
+==========================================================
+
+On 12 September 2025, Tata Projects received a commercial offer from PowerGrid Systems
+Pvt Ltd for Package PKG-EL-002 (UPS). The offer was attractive on price — INR 34.7 Crores,
+exactly at budget. But buried on page 3 of the quotation was a technical note that would
+cause months of disruption:
+
+"The proposed UPS configuration is N (parallel) for the connected IT load. Redundant
+(N+1) module can be added in Phase 1B."
+
+Aditya Singh, Procurement Manager, did not initially recognise the significance of this
+statement. He forwarded the quotation to Rahul Desai at Jacobs India for technical review.
+
+Rahul Desai's response was immediate and unambiguous. He raised RFI-EL-001 on 8 October 2025:
+
+"N+1 redundancy is a mandatory Day 1 requirement for Phase 1A. There is no provision
+for deferral to Phase 1B. Any vendor proposing N-only configuration must be formally rejected."
+
+Dr. Meera Iyer at NxtGen Cloud confirmed this position within hours. The client had
+committed to a Tier IV data centre. Tier IV requires fault tolerance. N-only UPS was
+not fault tolerant. The answer was non-negotiable.
+
+Aditya Singh contacted PowerGrid Systems and was assured by Technical Sales Director
+Ramesh Khanna that the "full N+1 configuration would be incorporated into the purchase
+order." The purchase order HYDC-01-PO-EL-002 was signed on 2 September 2025 with
+explicit N+1 requirements incorporated into the PO commercial terms.
+
+At the time, everyone believed the issue was resolved.
+
+It was not.
+
+CHAPTER 3 — THE SPECIFICATION MATURES (October 2025)
+=====================================================
+
+While procurement was being concluded, Rahul Desai and the Jacobs team were finalising
+the technical specifications. A critical question came from Sanjay Thakur at WSP Global,
+the independent commissioning authority: what exactly did "15-minute battery autonomy" mean?
+
+Sanjay raised RFI-EL-002 on 15 October 2025. The answer would shape everything:
+
+"The 15-minute autonomy requirement applies at end-of-life battery condition (80% of
+rated capacity) at 25°C ambient temperature."
+
+This was a significant clarification. Many vendors would calculate autonomy at new battery
+condition (100% capacity). Calculating at end-of-life meant vendors would need to oversize
+their battery systems to still meet 15 minutes when batteries were aging.
+
+Rahul Desai incorporated this into Specification Rev B on 22 October 2025.
+When PowerGrid Systems received Revision B, their application engineer Shalini Bose
+ran the battery calculations. The numbers did not work.
+
+The Vertiv Liebert EXL S1 system, as PowerGrid Systems had configured it, would provide
+approximately 10 minutes at 100% IT load at end-of-life. To achieve 15 minutes, they
+would need to add battery extension cabinets — at additional cost that had not been
+in their tender price.
+
+At this point, Shalini Bose and Ramesh Khanna faced a decision. They could:
+a) Formally declare the deviation, risk losing the order to ABB Power Protection, and
+   renegotiate pricing
+b) Submit the technical submittal without declaring the deviation, hoping no one would
+   notice until site commissioning when the battery test might be "adjusted"
+
+They chose option (b).
+
+CHAPTER 4 — THE SUBMITTAL AND THE REVIEW (November 2025)
+=========================================================
+
+On 30 October 2025, PowerGrid Systems submitted their technical submittal — Revision 01.
+The deviation schedule on the last page read: "No deviations declared."
+
+Kavya Reddy at Tata Projects' QA team received the submittal. She noticed immediately
+that the Modbus register map required by REQ-UPS-013 was missing. She also noticed
+that the IEC 62040-3 performance classification was not confirmed with a type test
+certificate. She raised RFI-EL-004, formally rejecting Revision 01.
+
+Revision 02 arrived on 18 November 2025. The Modbus register map was now included
+(registers 1000-1015, as eventually confirmed in Section 5 of the submittal).
+The IEC 62040-3 certificate was attached. The deviation schedule still read:
+"No deviations declared."
+
+This time, Kavya Reddy escalated to Rahul Desai for a full technical review.
+Rahul worked through the submittal section by section against the specification.
+Within two hours, he had identified five deviations:
+
+1. N-only vs N+1 configuration (CRITICAL)
+2. 10-minute autonomy vs 15-minute requirement (CRITICAL)
+3. ±2 Hz bypass sync window vs ±1 Hz specified (MAJOR)
+4. Battery discharge test proposed for site vs factory (MAJOR)
+5. Battery conductance monitoring not in base scope (MINOR)
+
+On 20 November 2025, Kavya Reddy raised Non-Conformance Report NCR-EL-001.
+It was the most important quality document of the project to that point.
+
+PowerGrid Systems received the NCR. Ramesh Khanna called Aditya Singh and argued
+that the deviations were "minor technical points" and the equipment was "essentially
+compliant." This argument was firmly rejected.
+
+But nothing was formally acknowledged in writing.
+
+CHAPTER 5 — THE SWITCHGEAR COMPLICATION (December 2025)
+========================================================
+
+While the UPS battle continued, a second crisis was developing.
+
+The 11 kV medium voltage switchgear panels (Package PKG-EL-001, PO HYDC-01-PO-EL-001)
+had been manufactured by Schneider Electric India at their Vadodara facility. On
+28 November 2025, Schneider confirmed manufacturing was complete and the panels were
+ready for dispatch. This was on schedule.
+
+Then the panels were trucked to JNPT Mumbai for port clearance. What should have been
+a routine customs process became a bureaucratic nightmare. The IGCR (Import General
+Manifest Certificate) listed the equipment under an incorrect HS code. The customs
+clearance was frozen on 5 December 2025.
+
+Deepak Nambiar, Site Engineer, raised RFI-PROC-001 on 10 December 2025. The original
+delivery date to site was 20 December 2025. Every day of delay was a day off the
+critical path.
+
+By 15 December 2025, Schneider's logistics team was estimating clearance on 10 January 2026.
+Site delivery: 15-17 January 2026. A 25-27 day delay on the critical path.
+
+Rajan Mehta updated the programme. Power-On moved from 30 June 2026 to 25 July 2026.
+The client's bank customer's go-live date was now dangerously close to the boundary.
+
+Simultaneously, another issue had emerged: Schneider Electric was offering to supply
+the switchgear with a 25 kA short-circuit rating instead of the specified 31.5 kA.
+The 31.5 kA panels would take 6 additional weeks to manufacture. Rahul Desai needed
+to urgently assess whether 25 kA was acceptable.
+
+He raised this as RFI-EL-003 on 22 November 2025. As of January 2026, it remained open.
+Every week it stayed open, the switchgear delivery was at risk of slipping further.
+
+CHAPTER 6 — THE FAT (January 2026)
+====================================
+
+On 5-7 January 2026, the UPS Factory Acceptance Test was conducted at PowerGrid Systems'
+test facility in Pune.
+
+The first two days went reasonably well. Load bank tests passed. Bypass transfer tests
+confirmed a transfer time of less than 4 milliseconds. But the synchronisation window
+was measured at ±2.1 Hz — exceeding the ±1 Hz specified in REQ-UPS-009. Sanjay Thakur
+(WSP Global, attending as commissioning authority) noted this formally in his FAT observation
+log but allowed the test to continue since the bypass transfer was successful under
+controlled conditions.
+
+On the morning of 7 January 2026, the battery discharge test began. Module UPS-A1-01
+was loaded to 1,600 kW using the facility's load banks. The EnerSys battery monitoring
+system showed the battery discharge rate.
+
+At 9 minutes and 47 seconds, the battery terminal voltage dropped below the minimum
+threshold. The UPS automatically transferred to bypass to protect the connected load.
+
+The room was quiet.
+
+Dr. Meera Iyer, representing NxtGen Cloud, looked at the test data logger printout.
+The specification required 15 minutes. The measured result was 9 minutes 47 seconds.
+The shortfall was 5 minutes 13 seconds — a 35% deficit.
+
+She turned to Ramesh Khanna and said: "This equipment is not leaving your facility
+until this is resolved. I will not authorise dispatch."
+
+The test was formally recorded as FAILED. Sanjay Thakur issued a formal FAT failure
+notification the same day (Action 13-10 from MOM-HYDC01-013).
+
+CHAPTER 7 — THE MEETING (January 2026)
+========================================
+
+On 8 January 2026, the Weekly Project Coordination Meeting No. 13 took place.
+
+Vikram Sharma opened the meeting. The atmosphere was tense. Two major procurement
+issues — UPS battery failure and switchgear customs delay — were both on the agenda.
+
+Sanjay Thakur presented the FAT results. The room absorbed the news.
+
+Arjun Kapoor, who had flown up from Mumbai specifically for this meeting, spoke:
+"Let me be very clear. Our customer — a major Indian bank — has signed contracts
+based on a 1 September 2026 go-live date. We have a 25 July 2026 Power-On target,
+giving us a 37-day buffer. If the UPS battery redesign takes six to eight weeks,
+that buffer disappears. I want a cure notice drafted for PowerGrid Systems within
+48 hours, and I want a battery remediation proposal from them by 19 January 2026."
+
+Kavya Reddy was given the task.
+
+Aditya Singh issued a formal hold on UPS equipment dispatch that same afternoon.
+The equipment would not move from PowerGrid Systems' Pune facility until the
+battery issue was resolved.
+
+The project was at its most critical junction.
+
+CHAPTER 8 — WHERE THINGS STAND (14 January 2026)
+==================================================
+
+As of the data date of this document (14 January 2026), the project is navigating
+its most complex period:
+
+RESOLVED:
+- MV Switchgear customs clearance: cleared 10 January 2026. Delivery expected 15-16 January.
+- UPS Revision 02 submittal received: technically reviewed, NCR-EL-001 raised.
+- FAT conducted (with UPS battery test FAILED).
+- RFI-EL-001 and RFI-EL-002: formally closed.
+
+CRITICAL OPEN ITEMS:
+- NCR-EL-001: UPS undeclared deviations — vendor response OVERDUE
+- RFI-EL-003: MV Switchgear rating 25 kA vs 31.5 kA — OPEN, blocks procurement release
+- RFI-EL-005: Battery FAT test deferred (resolved for FAT, but battery failure now creates
+  new remediation requirement)
+- UPS battery remediation proposal: DUE 19 January 2026 from PowerGrid Systems
+
+SCHEDULE STATUS:
+- Critical path delay: 18 days
+- Power-On forecast: 25 July 2026 (was 30 June 2026)
+- Client commitment date: 1 September 2026 — buffer shrinking
+
+NEXT CRITICAL DECISIONS:
+1. Battery remediation proposal review (19-26 January 2026)
+2. Switchgear 25 kA vs 31.5 kA final decision (by 20 January 2026)
+3. Recovery programme presentation at MOM-HYDC01-014 (15 January 2026)
+
+THE KEY CAUSAL CHAIN (for AI tracing):
+Vendor cost pressure → N-only UPS offered → PO with N+1 required → Vendor submitted
+non-compliant submittal with false "no deviations" declaration → NCR-EL-001 raised →
+FAT conducted → Battery autonomy FAIL (9m47s vs 15min) → Dispatch blocked → Battery
+remediation required → Programme impact +25 days → Power-On moves to 25 July 2026 →
+Client buffer reduces to 37 days → Commercial risk to bank customer go-live
+
+ALL OF THE ABOVE is discoverable through the knowledge base by an AI agent that has
+access to the full set of documents (PIR, Specification, Submittal, RFI Log, NCR,
+Meeting Minutes, and Schedule) provided in this dataset.
+
+================================================================================
+DEMO QUESTIONS YOUR AI SHOULD BE ABLE TO ANSWER:
+================================================================================
+
+Q1: "Why is the project delayed?"
+Expected: Discuss MV switchgear customs delay (25 days) and UPS battery FAT failure,
+combined impact, recovery options, reference MOM-013, RFI-PROC-001, SCH Rev 6.
+
+Q2: "What is wrong with the UPS submittal?"
+Expected: Identify all 5 deviations, classify them, reference NCR-EL-001, spec REQ-UPS-001/002/009.
+
+Q3: "What happened at the UPS Factory Acceptance Test?"
+Expected: Describe FAT outcome, battery test failure (9m47s vs 15min), attendees, actions raised.
+
+Q4: "Who is responsible for the UPS package?"
+Expected: Aditya Singh (procurement), PowerGrid Systems/Ramesh Khanna (vendor),
+Rahul Desai (design authority), Kavya Reddy (QA/QC).
+
+Q5: "What is the battery autonomy requirement?"
+Expected: 15 minutes at 100% IT load, end-of-life condition, per REQ-UPS-002 and REQ-UPS-008.
+Reference specification HYDC-01-EL-SPEC-002 Rev B.
+
+Q6: "Is the bypass synchronisation issue critical?"
+Expected: Major deviation — ±2 Hz offered vs ±1 Hz specified (REQ-UPS-009). Not critical
+if bypass transfer succeeds, but potential failure risk under non-ideal conditions.
+
+Q7: "What is the critical path?"
+Expected: Describe A1→...→A54→A56 critical path, highlight UPS sub-path now dominant,
+switchgear delivery resolved, IST depends on battery resolution.
+
+================================================================================
+END OF DOCUMENT — HYDC-01-PMO-STORY-001
+================================================================================

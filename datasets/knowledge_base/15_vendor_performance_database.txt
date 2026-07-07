@@ -1,0 +1,230 @@
+================================================================================
+VENDOR PERFORMANCE DATABASE
+================================================================================
+Project     : NXGEN Hyperscale Data Centre — Phase 1 (HYDC-01)
+Document    : HYDC-01-PMO-VENDOR-001
+Revision    : C
+Date        : 14 January 2026
+Maintained  : Aditya Singh, Procurement Manager — Tata Projects Ltd
+================================================================================
+
+SCORING METHODOLOGY
+-------------------
+Compliance Score    : 0-100 (100 = fully compliant with all specification requirements)
+Delivery Score      : 0-100 (100 = delivered on time with no delays)
+Documentation Score : 0-100 (100 = all submittals approved first time)
+Overall Rating      : A (Excellent) / B (Satisfactory) / C (Marginal) / D (Poor) / F (Failed)
+
+================================================================================
+VENDOR 01 — POWERGRIDSYSTEMS PVT LTD
+================================================================================
+Vendor ID           : VND-EL-001
+Company             : PowerGrid Systems Pvt Ltd
+Country             : India
+Address             : Plot 47, MIDC Chakan Industrial Area, Pune — 410501
+Contact             : Ramesh Khanna (Technical Sales Director)
+Email               : r.khanna@powergridsystems.in
+Phone               : +91-20-66304500
+Products Supplied   : UPS Systems (Vertiv authorised distributor for India)
+Package             : PKG-EL-002
+PO                  : HYDC-01-PO-EL-002 (INR 38.8 Crores)
+
+PERFORMANCE RECORD (HYDC-01):
+Submittal Rev 01    : REJECTED — missing mandatory documents
+Submittal Rev 02    : UNDER NCR — 5 undeclared deviations found
+FAT Result          : FAIL — battery autonomy 9m47s (required 15min)
+Deviation Declared  : "No deviations" — FALSE DECLARATION per REQ-UPS-022
+Cure Notice         : ISSUED 12 January 2026
+
+Compliance Score    : 23/100 — Critical deviations on N+1, battery, bypass sync
+Delivery Score      : 72/100 — Equipment manufactured on time, FAT delayed
+Documentation Score : 18/100 — Two submittal rejections, false deviation declaration
+
+OVERALL RATING      : F (Failed — critical technical non-compliance)
+
+Financial Risk      : HIGH — battery remediation estimated INR 2.8-4.5 Crores additional cost
+                      N+1 module additional cost estimated INR 4.1 Crores
+Commercial Risk     : HIGH — dispatch hold, cure notice, potential re-procurement risk
+Preferred Vendor    : NO — subject to resolution of NCR-EL-001 before future package consideration
+
+OPEN ITEMS:
+- NCR-EL-001 (OPEN since 20 November 2025)
+- Battery Remediation Proposal DUE 19 January 2026
+- Submittal Rev 03 DUE 31 January 2026
+
+NOTES:
+The vendor appears to have submitted a standard commercial product configuration without
+adequately reviewing the project-specific specification requirements. The false declaration
+of "no deviations" (Submittal Section 9) is considered a serious integrity concern.
+Procurement Manager recommends formal vendor performance review at project closeout.
+
+================================================================================
+VENDOR 02 — SCHNEIDER ELECTRIC INDIA PVT LTD
+================================================================================
+Vendor ID           : VND-EL-002
+Company             : Schneider Electric India Pvt Ltd
+Country             : India
+Address             : 9th Floor, DLF Cyber City, Phase III, Gurugram — 122002
+Contact             : Vijay Nambiar (Project Manager)
+Email               : v.nambiar@se.com
+Products Supplied   : 11 kV Medium Voltage Switchgear (Prime Pact range)
+Package             : PKG-EL-001
+PO                  : HYDC-01-PO-EL-001 (INR 18.4 Crores)
+
+PERFORMANCE RECORD (HYDC-01):
+Submittal          : APPROVED Rev 01 (first time, no issues)
+FAT                : Self-certified (not independently witnessed per original plan)
+Manufacturing      : ON SCHEDULE — completed 28 November 2025
+Delivery           : 36-day customs delay at JNPT (HS code issue on IGCR)
+                     Not vendor's fault — logistics/customs issue
+Current Status     : EN ROUTE — ETA 15-16 January 2026
+
+Compliance Score   : 82/100 — Minor concern on 25kA vs 31.5kA (RFI-EL-003 OPEN)
+Delivery Score     : 58/100 — 36-day delay (partly attributable to vendor's logistics agent)
+Documentation Score: 88/100 — Good documentation, FAT self-certification is marginal
+
+OVERALL RATING     : C (Marginal — delivery delay, outstanding RFI)
+
+Financial Risk     : LOW — no additional cost identified
+Commercial Risk    : MEDIUM — outstanding RFI-EL-003 on short-circuit rating
+Preferred Vendor   : YES (conditionally — subject to RFI-EL-003 resolution)
+
+OPEN ITEMS:
+- RFI-EL-003 (OPEN — 25kA vs 31.5kA rating)
+- Site installation documentation to be provided before A14 commences
+
+================================================================================
+VENDOR 03 — CUMMINS INDIA LTD
+================================================================================
+Vendor ID           : VND-EL-003
+Company             : Cummins India Ltd
+Country             : India
+Address             : Survey 21, Balewadi, Pune — 411045
+Contact             : Prakash Rao (Sales Engineer)
+Email               : p.rao@cummins.com
+Products Supplied   : Diesel Generator Sets (QSK60G18, 3500 kW)
+Package             : PKG-EL-003
+PO                  : HYDC-01-PO-EL-003 (INR 52.1 Crores)
+
+PERFORMANCE RECORD (HYDC-01):
+Submittal          : APPROVED Rev 01 (first time, no issues)
+FAT                : SCHEDULED 10-12 February 2026 — no issues anticipated
+Manufacturing      : ON SCHEDULE — Nashik facility confirmed on track
+Delivery           : 28 February 2026 — ON SCHEDULE
+Previous projects  : Hyderabad DC Phase 2 (2023), Navi Mumbai Tier III (2022) — BOTH successful
+
+Compliance Score   : 95/100 — All specification requirements met
+Delivery Score     : 100/100 — On schedule, no delays
+Documentation Score: 92/100 — Complete, first-time approval
+
+OVERALL RATING     : A (Excellent)
+
+Financial Risk     : VERY LOW
+Commercial Risk    : VERY LOW
+Preferred Vendor   : YES — preferred generator supplier for all future HYDC packages
+
+OPEN ITEMS: NONE
+
+================================================================================
+VENDOR 04 — CARRIER INDIA PVT LTD
+================================================================================
+Vendor ID           : VND-ME-001
+Company             : Carrier India Pvt Ltd
+Country             : India
+Address             : A-14, MIDC Chakan Phase 1, Pune — 410501
+Contact             : Sunit Mehrotra (Project Engineer)
+Email               : s.mehrotra@carrier.com
+Products Supplied   : Centrifugal Chillers (AquaForce 30XW-V, 2500 kW)
+Package             : PKG-ME-001
+PO                  : HYDC-01-PO-ME-001 (INR 41.3 Crores)
+
+PERFORMANCE RECORD (HYDC-01):
+Submittal          : APPROVED Rev 01 (first time)
+Manufacturing      : DELAYED — compressor supply issue from Carrier USA
+Delivery           : 2-week delay. New delivery: 14 March 2026 (was 28 Feb 2026)
+Risk if further delay: Could impact mechanical commissioning critical path
+
+Compliance Score   : 90/100 — Technical specification fully met
+Delivery Score     : 75/100 — 2-week delay (supply chain issue)
+Documentation Score: 88/100 — Good, minor comments on IOM completeness
+
+OVERALL RATING     : B (Satisfactory — monitoring delivery closely)
+
+Financial Risk     : LOW
+Commercial Risk    : MEDIUM — if delay extends beyond 14 March, critical path impact
+Preferred Vendor   : YES
+
+OPEN ITEMS:
+- Weekly delivery update required from Sunit Mehrotra until delivery confirmed
+
+================================================================================
+VENDOR 05 — VERTIV INDIA PVT LTD (CRAH Units)
+================================================================================
+Vendor ID           : VND-ME-002
+Company             : Vertiv India Pvt Ltd
+Country             : India
+Address             : Magarpatta City, Hadapsar, Pune — 411013
+Contact             : Arun Desai (Technical Manager)
+Email               : a.desai@vertiv.com
+Products Supplied   : CRAH Units (Liebert DSE range)
+Package             : PKG-ME-002
+PO                  : HYDC-01-PO-ME-002 (INR 22.8 Crores)
+
+NOTE: Vertiv also supplies the UPS system through PowerGrid Systems (their Indian distributor).
+The CRAH unit supply is a DIRECT order with Vertiv India — different team and process.
+
+PERFORMANCE RECORD (HYDC-01):
+Submittal          : APPROVED Rev 01 (first time)
+FAT                : PASSED 12 January 2026 — all tests satisfactory
+Manufacturing      : COMPLETE — no issues
+Delivery           : 15 February 2026 — ON SCHEDULE
+
+Compliance Score   : 96/100
+Delivery Score     : 100/100
+Documentation Score: 94/100
+
+OVERALL RATING     : A (Excellent)
+
+Financial Risk     : VERY LOW
+Commercial Risk    : VERY LOW
+Preferred Vendor   : YES
+
+OPEN ITEMS: NONE
+
+================================================================================
+VENDOR 06 — KIDDE INDIA (FIRE PROTECTION)
+================================================================================
+Vendor ID           : VND-FP-001
+Company             : Kidde India Pvt Ltd (UTC Fire & Security)
+Country             : India
+Products Supplied   : FM-200 Clean Agent Systems, CO2 Total Flooding
+Package             : PKG-FP-001
+PO                  : HYDC-01-PO-FP-001 (INR 9.6 Crores)
+
+Compliance Score    : 88/100
+Delivery Score      : 95/100
+Documentation Score : 85/100
+
+OVERALL RATING      : B (Satisfactory)
+OPEN ITEMS: None — installation in progress on schedule
+
+================================================================================
+VENDOR COMPARATIVE SUMMARY TABLE
+================================================================================
+
+Vendor ID    Company                  Package     Rating  Compliance  Delivery  Docs  Open Issues
+-----------  -----------------------  ----------  ------  ----------  --------  ----  ---------------------------
+VND-EL-001   PowerGrid Systems        PKG-EL-002  F       23/100      72/100    18    NCR-EL-001 OPEN — CRITICAL
+VND-EL-002   Schneider Electric India PKG-EL-001  C       82/100      58/100    88    RFI-EL-003 OPEN
+VND-EL-003   Cummins India            PKG-EL-003  A       95/100      100/100   92    NONE
+VND-ME-001   Carrier India            PKG-ME-001  B       90/100      75/100    88    Delivery monitoring
+VND-ME-002   Vertiv India             PKG-ME-002  A       96/100      100/100   94    NONE
+VND-FP-001   Kidde India              PKG-FP-001  B       88/100      95/100    85    NONE
+
+KEY FINDING: The two most critical packages (UPS - PKG-EL-002 and MV Switchgear - PKG-EL-001)
+are the two lowest-performing vendors. The UPS vendor (PowerGrid Systems, Rating F) is
+responsible for the most significant programme risk on the project.
+
+================================================================================
+END OF DOCUMENT — HYDC-01-PMO-VENDOR-001 REV C
+================================================================================

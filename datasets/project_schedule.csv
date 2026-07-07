@@ -1,0 +1,61 @@
+Activity ID,Activity Name,Duration,Predecessors,Start,Finish,Float,Critical Path,Responsible Contractor,Progress
+A010,Site Possession and Survey,10,,2025-07-15,2025-07-25,0,YES,Tata Projects Limited,100%
+A020,Civil Excavation and Piling,25,A010,2025-07-25,2025-08-19,44,NO,Tata Projects Limited,100%
+A030,Slab Pour Data Hall 1 and 2,15,A020,2025-08-19,2025-09-03,44,NO,Tata Projects Limited,100%
+A040,Structural Steel Erection DH1/DH2,20,A030,2025-09-03,2025-09-23,44,NO,Tata Projects Limited,100%
+A050,Roof Envelope and Decking DH1/DH2,12,A040,2025-09-23,2025-10-05,44,NO,Tata Projects Limited,100%
+A060,Raised Floor Installation DH1/DH2,14,A050,2025-10-05,2025-10-19,44,NO,Tata Projects Limited,100%
+A070,UPS Room Civil Prep and Flooring,10,A030,2025-09-03,2025-09-13,83,NO,Tata Projects Limited,100%
+A080,Battery Room Civil Prep,8,A030,2025-09-03,2025-09-11,83,NO,Tata Projects Limited,100%
+A090,Generator Building Foundations,15,A020,2025-08-19,2025-09-03,79,NO,Tata Projects Limited,100%
+A100,Generator Plinths and Enclosures,12,A090,2025-09-03,2025-09-15,79,NO,Tata Projects Limited,100%
+A110,MV Switchgear PO Placement,5,A010,2025-07-25,2025-07-30,0,YES,Vendor,100%
+A120,MV Switchgear Manufacturing,90,A110,2025-07-30,2025-10-28,0,YES,Vendor,100%
+A130,MV Switchgear Shipment and Customs,36,A120,2025-10-28,2025-12-03,0,YES,Vendor,100%
+A140,MV Switchgear Delivery to Site,2,A130,2025-12-03,2025-12-05,0,YES,Vendor,100%
+A150,MV Switchgear Base Install,7,"A070,A140",2025-12-05,2025-12-12,0,YES,Tata Projects Limited,100%
+A160,MV Switchgear Wiring and Terminations,8,A150,2025-12-12,2025-12-20,0,YES,Tata Projects Limited,35%
+A170,MV Switchgear Level 3 Cold Commissioning,5,A160,2025-12-20,2025-12-25,0,YES,Tata Projects Limited,35%
+A180,UPS PO Placement,5,A010,2025-07-25,2025-07-30,2,NO,Vendor,100%
+A190,UPS Module Manufacturing,80,A180,2025-07-30,2025-10-18,2,NO,Vendor,100%
+A200,UPS Factory Acceptance Testing (Pune),3,A190,2025-10-18,2025-10-21,2,NO,Vendor,100%
+A210,UPS Battery Remediation Cycle,28,A200,2025-10-21,2025-11-18,2,NO,Vendor,100%
+A220,UPS Shipment and Port Delivery,10,A210,2025-11-18,2025-11-28,2,NO,Vendor,100%
+A230,UPS Delivery and Positioning Site,3,A220,2025-11-28,2025-12-01,2,NO,Vendor,100%
+A240,UPS Module Positioning in Room A/B,5,"A070,A230",2025-12-01,2025-12-06,4,NO,Tata Projects Limited,100%
+A250,UPS Battery Cabinet Assembly,7,"A080,A230",2025-12-01,2025-12-08,2,NO,Tata Projects Limited,100%
+A260,UPS Cabling and Power Terminations,10,"A240,A250",2025-12-08,2025-12-18,2,NO,Tata Projects Limited,100%
+A270,UPS Level 3 Cold Testing,6,A260,2025-12-18,2025-12-24,2,NO,Tata Projects Limited,35%
+A280,Diesel Generator PO Placement,5,A010,2025-07-25,2025-07-30,18,NO,Vendor,100%
+A290,Diesel Generator Manufacturing,100,A280,2025-07-30,2025-11-07,18,NO,Vendor,100%
+A300,Diesel Generator Factory Witness Test,3,A290,2025-11-07,2025-11-10,18,NO,Vendor,100%
+A310,Diesel Generator Site Delivery,5,A300,2025-11-10,2025-11-15,18,NO,Vendor,100%
+A320,Generator Positioning on Plinths,4,"A100,A310",2025-11-15,2025-11-19,18,NO,Tata Projects Limited,100%
+A330,Generator Auxiliary Connections,8,A320,2025-11-19,2025-11-27,18,NO,Tata Projects Limited,100%
+A340,Generator Control Cabling to AGC,6,A330,2025-11-27,2025-12-03,18,NO,Tata Projects Limited,100%
+A350,Generator Pre-commissioning Checks,5,A340,2025-12-03,2025-12-08,18,NO,Tata Projects Limited,100%
+A360,Centrifugal Chiller PO Placement,5,A010,2025-07-25,2025-07-30,20,NO,Vendor,100%
+A370,Centrifugal Chiller Manufacturing,95,A360,2025-07-30,2025-11-02,20,NO,Vendor,100%
+A380,Chiller Site Delivery & Positioning,6,A370,2025-11-02,2025-11-08,20,NO,Vendor,100%
+A390,Chilled Water Piping Pre-fab,20,A030,2025-09-03,2025-09-23,66,NO,Tata Projects Limited,100%
+A400,Chiller Connection & Pipe Hookup,12,"A380,A390",2025-11-08,2025-11-20,20,NO,Tata Projects Limited,100%
+A410,Cooling Tower Foundation & Install,15,A020,2025-08-19,2025-09-03,98,NO,Tata Projects Limited,100%
+A420,Condenser Water Piping Hookup,10,"A400,A410",2025-11-20,2025-11-30,20,NO,Tata Projects Limited,100%
+A430,CRAH Units Delivery to site,5,A010,2025-07-25,2025-07-30,125,NO,Vendor,100%
+A440,CRAH Positioning in Data Halls,8,"A060,A430",2025-10-19,2025-10-27,44,NO,Tata Projects Limited,100%
+A450,CHW Valve Train Connections,10,"A440,A400",2025-11-20,2025-11-30,20,NO,Tata Projects Limited,100%
+A460,Mechanical Pre-commissioning Checks,6,"A420,A450",2025-11-30,2025-12-06,20,NO,Tata Projects Limited,100%
+A470,BMS Software Architecture Draft,15,A010,2025-07-25,2025-08-09,114,NO,Tata Projects Limited,100%
+A480,Modbus Point List Mapping,10,A470,2025-08-09,2025-08-19,114,NO,Tata Projects Limited,100%
+A490,BMS Server Room Fitting,5,A030,2025-09-03,2025-09-08,94,NO,Tata Projects Limited,100%
+A500,Control Loop Termination Site,15,"A480,A490",2025-09-08,2025-09-23,94,NO,Tata Projects Limited,100%
+A510,BMS Point-to-Point Testing,10,"A170,A270,A350,A460,A500",2025-12-25,2026-01-04,1,NO,Tata Projects Limited,35%
+A520,Primary Utility Substation Energisation,5,A170,2025-12-25,2025-12-30,0,YES,Tata Projects Limited,35%
+A530,Level 4 Functional Testing - MV SWG,4,A520,2025-12-30,2026-01-03,2,NO,Tata Projects Limited,35%
+A540,Level 4 Functional Testing - UPS,5,"A270,A520",2025-12-30,2026-01-04,1,NO,Tata Projects Limited,35%
+A550,Level 4 Functional Testing - Generators,4,A350,2025-12-08,2025-12-12,24,NO,Tata Projects Limited,100%
+A560,Level 4 Functional Testing - Chillers/CRAH,6,"A460,A520",2025-12-30,2026-01-05,0,YES,Tata Projects Limited,35%
+A570,Integrated Systems Testing Level 5 Prep,5,"A530,A540,A550,A560,A510",2026-01-05,2026-01-10,0,YES,Tata Projects Limited,35%
+A580,Level 5 Integrated Systems Testing (IST),10,A570,2026-01-10,2026-01-20,0,YES,Tata Projects Limited,35%
+A590,De-mobilisation and Site Cleanup,5,A580,2026-01-20,2026-01-25,0,YES,Tata Projects Limited,0%
+A600,Client Handover & Final Acceptance,1,A590,2026-01-25,2026-01-26,0,YES,Tata Projects Limited,0%

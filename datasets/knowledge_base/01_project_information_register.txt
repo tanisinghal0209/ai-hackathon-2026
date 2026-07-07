@@ -1,0 +1,271 @@
+================================================================================
+DOCUMENT CONTROL HEADER
+================================================================================
+Project Name    : NXGEN Hyperscale Data Centre — Phase 1
+Project Code    : HYDC-01
+Document Number : HYDC-01-PMO-PIR-001
+Document Title  : Project Information Register
+Revision        : C
+Revision Date   : 14 January 2026
+Prepared By     : Rajan Mehta, Project Controls Manager
+Checked By      : Priya Nair, Project Director
+Approved By     : Arjun Kapoor, Client Representative — NxtGen Cloud Infrastructure Ltd
+Status          : Approved for Construction
+================================================================================
+
+SECTION 1 — PROJECT OVERVIEW
+================================================================================
+
+1.1  Project Name
+     NXGEN Hyperscale Data Centre — Phase 1
+
+1.2  Project Code
+     HYDC-01
+
+1.3  Client Organisation
+     NxtGen Cloud Infrastructure Ltd
+     Corporate Office: Tower 7, Cyberspace Business Park, Whitefield, Bengaluru — 560066
+     Client Representative: Arjun Kapoor, VP Infrastructure Delivery
+     Client Technical Advisor: Dr. Meera Iyer, Principal Engineer (Data Centre Technology)
+
+1.4  General Contractor
+     Larsen & Toubro Construction (L&T C&B Division)
+     Project Director: Suresh Balakrishnan
+
+1.5  EPC Contractor
+     Tata Projects Limited — Digital Infrastructure Business Unit
+     Project Manager: Vikram Sharma
+     Registered Office: A-Wing, Voltas House, Dr. B.A. Road, Mumbai — 400033
+
+1.6  Design Consultant (MEP)
+     Jacobs Engineering India Pvt Ltd
+     Lead Engineer: Rahul Desai (Electrical), Anita Pillai (Mechanical)
+
+1.7  Independent Commissioning Authority
+     WSP Global — Data Centre Practice
+     Lead CxA: Sanjay Thakur
+
+1.8  Data Centre Consultant
+     Uptime Institute Authorised Consultant
+     Representative: Dinesh Agarwal
+
+1.9  Quantity Surveyor
+     Faithful+Gould — Bengaluru Office
+
+1.10 Insurance Surveyor
+     Marsh McLennan — India Risk Practice
+
+SECTION 2 — PROJECT LOCATION
+================================================================================
+
+2.1  Site Address
+     Survey Number 47/3, Devanahalli Industrial Area,
+     Kempegowda International Airport Road,
+     Bengaluru North — 562110
+     Karnataka, India
+
+2.2  Geographic Coordinates
+     Latitude:  13.2468° N
+     Longitude: 77.7011° E
+
+2.3  Seismic Zone
+     Zone II (IS:1893-2016)
+
+2.4  Wind Zone
+     Zone I (IS:875 Part 3)
+
+2.5  Flood Risk
+     Low — Site elevation 910 m above mean sea level
+
+2.6  Site Area
+     Total acquired: 18.4 acres
+     Phase 1 footprint: 6.2 acres
+     Phase 2 reserved: 8.1 acres
+
+SECTION 3 — PROJECT SCOPE AND CLASSIFICATION
+================================================================================
+
+3.1  Tier Classification
+     Uptime Institute Tier IV (Fault Tolerant)
+     Target: Tier IV Design Certification (TCCF) — submission Q2 2026
+
+3.2  IT Load Capacity (Phase 1)
+     Total IT white floor area: 4,200 sq.m
+     Installed IT load: 20 MW
+     Commissioned IT load: 12 MW (Phase 1A)
+     Design power density: 10 kW per rack average, 30 kW per rack peak
+
+3.3  Critical Load Electrical Architecture
+     Utility Supply: Two independent 110 kV feeds from KPTCL grid (diversity ≥ 2 km)
+     Transformer arrangement: 4 × 5 MVA 110kV/11kV power transformers (2A+2B)
+     Medium Voltage: 11 kV double busbar switchgear (A-Bus and B-Bus)
+     UPS: 8 × 1.6 MW modular UPS (N+1 per power module, 2N at facility level)
+     Battery: VRLA 12V blocks, 15-minute autonomy at full IT load
+     Generator: 4 × 3.5 MW diesel generators (N+1 on A-bus, N+1 on B-bus)
+     LV Distribution: 415V TPN final distribution via PDU to each rack row
+     Package Code: PKG-EL-001 (MV Switchgear), PKG-EL-002 (UPS System), PKG-EL-003 (Generators)
+
+3.4  Mechanical Architecture
+     Cooling Philosophy: Chilled water (CHW), rear-door heat exchangers for high-density
+     Chiller Plant: 4 × 2.5 MW centrifugal chillers (N+1 per loop, 2N at facility level)
+     Cooling Towers: 4 × induced-draft counterflow cooling towers
+     CRAH Units: 48 × computer room air handlers (24 per zone, floor-mounted)
+     Pump Arrangement: 6 × primary CHW pumps (N+1), 6 × secondary CHW pumps (N+1)
+     Design PUE: 1.35 (annualised)
+     Package Code: PKG-ME-001 (Chillers), PKG-ME-002 (CRAH Units), PKG-ME-003 (Cooling Towers)
+
+3.5  Fire Suppression
+     Data Hall: FM-200 (HFC-227ea) clean agent, VESDA very early smoke detection
+     Generator Room: CO2 total flooding
+     Office/NOC: Wet pipe sprinkler system per NBC 2016
+     Package Code: PKG-FP-001
+
+3.6  Network Infrastructure
+     Spine-leaf architecture, 100GbE fabric
+     Diverse fibre entry points (North and South trenches)
+     ODF rooms at Levels 1 and 2
+     Package Code: PKG-IT-001
+
+SECTION 4 — PROJECT TIMELINE
+================================================================================
+
+4.1  Key Dates
+     Contract Award Date        : 15 July 2025
+     Site Possession Date       : 28 July 2025
+     Design Freeze Date         : 30 September 2025
+     First Equipment Delivery   : 15 November 2025
+     Structural Completion      : 28 February 2026
+     MEP Rough-in Complete      : 30 April 2026
+     Power-On (Phase 1A)        : 30 June 2026
+     Commissioning Complete     : 31 July 2026
+     Client Acceptance          : 15 August 2026
+     Defects Liability Period   : 15 August 2026 to 14 August 2027
+
+4.2  Construction Phases
+     Phase 1A: 12 MW — Data Halls 1 and 2, Power Module A
+     Phase 1B: 8 MW — Data Halls 3 and 4, Power Module B (follow-on, 6 months after 1A)
+     Phase 2:  20 MW — Future expansion (land banked)
+
+4.3  Current Programme Status (as at 14 January 2026)
+     Overall progress: 34% complete against baseline
+     Phase 1A forecast completion: 31 July 2026 (7-day delay on structural works)
+     Critical path activities: MV switchgear delivery (PKG-EL-001, currently 3 weeks delayed)
+
+SECTION 5 — PROJECT BUDGET
+================================================================================
+
+5.1  Contract Value
+     Lump sum EPC contract value: INR 487 Crores (approximately USD 58.5 million)
+     Client-supplied equipment (free issue): INR 42 Crores
+     Contingency (held by client): INR 24 Crores
+
+5.2  Package Budget Summary
+     PKG-EL-001 (MV Switchgear)     : INR 18.4 Crores    PO: HYDC-01-PO-EL-001
+     PKG-EL-002 (UPS System)        : INR 34.7 Crores    PO: HYDC-01-PO-EL-002
+     PKG-EL-003 (Generator Sets)    : INR 52.1 Crores    PO: HYDC-01-PO-EL-003
+     PKG-ME-001 (Chillers)          : INR 41.3 Crores    PO: HYDC-01-PO-ME-001
+     PKG-ME-002 (CRAH Units)        : INR 22.8 Crores    PO: HYDC-01-PO-ME-002
+     PKG-FP-001 (Fire Protection)   : INR 9.6 Crores     PO: HYDC-01-PO-FP-001
+
+SECTION 6 — DOCUMENT CONTROL STANDARDS
+================================================================================
+
+6.1  Document Numbering Convention
+     Format: HYDC-01-[DISC]-[TYPE]-[SEQUENCE]
+     Example: HYDC-01-EL-SPEC-003 (Electrical Specification, Number 3)
+
+     Discipline Codes
+     EL  — Electrical
+     ME  — Mechanical
+     FP  — Fire Protection
+     CV  — Civil/Structural
+     IT  — IT/Networks
+     CX  — Commissioning
+     QA  — Quality Assurance
+     PMO — Project Management Office
+
+     Document Type Codes
+     SPEC — Technical Specification
+     DRG  — Drawing
+     RFI  — Request for Information
+     NCR  — Non-Conformance Report
+     MOM  — Minutes of Meeting
+     ITP  — Inspection and Test Plan
+     SCH  — Schedule
+     SUB  — Vendor Submittal
+     PO   — Purchase Order
+     FAT  — Factory Acceptance Test Report
+     SAT  — Site Acceptance Test Report
+
+6.2  Revision Control
+     Design revisions: Letters (A, B, C...)
+     Construction revisions: Numbers (01, 02, 03...)
+     As-built revisions: AB-01, AB-02...
+
+6.3  Equipment Naming Convention
+     [SYSTEM]-[MODULE]-[NUMBER]
+     Examples:
+     UPS-A1-01 (UPS System, A1 Module, Unit 1)
+     GEN-A-01  (Generator, A-Bus, Unit 1)
+     SWG-MV-A  (Switchgear, Medium Voltage, A-Bus)
+     CHL-01    (Chiller Number 1)
+     CRAH-DH1-01 (Computer Room Air Handler, Data Hall 1, Unit 1)
+
+SECTION 7 — APPROVED VENDOR LIST
+================================================================================
+
+7.1  Electrical Equipment
+     UPS Systems         : PowerGrid Systems Pvt Ltd (Indian distributor for Vertiv)
+                           Alternate: ABB Power Protection
+     MV Switchgear       : Schneider Electric India (Prime Pact range)
+                           Alternate: Siemens India (8DA)
+     LV Switchgear       : Legrand India
+     Generators          : Cummins India Ltd (QSK60 series)
+                           Alternate: Caterpillar India (C3500 series)
+     Transformers        : Kirloskar Electric
+     Cables              : Polycab India Ltd
+
+7.2  Mechanical Equipment
+     Chillers            : Carrier India (AquaForce range)
+                           Alternate: York India (YK series)
+     CRAH Units          : Vertiv India (Liebert CRAH)
+                           Alternate: Stulz GmbH
+     Cooling Towers      : SPX Cooling Technologies
+     Pumps               : Grundfos India
+
+7.3  Fire Protection
+     Clean Agent Systems : Kidde India (FM-200)
+     VESDA               : Xtralis (Aspirating Smoke Detection)
+     Sprinkler            : Viking India
+
+7.4  Awarded Contracts (as at document date)
+     PKG-EL-002 (UPS)    : AWARDED — PowerGrid Systems Pvt Ltd
+                           PO Date: 02 September 2025
+                           Delivery: 15 January 2026 (currently delayed — see RFI-EL-021)
+     PKG-EL-001 (MV SWG) : AWARDED — Schneider Electric India
+                           PO Date: 18 August 2025
+                           Delivery: 30 November 2025 (delayed 3 weeks — customs clearance)
+     PKG-EL-003 (GEN)    : AWARDED — Cummins India Ltd
+                           PO Date: 10 September 2025
+                           Delivery: 28 February 2026
+
+SECTION 8 — KEY PERSONNEL DIRECTORY
+================================================================================
+
+     Name                  Title                              Company              Email
+     Vikram Sharma         Project Manager                    Tata Projects        v.sharma@tataprojects.com
+     Priya Nair            Project Director                   Tata Projects        p.nair@tataprojects.com
+     Rajan Mehta           Project Controls Manager           Tata Projects        r.mehta@tataprojects.com
+     Arjun Kapoor          VP Infrastructure / Client Rep     NxtGen Cloud         a.kapoor@nxtgencloud.in
+     Dr. Meera Iyer        Principal Engineer (DC Tech)       NxtGen Cloud         m.iyer@nxtgencloud.in
+     Rahul Desai           Lead Electrical Engineer           Jacobs India         r.desai@jacobs.com
+     Anita Pillai          Lead Mechanical Engineer           Jacobs India         a.pillai@jacobs.com
+     Sanjay Thakur         Commissioning Authority (CxA)      WSP Global           s.thakur@wsp.com
+     Kavya Reddy           QA/QC Manager                      Tata Projects        k.reddy@tataprojects.com
+     Aditya Singh          Procurement Manager                Tata Projects        a.singh@tataprojects.com
+     Deepak Nambiar        Site Engineer (Electrical)          Tata Projects        d.nambiar@tataprojects.com
+     Suresh Balakrishnan   General Contractor PM              L&T C&B              s.balakrishnan@lntecc.com
+
+================================================================================
+END OF DOCUMENT — HYDC-01-PMO-PIR-001 REV C
+================================================================================

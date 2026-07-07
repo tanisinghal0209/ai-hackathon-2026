@@ -1,0 +1,134 @@
+================================================================================
+EQUIPMENT ASSET REGISTER — CRITICAL EQUIPMENT
+================================================================================
+Project     : NXGEN Hyperscale Data Centre — Phase 1 (HYDC-01)
+Document    : HYDC-01-PMO-ASSET-001
+Revision    : B
+Date        : 14 January 2026
+Maintained  : Deepak Nambiar, Site Engineer (Electrical) — Tata Projects Ltd
+================================================================================
+
+FORMAT: Equipment ID | Tag | System | Manufacturer | Model | Capacity | Location | PO | Status | Commissioning Status
+
+================================================================================
+ELECTRICAL SYSTEMS — UPS (Package PKG-EL-002)
+================================================================================
+
+UPS-A1-01 | UPS-PA-01 | UPS | Vertiv (via PowerGrid Systems) | Liebert EXL S1 | 1600 kW | Power Module A, UPS Room A | HYDC-01-PO-EL-002 | AT VENDOR PUNE — FAT FAIL — DISPATCH HOLD | Not commissioned — awaiting battery remediation
+UPS-A1-02 | UPS-PA-02 | UPS | Vertiv (via PowerGrid Systems) | Liebert EXL S1 | 1600 kW | Power Module A, UPS Room A | HYDC-01-PO-EL-002 | AT VENDOR PUNE — FAT FAIL — DISPATCH HOLD | Not commissioned
+UPS-A1-03 | UPS-PA-03 | UPS | Vertiv (via PowerGrid Systems) | Liebert EXL S1 | 1600 kW | Power Module A, UPS Room A | HYDC-01-PO-EL-002 | AT VENDOR PUNE — FAT FAIL — DISPATCH HOLD | Not commissioned
+UPS-A1-04 | UPS-PA-04 | UPS | Vertiv (via PowerGrid Systems) | Liebert EXL S1 | 1600 kW | Power Module A, UPS Room A | HYDC-01-PO-EL-002 | AT VENDOR PUNE — FAT FAIL — DISPATCH HOLD | Not commissioned
+UPS-B1-01 | UPS-PB-01 | UPS | Vertiv (via PowerGrid Systems) | Liebert EXL S1 | 1600 kW | Power Module B, UPS Room B | HYDC-01-PO-EL-002 | AT VENDOR PUNE — FAT FAIL — DISPATCH HOLD | Not commissioned
+UPS-B1-02 | UPS-PB-02 | UPS | Vertiv (via PowerGrid Systems) | Liebert EXL S1 | 1600 kW | Power Module B, UPS Room B | HYDC-01-PO-EL-002 | AT VENDOR PUNE — FAT FAIL — DISPATCH HOLD | Not commissioned
+UPS-B1-03 | UPS-PB-03 | UPS | Vertiv (via PowerGrid Systems) | Liebert EXL S1 | 1600 kW | Power Module B, UPS Room B | HYDC-01-PO-EL-002 | AT VENDOR PUNE — FAT FAIL — DISPATCH HOLD | Not commissioned
+UPS-B1-04 | UPS-PB-04 | UPS | Vertiv (via PowerGrid Systems) | Liebert EXL S1 | 1600 kW | Power Module B, UPS Room B | HYDC-01-PO-EL-002 | AT VENDOR PUNE — FAT FAIL — DISPATCH HOLD | Not commissioned
+
+NOTE: N+1 module (9th UPS) per design requirement (REQ-UPS-001) — NOT YET ORDERED (NCR-EL-001 open)
+Battery autonomy: FAILS specification — 9m47s measured, 15min required (RFI-EL-005, NCR-EL-001)
+Linked RFIs: RFI-EL-001, RFI-EL-002, RFI-EL-004, RFI-EL-005
+Linked NCR: NCR-EL-001
+Criticality: CRITICAL
+
+================================================================================
+ELECTRICAL SYSTEMS — MV SWITCHGEAR (Package PKG-EL-001)
+================================================================================
+
+SWG-MV-A   | SWG-A-MAIN | MV Switchgear | Schneider Electric | Prime Pact 11kV | 31.5kA/3s | MV Room Level 1, A-Bus | HYDC-01-PO-EL-001 | EN ROUTE TO SITE — ETA 15-16 Jan 2026 | Not installed
+SWG-MV-B   | SWG-B-MAIN | MV Switchgear | Schneider Electric | Prime Pact 11kV | 31.5kA/3s | MV Room Level 1, B-Bus | HYDC-01-PO-EL-001 | EN ROUTE TO SITE — ETA 15-16 Jan 2026 | Not installed
+
+NOTE: 36-day customs delay at JNPT — cleared 10 Jan 2026. Site delivery 15-16 Jan 2026.
+Short-circuit rating: RFI-EL-003 OPEN (25kA vs 31.5kA) — installation cannot begin until resolved
+Each bus: 8 panels (incomer, bus coupler, 6 feeder panels)
+Linked RFIs: RFI-EL-003, RFI-PROC-001
+Criticality: CRITICAL
+
+================================================================================
+ELECTRICAL SYSTEMS — DIESEL GENERATORS (Package PKG-EL-003)
+================================================================================
+
+GEN-A-01   | GEN-A1     | Generator | Cummins India | QSK60G18 | 3500 kW | Generator Building, Bay 1 | HYDC-01-PO-EL-003 | IN MANUFACTURING — Nashik facility | Not delivered
+GEN-A-02   | GEN-A2     | Generator | Cummins India | QSK60G18 | 3500 kW | Generator Building, Bay 2 | HYDC-01-PO-EL-003 | IN MANUFACTURING — Nashik facility | Not delivered
+GEN-B-01   | GEN-B1     | Generator | Cummins India | QSK60G18 | 3500 kW | Generator Building, Bay 3 | HYDC-01-PO-EL-003 | IN MANUFACTURING — Nashik facility | Not delivered
+GEN-B-02   | GEN-B2     | Generator | Cummins India | QSK60G18 | 3500 kW | Generator Building, Bay 4 | HYDC-01-PO-EL-003 | IN MANUFACTURING — Nashik facility | Not delivered
+
+NOTE: N+1 arrangement — 2 generators per bus (N+1 on each bus).
+FAT scheduled 10-12 February 2026 at Cummins Nashik. Site delivery 28 Feb 2026.
+Fuel: HSD diesel. Day tank per generator: 2,000 L. Bulk tank: 200,000 L (2 days runtime at full load)
+Linked RFI: RFI-CX-001 (IST sequence)
+Criticality: CRITICAL
+
+================================================================================
+ELECTRICAL SYSTEMS — TRANSFORMERS
+================================================================================
+
+TRF-A1     | TRF-A1     | Transformer | Kirloskar Electric | Oil-immersed 110kV/11kV | 5 MVA | Transformer Yard A | HYDC-01-PO-EL-004 | DELIVERED — in transformer yard | Pre-functional checks in progress
+TRF-A2     | TRF-A2     | Transformer | Kirloskar Electric | Oil-immersed 110kV/11kV | 5 MVA | Transformer Yard A | HYDC-01-PO-EL-004 | DELIVERED — in transformer yard | Pre-functional checks in progress
+TRF-B1     | TRF-B1     | Transformer | Kirloskar Electric | Oil-immersed 110kV/11kV | 5 MVA | Transformer Yard B | HYDC-01-PO-EL-004 | DELIVERED — in transformer yard | Pre-functional checks in progress
+TRF-B2     | TRF-B2     | Transformer | Kirloskar Electric | Oil-immersed 110kV/11kV | 5 MVA | Transformer Yard B | HYDC-01-PO-EL-004 | DELIVERED — in transformer yard | Pre-functional checks in progress
+
+================================================================================
+MECHANICAL SYSTEMS — CHILLERS (Package PKG-ME-001)
+================================================================================
+
+CHL-01     | CHILLER-01  | Chiller | Carrier India | AquaForce 30XW-V | 2500 kW | Central Plant Room | HYDC-01-PO-ME-001 | IN MANUFACTURING — 2-week delay | Not delivered
+CHL-02     | CHILLER-02  | Chiller | Carrier India | AquaForce 30XW-V | 2500 kW | Central Plant Room | HYDC-01-PO-ME-001 | IN MANUFACTURING — 2-week delay | Not delivered
+CHL-03     | CHILLER-03  | Chiller | Carrier India | AquaForce 30XW-V | 2500 kW | Central Plant Room | HYDC-01-PO-ME-001 | IN MANUFACTURING — 2-week delay | Not delivered
+CHL-04     | CHILLER-04  | Chiller | Carrier India | AquaForce 30XW-V | 2500 kW | Central Plant Room | HYDC-01-PO-ME-001 | IN MANUFACTURING — 2-week delay | Not delivered
+
+NOTE: 2-week delivery delay — compressor supply issue from Carrier USA.
+New delivery: 14 March 2026 (was 28 Feb 2026). No critical path impact if no further slippage.
+N+1 arrangement: 3 chillers serve any load, 1 in hot standby.
+
+================================================================================
+MECHANICAL SYSTEMS — CRAH UNITS (Package PKG-ME-002)
+================================================================================
+
+CRAH-DH1-01 through CRAH-DH1-12 (12 units — Data Hall 1) | Vertiv India | Liebert DSE | 85 kW each | DH1 Floor | HYDC-01-PO-ME-002 | SCHEDULED DELIVERY 15 FEB 2026 | Not installed
+CRAH-DH2-01 through CRAH-DH2-12 (12 units — Data Hall 2) | Vertiv India | Liebert DSE | 85 kW each | DH2 Floor | HYDC-01-PO-ME-002 | SCHEDULED DELIVERY 15 FEB 2026 | Not installed
+CRAH-DH3-01 through CRAH-DH3-12 (12 units — Data Hall 3) | Vertiv India | Liebert DSE | 85 kW each | DH3 Floor | HYDC-01-PO-ME-002 | SCHEDULED DELIVERY 15 FEB 2026 | Not installed
+CRAH-DH4-01 through CRAH-DH4-12 (12 units — Data Hall 4) | Vertiv India | Liebert DSE | 85 kW each | DH4 Floor | HYDC-01-PO-ME-002 | SCHEDULED DELIVERY 15 FEB 2026 | Not installed
+
+Total: 48 CRAH units. Status: ON SCHEDULE. No issues.
+
+================================================================================
+FIRE PROTECTION SYSTEMS (Package PKG-FP-001)
+================================================================================
+
+FM200-DH1  | FP-DH1-FM200 | Fire Suppression | Kidde India | FM-200 HFC-227ea | 450kg cylinder | Data Hall 1 | HYDC-01-PO-FP-001 | PARTIALLY INSTALLED | Piping 25% complete (Activity A38)
+FM200-DH2  | FP-DH2-FM200 | Fire Suppression | Kidde India | FM-200 HFC-227ea | 450kg cylinder | Data Hall 2 | HYDC-01-PO-FP-001 | PARTIALLY INSTALLED | Piping 25% complete
+FM200-GEN  | FP-GEN-CO2   | Fire Suppression | Kidde India | CO2 Total Flood  | 600kg cylinder | Generator Room | HYDC-01-PO-FP-001 | SCHEDULED | Awaiting generator room ceiling
+VESDA-DH1  | VESDA-DH1    | Smoke Detection  | Xtralis     | ASD-VESDA-VLP    | 4-zone aspirator | Data Hall 1 | HYDC-01-PO-FP-001 | SCHEDULED (Activity A39) | Not installed
+VESDA-DH2  | VESDA-DH2    | Smoke Detection  | Xtralis     | ASD-VESDA-VLP    | 4-zone aspirator | Data Hall 2 | HYDC-01-PO-FP-001 | SCHEDULED (Activity A39) | Not installed
+
+================================================================================
+ASSET SUMMARY BY STATUS
+================================================================================
+
+Status                     Count    Systems Affected
+-------------------------  -------  -----------------------------------
+AT VENDOR — DISPATCH HOLD  8        UPS system (PKG-EL-002) — CRITICAL
+EN ROUTE TO SITE           16       MV Switchgear (PKG-EL-001)
+IN MANUFACTURING           8        Generators (PKG-EL-003), Chillers (PKG-ME-001)
+SCHEDULED — NOT YET MFGD   48       CRAH Units (PKG-ME-002)
+DELIVERED/ON SITE           4        Transformers (PKG-EL-004) — PFC in progress
+PARTIALLY INSTALLED         5        Fire protection (PKG-FP-001)
+NOT YET ORDERED             1        UPS N+1 additional module — NCR-EL-001 open
+
+Total critical assets tracked in this register: 90
+Total phase 1 asset population (including minor equipment): 400+ (full register separate)
+
+================================================================================
+CRITICAL EQUIPMENT RISK SUMMARY
+================================================================================
+
+Equipment     Risk                         Level     Root Cause          Linked Documents
+----------    ---------------------------  --------  ------------------  --------------------------
+UPS-A1-01     Battery autonomy 9m47s       CRITICAL  Undersized battery  NCR-EL-001, RFI-EL-005
+All UPS       N+1 module missing           CRITICAL  Not in base offer   NCR-EL-001, RFI-EL-001
+SWG-MV-A/B   Customs delay 36 days        HIGH      HS code error       RFI-PROC-001, MOM-013
+SWG-MV-A/B   Rating 25kA vs 31.5kA        HIGH      Vendor offer        RFI-EL-003 (OPEN)
+CHL-01-04     2-week delivery delay        MEDIUM    Compressor supply   MOM-013 Action 13-07
+
+================================================================================
+END OF DOCUMENT — HYDC-01-PMO-ASSET-001 REV B
+================================================================================

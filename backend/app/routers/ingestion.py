@@ -28,7 +28,7 @@ async def upload_document(
     if not file.filename:
         raise ValidationError("No file provided.", field="file")
         
-    allowed_extensions = [".pdf", ".csv"]
+    allowed_extensions = [".pdf", ".csv", ".txt"]
     if not any(file.filename.endswith(ext) for ext in allowed_extensions):
         raise UnsupportedFileTypeError(file.filename)
 
@@ -52,8 +52,20 @@ async def upload_document(
         )
         document_repository.create(new_doc)
 
-        # Submit to Celery Queue
-        process_document_task.delay(doc_id, file_path, file.filename)
+        # Submit to Celery Queue or run synchronously if Celery/Redis is not configured/running
+        run_sync = os.getenv("SYNC_INGESTION", "true").lower() == "true"
+        if run_sync:
+            try:
+                process_document_task(doc_id, file_path, file.filename)
+            except Exception as e:
+                print(f"[Ingestion] Synchronous processing failed: {e}")
+                raise e
+        else:
+            try:
+                process_document_task.delay(doc_id, file_path, file.filename)
+            except Exception as celery_err:
+                print(f"[Ingestion] Celery task failed to queue: {celery_err}. Running synchronously.")
+                process_document_task(doc_id, file_path, file.filename)
         
         return {
             "message": "Document uploaded successfully and queued for background processing.",

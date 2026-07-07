@@ -1,0 +1,301 @@
+Document Number,Revision,Discipline,Author,Reviewer,Approver,Issue Date,Current Status,Linked Drawing,Linked Vendor,Linked RFI,Linked Schedule Activity
+PHX-DC-01-EL-SPEC-001,B,Electrical,Deepak Nambiar,Rahul Desai,Vikram Sharma,2025-08-04,Approved,DWG-001,Schneider Electric India,RFI-EL-003,A110
+PHX-DC-01-EL-SPEC-002,B,Electrical,Deepak Nambiar,Rahul Desai,Vikram Sharma,2025-08-04,Approved,DWG-002,PowerGrid Systems Pvt Ltd,RFI-EL-001,A180
+PHX-DC-01-ME-SPEC-001,B,Mechanical,Manish Patel,Anita Pillai,Vikram Sharma,2025-08-04,Approved,DWG-001,Schneider Electric India,NONE,A360
+PHX-DC-01-FP-SPEC-001,B,Mechanical,Manish Patel,Anita Pillai,Vikram Sharma,2025-08-04,Approved,DWG-001,Schneider Electric India,NONE,A560
+PHX-DC-01-EL-SUB-002,B,Electrical,Deepak Nambiar,Rahul Desai,Vikram Sharma,2025-08-04,Issued For Review,DWG-002,PowerGrid Systems Pvt Ltd,RFI-EL-005,A200
+PHX-DC-01-EL-FAT-002,B,Electrical,Deepak Nambiar,Rahul Desai,Vikram Sharma,2025-08-04,Issued For Review,DWG-002,PowerGrid Systems Pvt Ltd,NONE,A200
+PHX-DC-01-EL-NCR-001,B,QA/QC,Manish Patel,Anita Pillai,Vikram Sharma,2025-08-04,Issued For Review,DWG-001,PowerGrid Systems Pvt Ltd,RFI-EL-005,A210
+PHX-DC-01-CX-SCH-001,B,Commissioning,Manish Patel,Anita Pillai,Vikram Sharma,2025-08-04,Issued For Review,DWG-001,Schneider Electric India,RFI-CX-001,A580
+PHX-DC-01-IN-SPE-009,C,Instrumentation,Aditya Singh,Kavya Reddy,Vikram Sharma,2025-12-15,Issued For Review,PHX-DC-01-DWG-IN-009,Industrial Tech Corp 15,NONE,A590
+PHX-DC-01-EL-SIT-010,C,Electrical,Ajay Verma,Deepak Nambiar,Vikram Sharma,2025-10-22,Superseded,PHX-DC-01-DWG-EL-010,Industrial Tech Corp 22,RFI-EL-012,A550
+PHX-DC-01-EL-SIT-011,01,Electrical,Shreya Joshi,Sunita Krishnan,Vikram Sharma,2025-07-27,Superseded,PHX-DC-01-DWG-EL-011,Industrial Tech Corp 31,RFI-EL-012,A250
+PHX-DC-01-CI-MEE-012,02,Civil,Deepak Nambiar,Shreya Joshi,Vikram Sharma,2025-08-24,Draft,PHX-DC-01-DWG-CI-012,Industrial Tech Corp 33,NONE,A350
+PHX-DC-01-PR-MEE-013,B,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-12-02,Draft,PHX-DC-01-DWG-PR-013,Industrial Tech Corp 20,RFI-PR-008,A470
+PHX-DC-01-QA-RIS-014,C,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-09-20,Draft,PHX-DC-01-DWG-QA-014,Vertiv India Pvt Ltd,RFI-QA-018,A520
+PHX-DC-01-IN-MET-015,B,Instrumentation,Sunita Krishnan,Rahul Desai,Vikram Sharma,2025-08-17,Draft,PHX-DC-01-DWG-IN-015,Industrial Tech Corp 10,NONE,A370
+PHX-DC-01-CI-VEN-016,C,Civil,Nikhil Rao,Rahul Desai,Vikram Sharma,2025-07-27,Superseded,PHX-DC-01-DWG-CI-016,Industrial Tech Corp 20,NONE,A460
+PHX-DC-01-ME-SIT-017,C,Mechanical,Manish Patel,Rahul Desai,Vikram Sharma,2025-11-12,Issued For Review,PHX-DC-01-DWG-ME-017,Industrial Tech Corp 28,NONE,A530
+PHX-DC-01-QA-VEN-018,B,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-10-07,Issued For Review,PHX-DC-01-DWG-QA-018,Industrial Tech Corp 18,NONE,A470
+PHX-DC-01-ME-INS-019,B,Mechanical,Anita Pillai,Deepak Nambiar,Vikram Sharma,2025-10-11,Issued For Tender,PHX-DC-01-DWG-ME-019,Industrial Tech Corp 37,RFI-ME-014,A250
+PHX-DC-01-PR-MET-020,A,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-12-23,Issued For Review,PHX-DC-01-DWG-PR-020,Industrial Tech Corp 34,NONE,A530
+PHX-DC-01-CI-MET-021,B,Civil,Deepak Nambiar,Shreya Joshi,Vikram Sharma,2025-12-05,Superseded,PHX-DC-01-DWG-CI-021,Industrial Tech Corp 11,NONE,A120
+PHX-DC-01-IN-MET-022,C,Instrumentation,Vikram Sharma,Aditya Singh,Vikram Sharma,2025-10-20,Approved,PHX-DC-01-DWG-IN-022,Industrial Tech Corp 31,RFI-IN-017,A260
+PHX-DC-01-EL-MEE-023,02,Electrical,Sanjay Thakur,Dr. Meera Iyer,Vikram Sharma,2025-08-20,Issued For Tender,PHX-DC-01-DWG-EL-023,Industrial Tech Corp 35,RFI-EL-028,A560
+PHX-DC-01-QA-COM-024,01,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-12-21,Issued For Construction,PHX-DC-01-DWG-QA-024,Industrial Tech Corp 36,NONE,A150
+PHX-DC-01-ME-TES-025,B,Mechanical,Priya Nair,Vikram Sharma,Vikram Sharma,2025-09-13,Issued For Review,PHX-DC-01-DWG-ME-025,Schneider Electric India,NONE,A340
+PHX-DC-01-QA-VEN-026,01,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-12-21,Approved,PHX-DC-01-DWG-QA-026,Industrial Tech Corp 14,NONE,A180
+PHX-DC-01-CO-MET-027,B,Commissioning,Rohini Gupta,Sanjay Thakur,Vikram Sharma,2025-08-19,Approved,PHX-DC-01-DWG-CO-027,Industrial Tech Corp 12,NONE,A340
+PHX-DC-01-CI-VEN-028,01,Civil,Deepak Nambiar,Manish Patel,Vikram Sharma,2025-12-29,Issued For Tender,PHX-DC-01-DWG-CI-028,Industrial Tech Corp 38,NONE,A440
+PHX-DC-01-CI-SPE-029,B,Civil,Vikram Sharma,Rohini Gupta,Vikram Sharma,2025-11-02,Superseded,PHX-DC-01-DWG-CI-029,Industrial Tech Corp 30,RFI-CI-017,A370
+PHX-DC-01-EL-SIT-030,A,Electrical,Dr. Meera Iyer,Aditya Singh,Vikram Sharma,2025-08-24,Issued For Tender,PHX-DC-01-DWG-EL-030,Industrial Tech Corp 17,NONE,A370
+PHX-DC-01-QA-MET-031,01,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-12-23,Issued For Construction,PHX-DC-01-DWG-QA-031,Industrial Tech Corp 13,RFI-QA-017,A560
+PHX-DC-01-ME-VEN-032,B,Mechanical,Ajay Verma,Dr. Meera Iyer,Vikram Sharma,2025-09-18,Issued For Tender,PHX-DC-01-DWG-ME-032,Industrial Tech Corp 29,RFI-ME-028,A300
+PHX-DC-01-EL-INS-033,02,Electrical,Kavya Reddy,Shreya Joshi,Vikram Sharma,2025-11-22,Approved,PHX-DC-01-DWG-EL-033,Industrial Tech Corp 36,NONE,A430
+PHX-DC-01-CO-SPE-034,01,Commissioning,Sanjay Thakur,Sanjay Thakur,Vikram Sharma,2026-01-09,Approved,PHX-DC-01-DWG-CO-034,Industrial Tech Corp 22,NONE,A450
+PHX-DC-01-CO-MET-035,02,Commissioning,Rohini Gupta,Sanjay Thakur,Vikram Sharma,2025-07-26,Issued For Construction,PHX-DC-01-DWG-CO-035,Carrier India Pvt Ltd,NONE,A280
+PHX-DC-01-QA-SPE-036,B,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-08-10,Issued For Tender,PHX-DC-01-DWG-QA-036,Industrial Tech Corp 16,RFI-QA-029,A130
+PHX-DC-01-CO-MEE-037,A,Commissioning,Rohini Gupta,Rohini Gupta,Vikram Sharma,2025-09-25,Issued For Tender,PHX-DC-01-DWG-CO-037,Industrial Tech Corp 39,RFI-CO-005,A250
+PHX-DC-01-IN-SIT-038,A,Instrumentation,Aditya Singh,Rahul Desai,Vikram Sharma,2026-01-10,Issued For Tender,PHX-DC-01-DWG-IN-038,Industrial Tech Corp 11,RFI-IN-028,A560
+PHX-DC-01-ME-COM-039,A,Mechanical,Kavya Reddy,Nikhil Rao,Vikram Sharma,2025-10-01,Approved,PHX-DC-01-DWG-ME-039,Industrial Tech Corp 10,RFI-ME-024,A140
+PHX-DC-01-QA-SPE-040,C,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-10-18,Issued For Review,PHX-DC-01-DWG-QA-040,Industrial Tech Corp 27,NONE,A170
+PHX-DC-01-CO-RIS-041,B,Commissioning,Sanjay Thakur,Rohini Gupta,Vikram Sharma,2025-12-15,Approved,PHX-DC-01-DWG-CO-041,Industrial Tech Corp 10,NONE,A470
+PHX-DC-01-EL-MEE-042,01,Electrical,Priya Nair,Kavya Reddy,Vikram Sharma,2025-09-27,Issued For Construction,PHX-DC-01-DWG-EL-042,Industrial Tech Corp 31,NONE,A220
+PHX-DC-01-QA-SIT-043,01,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-10-25,Draft,PHX-DC-01-DWG-QA-043,Industrial Tech Corp 26,NONE,A340
+PHX-DC-01-ME-MET-044,A,Mechanical,Rahul Desai,Rahul Desai,Vikram Sharma,2025-09-02,Issued For Review,PHX-DC-01-DWG-ME-044,Industrial Tech Corp 33,NONE,A600
+PHX-DC-01-CI-RIS-045,A,Civil,Aditya Singh,Rahul Desai,Vikram Sharma,2025-12-12,Issued For Tender,PHX-DC-01-DWG-CI-045,Industrial Tech Corp 19,NONE,A530
+PHX-DC-01-PR-TES-046,C,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-08-13,Superseded,PHX-DC-01-DWG-PR-046,Industrial Tech Corp 17,RFI-PR-014,A540
+PHX-DC-01-ME-COM-047,C,Mechanical,Nikhil Rao,Aditya Singh,Vikram Sharma,2025-12-16,Draft,PHX-DC-01-DWG-ME-047,Industrial Tech Corp 25,RFI-ME-021,A100
+PHX-DC-01-EL-TES-048,01,Electrical,Rahul Desai,Rajan Mehta,Vikram Sharma,2025-12-09,Superseded,PHX-DC-01-DWG-EL-048,Industrial Tech Corp 24,RFI-EL-004,A270
+PHX-DC-01-CI-MEE-049,02,Civil,Rohini Gupta,Ajay Verma,Vikram Sharma,2025-09-07,Issued For Tender,PHX-DC-01-DWG-CI-049,Industrial Tech Corp 39,NONE,A540
+PHX-DC-01-IN-COM-050,B,Instrumentation,Shreya Joshi,Deepak Nambiar,Vikram Sharma,2025-08-03,Approved,PHX-DC-01-DWG-IN-050,Industrial Tech Corp 21,NONE,A290
+PHX-DC-01-CI-COM-051,C,Civil,Kavya Reddy,Vikram Sharma,Vikram Sharma,2025-10-06,Issued For Tender,PHX-DC-01-DWG-CI-051,PowerGrid Systems Pvt Ltd,RFI-CI-015,A160
+PHX-DC-01-IN-MEE-052,01,Instrumentation,Rajan Mehta,Anita Pillai,Vikram Sharma,2026-01-02,Issued For Construction,PHX-DC-01-DWG-IN-052,Industrial Tech Corp 37,RFI-IN-014,A550
+PHX-DC-01-QA-COM-053,A,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-08-29,Issued For Tender,PHX-DC-01-DWG-QA-053,Industrial Tech Corp 27,RFI-QA-021,A290
+PHX-DC-01-CI-COM-054,C,Civil,Kavya Reddy,Rajan Mehta,Vikram Sharma,2025-11-08,Issued For Tender,PHX-DC-01-DWG-CI-054,PowerGrid Systems Pvt Ltd,RFI-CI-015,A280
+PHX-DC-01-EL-MET-055,01,Electrical,Vikram Sharma,Dr. Meera Iyer,Vikram Sharma,2025-09-16,Superseded,PHX-DC-01-DWG-EL-055,Industrial Tech Corp 40,NONE,A290
+PHX-DC-01-CO-TES-056,C,Commissioning,Sanjay Thakur,Rohini Gupta,Vikram Sharma,2025-09-23,Issued For Tender,PHX-DC-01-DWG-CO-056,Industrial Tech Corp 14,RFI-CO-007,A220
+PHX-DC-01-IN-COM-057,C,Instrumentation,Manish Patel,Sanjay Thakur,Vikram Sharma,2025-12-27,Issued For Tender,PHX-DC-01-DWG-IN-057,Industrial Tech Corp 38,RFI-IN-013,A270
+PHX-DC-01-QA-INS-058,B,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-08-19,Issued For Tender,PHX-DC-01-DWG-QA-058,Industrial Tech Corp 36,RFI-QA-020,A340
+PHX-DC-01-EL-SPE-059,A,Electrical,Anita Pillai,Dr. Meera Iyer,Vikram Sharma,2025-08-29,Draft,PHX-DC-01-DWG-EL-059,Industrial Tech Corp 16,RFI-EL-003,A560
+PHX-DC-01-CO-MET-060,01,Commissioning,Rohini Gupta,Rohini Gupta,Vikram Sharma,2025-10-29,Issued For Review,PHX-DC-01-DWG-CO-060,Industrial Tech Corp 33,RFI-CO-030,A210
+PHX-DC-01-PR-SPE-061,A,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-11-20,Draft,PHX-DC-01-DWG-PR-061,Industrial Tech Corp 37,RFI-PR-018,A470
+PHX-DC-01-PR-SPE-062,02,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-10-12,Draft,PHX-DC-01-DWG-PR-062,Industrial Tech Corp 32,NONE,A420
+PHX-DC-01-CO-INS-063,01,Commissioning,Rohini Gupta,Rohini Gupta,Vikram Sharma,2025-10-16,Issued For Construction,PHX-DC-01-DWG-CO-063,Industrial Tech Corp 21,RFI-CO-019,A100
+PHX-DC-01-CO-TES-064,A,Commissioning,Sanjay Thakur,Sanjay Thakur,Vikram Sharma,2025-12-15,Issued For Tender,PHX-DC-01-DWG-CO-064,Industrial Tech Corp 38,RFI-CO-009,A360
+PHX-DC-01-CO-SPE-065,C,Commissioning,Rohini Gupta,Rohini Gupta,Vikram Sharma,2025-10-11,Issued For Tender,PHX-DC-01-DWG-CO-065,Industrial Tech Corp 7,RFI-CO-004,A590
+PHX-DC-01-QA-RIS-066,A,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-08-03,Approved,PHX-DC-01-DWG-QA-066,Industrial Tech Corp 26,RFI-QA-010,A200
+PHX-DC-01-EL-SPE-067,B,Electrical,Deepak Nambiar,Vikram Sharma,Vikram Sharma,2026-01-11,Approved,PHX-DC-01-DWG-EL-067,Schneider Electric India,NONE,A220
+PHX-DC-01-IN-TES-068,C,Instrumentation,Manish Patel,Rahul Desai,Vikram Sharma,2025-10-08,Issued For Construction,PHX-DC-01-DWG-IN-068,Industrial Tech Corp 15,RFI-IN-018,A320
+PHX-DC-01-CI-TES-069,A,Civil,Ajay Verma,Rajan Mehta,Vikram Sharma,2025-08-31,Issued For Tender,PHX-DC-01-DWG-CI-069,Industrial Tech Corp 39,NONE,A530
+PHX-DC-01-PR-RIS-070,B,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-09-05,Issued For Construction,PHX-DC-01-DWG-PR-070,Industrial Tech Corp 39,RFI-PR-006,A300
+PHX-DC-01-PR-COM-071,02,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-10-19,Issued For Review,PHX-DC-01-DWG-PR-071,Kidde India Pvt Ltd,RFI-PR-003,A260
+PHX-DC-01-CO-SPE-072,02,Commissioning,Sanjay Thakur,Rohini Gupta,Vikram Sharma,2025-08-11,Issued For Construction,PHX-DC-01-DWG-CO-072,Industrial Tech Corp 10,NONE,A360
+PHX-DC-01-IN-SIT-073,B,Instrumentation,Sunita Krishnan,Manish Patel,Vikram Sharma,2025-08-18,Superseded,PHX-DC-01-DWG-IN-073,Industrial Tech Corp 14,RFI-IN-003,A440
+PHX-DC-01-EL-SPE-074,C,Electrical,Dr. Meera Iyer,Dr. Meera Iyer,Vikram Sharma,2025-11-02,Issued For Review,PHX-DC-01-DWG-EL-074,Industrial Tech Corp 30,NONE,A580
+PHX-DC-01-EL-TES-075,B,Electrical,Deepak Nambiar,Rohini Gupta,Vikram Sharma,2025-09-28,Approved,PHX-DC-01-DWG-EL-075,Kidde India Pvt Ltd,RFI-EL-018,A180
+PHX-DC-01-QA-VEN-076,01,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-11-28,Draft,PHX-DC-01-DWG-QA-076,Industrial Tech Corp 30,NONE,A230
+PHX-DC-01-PR-TES-077,01,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2026-01-05,Issued For Tender,PHX-DC-01-DWG-PR-077,Industrial Tech Corp 17,RFI-PR-027,A230
+PHX-DC-01-CI-SPE-078,B,Civil,Dr. Meera Iyer,Shreya Joshi,Vikram Sharma,2025-07-26,Issued For Construction,PHX-DC-01-DWG-CI-078,Industrial Tech Corp 37,NONE,A290
+PHX-DC-01-CO-COM-079,02,Commissioning,Rohini Gupta,Sanjay Thakur,Vikram Sharma,2025-09-22,Draft,PHX-DC-01-DWG-CO-079,Industrial Tech Corp 40,NONE,A460
+PHX-DC-01-ME-SIT-080,C,Mechanical,Dr. Meera Iyer,Rahul Desai,Vikram Sharma,2025-11-16,Issued For Construction,PHX-DC-01-DWG-ME-080,Industrial Tech Corp 25,RFI-ME-030,A510
+PHX-DC-01-QA-RIS-081,01,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-10-03,Issued For Tender,PHX-DC-01-DWG-QA-081,Industrial Tech Corp 25,NONE,A280
+PHX-DC-01-CI-INS-082,C,Civil,Rohini Gupta,Aditya Singh,Vikram Sharma,2025-10-09,Superseded,PHX-DC-01-DWG-CI-082,Industrial Tech Corp 9,NONE,A100
+PHX-DC-01-CI-COM-083,A,Civil,Sanjay Thakur,Dr. Meera Iyer,Vikram Sharma,2025-09-26,Issued For Construction,PHX-DC-01-DWG-CI-083,Industrial Tech Corp 25,RFI-CI-030,A410
+PHX-DC-01-QA-MET-084,B,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-09-14,Superseded,PHX-DC-01-DWG-QA-084,Vertiv India Pvt Ltd,RFI-QA-030,A520
+PHX-DC-01-CO-RIS-085,C,Commissioning,Sanjay Thakur,Sanjay Thakur,Vikram Sharma,2025-10-18,Approved,PHX-DC-01-DWG-CO-085,Cummins India Ltd,RFI-CO-023,A550
+PHX-DC-01-EL-VEN-086,C,Electrical,Manish Patel,Priya Nair,Vikram Sharma,2025-09-06,Issued For Review,PHX-DC-01-DWG-EL-086,PowerGrid Systems Pvt Ltd,RFI-EL-021,A280
+PHX-DC-01-CO-TES-087,B,Commissioning,Rohini Gupta,Rohini Gupta,Vikram Sharma,2025-09-21,Issued For Construction,PHX-DC-01-DWG-CO-087,Industrial Tech Corp 20,NONE,A110
+PHX-DC-01-EL-SPE-088,02,Electrical,Manish Patel,Ajay Verma,Vikram Sharma,2025-08-29,Approved,PHX-DC-01-DWG-EL-088,Industrial Tech Corp 26,NONE,A580
+PHX-DC-01-CI-INS-089,B,Civil,Sanjay Thakur,Kavya Reddy,Vikram Sharma,2025-09-18,Draft,PHX-DC-01-DWG-CI-089,Industrial Tech Corp 27,NONE,A340
+PHX-DC-01-IN-VEN-090,01,Instrumentation,Rahul Desai,Rohini Gupta,Vikram Sharma,2025-08-11,Approved,PHX-DC-01-DWG-IN-090,Industrial Tech Corp 24,NONE,A330
+PHX-DC-01-EL-INS-091,01,Electrical,Aditya Singh,Anita Pillai,Vikram Sharma,2025-08-01,Issued For Construction,PHX-DC-01-DWG-EL-091,Industrial Tech Corp 10,NONE,A330
+PHX-DC-01-QA-INS-092,02,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-11-26,Superseded,PHX-DC-01-DWG-QA-092,Industrial Tech Corp 34,RFI-QA-008,A260
+PHX-DC-01-IN-TES-093,01,Instrumentation,Sanjay Thakur,Manish Patel,Vikram Sharma,2025-09-26,Approved,PHX-DC-01-DWG-IN-093,Industrial Tech Corp 34,RFI-IN-008,A580
+PHX-DC-01-CO-SIT-094,B,Commissioning,Rohini Gupta,Rohini Gupta,Vikram Sharma,2025-12-12,Draft,PHX-DC-01-DWG-CO-094,Industrial Tech Corp 40,NONE,A100
+PHX-DC-01-CI-RIS-095,B,Civil,Aditya Singh,Ajay Verma,Vikram Sharma,2025-10-20,Approved,PHX-DC-01-DWG-CI-095,Industrial Tech Corp 24,RFI-CI-004,A320
+PHX-DC-01-EL-MEE-096,01,Electrical,Dr. Meera Iyer,Manish Patel,Vikram Sharma,2025-08-18,Issued For Review,PHX-DC-01-DWG-EL-096,Industrial Tech Corp 39,NONE,A110
+PHX-DC-01-CI-COM-097,B,Civil,Rohini Gupta,Ajay Verma,Vikram Sharma,2025-08-05,Issued For Tender,PHX-DC-01-DWG-CI-097,Industrial Tech Corp 14,NONE,A590
+PHX-DC-01-QA-COM-098,B,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-10-17,Draft,PHX-DC-01-DWG-QA-098,Industrial Tech Corp 13,NONE,A180
+PHX-DC-01-EL-SPE-099,01,Electrical,Rohini Gupta,Aditya Singh,Vikram Sharma,2025-10-19,Approved,PHX-DC-01-DWG-EL-099,Industrial Tech Corp 28,RFI-EL-027,A330
+PHX-DC-01-IN-TES-100,02,Instrumentation,Deepak Nambiar,Sanjay Thakur,Vikram Sharma,2025-07-27,Issued For Tender,PHX-DC-01-DWG-IN-100,Industrial Tech Corp 12,NONE,A270
+PHX-DC-01-CI-COM-101,01,Civil,Sanjay Thakur,Nikhil Rao,Vikram Sharma,2025-09-09,Issued For Construction,PHX-DC-01-DWG-CI-101,Industrial Tech Corp 9,NONE,A200
+PHX-DC-01-CI-INS-102,01,Civil,Manish Patel,Sunita Krishnan,Vikram Sharma,2025-10-10,Draft,PHX-DC-01-DWG-CI-102,Industrial Tech Corp 22,NONE,A310
+PHX-DC-01-ME-RIS-103,B,Mechanical,Deepak Nambiar,Kavya Reddy,Vikram Sharma,2025-09-03,Issued For Construction,PHX-DC-01-DWG-ME-103,Industrial Tech Corp 9,RFI-ME-011,A310
+PHX-DC-01-EL-INS-104,02,Electrical,Aditya Singh,Rajan Mehta,Vikram Sharma,2025-09-09,Issued For Tender,PHX-DC-01-DWG-EL-104,Industrial Tech Corp 23,NONE,A440
+PHX-DC-01-PR-INS-105,02,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-08-23,Approved,PHX-DC-01-DWG-PR-105,Industrial Tech Corp 8,NONE,A510
+PHX-DC-01-EL-COM-106,02,Electrical,Sunita Krishnan,Deepak Nambiar,Vikram Sharma,2025-11-17,Issued For Tender,PHX-DC-01-DWG-EL-106,Industrial Tech Corp 7,NONE,A190
+PHX-DC-01-PR-SPE-107,02,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-11-14,Issued For Tender,PHX-DC-01-DWG-PR-107,Vertiv India Pvt Ltd,NONE,A520
+PHX-DC-01-IN-VEN-108,C,Instrumentation,Vikram Sharma,Rajan Mehta,Vikram Sharma,2025-10-16,Issued For Review,PHX-DC-01-DWG-IN-108,Industrial Tech Corp 9,NONE,A290
+PHX-DC-01-CO-INS-109,02,Commissioning,Sanjay Thakur,Sanjay Thakur,Vikram Sharma,2025-11-21,Superseded,PHX-DC-01-DWG-CO-109,Industrial Tech Corp 36,RFI-CO-023,A590
+PHX-DC-01-ME-MET-110,01,Mechanical,Manish Patel,Shreya Joshi,Vikram Sharma,2025-10-24,Superseded,PHX-DC-01-DWG-ME-110,Industrial Tech Corp 29,NONE,A260
+PHX-DC-01-QA-SIT-111,01,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-12-28,Issued For Construction,PHX-DC-01-DWG-QA-111,Industrial Tech Corp 23,NONE,A390
+PHX-DC-01-PR-SPE-112,A,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2026-01-07,Draft,PHX-DC-01-DWG-PR-112,Industrial Tech Corp 13,RFI-PR-013,A170
+PHX-DC-01-PR-MET-113,02,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-11-14,Superseded,PHX-DC-01-DWG-PR-113,Industrial Tech Corp 8,RFI-PR-012,A580
+PHX-DC-01-PR-INS-114,01,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-12-15,Superseded,PHX-DC-01-DWG-PR-114,Cummins India Ltd,NONE,A380
+PHX-DC-01-QA-MET-115,C,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-11-28,Superseded,PHX-DC-01-DWG-QA-115,Industrial Tech Corp 25,NONE,A540
+PHX-DC-01-CI-VEN-116,01,Civil,Nikhil Rao,Anita Pillai,Vikram Sharma,2025-07-30,Issued For Tender,PHX-DC-01-DWG-CI-116,Industrial Tech Corp 17,RFI-CI-023,A210
+PHX-DC-01-ME-TES-117,A,Mechanical,Rohini Gupta,Manish Patel,Vikram Sharma,2025-08-29,Issued For Construction,PHX-DC-01-DWG-ME-117,Industrial Tech Corp 19,NONE,A100
+PHX-DC-01-PR-INS-118,B,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-11-19,Superseded,PHX-DC-01-DWG-PR-118,Industrial Tech Corp 40,RFI-PR-025,A560
+PHX-DC-01-CO-INS-119,C,Commissioning,Rohini Gupta,Rohini Gupta,Vikram Sharma,2025-08-30,Approved,PHX-DC-01-DWG-CO-119,Industrial Tech Corp 11,RFI-CO-020,A110
+PHX-DC-01-IN-INS-120,B,Instrumentation,Priya Nair,Manish Patel,Vikram Sharma,2025-11-08,Draft,PHX-DC-01-DWG-IN-120,Industrial Tech Corp 34,NONE,A300
+PHX-DC-01-CO-MEE-121,B,Commissioning,Rohini Gupta,Rohini Gupta,Vikram Sharma,2025-09-01,Issued For Review,PHX-DC-01-DWG-CO-121,Vertiv India Pvt Ltd,NONE,A590
+PHX-DC-01-ME-MEE-122,A,Mechanical,Rohini Gupta,Rohini Gupta,Vikram Sharma,2025-08-22,Issued For Review,PHX-DC-01-DWG-ME-122,Industrial Tech Corp 7,RFI-ME-028,A490
+PHX-DC-01-IN-SIT-123,01,Instrumentation,Sunita Krishnan,Deepak Nambiar,Vikram Sharma,2025-12-06,Superseded,PHX-DC-01-DWG-IN-123,Industrial Tech Corp 21,RFI-IN-013,A200
+PHX-DC-01-QA-MEE-124,A,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-12-11,Issued For Construction,PHX-DC-01-DWG-QA-124,Industrial Tech Corp 33,RFI-QA-016,A360
+PHX-DC-01-QA-MET-125,B,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-09-14,Issued For Construction,PHX-DC-01-DWG-QA-125,Industrial Tech Corp 18,NONE,A360
+PHX-DC-01-IN-VEN-126,C,Instrumentation,Shreya Joshi,Anita Pillai,Vikram Sharma,2025-09-29,Issued For Tender,PHX-DC-01-DWG-IN-126,Industrial Tech Corp 39,RFI-IN-024,A190
+PHX-DC-01-QA-SIT-127,A,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-09-04,Superseded,PHX-DC-01-DWG-QA-127,Cummins India Ltd,RFI-QA-017,A240
+PHX-DC-01-QA-INS-128,A,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-11-27,Issued For Construction,PHX-DC-01-DWG-QA-128,Industrial Tech Corp 33,RFI-QA-012,A570
+PHX-DC-01-CI-SIT-129,02,Civil,Deepak Nambiar,Nikhil Rao,Vikram Sharma,2025-11-17,Issued For Tender,PHX-DC-01-DWG-CI-129,Kidde India Pvt Ltd,RFI-CI-024,A410
+PHX-DC-01-IN-SIT-130,B,Instrumentation,Dr. Meera Iyer,Sunita Krishnan,Vikram Sharma,2025-10-12,Draft,PHX-DC-01-DWG-IN-130,Industrial Tech Corp 9,NONE,A430
+PHX-DC-01-PR-COM-131,02,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-09-07,Superseded,PHX-DC-01-DWG-PR-131,Industrial Tech Corp 21,RFI-PR-004,A540
+PHX-DC-01-CI-SIT-132,01,Civil,Sanjay Thakur,Rajan Mehta,Vikram Sharma,2025-09-05,Approved,PHX-DC-01-DWG-CI-132,Industrial Tech Corp 17,NONE,A120
+PHX-DC-01-IN-INS-133,B,Instrumentation,Anita Pillai,Kavya Reddy,Vikram Sharma,2026-01-07,Issued For Construction,PHX-DC-01-DWG-IN-133,Industrial Tech Corp 27,RFI-IN-013,A340
+PHX-DC-01-CO-COM-134,B,Commissioning,Rohini Gupta,Sanjay Thakur,Vikram Sharma,2025-12-19,Approved,PHX-DC-01-DWG-CO-134,Industrial Tech Corp 8,NONE,A170
+PHX-DC-01-QA-MET-135,C,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-12-14,Approved,PHX-DC-01-DWG-QA-135,PowerGrid Systems Pvt Ltd,NONE,A360
+PHX-DC-01-CI-SPE-136,C,Civil,Sunita Krishnan,Shreya Joshi,Vikram Sharma,2025-12-01,Superseded,PHX-DC-01-DWG-CI-136,Industrial Tech Corp 8,RFI-CI-015,A540
+PHX-DC-01-QA-MET-137,C,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-12-03,Issued For Review,PHX-DC-01-DWG-QA-137,Industrial Tech Corp 7,NONE,A410
+PHX-DC-01-QA-COM-138,C,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-08-12,Issued For Construction,PHX-DC-01-DWG-QA-138,Cummins India Ltd,RFI-QA-008,A570
+PHX-DC-01-QA-SPE-139,C,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-11-02,Issued For Review,PHX-DC-01-DWG-QA-139,Industrial Tech Corp 37,RFI-QA-015,A350
+PHX-DC-01-CO-MEE-140,C,Commissioning,Sanjay Thakur,Rohini Gupta,Vikram Sharma,2025-09-05,Superseded,PHX-DC-01-DWG-CO-140,Industrial Tech Corp 38,NONE,A470
+PHX-DC-01-CO-MEE-141,B,Commissioning,Sanjay Thakur,Rohini Gupta,Vikram Sharma,2025-09-03,Approved,PHX-DC-01-DWG-CO-141,Industrial Tech Corp 22,RFI-CO-008,A210
+PHX-DC-01-EL-MET-142,B,Electrical,Manish Patel,Dr. Meera Iyer,Vikram Sharma,2025-08-15,Superseded,PHX-DC-01-DWG-EL-142,Industrial Tech Corp 14,RFI-EL-004,A100
+PHX-DC-01-PR-INS-143,A,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-08-23,Issued For Review,PHX-DC-01-DWG-PR-143,Cummins India Ltd,RFI-PR-007,A420
+PHX-DC-01-CI-RIS-144,02,Civil,Priya Nair,Priya Nair,Vikram Sharma,2025-08-10,Issued For Tender,PHX-DC-01-DWG-CI-144,Kidde India Pvt Ltd,RFI-CI-026,A270
+PHX-DC-01-ME-MEE-145,02,Mechanical,Rajan Mehta,Dr. Meera Iyer,Vikram Sharma,2025-09-28,Issued For Construction,PHX-DC-01-DWG-ME-145,Industrial Tech Corp 10,RFI-ME-009,A140
+PHX-DC-01-EL-RIS-146,02,Electrical,Dr. Meera Iyer,Nikhil Rao,Vikram Sharma,2025-10-30,Issued For Tender,PHX-DC-01-DWG-EL-146,Industrial Tech Corp 31,RFI-EL-002,A110
+PHX-DC-01-CO-COM-147,01,Commissioning,Sanjay Thakur,Rohini Gupta,Vikram Sharma,2025-09-24,Draft,PHX-DC-01-DWG-CO-147,Industrial Tech Corp 28,NONE,A180
+PHX-DC-01-CO-MEE-148,A,Commissioning,Sanjay Thakur,Sanjay Thakur,Vikram Sharma,2025-08-07,Issued For Construction,PHX-DC-01-DWG-CO-148,Industrial Tech Corp 40,RFI-CO-015,A550
+PHX-DC-01-EL-TES-149,A,Electrical,Ajay Verma,Dr. Meera Iyer,Vikram Sharma,2025-10-19,Issued For Review,PHX-DC-01-DWG-EL-149,Industrial Tech Corp 16,NONE,A470
+PHX-DC-01-QA-MET-150,B,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-09-13,Approved,PHX-DC-01-DWG-QA-150,Cummins India Ltd,RFI-QA-001,A150
+PHX-DC-01-CI-RIS-151,C,Civil,Priya Nair,Aditya Singh,Vikram Sharma,2025-08-11,Approved,PHX-DC-01-DWG-CI-151,Cummins India Ltd,NONE,A380
+PHX-DC-01-CO-MEE-152,C,Commissioning,Rohini Gupta,Sanjay Thakur,Vikram Sharma,2025-12-29,Superseded,PHX-DC-01-DWG-CO-152,Industrial Tech Corp 22,RFI-CO-023,A130
+PHX-DC-01-IN-SIT-153,A,Instrumentation,Rohini Gupta,Kavya Reddy,Vikram Sharma,2025-11-30,Issued For Construction,PHX-DC-01-DWG-IN-153,Industrial Tech Corp 10,NONE,A350
+PHX-DC-01-CI-COM-154,B,Civil,Rajan Mehta,Manish Patel,Vikram Sharma,2025-09-05,Approved,PHX-DC-01-DWG-CI-154,Industrial Tech Corp 32,NONE,A340
+PHX-DC-01-EL-MEE-155,C,Electrical,Nikhil Rao,Priya Nair,Vikram Sharma,2025-12-11,Draft,PHX-DC-01-DWG-EL-155,Industrial Tech Corp 37,NONE,A200
+PHX-DC-01-ME-COM-156,B,Mechanical,Rajan Mehta,Rajan Mehta,Vikram Sharma,2025-08-07,Issued For Tender,PHX-DC-01-DWG-ME-156,Industrial Tech Corp 7,RFI-ME-020,A340
+PHX-DC-01-CO-COM-157,02,Commissioning,Sanjay Thakur,Rohini Gupta,Vikram Sharma,2025-11-03,Superseded,PHX-DC-01-DWG-CO-157,Industrial Tech Corp 13,RFI-CO-015,A240
+PHX-DC-01-IN-COM-158,01,Instrumentation,Vikram Sharma,Anita Pillai,Vikram Sharma,2025-09-04,Approved,PHX-DC-01-DWG-IN-158,Industrial Tech Corp 19,RFI-IN-008,A540
+PHX-DC-01-ME-SPE-159,C,Mechanical,Priya Nair,Rohini Gupta,Vikram Sharma,2025-12-08,Superseded,PHX-DC-01-DWG-ME-159,Industrial Tech Corp 39,NONE,A100
+PHX-DC-01-EL-SPE-160,01,Electrical,Priya Nair,Priya Nair,Vikram Sharma,2025-08-06,Draft,PHX-DC-01-DWG-EL-160,Industrial Tech Corp 36,RFI-EL-014,A380
+PHX-DC-01-ME-RIS-161,01,Mechanical,Anita Pillai,Deepak Nambiar,Vikram Sharma,2026-01-08,Draft,PHX-DC-01-DWG-ME-161,Vertiv India Pvt Ltd,RFI-ME-003,A550
+PHX-DC-01-PR-MEE-162,B,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-12-26,Issued For Tender,PHX-DC-01-DWG-PR-162,Industrial Tech Corp 21,RFI-PR-018,A150
+PHX-DC-01-ME-INS-163,C,Mechanical,Priya Nair,Rahul Desai,Vikram Sharma,2026-01-04,Draft,PHX-DC-01-DWG-ME-163,Industrial Tech Corp 7,NONE,A340
+PHX-DC-01-IN-TES-164,A,Instrumentation,Dr. Meera Iyer,Nikhil Rao,Vikram Sharma,2025-07-28,Superseded,PHX-DC-01-DWG-IN-164,Industrial Tech Corp 24,RFI-IN-022,A370
+PHX-DC-01-QA-MET-165,02,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-07-30,Issued For Review,PHX-DC-01-DWG-QA-165,Industrial Tech Corp 11,NONE,A550
+PHX-DC-01-IN-COM-166,B,Instrumentation,Kavya Reddy,Priya Nair,Vikram Sharma,2025-10-24,Issued For Review,PHX-DC-01-DWG-IN-166,Industrial Tech Corp 36,NONE,A540
+PHX-DC-01-PR-SPE-167,A,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-10-19,Issued For Construction,PHX-DC-01-DWG-PR-167,Industrial Tech Corp 8,RFI-PR-013,A500
+PHX-DC-01-CI-MET-168,B,Civil,Nikhil Rao,Aditya Singh,Vikram Sharma,2025-08-02,Issued For Tender,PHX-DC-01-DWG-CI-168,Industrial Tech Corp 20,RFI-CI-023,A400
+PHX-DC-01-EL-SIT-169,01,Electrical,Sunita Krishnan,Dr. Meera Iyer,Vikram Sharma,2025-10-01,Draft,PHX-DC-01-DWG-EL-169,Schneider Electric India,NONE,A460
+PHX-DC-01-QA-TES-170,B,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-07-31,Issued For Tender,PHX-DC-01-DWG-QA-170,Industrial Tech Corp 17,RFI-QA-005,A330
+PHX-DC-01-QA-COM-171,C,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-11-15,Draft,PHX-DC-01-DWG-QA-171,Industrial Tech Corp 21,RFI-QA-019,A340
+PHX-DC-01-EL-COM-172,B,Electrical,Ajay Verma,Nikhil Rao,Vikram Sharma,2025-10-13,Issued For Construction,PHX-DC-01-DWG-EL-172,Industrial Tech Corp 11,NONE,A560
+PHX-DC-01-CI-TES-173,A,Civil,Ajay Verma,Rohini Gupta,Vikram Sharma,2025-09-15,Approved,PHX-DC-01-DWG-CI-173,Kidde India Pvt Ltd,RFI-CI-027,A190
+PHX-DC-01-EL-MET-174,02,Electrical,Manish Patel,Dr. Meera Iyer,Vikram Sharma,2025-12-28,Draft,PHX-DC-01-DWG-EL-174,Industrial Tech Corp 30,NONE,A440
+PHX-DC-01-ME-MEE-175,A,Mechanical,Sanjay Thakur,Nikhil Rao,Vikram Sharma,2025-12-21,Draft,PHX-DC-01-DWG-ME-175,Industrial Tech Corp 16,NONE,A290
+PHX-DC-01-ME-MEE-176,C,Mechanical,Sunita Krishnan,Aditya Singh,Vikram Sharma,2025-12-10,Issued For Tender,PHX-DC-01-DWG-ME-176,PowerGrid Systems Pvt Ltd,NONE,A330
+PHX-DC-01-IN-MET-177,02,Instrumentation,Aditya Singh,Ajay Verma,Vikram Sharma,2025-08-08,Issued For Review,PHX-DC-01-DWG-IN-177,Industrial Tech Corp 31,RFI-IN-020,A460
+PHX-DC-01-CO-SPE-178,01,Commissioning,Sanjay Thakur,Sanjay Thakur,Vikram Sharma,2025-12-15,Superseded,PHX-DC-01-DWG-CO-178,Industrial Tech Corp 25,NONE,A300
+PHX-DC-01-CI-SPE-179,01,Civil,Rahul Desai,Rajan Mehta,Vikram Sharma,2025-12-03,Issued For Review,PHX-DC-01-DWG-CI-179,Industrial Tech Corp 33,NONE,A270
+PHX-DC-01-EL-TES-180,B,Electrical,Vikram Sharma,Vikram Sharma,Vikram Sharma,2026-01-08,Issued For Review,PHX-DC-01-DWG-EL-180,Kidde India Pvt Ltd,RFI-EL-007,A140
+PHX-DC-01-EL-TES-181,02,Electrical,Rohini Gupta,Sanjay Thakur,Vikram Sharma,2025-10-05,Draft,PHX-DC-01-DWG-EL-181,Industrial Tech Corp 11,NONE,A110
+PHX-DC-01-EL-VEN-182,A,Electrical,Ajay Verma,Manish Patel,Vikram Sharma,2025-12-16,Draft,PHX-DC-01-DWG-EL-182,Carrier India Pvt Ltd,NONE,A490
+PHX-DC-01-CO-MEE-183,A,Commissioning,Rohini Gupta,Sanjay Thakur,Vikram Sharma,2025-08-23,Issued For Review,PHX-DC-01-DWG-CO-183,Industrial Tech Corp 23,RFI-CO-021,A150
+PHX-DC-01-CI-SIT-184,C,Civil,Deepak Nambiar,Anita Pillai,Vikram Sharma,2025-09-26,Issued For Review,PHX-DC-01-DWG-CI-184,Industrial Tech Corp 11,RFI-CI-008,A140
+PHX-DC-01-IN-RIS-185,B,Instrumentation,Manish Patel,Sunita Krishnan,Vikram Sharma,2025-10-05,Draft,PHX-DC-01-DWG-IN-185,Carrier India Pvt Ltd,RFI-IN-027,A390
+PHX-DC-01-PR-MEE-186,01,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-11-26,Issued For Tender,PHX-DC-01-DWG-PR-186,Industrial Tech Corp 33,NONE,A550
+PHX-DC-01-ME-MET-187,C,Mechanical,Anita Pillai,Vikram Sharma,Vikram Sharma,2025-09-20,Issued For Construction,PHX-DC-01-DWG-ME-187,Industrial Tech Corp 12,RFI-ME-030,A240
+PHX-DC-01-QA-SIT-188,01,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2026-01-08,Issued For Construction,PHX-DC-01-DWG-QA-188,Industrial Tech Corp 14,RFI-QA-018,A310
+PHX-DC-01-CI-SIT-189,01,Civil,Rahul Desai,Sanjay Thakur,Vikram Sharma,2025-12-10,Issued For Review,PHX-DC-01-DWG-CI-189,Kidde India Pvt Ltd,RFI-CI-030,A400
+PHX-DC-01-CO-MET-190,A,Commissioning,Rohini Gupta,Rohini Gupta,Vikram Sharma,2025-08-02,Issued For Tender,PHX-DC-01-DWG-CO-190,Industrial Tech Corp 39,RFI-CO-028,A130
+PHX-DC-01-PR-RIS-191,C,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-09-12,Approved,PHX-DC-01-DWG-PR-191,Industrial Tech Corp 18,RFI-PR-003,A140
+PHX-DC-01-CO-SPE-192,02,Commissioning,Sanjay Thakur,Sanjay Thakur,Vikram Sharma,2025-10-14,Superseded,PHX-DC-01-DWG-CO-192,Industrial Tech Corp 10,RFI-CO-029,A460
+PHX-DC-01-PR-INS-193,02,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-12-07,Draft,PHX-DC-01-DWG-PR-193,Industrial Tech Corp 15,RFI-PR-002,A250
+PHX-DC-01-QA-TES-194,02,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-09-26,Superseded,PHX-DC-01-DWG-QA-194,Cummins India Ltd,RFI-QA-014,A430
+PHX-DC-01-EL-INS-195,A,Electrical,Rahul Desai,Manish Patel,Vikram Sharma,2025-10-31,Approved,PHX-DC-01-DWG-EL-195,Industrial Tech Corp 27,NONE,A120
+PHX-DC-01-QA-RIS-196,C,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-08-04,Approved,PHX-DC-01-DWG-QA-196,Industrial Tech Corp 8,NONE,A120
+PHX-DC-01-EL-RIS-197,C,Electrical,Sanjay Thakur,Sanjay Thakur,Vikram Sharma,2025-08-25,Issued For Construction,PHX-DC-01-DWG-EL-197,Cummins India Ltd,RFI-EL-018,A400
+PHX-DC-01-IN-TES-198,01,Instrumentation,Vikram Sharma,Sunita Krishnan,Vikram Sharma,2025-10-08,Issued For Review,PHX-DC-01-DWG-IN-198,Industrial Tech Corp 21,NONE,A460
+PHX-DC-01-EL-SPE-199,B,Electrical,Nikhil Rao,Rohini Gupta,Vikram Sharma,2025-08-03,Issued For Construction,PHX-DC-01-DWG-EL-199,Industrial Tech Corp 10,NONE,A200
+PHX-DC-01-CI-RIS-200,01,Civil,Sunita Krishnan,Sunita Krishnan,Vikram Sharma,2025-08-18,Draft,PHX-DC-01-DWG-CI-200,Industrial Tech Corp 36,RFI-CI-024,A140
+PHX-DC-01-PR-SIT-201,01,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2026-01-05,Superseded,PHX-DC-01-DWG-PR-201,Industrial Tech Corp 28,RFI-PR-027,A200
+PHX-DC-01-ME-COM-202,01,Mechanical,Kavya Reddy,Vikram Sharma,Vikram Sharma,2025-09-07,Issued For Construction,PHX-DC-01-DWG-ME-202,Industrial Tech Corp 40,NONE,A440
+PHX-DC-01-CI-SIT-203,01,Civil,Deepak Nambiar,Priya Nair,Vikram Sharma,2025-10-31,Issued For Tender,PHX-DC-01-DWG-CI-203,Industrial Tech Corp 24,NONE,A480
+PHX-DC-01-PR-SIT-204,B,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-10-21,Approved,PHX-DC-01-DWG-PR-204,Industrial Tech Corp 22,RFI-PR-015,A300
+PHX-DC-01-ME-INS-205,01,Mechanical,Manish Patel,Rohini Gupta,Vikram Sharma,2025-07-31,Issued For Tender,PHX-DC-01-DWG-ME-205,Industrial Tech Corp 20,NONE,A500
+PHX-DC-01-IN-SIT-206,B,Instrumentation,Priya Nair,Rahul Desai,Vikram Sharma,2025-10-12,Issued For Construction,PHX-DC-01-DWG-IN-206,Industrial Tech Corp 11,NONE,A170
+PHX-DC-01-IN-TES-207,C,Instrumentation,Rohini Gupta,Rohini Gupta,Vikram Sharma,2025-10-31,Superseded,PHX-DC-01-DWG-IN-207,Industrial Tech Corp 34,NONE,A490
+PHX-DC-01-CI-VEN-208,B,Civil,Ajay Verma,Ajay Verma,Vikram Sharma,2025-12-20,Issued For Tender,PHX-DC-01-DWG-CI-208,Industrial Tech Corp 23,NONE,A540
+PHX-DC-01-QA-RIS-209,01,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-07-29,Issued For Construction,PHX-DC-01-DWG-QA-209,Industrial Tech Corp 36,RFI-QA-021,A420
+PHX-DC-01-EL-COM-210,02,Electrical,Rajan Mehta,Dr. Meera Iyer,Vikram Sharma,2025-08-16,Draft,PHX-DC-01-DWG-EL-210,Schneider Electric India,RFI-EL-009,A360
+PHX-DC-01-CI-MEE-211,C,Civil,Vikram Sharma,Nikhil Rao,Vikram Sharma,2025-11-05,Issued For Tender,PHX-DC-01-DWG-CI-211,Industrial Tech Corp 25,RFI-CI-014,A130
+PHX-DC-01-QA-RIS-212,A,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-09-19,Draft,PHX-DC-01-DWG-QA-212,Industrial Tech Corp 24,RFI-QA-012,A510
+PHX-DC-01-CI-MET-213,C,Civil,Shreya Joshi,Dr. Meera Iyer,Vikram Sharma,2025-07-28,Issued For Review,PHX-DC-01-DWG-CI-213,Industrial Tech Corp 24,RFI-CI-001,A310
+PHX-DC-01-CI-MET-214,C,Civil,Shreya Joshi,Rahul Desai,Vikram Sharma,2025-09-20,Draft,PHX-DC-01-DWG-CI-214,Industrial Tech Corp 19,NONE,A320
+PHX-DC-01-ME-MEE-215,C,Mechanical,Rajan Mehta,Rahul Desai,Vikram Sharma,2025-10-20,Draft,PHX-DC-01-DWG-ME-215,Industrial Tech Corp 9,NONE,A450
+PHX-DC-01-CI-COM-216,01,Civil,Rahul Desai,Sunita Krishnan,Vikram Sharma,2025-08-02,Superseded,PHX-DC-01-DWG-CI-216,Cummins India Ltd,RFI-CI-011,A330
+PHX-DC-01-QA-COM-217,01,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-10-31,Issued For Tender,PHX-DC-01-DWG-QA-217,Industrial Tech Corp 11,NONE,A260
+PHX-DC-01-CO-COM-218,C,Commissioning,Rohini Gupta,Rohini Gupta,Vikram Sharma,2025-09-12,Issued For Construction,PHX-DC-01-DWG-CO-218,Schneider Electric India,NONE,A250
+PHX-DC-01-ME-COM-219,C,Mechanical,Anita Pillai,Rajan Mehta,Vikram Sharma,2025-10-28,Issued For Tender,PHX-DC-01-DWG-ME-219,Industrial Tech Corp 24,RFI-ME-005,A120
+PHX-DC-01-CI-MEE-220,01,Civil,Nikhil Rao,Rahul Desai,Vikram Sharma,2025-11-07,Draft,PHX-DC-01-DWG-CI-220,Industrial Tech Corp 36,RFI-CI-011,A550
+PHX-DC-01-ME-COM-221,A,Mechanical,Dr. Meera Iyer,Dr. Meera Iyer,Vikram Sharma,2026-01-02,Issued For Tender,PHX-DC-01-DWG-ME-221,Industrial Tech Corp 14,NONE,A230
+PHX-DC-01-CI-RIS-222,B,Civil,Dr. Meera Iyer,Nikhil Rao,Vikram Sharma,2025-08-09,Superseded,PHX-DC-01-DWG-CI-222,Industrial Tech Corp 26,RFI-CI-026,A500
+PHX-DC-01-IN-MEE-223,B,Instrumentation,Rahul Desai,Vikram Sharma,Vikram Sharma,2025-10-21,Issued For Review,PHX-DC-01-DWG-IN-223,Industrial Tech Corp 39,RFI-IN-013,A210
+PHX-DC-01-CO-INS-224,B,Commissioning,Sanjay Thakur,Sanjay Thakur,Vikram Sharma,2025-10-23,Issued For Tender,PHX-DC-01-DWG-CO-224,Industrial Tech Corp 32,NONE,A360
+PHX-DC-01-QA-VEN-225,02,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-12-31,Issued For Tender,PHX-DC-01-DWG-QA-225,Industrial Tech Corp 10,RFI-QA-012,A290
+PHX-DC-01-CO-SIT-226,01,Commissioning,Rohini Gupta,Sanjay Thakur,Vikram Sharma,2025-10-24,Issued For Construction,PHX-DC-01-DWG-CO-226,Industrial Tech Corp 24,RFI-CO-018,A530
+PHX-DC-01-ME-TES-227,02,Mechanical,Kavya Reddy,Shreya Joshi,Vikram Sharma,2025-08-30,Issued For Tender,PHX-DC-01-DWG-ME-227,Industrial Tech Corp 17,RFI-ME-002,A300
+PHX-DC-01-EL-SPE-228,01,Electrical,Sunita Krishnan,Shreya Joshi,Vikram Sharma,2025-08-06,Draft,PHX-DC-01-DWG-EL-228,Industrial Tech Corp 27,RFI-EL-013,A170
+PHX-DC-01-ME-SIT-229,01,Mechanical,Rahul Desai,Nikhil Rao,Vikram Sharma,2026-01-10,Superseded,PHX-DC-01-DWG-ME-229,Industrial Tech Corp 31,NONE,A430
+PHX-DC-01-CI-TES-230,B,Civil,Rahul Desai,Ajay Verma,Vikram Sharma,2025-11-19,Issued For Review,PHX-DC-01-DWG-CI-230,Industrial Tech Corp 34,NONE,A450
+PHX-DC-01-QA-INS-231,C,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-08-12,Issued For Review,PHX-DC-01-DWG-QA-231,Industrial Tech Corp 33,RFI-QA-005,A250
+PHX-DC-01-QA-INS-232,01,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-08-26,Draft,PHX-DC-01-DWG-QA-232,Industrial Tech Corp 17,NONE,A410
+PHX-DC-01-CO-SPE-233,B,Commissioning,Rohini Gupta,Sanjay Thakur,Vikram Sharma,2025-10-03,Superseded,PHX-DC-01-DWG-CO-233,PowerGrid Systems Pvt Ltd,RFI-CO-019,A160
+PHX-DC-01-CO-SIT-234,A,Commissioning,Sanjay Thakur,Rohini Gupta,Vikram Sharma,2025-12-10,Issued For Construction,PHX-DC-01-DWG-CO-234,Industrial Tech Corp 20,RFI-CO-009,A570
+PHX-DC-01-CO-TES-235,C,Commissioning,Sanjay Thakur,Rohini Gupta,Vikram Sharma,2026-01-01,Issued For Construction,PHX-DC-01-DWG-CO-235,Industrial Tech Corp 35,NONE,A280
+PHX-DC-01-PR-MEE-236,01,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-09-26,Issued For Tender,PHX-DC-01-DWG-PR-236,Industrial Tech Corp 24,RFI-PR-020,A190
+PHX-DC-01-CO-SIT-237,A,Commissioning,Rohini Gupta,Rohini Gupta,Vikram Sharma,2025-07-25,Issued For Tender,PHX-DC-01-DWG-CO-237,Industrial Tech Corp 12,RFI-CO-026,A350
+PHX-DC-01-CI-COM-238,02,Civil,Rahul Desai,Aditya Singh,Vikram Sharma,2025-11-07,Draft,PHX-DC-01-DWG-CI-238,Industrial Tech Corp 24,NONE,A470
+PHX-DC-01-PR-MET-239,B,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-10-05,Issued For Review,PHX-DC-01-DWG-PR-239,Industrial Tech Corp 35,NONE,A480
+PHX-DC-01-QA-SIT-240,01,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-09-01,Approved,PHX-DC-01-DWG-QA-240,Industrial Tech Corp 23,RFI-QA-008,A430
+PHX-DC-01-EL-VEN-241,C,Electrical,Sunita Krishnan,Rajan Mehta,Vikram Sharma,2025-09-05,Draft,PHX-DC-01-DWG-EL-241,Industrial Tech Corp 7,RFI-EL-003,A350
+PHX-DC-01-IN-TES-242,01,Instrumentation,Dr. Meera Iyer,Vikram Sharma,Vikram Sharma,2025-10-09,Approved,PHX-DC-01-DWG-IN-242,Industrial Tech Corp 32,RFI-IN-023,A510
+PHX-DC-01-CI-COM-243,A,Civil,Manish Patel,Dr. Meera Iyer,Vikram Sharma,2025-09-09,Superseded,PHX-DC-01-DWG-CI-243,Industrial Tech Corp 8,RFI-CI-013,A110
+PHX-DC-01-EL-COM-244,01,Electrical,Ajay Verma,Nikhil Rao,Vikram Sharma,2025-09-14,Approved,PHX-DC-01-DWG-EL-244,Industrial Tech Corp 14,NONE,A400
+PHX-DC-01-PR-INS-245,C,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-12-24,Issued For Construction,PHX-DC-01-DWG-PR-245,Industrial Tech Corp 38,RFI-PR-024,A200
+PHX-DC-01-PR-COM-246,C,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-07-27,Issued For Tender,PHX-DC-01-DWG-PR-246,Industrial Tech Corp 28,NONE,A320
+PHX-DC-01-CO-SPE-247,02,Commissioning,Rohini Gupta,Sanjay Thakur,Vikram Sharma,2025-09-07,Issued For Construction,PHX-DC-01-DWG-CO-247,Industrial Tech Corp 36,NONE,A100
+PHX-DC-01-PR-RIS-248,A,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-09-20,Issued For Tender,PHX-DC-01-DWG-PR-248,Industrial Tech Corp 30,NONE,A160
+PHX-DC-01-IN-TES-249,B,Instrumentation,Vikram Sharma,Sanjay Thakur,Vikram Sharma,2025-08-27,Superseded,PHX-DC-01-DWG-IN-249,Industrial Tech Corp 35,RFI-IN-001,A540
+PHX-DC-01-PR-MEE-250,A,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2026-01-07,Superseded,PHX-DC-01-DWG-PR-250,Vertiv India Pvt Ltd,RFI-PR-020,A450
+PHX-DC-01-EL-MEE-251,02,Electrical,Ajay Verma,Nikhil Rao,Vikram Sharma,2025-08-19,Draft,PHX-DC-01-DWG-EL-251,Carrier India Pvt Ltd,NONE,A540
+PHX-DC-01-PR-SIT-252,A,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-08-13,Issued For Review,PHX-DC-01-DWG-PR-252,Industrial Tech Corp 17,RFI-PR-009,A220
+PHX-DC-01-ME-MET-253,B,Mechanical,Anita Pillai,Shreya Joshi,Vikram Sharma,2026-01-05,Issued For Construction,PHX-DC-01-DWG-ME-253,Industrial Tech Corp 22,RFI-ME-027,A170
+PHX-DC-01-PR-TES-254,B,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-12-02,Superseded,PHX-DC-01-DWG-PR-254,Industrial Tech Corp 36,NONE,A600
+PHX-DC-01-EL-RIS-255,01,Electrical,Shreya Joshi,Manish Patel,Vikram Sharma,2025-11-20,Superseded,PHX-DC-01-DWG-EL-255,Industrial Tech Corp 21,NONE,A340
+PHX-DC-01-CO-MET-256,C,Commissioning,Rohini Gupta,Sanjay Thakur,Vikram Sharma,2025-08-20,Issued For Review,PHX-DC-01-DWG-CO-256,Industrial Tech Corp 33,RFI-CO-027,A510
+PHX-DC-01-EL-MEE-257,B,Electrical,Manish Patel,Manish Patel,Vikram Sharma,2025-09-23,Issued For Review,PHX-DC-01-DWG-EL-257,Industrial Tech Corp 19,RFI-EL-022,A410
+PHX-DC-01-CO-MET-258,02,Commissioning,Rohini Gupta,Rohini Gupta,Vikram Sharma,2025-09-14,Superseded,PHX-DC-01-DWG-CO-258,Industrial Tech Corp 12,RFI-CO-022,A460
+PHX-DC-01-EL-TES-259,C,Electrical,Shreya Joshi,Deepak Nambiar,Vikram Sharma,2025-08-23,Issued For Construction,PHX-DC-01-DWG-EL-259,Industrial Tech Corp 10,NONE,A500
+PHX-DC-01-CI-SIT-260,B,Civil,Sanjay Thakur,Priya Nair,Vikram Sharma,2025-08-26,Approved,PHX-DC-01-DWG-CI-260,Industrial Tech Corp 24,RFI-CI-010,A210
+PHX-DC-01-ME-MEE-261,C,Mechanical,Dr. Meera Iyer,Priya Nair,Vikram Sharma,2025-10-31,Issued For Tender,PHX-DC-01-DWG-ME-261,Industrial Tech Corp 29,RFI-ME-007,A220
+PHX-DC-01-EL-COM-262,02,Electrical,Priya Nair,Rohini Gupta,Vikram Sharma,2025-10-05,Issued For Construction,PHX-DC-01-DWG-EL-262,Industrial Tech Corp 36,NONE,A470
+PHX-DC-01-CO-MET-263,02,Commissioning,Sanjay Thakur,Rohini Gupta,Vikram Sharma,2025-08-30,Approved,PHX-DC-01-DWG-CO-263,Vertiv India Pvt Ltd,RFI-CO-019,A490
+PHX-DC-01-ME-TES-264,02,Mechanical,Vikram Sharma,Sanjay Thakur,Vikram Sharma,2025-10-29,Draft,PHX-DC-01-DWG-ME-264,Industrial Tech Corp 16,RFI-ME-006,A400
+PHX-DC-01-ME-COM-265,C,Mechanical,Anita Pillai,Rajan Mehta,Vikram Sharma,2025-12-12,Issued For Review,PHX-DC-01-DWG-ME-265,Industrial Tech Corp 35,RFI-ME-026,A170
+PHX-DC-01-CO-VEN-266,A,Commissioning,Rohini Gupta,Rohini Gupta,Vikram Sharma,2025-10-22,Superseded,PHX-DC-01-DWG-CO-266,Industrial Tech Corp 21,RFI-CO-022,A420
+PHX-DC-01-QA-VEN-267,C,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-08-25,Issued For Review,PHX-DC-01-DWG-QA-267,Industrial Tech Corp 8,RFI-QA-003,A510
+PHX-DC-01-IN-MEE-268,C,Instrumentation,Aditya Singh,Dr. Meera Iyer,Vikram Sharma,2025-10-21,Issued For Construction,PHX-DC-01-DWG-IN-268,Industrial Tech Corp 34,NONE,A330
+PHX-DC-01-CO-COM-269,B,Commissioning,Sanjay Thakur,Rohini Gupta,Vikram Sharma,2025-07-28,Draft,PHX-DC-01-DWG-CO-269,Industrial Tech Corp 30,NONE,A170
+PHX-DC-01-EL-COM-270,02,Electrical,Shreya Joshi,Aditya Singh,Vikram Sharma,2025-12-22,Approved,PHX-DC-01-DWG-EL-270,Industrial Tech Corp 29,NONE,A240
+PHX-DC-01-PR-MET-271,A,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-12-08,Issued For Tender,PHX-DC-01-DWG-PR-271,Industrial Tech Corp 19,NONE,A430
+PHX-DC-01-PR-INS-272,B,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-08-30,Draft,PHX-DC-01-DWG-PR-272,Industrial Tech Corp 29,RFI-PR-025,A240
+PHX-DC-01-PR-TES-273,01,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-09-16,Approved,PHX-DC-01-DWG-PR-273,Industrial Tech Corp 14,NONE,A430
+PHX-DC-01-CO-MEE-274,B,Commissioning,Sanjay Thakur,Rohini Gupta,Vikram Sharma,2025-08-12,Issued For Review,PHX-DC-01-DWG-CO-274,PowerGrid Systems Pvt Ltd,NONE,A420
+PHX-DC-01-PR-SIT-275,B,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-08-22,Issued For Review,PHX-DC-01-DWG-PR-275,Industrial Tech Corp 36,NONE,A540
+PHX-DC-01-ME-MEE-276,C,Mechanical,Rajan Mehta,Vikram Sharma,Vikram Sharma,2025-12-28,Issued For Review,PHX-DC-01-DWG-ME-276,Industrial Tech Corp 36,RFI-ME-019,A550
+PHX-DC-01-QA-INS-277,B,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-08-03,Superseded,PHX-DC-01-DWG-QA-277,Industrial Tech Corp 8,NONE,A160
+PHX-DC-01-IN-RIS-278,B,Instrumentation,Rajan Mehta,Anita Pillai,Vikram Sharma,2025-11-16,Issued For Review,PHX-DC-01-DWG-IN-278,Industrial Tech Corp 29,RFI-IN-029,A440
+PHX-DC-01-QA-MET-279,A,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-12-12,Approved,PHX-DC-01-DWG-QA-279,Industrial Tech Corp 14,RFI-QA-016,A580
+PHX-DC-01-PR-INS-280,C,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-11-07,Draft,PHX-DC-01-DWG-PR-280,Industrial Tech Corp 36,NONE,A450
+PHX-DC-01-ME-SPE-281,B,Mechanical,Anita Pillai,Anita Pillai,Vikram Sharma,2026-01-03,Draft,PHX-DC-01-DWG-ME-281,Industrial Tech Corp 12,RFI-ME-005,A230
+PHX-DC-01-EL-RIS-282,01,Electrical,Rahul Desai,Kavya Reddy,Vikram Sharma,2025-10-27,Superseded,PHX-DC-01-DWG-EL-282,Cummins India Ltd,NONE,A100
+PHX-DC-01-EL-MET-283,02,Electrical,Sanjay Thakur,Manish Patel,Vikram Sharma,2026-01-03,Draft,PHX-DC-01-DWG-EL-283,Industrial Tech Corp 39,NONE,A190
+PHX-DC-01-IN-RIS-284,A,Instrumentation,Ajay Verma,Kavya Reddy,Vikram Sharma,2025-09-26,Issued For Review,PHX-DC-01-DWG-IN-284,Industrial Tech Corp 23,NONE,A130
+PHX-DC-01-PR-MEE-285,A,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-11-10,Superseded,PHX-DC-01-DWG-PR-285,Industrial Tech Corp 13,NONE,A220
+PHX-DC-01-ME-MEE-286,B,Mechanical,Manish Patel,Sunita Krishnan,Vikram Sharma,2025-11-17,Issued For Construction,PHX-DC-01-DWG-ME-286,Industrial Tech Corp 12,RFI-ME-012,A380
+PHX-DC-01-CI-MEE-287,01,Civil,Rahul Desai,Manish Patel,Vikram Sharma,2025-10-08,Draft,PHX-DC-01-DWG-CI-287,Industrial Tech Corp 15,NONE,A340
+PHX-DC-01-IN-MEE-288,B,Instrumentation,Manish Patel,Sanjay Thakur,Vikram Sharma,2025-09-23,Issued For Review,PHX-DC-01-DWG-IN-288,Industrial Tech Corp 19,RFI-IN-013,A130
+PHX-DC-01-ME-SPE-289,C,Mechanical,Vikram Sharma,Rohini Gupta,Vikram Sharma,2025-12-31,Approved,PHX-DC-01-DWG-ME-289,Industrial Tech Corp 10,RFI-ME-011,A510
+PHX-DC-01-EL-MEE-290,B,Electrical,Nikhil Rao,Nikhil Rao,Vikram Sharma,2025-11-18,Approved,PHX-DC-01-DWG-EL-290,Industrial Tech Corp 22,RFI-EL-003,A390
+PHX-DC-01-QA-VEN-291,A,QA/QC,Kavya Reddy,Kavya Reddy,Vikram Sharma,2025-08-16,Issued For Tender,PHX-DC-01-DWG-QA-291,Industrial Tech Corp 17,NONE,A280
+PHX-DC-01-ME-COM-292,B,Mechanical,Shreya Joshi,Aditya Singh,Vikram Sharma,2025-12-18,Issued For Tender,PHX-DC-01-DWG-ME-292,Industrial Tech Corp 14,NONE,A350
+PHX-DC-01-CI-COM-293,01,Civil,Rahul Desai,Kavya Reddy,Vikram Sharma,2025-08-23,Approved,PHX-DC-01-DWG-CI-293,Industrial Tech Corp 18,NONE,A100
+PHX-DC-01-EL-COM-294,02,Electrical,Rahul Desai,Aditya Singh,Vikram Sharma,2025-12-09,Issued For Review,PHX-DC-01-DWG-EL-294,Industrial Tech Corp 25,RFI-EL-029,A380
+PHX-DC-01-CI-INS-295,B,Civil,Anita Pillai,Dr. Meera Iyer,Vikram Sharma,2025-09-07,Issued For Review,PHX-DC-01-DWG-CI-295,Industrial Tech Corp 25,NONE,A150
+PHX-DC-01-ME-VEN-296,C,Mechanical,Nikhil Rao,Kavya Reddy,Vikram Sharma,2025-10-16,Issued For Tender,PHX-DC-01-DWG-ME-296,Industrial Tech Corp 32,NONE,A350
+PHX-DC-01-CI-VEN-297,C,Civil,Sanjay Thakur,Sunita Krishnan,Vikram Sharma,2025-09-25,Approved,PHX-DC-01-DWG-CI-297,Industrial Tech Corp 32,RFI-CI-011,A540
+PHX-DC-01-EL-SIT-298,A,Electrical,Deepak Nambiar,Manish Patel,Vikram Sharma,2025-11-20,Superseded,PHX-DC-01-DWG-EL-298,Industrial Tech Corp 26,RFI-EL-010,A270
+PHX-DC-01-CI-RIS-299,01,Civil,Rohini Gupta,Rahul Desai,Vikram Sharma,2025-11-19,Issued For Review,PHX-DC-01-DWG-CI-299,Kidde India Pvt Ltd,NONE,A570
+PHX-DC-01-PR-MEE-300,C,Project Management,Vikram Sharma,Vikram Sharma,Vikram Sharma,2025-12-18,Issued For Construction,PHX-DC-01-DWG-PR-300,Industrial Tech Corp 14,NONE,A230

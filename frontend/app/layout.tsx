@@ -20,6 +20,9 @@ export const metadata: Metadata = {
 import Sidebar from "@/components/Sidebar";
 import Providers from "@/components/Providers";
 import KeyboardShortcuts from "@/components/KeyboardShortcuts";
+import TopNavBar from "@/components/TopNavBar";
+import RightPanel from "@/components/RightPanel";
+import StatusBar from "@/components/StatusBar";
 
 export default function RootLayout({
   children,
@@ -32,10 +35,15 @@ export default function RootLayout({
         <Providers>
           <KeyboardShortcuts />
           <div className="app-container">
-            <Sidebar />
+            <TopNavBar />
+            <div className="sidebar-wrapper">
+              <Sidebar />
+            </div>
             <main className="main-content">
               {children}
             </main>
+            <RightPanel />
+            <StatusBar />
           </div>
         </Providers>
       </body>

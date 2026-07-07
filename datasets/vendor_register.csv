@@ -1,0 +1,41 @@
+Vendor ID,Company,Representative,Country,Products,Lead Time (Weeks),Performance Score,Compliance Score,Delayed Shipments,Current Purchase Orders,Open NCRs,Open RFIs,Preferred Vendor
+VND-EL-001,PowerGrid Systems Pvt Ltd,Ramesh Khanna,India,UPS Systems,15,72,23,2,1,1,0,NO
+VND-EL-002,Schneider Electric India,Vijay Nambiar,India,Medium Voltage Switchgear,8,58,82,3,4,0,1,NO
+VND-EL-003,Cummins India Ltd,Prakash Rao,India,Diesel Generators,20,100,95,0,3,0,0,YES
+VND-ME-001,Carrier India Pvt Ltd,Sunit Mehrotra,India,Centrifugal Chillers,16,75,90,0,1,0,0,YES
+VND-ME-002,Vertiv India Pvt Ltd,Arun Desai,India,CRAH Units,10,100,96,0,3,0,0,YES
+VND-FP-001,Kidde India Pvt Ltd,Dinesh Pai,India,Fire Suppression Systems,11,95,88,0,4,0,0,YES
+VND-GEN-007,Industrial Tech Corp 7,Contact Rep 7,Singapore,Structured Cabling,16,59,79,1,2,0,0,NO
+VND-GEN-008,Industrial Tech Corp 8,Contact Rep 8,France,Centrifugal Chillers,10,72,97,0,1,0,0,NO
+VND-GEN-009,Industrial Tech Corp 9,Contact Rep 9,Singapore,CRAH Units,18,62,67,1,0,1,1,NO
+VND-GEN-010,Industrial Tech Corp 10,Contact Rep 10,France,CCTV Systems,7,51,78,1,2,0,1,NO
+VND-GEN-011,Industrial Tech Corp 11,Contact Rep 11,Japan,VRLA Batteries,22,85,69,0,2,0,1,NO
+VND-GEN-012,Industrial Tech Corp 12,Contact Rep 12,Japan,Busducts,8,83,76,1,0,0,1,NO
+VND-GEN-013,Industrial Tech Corp 13,Contact Rep 13,Germany,Power Cables,7,95,78,2,0,0,1,NO
+VND-GEN-014,Industrial Tech Corp 14,Contact Rep 14,Germany,UPS Systems,17,94,81,0,2,0,1,NO
+VND-GEN-015,Industrial Tech Corp 15,Contact Rep 15,USA,CCTV Systems,7,98,82,1,2,0,1,NO
+VND-GEN-016,Industrial Tech Corp 16,Contact Rep 16,Singapore,Medium Voltage Switchgear,13,53,99,2,0,0,0,NO
+VND-GEN-017,Industrial Tech Corp 17,Contact Rep 17,USA,Access Control,20,82,64,0,2,1,0,NO
+VND-GEN-018,Industrial Tech Corp 18,Contact Rep 18,Japan,Diesel Generators,23,80,91,2,0,0,0,NO
+VND-GEN-019,Industrial Tech Corp 19,Contact Rep 19,USA,Transformers,23,52,84,0,2,0,1,NO
+VND-GEN-020,Industrial Tech Corp 20,Contact Rep 20,Germany,Medium Voltage Switchgear,22,70,87,0,1,0,1,NO
+VND-GEN-021,Industrial Tech Corp 21,Contact Rep 21,India,BMS Software,18,78,95,0,0,0,1,NO
+VND-GEN-022,Industrial Tech Corp 22,Contact Rep 22,Japan,Fire Suppression Systems,8,93,86,2,2,0,0,YES
+VND-GEN-023,Industrial Tech Corp 23,Contact Rep 23,France,Medium Voltage Switchgear,24,82,77,2,2,0,1,NO
+VND-GEN-024,Industrial Tech Corp 24,Contact Rep 24,France,CRAH Units,8,76,80,0,2,0,0,NO
+VND-GEN-025,Industrial Tech Corp 25,Contact Rep 25,India,Access Control,19,88,62,0,0,1,1,NO
+VND-GEN-026,Industrial Tech Corp 26,Contact Rep 26,USA,Server Racks,10,64,83,2,0,0,1,NO
+VND-GEN-027,Industrial Tech Corp 27,Contact Rep 27,USA,UPS Systems,6,75,96,0,2,0,1,NO
+VND-GEN-028,Industrial Tech Corp 28,Contact Rep 28,Singapore,Centrifugal Chillers,18,81,76,0,2,0,1,NO
+VND-GEN-029,Industrial Tech Corp 29,Contact Rep 29,Japan,Centrifugal Chillers,23,58,98,0,2,0,0,NO
+VND-GEN-030,Industrial Tech Corp 30,Contact Rep 30,Japan,VRLA Batteries,21,90,65,2,1,1,1,NO
+VND-GEN-031,Industrial Tech Corp 31,Contact Rep 31,Germany,BMS Software,7,53,92,0,1,0,0,NO
+VND-GEN-032,Industrial Tech Corp 32,Contact Rep 32,USA,Structured Cabling,9,73,60,0,2,1,1,NO
+VND-GEN-033,Industrial Tech Corp 33,Contact Rep 33,France,Power Cables,15,54,93,0,1,0,1,NO
+VND-GEN-034,Industrial Tech Corp 34,Contact Rep 34,Germany,Diesel Generators,22,64,82,1,0,0,1,NO
+VND-GEN-035,Industrial Tech Corp 35,Contact Rep 35,Singapore,Raised Floor Panels,8,69,95,1,0,0,1,NO
+VND-GEN-036,Industrial Tech Corp 36,Contact Rep 36,France,Power Cables,12,89,60,1,1,1,0,NO
+VND-GEN-037,Industrial Tech Corp 37,Contact Rep 37,Germany,Cooling Towers,15,56,63,1,0,0,1,NO
+VND-GEN-038,Industrial Tech Corp 38,Contact Rep 38,Singapore,BMS Software,20,68,97,0,2,0,0,NO
+VND-GEN-039,Industrial Tech Corp 39,Contact Rep 39,India,Busducts,18,97,69,2,1,0,0,NO
+VND-GEN-040,Industrial Tech Corp 40,Contact Rep 40,Singapore,Structured Cabling,23,81,63,0,0,1,1,NO

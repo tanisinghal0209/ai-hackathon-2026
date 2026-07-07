@@ -1,0 +1,233 @@
+================================================================================
+NON-CONFORMANCE REPORT
+================================================================================
+Project      : NXGEN Hyperscale Data Centre — Phase 1 (HYDC-01)
+Document     : HYDC-01-QA-NCR-001
+NCR Number   : NCR-EL-001
+Title        : UPS Vendor Submittal — Multiple Undeclared Deviations from Specification
+Discipline   : Electrical
+Package      : PKG-EL-002 — UPS System
+Raised By    : Kavya Reddy, QA/QC Manager — Tata Projects Ltd
+Date Raised  : 20 November 2025
+Priority     : CRITICAL
+Status       : OPEN
+================================================================================
+
+SECTION 1 — DESCRIPTION OF NON-CONFORMANCE
+================================================================================
+
+1.1  Summary
+     Vendor Technical Submittal Revision 02 (Reference: PGSL-HYDC01-UPS-SUB-REV02,
+     dated 18 November 2025) submitted by PowerGrid Systems Pvt Ltd for the UPS system
+     (Package PKG-EL-002) has been found to contain multiple significant deviations from
+     the approved Specification HYDC-01-EL-SPEC-002 Revision B.
+
+     In violation of Specification Requirement REQ-UPS-022, the vendor has declared
+     "No deviations from the specification are declared" in Section 9 (Deviation Schedule).
+     However, technical review conducted by Jacobs India (Lead Engineer Rahul Desai) on
+     25 November 2025 has identified the following deviations:
+
+1.2  Deviation 1 — CRITICAL — REQ-UPS-001 (N+1 Redundancy)
+     Specification Requirement: UPS modules shall be configured in N+1 redundancy at the
+     block level. One UPS module shall be available as a hot-standby spare at all times.
+
+     Vendor Offer (Section 1.2 of Submittal): The proposed UPS configuration consists of
+     four (4) modules per power module block in "N parallel operation." The submittal
+     explicitly states that "additional hot-standby module capacity is not included in
+     the base offer" and offers an N+1 module "separately upon request."
+
+     Assessment: This is a critical deviation. N-only configuration means loss of any
+     single UPS module will cause loss of supply to the IT load served. This does not
+     meet the fundamental Tier IV fault tolerance requirement and is contrary to the
+     client's confirmed position in RFI-EL-001 (closed 14 October 2025), which explicitly
+     stated that N+1 is mandatory for Day 1 operation.
+
+     Financial Impact: Additional UPS module costs estimated at INR 4.2 Crores.
+     Programme Impact: If not resolved immediately, Phase 1A commissioning will be blocked.
+
+1.3  Deviation 2 — CRITICAL — REQ-UPS-002 / REQ-UPS-008 (Battery Autonomy)
+     Specification Requirement: Battery system shall provide minimum 15 minutes autonomy
+     at 100% of rated IT load, calculated at end-of-life battery condition (80% capacity).
+
+     Vendor Offer (Section 2.3 of Submittal): Battery autonomy at 100% IT load declared
+     as 10 minutes.
+
+     Assessment: This is a critical deviation with a shortfall of 5 minutes (33% below
+     specification requirement). This deviation was subsequently confirmed by FAT battery
+     discharge test on 07 January 2026, which measured 9 minutes 47 seconds (below even
+     the declared 10 minutes). The measured result further validates the non-compliance.
+
+     Resolution Options:
+     a) Vendor to supply additional battery extension cabinets (BEC) to increase capacity
+     b) Vendor to redesign battery system with higher capacity cells
+     c) Consideration of Lithium-Ion battery alternative (requires separate safety case)
+
+     Financial Impact: Additional battery extension cabinets estimated at INR 2.8-4.5 Crores
+     depending on solution. Structural loading recalculation and revised UPS room floor
+     reinforcement may also be required.
+
+1.4  Deviation 3 — MAJOR — REQ-UPS-009 (Bypass Synchronisation Tolerance)
+     Specification Requirement: Static bypass synchronisation tolerance shall not exceed
+     ±1 Hz.
+
+     Vendor Offer (Section 4.2 of Submittal): Synchronisation window declared as ±2 Hz.
+     Vendor maintains this is "industry standard" and does not represent a specification
+     deviation. This position is rejected by the design team.
+
+     Assessment: The ±1 Hz synchronisation requirement was specified to ensure reliable
+     automatic bypass transfer under all conditions, including during generator operation
+     where frequency stability may be marginally outside utility grid tolerance. A ±2 Hz
+     window increases the risk of failed bypass transfer under marginal frequency conditions.
+     The vendor's assertion that ±2 Hz is "industry standard" does not override the
+     project specification requirement.
+
+     FAT Evidence: During FAT on 06 January 2026, the synchronisation window was
+     measured at ±2.1 Hz, confirming the submitted value. Transfer to bypass was achieved
+     in the test, but this was under controlled factory conditions with stable grid supply.
+     Site conditions may differ.
+
+1.5  Deviation 4 — MAJOR — REQ-UPS-020 (Factory Battery Discharge Test)
+     Specification Requirement: FAT shall include battery discharge test demonstrating
+     minimum 15-minute autonomy at 100% load. Battery discharge test is a mandatory
+     condition precedent to dispatch approval (clause 10.4).
+
+     Vendor Initial Position (Submittal and FAT Procedure Rev A): Battery discharge test
+     proposed to be deferred to site commissioning.
+
+     Resolution: Following RFI-EL-005 and instruction from Jacobs India, vendor revised
+     FAT programme to include the battery discharge test at factory (FAT Procedure Rev B).
+     Test was conducted on 07 January 2026. Test FAILED (see Deviation 2 above).
+
+     Status: While the vendor did eventually comply with the requirement to conduct the
+     test at factory (after formal instruction), the initial proposal to defer this test
+     was a major deviation. Furthermore, the test result itself confirmed a critical
+     non-compliance. The NCR remains open pending resolution of Deviation 2.
+
+1.6  Deviation 5 — MINOR — REQ-UPS-013 (Battery Conductance Monitoring)
+     Specification Requirement: Battery monitoring shall integrate with the BMS via
+     Modbus TCP/IP. All battery parameters listed in REQ-UPS-014 shall be available,
+     which implicitly includes internal resistance monitoring as part of comprehensive
+     battery health monitoring.
+
+     Vendor Offer: Battery internal resistance / conductance monitoring is noted as
+     "optional add-on" not included in the base scope. The Modbus register map does not
+     include conductance measurement registers.
+
+     Assessment: Minor deviation — does not affect core functionality but reduces the
+     completeness of battery health monitoring. Vendor to confirm whether conductance
+     monitoring can be added to the base scope at no additional cost.
+
+================================================================================
+SECTION 2 — ROOT CAUSE ANALYSIS
+================================================================================
+
+2.1  Primary Root Cause
+     PowerGrid Systems' technical and commercial teams appear to have submitted a
+     standard product offering without fully customising it to meet the project-specific
+     requirements of HYDC-01-EL-SPEC-002. The N-only configuration and 10-minute battery
+     autonomy are consistent with a standard commercial product offering for less demanding
+     applications. The specification for this Tier IV hyperscale facility is significantly
+     more demanding.
+
+2.2  Contributing Factor 1
+     The deviation declaration section was completed without a thorough cross-check of the
+     submittal technical content against the specification. The declaration of "no deviations"
+     appears to have been a template statement not customised for this project.
+
+2.3  Contributing Factor 2
+     Vendor internal review processes appear inadequate for the complexity and specification
+     demands of a Tier IV data centre project. Vendor's application engineer (Shalini Bose)
+     did not appear to have the authority or knowledge to escalate the deviation issues
+     during submittal preparation.
+
+================================================================================
+SECTION 3 — CORRECTIVE ACTION REQUIRED
+================================================================================
+
+3.1  Immediate Actions (within 7 working days of NCR issue)
+     CA-001: PowerGrid Systems to formally acknowledge all five deviations listed in
+             Section 1 of this NCR in writing, with classification per Appendix A format
+             of Specification HYDC-01-EL-SPEC-002.
+
+     CA-002: PowerGrid Systems to submit a formal Battery Remediation Proposal (BRP)
+             detailing the proposed solution to achieve 15-minute autonomy at 100% IT load.
+             BRP to include: proposed battery configuration, revised capacity calculations,
+             dimensional impact, structural loading, electrical cabling changes, and
+             revised delivery/commissioning timeline.
+
+     CA-003: PowerGrid Systems to confirm in writing whether the N+1 configuration can
+             be supplied within the existing purchase order price or what the cost delta
+             would be for the additional module.
+
+3.2  Short-Term Actions (within 21 days)
+     CA-004: Revised Vendor Submittal Revision 03 to be issued incorporating all
+             corrections and formal deviation declarations.
+
+     CA-005: Battery Remediation Proposal to be reviewed by Jacobs India and
+             NxtGen Cloud Infrastructure and formally accepted before any battery
+             procurement action is taken.
+
+3.3  Long-Term Actions
+     CA-006: PowerGrid Systems to implement a project-specific QA review process for
+             future submittals on this project, including a checklist-based verification
+             of all specification requirements before submission.
+
+================================================================================
+SECTION 4 — PREVENTIVE ACTION
+================================================================================
+
+     PA-001: Tata Projects QA/QC team to implement a submittal pre-screening checklist
+             for all major equipment packages. Before a vendor submittal is formally
+             accepted for engineering review, the procurement team will conduct an initial
+             check to verify that the deviation schedule has been properly completed.
+
+     PA-002: For future submittals, vendors will be required to provide a compliance
+             matrix as part of the submittal — each specification requirement tabulated
+             with a comply/deviate/not applicable statement. This will become a mandatory
+             submittal requirement for all remaining packages.
+
+================================================================================
+SECTION 5 — NCR TRACKING
+================================================================================
+
+     NCR Status           : OPEN
+     Date Raised          : 20 November 2025
+     Target Close Date    : 31 January 2026 (extended from original 15 December 2025)
+     NCR Owner            : Kavya Reddy, QA/QC Manager — Tata Projects Ltd
+     Responsible Party    : PowerGrid Systems Pvt Ltd (Ramesh Khanna)
+     Review Committee     : Vikram Sharma (PM), Rahul Desai (Jacobs), Sanjay Thakur (WSP)
+
+     Milestone Log:
+     20 Nov 2025 — NCR raised by Kavya Reddy
+     25 Nov 2025 — NCR issued to PowerGrid Systems
+     02 Dec 2025 — PowerGrid Systems verbal acknowledgement (phone call)
+     07 Jan 2026 — FAT battery discharge test FAIL — NCR scope expanded
+     08 Jan 2026 — NCR discussed at MOM-HYDC01-013 (see item 3 and 4)
+     09 Jan 2026 — Formal dispatch hold issued by Aditya Singh (Action 13-01)
+     12 Jan 2026 — NCR formal response deadline notice issued (Action 13-02)
+     19 Jan 2026 — Battery remediation proposal due from PowerGrid Systems
+
+================================================================================
+SECTION 6 — PHOTOGRAPHIC EVIDENCE REFERENCES
+================================================================================
+
+     PHOTO-FAT-01: Battery discharge test setup (07 January 2026, PowerGrid Systems Pune)
+     PHOTO-FAT-02: UPS HMI screen showing 9 min 47 sec autonomy reading at test end
+     PHOTO-FAT-03: Load bank configuration at 1,600 kW for test
+     PHOTO-FAT-04: Test data logger printout from EnerSys battery monitoring system
+
+     All photographs maintained by: Deepak Nambiar, Site Engineer — Tata Projects Ltd
+     Photograph archive: HYDC-01 SharePoint site, folder: Quality/NCRs/NCR-EL-001/Photos
+
+================================================================================
+SIGNATURES
+================================================================================
+
+     Raised By    : Kavya Reddy, QA/QC Manager — 20 November 2025
+     Reviewed By  : Vikram Sharma, Project Manager — 22 November 2025
+     Accepted By  : Arjun Kapoor, Client Representative — 25 November 2025
+     Responsible  : Ramesh Khanna, PowerGrid Systems — [AWAITING SIGNATURE]
+
+================================================================================
+END OF NON-CONFORMANCE REPORT — HYDC-01-QA-NCR-001
+================================================================================

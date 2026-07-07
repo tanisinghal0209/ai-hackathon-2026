@@ -1,0 +1,130 @@
+================================================================================
+PROJECT SCHEDULE — CRITICAL PATH METHOD ANALYSIS
+================================================================================
+Project      : NXGEN Hyperscale Data Centre — Phase 1 (HYDC-01)
+Document     : HYDC-01-PMO-SCH-006
+Revision     : 6
+Date         : 14 January 2026
+Prepared By  : Rajan Mehta, Project Controls Manager — Tata Projects Ltd
+Data Date    : 14 January 2026 (current status against this baseline)
+================================================================================
+
+SCHEDULE SUMMARY
+----------------
+Contract Start        : 15 July 2025
+Original Contract End : 15 August 2026
+Current Forecast End  : 25 August 2026 (10-day delay from original)
+Power-On (Phase 1A)   : 25 July 2026 (was 30 June 2026 — 25-day delay, 7 days recovered)
+Client Acceptance     : 25 August 2026
+
+Overall Progress      : 34% complete
+Critical Path Length  : 248 working days
+Schedule Variance     : -18 days (18 days behind on critical path as at data date)
+Float Erosion Rate    : 1.2 days per week (current trend)
+
+================================================================================
+ACTIVITY SCHEDULE
+================================================================================
+
+ID    Activity Name                         Dur   ES       EF       LS       LF     Float  Critical  Responsible        Status/Notes
+----  ------------------------------------  ---   -------  -------  -------  -----  -----  --------  -----------------  ----------------------------------------
+A1    Site Establishment                     10   15Jul25  28Jul25  15Jul25  28Jul25   0   YES       L&T C&B            COMPLETE (100%)
+A2    Temporary Services and Site Offices     7   29Jul25  06Aug25  29Jul25  06Aug25   0   YES       L&T C&B            COMPLETE (100%)
+A3    Piling Works                           20   07Aug25  02Sep25  07Aug25  02Sep25   0   YES       L&T C&B            COMPLETE (100%)
+A4    Ground Slab (Data Halls 1 and 2)       15   03Sep25  22Sep25  03Sep25  22Sep25   0   YES       L&T C&B            COMPLETE (100%)
+A5    Ground Slab (Data Halls 3 and 4)       15   03Sep25  22Sep25  10Sep25  29Sep25   5   NO        L&T C&B            COMPLETE (100%)
+A6    Structural Steelwork (DH1 and DH2)    25   23Sep25  25Oct25  23Sep25  25Oct25   0   YES       L&T C&B            COMPLETE (100%)
+A7    Structural Steelwork (DH3 and DH4)    25   23Sep25  25Oct25  30Sep25  01Nov25   5   NO        L&T C&B            COMPLETE (100%) — 3 days ahead
+A8    Roof Installation (DH1 and DH2)       12   26Oct25  10Nov25  26Oct25  10Nov25   0   YES       L&T C&B            COMPLETE (100%)
+A9    Roof Installation (DH3 and DH4)       12   26Oct25  10Nov25  02Nov25  17Nov25   5   NO        L&T C&B            COMPLETE (100%)
+A10   External Cladding (All Data Halls)    20   11Nov25  07Dec25  11Nov25  07Dec25   0   YES       L&T C&B            COMPLETE (100%)
+A11   MV Switchgear Fabrication             60   18Aug25  08Nov25  18Aug25  08Nov25   0   YES       Schneider India    COMPLETE at factory — custom clearance delay 3 weeks
+A12   MV Switchgear Delivery to Site        —    08Nov25  15Jan26  08Nov25  15Jan26   0   YES       Schneider India    IN TRANSIT — arriving 15-16 Jan 2026 (was 20 Dec 2025)
+A13   MV Switchgear Room Preparation        15   08Nov25  28Nov25  08Nov25  28Nov25   0   YES       Tata Projects      COMPLETE (100%)
+A14   MV Switchgear Installation and Test   18   16Jan26  08Feb26  16Jan26  08Feb26   0   YES       Tata Projects      NOT STARTED — depends on A12 delivery
+A15   UPS Equipment Fabrication             90   02Sep25  02Dec25  02Sep25  02Dec25   0   YES       PowerGrid Sys.     COMPLETE at factory — FAT conducted 05-07 Jan 2026
+A16   UPS Battery System FAT               3    05Jan26  07Jan26  05Jan26  07Jan26   0   YES       PowerGrid Sys.     FAILED — battery autonomy 9m47s (req: 15min). ON HOLD
+A17   UPS Battery Remediation Design       21   08Jan26  05Feb26  08Jan26  05Feb26   0   YES       PowerGrid Sys.     IN PROGRESS — proposal due 19 Jan 2026
+A18   Battery Extension Cabinet Procure    35   06Feb26  27Mar26  06Feb26  27Mar26   0   YES       PowerGrid Sys.     NOT STARTED — depends on A17
+A19   UPS Equipment Delivery to Site        5   28Mar26  03Apr26  28Mar26  03Apr26   0   YES       PowerGrid Sys.     NOT STARTED — depends on A18
+A20   UPS Room Civil and Raised Floor      20   08Dec25  04Jan26  08Dec25  04Jan26   0   YES       L&T C&B            COMPLETE (100%)
+A21   UPS Equipment Installation           14   04Apr26  22Apr26  04Apr26  22Apr26   0   YES       Tata Projects      NOT STARTED — depends on A19
+A22   UPS Electrical Connections           10   23Apr26  06May26  23Apr26  06May26   0   YES       Tata Projects      NOT STARTED — depends on A21
+A23   Generator Package Fabrication        70   10Sep25  19Nov25  10Sep25  19Nov25   0   YES       Cummins India      COMPLETE at factory
+A24   Generator Delivery to Site            5   28Feb26  04Mar26  28Feb26  04Mar26   0   YES       Cummins India      SCHEDULED — on track
+A25   Generator Room Civil Works           18   07Dec25  31Dec25  07Dec25  31Dec25   0   YES       L&T C&B            COMPLETE (100%)
+A26   Generator Base and Exhaust Install   10   28Feb26  11Mar26  28Feb26  11Mar26   0   YES       Tata Projects      NOT STARTED — depends on A24
+A27   Generator Commissioning              14   12Mar26  01Apr26  12Mar26  01Apr26   0   YES       Tata Projects      NOT STARTED — depends on A26
+A28   Chiller Plant Fabrication            80   10Sep25  30Nov25  10Sep25  30Nov25   0   YES       Carrier India      COMPLETE — 2-week delivery delay (now 14 Mar 2026)
+A29   Chiller Plant Delivery to Site        5   14Mar26  19Mar26  14Mar26  19Mar26   0   YES       Carrier India      ON ORDER — delivery 14 Mar 2026 (2-week delay)
+A30   Chiller Plant Installation           12   20Mar26  06Apr26  20Mar26  06Apr26   0   YES       Tata Projects      NOT STARTED — depends on A29
+A31   Chiller Plant Commissioning          14   07Apr26  26Apr26  07Apr26  26Apr26   0   YES       Tata Projects      NOT STARTED — depends on A30
+A32   CRAH Unit Fabrication               60   02Sep25  02Nov25  02Sep25  02Nov25   8   NO        Vertiv India       COMPLETE
+A33   CRAH Unit Delivery to Site           3   15Feb26  17Feb26  23Feb26  25Feb26   8   NO        Vertiv India       SCHEDULED — on track
+A34   Raised Floor Installation (DH1&2)   10   05Jan26  16Jan26  05Jan26  16Jan26   0   YES       L&T C&B            IN PROGRESS (60%) — forecast complete 18 Jan 2026
+A35   CRAH Unit Installation (DH1&2)      15   19Jan26  06Feb26  19Jan26  06Feb26   8   NO        Tata Projects      NOT STARTED — depends on A33, A34
+A36   Pipework Installation (CHW mains)   25   19Jan26  20Feb26  19Jan26  20Feb26   0   YES       Tata Projects      NOT STARTED
+A37   Pipework Pressure Testing           5    21Feb26  27Feb26  21Feb26  27Feb26   0   YES       Tata Projects      NOT STARTED — depends on A36
+A38   Fire Suppression System Install     20   07Jan26  01Feb26  07Jan26  01Feb26   5   NO        Kidde India        IN PROGRESS (25%)
+A39   VESDA System Installation           10   02Feb26  13Feb26  02Feb26  13Feb26   5   NO        Xtralis            NOT STARTED — depends on A38
+A40   Cable Tray and Containment (All)    30   08Dec25  17Jan26  08Dec25  17Jan26   0   YES       Tata Projects      IN PROGRESS (75%) — 2 days behind plan
+A41   HV/MV Cable Pulling                 15   09Feb26  27Feb26  09Feb26  27Feb26   0   YES       Tata Projects      NOT STARTED — depends on A14
+A42   LV Power Cable Pulling              20   28Feb26  27Mar26  28Feb26  27Mar26   0   YES       Tata Projects      NOT STARTED — depends on A41
+A43   Instrumentation and Control Cabling 20   01Mar26  28Mar26  01Mar26  28Mar26   5   NO        Siemens BT         NOT STARTED
+A44   BMS Hardware Installation           10   29Mar26  10Apr26  29Mar26  10Apr26   5   NO        Siemens BT         NOT STARTED — depends on A43
+A45   BMS Software Configuration          15   11Apr26  02May26  11Apr26  02May26   5   NO        Siemens BT         NOT STARTED — depends on A44
+A46   LV Equipment Termination            15   28Mar26  17Apr26  28Mar26  17Apr26   0   YES       Tata Projects      NOT STARTED — depends on A42
+A47   Pre-Functional Checks (Electrical)  14   18Apr26  05May26  18Apr26  05May26   0   YES       Tata Projects/WSP  NOT STARTED — depends on A22, A46
+A48   Pre-Functional Checks (Mechanical)  10   27Apr26  09May26  27Apr26  09May26   0   YES       Tata Projects/WSP  NOT STARTED — depends on A31, A35, A37
+A49   UPS Pre-Functional Checks           5    07May26  13May26  07May26  13May26   0   YES       Tata/PowerGrid     NOT STARTED — depends on A47
+A50   Generator Pre-Functional Checks     5    07May26  13May26  07May26  13May26   0   YES       Tata/Cummins       NOT STARTED — depends on A47
+A51   Functional Testing — Electrical    21   14May26  09Jun26  14May26  09Jun26   0   YES       Tata Projects/WSP  NOT STARTED — depends on A49, A50
+A52   Functional Testing — Mechanical    21   14May26  09Jun26  14May26  09Jun26   0   YES       Tata Projects/WSP  NOT STARTED — depends on A48
+A53   BMS Integration Testing            14   10Jun26  27Jun26  10Jun26  27Jun26   0   YES       Siemens BT/WSP     NOT STARTED — depends on A45, A51, A52
+A54   Integrated Systems Testing (IST)   14   28Jun26  15Jul26  28Jun26  15Jul26   0   YES       WSP Global (CxA)   NOT STARTED — depends on A53; CRITICAL RISK if battery unresolved
+A55   IST Remediation and Retest          7   16Jul26  24Jul26  16Jul26  24Jul26   0   YES       All teams           NOT STARTED — float reserved for retest activities
+A56   Power-On (Phase 1A) — MILESTONE     0   25Jul26  25Jul26  25Jul26  25Jul26   0   YES       —                  TARGET DATE — SUBJECT TO BATTERY RESOLUTION
+A57   Performance Validation Period      21   26Jul26  19Aug26  26Jul26  19Aug26   0   YES       NxtGen Cloud/WSP   NOT STARTED
+A58   Client Acceptance — MILESTONE       0   25Aug26  25Aug26  25Aug26  25Aug26   0   YES       —                  TARGET DATE
+
+================================================================================
+CRITICAL PATH SEQUENCE
+================================================================================
+
+A1 → A2 → A3 → A4 → A6 → A8 → A10 → A13 → A11 → A12 → A14 → A41 → A42
+→ A46 → A47 → A49 → A51 → A53 → A54 → A55 → A56 → A57 → A58
+
+PARALLEL CRITICAL PATH (UPS — currently dominant critical path):
+A15 → A16[FAIL] → A17 → A18 → A19 → A21 → A22 → A47 → A49 → A51...
+
+NOTE: The UPS battery issue (A16 FAIL → A17 → A18) has extended the UPS critical
+sub-path and is now the dominant constraint on the overall project critical path.
+
+================================================================================
+SCHEDULE RISK ITEMS
+================================================================================
+
+RISK-SCH-001 (CRITICAL): UPS Battery Remediation
+   Activities affected: A17, A18, A19, A21, A22, A49, A51, A53, A54, A56
+   Risk: If battery redesign requires >6 weeks, A18 (procurement of extension
+   cabinets) will not complete until April 2026, pushing A19 delivery to late
+   April, making the 25 July 2026 Power-On date extremely difficult to achieve.
+   Mitigation: Identify pre-qualified battery cabinet supplier to reduce A18 duration.
+   Probability: HIGH | Impact: CRITICAL
+
+RISK-SCH-002 (HIGH): MV Switchgear RFI-EL-003 Resolution
+   Activities affected: A14, A41
+   Risk: If Jacobs India accepts 25 kA (instead of 31.5 kA), delivery can proceed
+   on 15 January 2026. If Jacobs reject 25 kA, Schneider needs 6 additional weeks
+   for 31.5 kA panels, delaying A14 to mid-March 2026.
+   Probability: MEDIUM | Impact: HIGH
+
+RISK-SCH-003 (MEDIUM): Chiller Delivery Delay
+   Activities affected: A29, A30, A31, A52
+   Current delay: 2 weeks. If delay extends to 4+ weeks, A52 functional testing
+   will be pushed and may impact A53 BMS integration.
+   Probability: LOW | Impact: MEDIUM
+
+================================================================================
+END OF DOCUMENT — HYDC-01-PMO-SCH-006 REV 6
+================================================================================

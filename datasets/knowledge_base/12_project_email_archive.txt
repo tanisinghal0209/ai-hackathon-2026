@@ -1,0 +1,697 @@
+================================================================================
+PROJECT EMAIL ARCHIVE — HYDC-01
+================================================================================
+Document    : HYDC-01-COMM-EMAIL-001
+Period      : September 2025 — January 2026
+Compiled By : Shreya Joshi, Document Controller — Tata Projects Ltd (TPL-007)
+Note        : All email communications reproduced here for knowledge base purposes.
+              Emails are project records and subject to document control.
+================================================================================
+
+======================================================================
+EMAIL THREAD 1 — UPS N+1 CONFIGURATION DISPUTE
+======================================================================
+
+--- Email 1 of 6 ---
+From    : Aditya Singh <a.singh@tataprojects.com>
+To      : Rahul Desai <r.desai@jacobs.com>
+CC      : Vikram Sharma <v.sharma@tataprojects.com>
+Subject : FW: PowerGrid Systems UPS Quotation — Technical Query
+Date    : 12 September 2025, 11:23 AM
+Attachments: PGSL-HYDC01-UPS-QUOTATION-REV00.pdf
+
+Rahul,
+
+Hope you're well. Please see the attached UPS quotation from PowerGrid Systems (authorized
+Vertiv distributor). They've come in at INR 34.7 Crores which is exactly at budget.
+
+However, I noticed a note on page 3 that mentions "N configuration" for Phase 1A.
+Can you take a quick look and let me know if this is acceptable? Commercial team is
+eager to move ahead as we're already 2 weeks behind on the PO placement target.
+
+Thanks
+Aditya Singh | Procurement Manager | Tata Projects Ltd
+Mob: +91-98201-44312 | Ext: 4412
+
+--- Email 2 of 6 ---
+From    : Rahul Desai <r.desai@jacobs.com>
+To      : Aditya Singh <a.singh@tataprojects.com>
+CC      : Vikram Sharma <v.sharma@tataprojects.com>; Priya Nair <p.nair@tataprojects.com>
+Subject : RE: FW: PowerGrid Systems UPS Quotation — Technical Query
+Date    : 12 September 2025, 2:47 PM
+
+Aditya,
+
+I've reviewed the quotation. This is a significant issue and we cannot proceed on
+the current basis.
+
+The quotation proposes N-redundancy only. This means four modules in parallel serving
+the IT load, with no hot-standby unit. If any single module fails, the entire connected
+IT load loses power. This is directly contrary to REQ-UPS-001 in our specification and
+fundamentally incompatible with a Tier IV facility.
+
+I need this confirmed in writing by the client before we go any further. I'll raise a
+formal RFI (RFI-EL-001) today. Commercial pressure is understood but this is not a
+technical point that can be negotiated — it is a design requirement.
+
+I've also copied Priya as this needs project director visibility.
+
+Rahul Desai | Lead Electrical Engineer | Jacobs Engineering India
+Direct: +91-80-49225601 | r.desai@jacobs.com
+
+--- Email 3 of 6 ---
+From    : Dr. Meera Iyer <m.iyer@nxtgencloud.in>
+To      : Rahul Desai <r.desai@jacobs.com>
+CC      : Arjun Kapoor <a.kapoor@nxtgencloud.in>; Aditya Singh <a.singh@tataprojects.com>
+Subject : RE: FW: PowerGrid Systems UPS Quotation — Technical Query
+Date    : 14 September 2025, 9:15 AM
+
+Rahul, Aditya,
+
+Arjun and I have reviewed RFI-EL-001. Our position is unambiguous:
+
+N+1 redundancy is mandatory for Day 1 of Phase 1A. We have a Tier IV commitment to
+our tenant and cannot commission a facility that does not meet Tier IV fault tolerance
+standards. The UPS must have a hot-standby module from day one.
+
+Please include this as a hard requirement in the purchase order. If PowerGrid Systems
+cannot comply, the alternate vendor (ABB Power Protection) should be engaged immediately.
+
+Dr. Meera Iyer | Principal Engineer (Data Centre Technology)
+NxtGen Cloud Infrastructure Ltd | m.iyer@nxtgencloud.in
+
+--- Email 4 of 6 ---
+From    : Ramesh Khanna <r.khanna@powergridsystems.in>
+To      : Aditya Singh <a.singh@tataprojects.com>
+CC      : Shalini Bose <s.bose@powergridsystems.in>
+Subject : RE: UPS Quotation — N+1 Configuration Clarification
+Date    : 18 September 2025, 4:30 PM
+
+Dear Aditya,
+
+Thank you for your communication. We acknowledge the client's requirement for N+1
+configuration for Phase 1A.
+
+We can incorporate one additional Vertiv Liebert EXL S1 1600 kW module as a hot-standby
+unit. The commercial impact of this addition is INR 4.1 Crores additional to our
+quoted price, bringing the revised total to INR 38.8 Crores.
+
+Alternatively, if budget is the constraint, we can propose a solution where the same
+UPS room space is preserved for a future module with appropriate busbar provisions, and
+the additional module is physically installed but not powered up (cold standby). This
+would be lower cost but would not provide full Tier IV active N+1 protection.
+
+Please let me know how you wish to proceed. I am happy to have a call tomorrow.
+
+Warm regards,
+Ramesh Khanna | Technical Sales Director
+PowerGrid Systems Pvt Ltd | r.khanna@powergridsystems.in
+Mob: +91-98901-67234
+
+--- Email 5 of 6 ---
+From    : Aditya Singh <a.singh@tataprojects.com>
+To      : Arjun Kapoor <a.kapoor@nxtgencloud.in>
+CC      : Vikram Sharma <v.sharma@tataprojects.com>; Priya Nair <p.nair@tataprojects.com>
+Subject : UPS PKG-EL-002 — Budget Overrun Alert and Recommendation
+Date    : 19 September 2025, 10:00 AM
+
+Arjun,
+
+Quick update on the UPS package. PowerGrid Systems have confirmed they can supply
+N+1 but the price increases by INR 4.1 Crores to INR 38.8 Crores (budget was INR 34.7 Crores).
+
+Our recommendation: accept the N+1 configuration at the revised price. The alternative
+(N-only or cold standby) would compromise the Tier IV certification and create much
+larger risk exposure. The INR 4.1 Crore overrun can be offset against savings identified
+in the civil package (L&T came in INR 6.2 Crores under budget).
+
+Please confirm approval so we can finalise the PO. We're 2 weeks behind on PO placement.
+
+Aditya Singh | Procurement Manager | Tata Projects Ltd
+
+--- Email 6 of 6 ---
+From    : Arjun Kapoor <a.kapoor@nxtgencloud.in>
+To      : Aditya Singh <a.singh@tataprojects.com>
+CC      : Vikram Sharma <v.sharma@tataprojects.com>; Siddharth Malhotra <s.malhotra@nxtgencloud.in>
+Subject : RE: UPS PKG-EL-002 — Budget Overrun Alert and Recommendation
+Date    : 19 September 2025, 11:45 AM
+
+Aditya,
+
+Approved. Place the PO for N+1 configuration at INR 38.8 Crores. Sid will process
+the budget amendment from civil savings.
+
+One thing I want explicitly in the PO: the N+1 configuration must be physically
+installed and commissioned as part of Phase 1A. Cold standby is not acceptable.
+Please confirm this is in the PO commercial terms.
+
+The 1 September 2026 go-live for our bank tenant is non-negotiable. Everything flows
+from that date.
+
+Arjun Kapoor | VP Infrastructure Delivery
+NxtGen Cloud Infrastructure Ltd
+
+======================================================================
+EMAIL THREAD 2 — VENDOR SUBMITTAL REJECTION
+======================================================================
+
+--- Email 1 of 4 ---
+From    : Kavya Reddy <k.reddy@tataprojects.com>
+To      : Ramesh Khanna <r.khanna@powergridsystems.in>
+CC      : Aditya Singh <a.singh@tataprojects.com>; Rahul Desai <r.desai@jacobs.com>
+Subject : REJECTION — UPS Submittal Rev 01 — Package PKG-EL-002
+Date    : 03 November 2025, 3:00 PM
+Attachments: HYDC-01-SUB-REVIEW-PKG-EL-002-REV01.pdf
+
+Dear Mr. Khanna,
+
+Please note that Vendor Technical Submittal Revision 01 (dated 30 October 2025) for
+Package PKG-EL-002 (UPS System) has been reviewed and is hereby REJECTED.
+
+The following mandatory items are missing or non-compliant:
+
+1. Modbus TCP/IP register map — NOT INCLUDED (required per REQ-UPS-013 and SUB-03)
+2. IEC 62040-3 performance classification type test certificate — NOT INCLUDED (required per REQ-UPS-007)
+3. Deviation schedule (Section 9) declares "No deviations" — however the proposed
+   static bypass synchronisation window of ±2 Hz is inconsistent with REQ-UPS-009
+   which specifies ±1 Hz. This needs to be formally declared.
+
+You are required to resubmit within 10 working days (by 17 November 2025 at the latest).
+Late resubmission will attract programme consequences under Section 8.3 of PO HYDC-01-PO-EL-002.
+
+Regards,
+Kavya Reddy | QA/QC Manager — Tata Projects Ltd
+k.reddy@tataprojects.com | Ext: 5502
+
+--- Email 2 of 4 ---
+From    : Ramesh Khanna <r.khanna@powergridsystems.in>
+To      : Kavya Reddy <k.reddy@tataprojects.com>
+CC      : Aditya Singh <a.singh@tataprojects.com>; Shalini Bose <s.bose@powergridsystems.in>
+Subject : RE: REJECTION — UPS Submittal Rev 01 — Package PKG-EL-002
+Date    : 05 November 2025, 10:30 AM
+
+Dear Ms. Reddy,
+
+Thank you for your review comments. We acknowledge the rejection and will resubmit
+by the 17 November deadline.
+
+Regarding item 3 — the ±2 Hz synchronisation window: our technical team's position is
+that this represents the standard operating specification for the Vertiv EXL S1 product
+line and is consistent with IEC 62040-3. All modern UPS systems operate within this
+synchronisation window. We do not believe this constitutes a deviation from your specification.
+
+However, we will include additional technical justification in our Revision 02 submission
+for your engineering team's consideration.
+
+Modbus register map and IEC certificates will be included in Revision 02.
+
+Best regards,
+Ramesh Khanna
+
+--- Email 3 of 4 ---
+From    : Rahul Desai <r.desai@jacobs.com>
+To      : Kavya Reddy <k.reddy@tataprojects.com>
+CC      : Sanjay Thakur <s.thakur@wsp.com>
+Subject : RE: Vendor Position on ±2 Hz Synchronisation — PKG-EL-002
+Date    : 06 November 2025, 2:15 PM
+
+Kavya, Sanjay,
+
+I've seen Ramesh Khanna's response on the synchronisation window. The vendor's position
+is technically incorrect.
+
+IEC 62040-3 does not mandate a specific synchronisation window — that is left to the
+project specification. Our specification (REQ-UPS-009) specifies ±1 Hz for this project
+specifically because we need reliable bypass transfer under generator conditions where
+frequency may be slightly variable.
+
+±2 Hz is indeed common in commercial UPS products, but "common" does not mean "compliant
+with our specification." The vendor needs to formally declare this as a deviation.
+
+Sanjay — please note this for the FAT. The synchronisation test should measure the
+actual window and compare against ±1 Hz.
+
+Rahul
+
+--- Email 4 of 4 ---
+From    : Sanjay Thakur <s.thakur@wsp.com>
+To      : Rahul Desai <r.desai@jacobs.com>; Kavya Reddy <k.reddy@tataprojects.com>
+Subject : RE: Vendor Position on ±2 Hz Synchronisation — PKG-EL-002
+Date    : 06 November 2025, 4:45 PM
+
+Rahul, Kavya,
+
+Noted. I've added a specific synchronisation window measurement test to the FAT
+observation sheet. We'll measure the actual window during the bypass transfer test.
+
+If the measured window exceeds ±1 Hz, it will be recorded as a non-conformance in
+the FAT report regardless of the vendor's position on "industry standard."
+
+Also flagging: has anyone looked carefully at the battery autonomy numbers in the
+Revision 01 submittal? I recall seeing 10 minutes at 100% load. That's well short
+of our 15-minute requirement. I'm guessing this will be in Rev 02 as well.
+
+Sanjay Thakur | Lead Commissioning Authority | WSP Global
+
+======================================================================
+EMAIL THREAD 3 — SWITCHGEAR CUSTOMS CRISIS
+======================================================================
+
+--- Email 1 of 5 ---
+From    : Vijay Nambiar <v.nambiar@se.com>
+To      : Aditya Singh <a.singh@tataprojects.com>
+CC      : Deepak Nambiar <d.nambiar@tataprojects.com>
+Subject : URGENT — MV Switchgear Shipment — Customs Hold at JNPT
+Date    : 08 December 2025, 9:00 AM
+
+Dear Aditya,
+
+I regret to inform you that the HYDC-01 MV switchgear panels (16 panels, A and B bus)
+are currently held at JNPT Mumbai due to a customs classification issue.
+
+Our logistics partner has received a hold notice from the customs department citing an
+incorrect HS code on the IGCR (Import General Manifest Certificate). The equipment was
+declared under HS code 8537.10.99 but customs is querying whether it should be 8537.20.00
+(for MV equipment above 1kV).
+
+Our customs clearance agent is working on this urgently. Estimated resolution: 5-7 working
+days from today.
+
+Original ETA to your site was 20 December 2025. New ETA: approximately 28-30 December 2025.
+
+I understand this has programme implications and sincerely apologise for the inconvenience.
+We will keep you updated daily.
+
+Vijay Nambiar | Project Manager | Schneider Electric India
+
+--- Email 2 of 5 ---
+From    : Aditya Singh <a.singh@tataprojects.com>
+To      : Vikram Sharma <v.sharma@tataprojects.com>
+CC      : Rajan Mehta <r.mehta@tataprojects.com>; Deepak Nambiar <d.nambiar@tataprojects.com>
+Subject : CRITICAL — MV Switchgear Customs Delay — Immediate Action Required
+Date    : 08 December 2025, 10:30 AM
+
+Vikram,
+
+Schneider has just informed us that the switchgear is stuck in customs at JNPT.
+This is potentially catastrophic for our programme.
+
+Switchgear installation (Activity A14) is on the critical path. Original delivery: 20 Dec.
+Schneider is saying 28-30 Dec at best. That's an 8-10 day delay, which directly pushes
+A14 and everything downstream.
+
+I'm raising a formal RFI (RFI-PROC-001) and updating the programme. Rajan — please
+run worst case / best case scenarios immediately.
+
+I recommend we also engage a specialist customs clearance consultant on our side to
+expedite. Schneider's agent may not have the urgency we need. I know a firm —
+Transpac Logistics — who have cleared similar equipment before.
+
+Aditya
+
+--- Email 3 of 5 ---
+From    : Rajan Mehta <r.mehta@tataprojects.com>
+To      : Vikram Sharma <v.sharma@tataprojects.com>; Aditya Singh <a.singh@tataprojects.com>
+CC      : Arjun Kapoor <a.kapoor@nxtgencloud.in>
+Subject : Programme Update — Switchgear Delay Impact Assessment
+Date    : 09 December 2025, 3:00 PM
+Attachments: HYDC-01-SCH-005-IMPACT-ASSESSMENT.pdf
+
+Team,
+
+Impact assessment attached. Summary:
+
+Best case (cleared by 17 Dec): 5 working days delay to A14, net impact ~7 days
+Most likely (cleared by 28 Dec): 15 working days delay, net impact ~18 days
+Worst case (cleared by 10 Jan): 25 working days delay, net impact ~25 days
+
+In all scenarios, Power-On date moves. Most likely scenario: Power-On 18 July 2026
+(was 30 June 2026). This gives Arjun 44 days buffer to the 1 Sep go-live date.
+
+I've identified 5 activities that could potentially be fast-tracked to recover some
+of this time. I'll present these at the next coordination meeting.
+
+Rajan Mehta | Project Controls Manager | Tata Projects Ltd
+
+--- Email 4 of 5 ---
+From    : Arjun Kapoor <a.kapoor@nxtgencloud.in>
+To      : Vikram Sharma <v.sharma@tataprojects.com>
+Subject : RE: Programme Update — Switchgear Delay Impact Assessment
+Date    : 09 December 2025, 5:15 PM
+
+Vikram,
+
+I've read Rajan's note. 44 days buffer in most likely scenario is manageable but
+uncomfortable. I need you to pursue every possible recovery option.
+
+Also — I want to formally record that this customs delay is a Force Majeure event
+under our contract. Please have Sunita Krishnan prepare a formal notice of delay
+under clause 18.2 of the EPC contract. This protects our position with our tenant
+if we need to invoke LD protection.
+
+I'll brief Siddharth (Commercial Director) tonight.
+
+Arjun
+
+--- Email 5 of 5 ---
+From    : Vijay Nambiar <v.nambiar@se.com>
+To      : Aditya Singh <a.singh@tataprojects.com>
+Subject : GOOD NEWS — Customs Clearance Granted — MV Switchgear
+Date    : 10 January 2026, 8:45 AM
+
+Dear Aditya,
+
+I am pleased to inform you that the customs hold on the HYDC-01 MV switchgear panels
+has been resolved this morning. Clearance certificate received at 07:30 IST.
+
+The panels have been loaded onto trucks and are en route to your site now. ETA:
+15-16 January 2026 (2 trucks, 8 panels each).
+
+Once again I apologise for the delay. Our agent successfully challenged the
+HS classification and the original 8537.20.00 code has been accepted by customs.
+We have updated our standard shipping documentation to prevent recurrence.
+
+Please confirm site readiness for unloading on 15 January.
+
+Vijay Nambiar | Schneider Electric India
+
+======================================================================
+EMAIL THREAD 4 — FAT BATTERY FAILURE — IMMEDIATE AFTERMATH
+======================================================================
+
+--- Email 1 of 5 ---
+From    : Sanjay Thakur <s.thakur@wsp.com>
+To      : Vikram Sharma <v.sharma@tataprojects.com>
+CC      : Arjun Kapoor <a.kapoor@nxtgencloud.in>; Rahul Desai <r.desai@jacobs.com>
+Subject : FORMAL — UPS FAT FAILURE NOTIFICATION — PKG-EL-002 — Battery Discharge Test
+Date    : 07 January 2026, 6:30 PM
+Attachments: WSP-HYDC01-FAT-OBSERVATION-001.pdf
+
+Vikram, Arjun,
+
+I am writing to formally notify you of a test failure at today's UPS Factory Acceptance
+Test at PowerGrid Systems, Pune.
+
+Test: Battery Discharge Test at 100% rated load (1,600 kW per module)
+Test Objective: Demonstrate minimum 15-minute autonomy per REQ-UPS-002 and REQ-UPS-008
+Module Tested: UPS-A1-01 (representative module)
+
+Result:
+Battery autonomy measured: 9 minutes 47 seconds
+Required: 15 minutes minimum
+Shortfall: 5 minutes 13 seconds (35% below requirement)
+
+Result: FAIL
+
+Additionally, during the bypass transfer test on Day 2:
+Synchronisation window measured: ±2.1 Hz
+Required per REQ-UPS-009: ±1 Hz
+Result: NON-CONFORMANCE NOTED (bypass transfer was successful under controlled conditions)
+
+Dispatch approval for this equipment is WITHHELD pending resolution of the battery
+autonomy issue. Equipment shall remain at PowerGrid Systems Pune facility under hold.
+
+Full FAT observation report attached. I will present this at the coordination meeting
+on 8 January 2026.
+
+Sanjay Thakur | Lead CxA | WSP Global | s.thakur@wsp.com
+
+--- Email 2 of 5 ---
+From    : Dr. Meera Iyer <m.iyer@nxtgencloud.in>
+To      : Ramesh Khanna <r.khanna@powergridsystems.in>
+CC      : Arjun Kapoor <a.kapoor@nxtgencloud.in>; Vikram Sharma <v.sharma@tataprojects.com>
+Subject : FORMAL NOTICE — UPS Battery Non-Compliance — Immediate Response Required
+Date    : 07 January 2026, 7:45 PM
+
+Mr. Khanna,
+
+I attended today's FAT as NxtGen Cloud's representative. I witnessed the battery
+discharge test personally.
+
+The result of 9 minutes 47 seconds is completely unacceptable. Our specification
+requires 15 minutes — a requirement that has been clearly established since Specification
+Rev B issued on 22 October 2025, and confirmed in RFI-EL-002 response dated 20 October 2025.
+
+Furthermore, your Vendor Submittal Rev 02 (Section 2.3) declares 10 minutes autonomy —
+which itself was already a declared non-compliance we were in the process of investigating
+via NCR-EL-001. The actual measured result (9m 47s) is below even your own declared value.
+
+NxtGen Cloud Infrastructure Ltd requires the following from PowerGrid Systems within
+7 working days (by 16 January 2026):
+1. Written acknowledgement of all deviations in NCR-EL-001
+2. Formal Battery Remediation Proposal showing how 15-minute autonomy will be achieved
+
+Until both items are received and accepted, this equipment will not leave your facility.
+
+Dr. Meera Iyer | Principal Engineer | NxtGen Cloud Infrastructure Ltd
+
+--- Email 3 of 5 ---
+From    : Ramesh Khanna <r.khanna@powergridsystems.in>
+To      : Dr. Meera Iyer <m.iyer@nxtgencloud.in>
+CC      : Shalini Bose <s.bose@powergridsystems.in>; Aditya Singh <a.singh@tataprojects.com>
+Subject : RE: FORMAL NOTICE — UPS Battery Non-Compliance
+Date    : 09 January 2026, 11:00 AM
+
+Dear Dr. Iyer,
+
+We acknowledge receipt of your formal notice and the FAT results.
+
+I have escalated this matter to our Managing Director and to Vertiv's regional
+technical team (APAC). We are committed to resolving this issue as quickly as possible.
+
+Our preliminary assessment:
+- The shortfall in battery autonomy is due to the end-of-life derating factor applied
+  in our calculation (80% as per the specification clarification in Revision B). Our
+  original configuration was sized for new battery capacity, not end-of-life capacity.
+- We are assessing two solutions:
+  a) Addition of Battery Extension Cabinets (BECs) — 2 additional BEC per UPS module
+     to increase the total battery capacity. Estimated delivery: 6-8 weeks.
+  b) Replacement of existing VRLA cells with Lithium-Ion batteries — higher energy density,
+     would achieve 15 minutes in existing cabinet footprint. Estimated delivery: 10-12 weeks.
+
+I will send a formal Battery Remediation Proposal by 17 January 2026. We sincerely
+regret the inconvenience caused to the project.
+
+Ramesh Khanna | Technical Sales Director | PowerGrid Systems Pvt Ltd
+
+--- Email 4 of 5 ---
+From    : Rahul Desai <r.desai@jacobs.com>
+To      : Vikram Sharma <v.sharma@tataprojects.com>
+CC      : Sanjay Thakur <s.thakur@wsp.com>; Kavya Reddy <k.reddy@tataprojects.com>
+Subject : Technical Assessment — PowerGrid Battery Remediation Options
+Date    : 12 January 2026, 4:00 PM
+
+Vikram,
+
+Having reviewed Ramesh Khanna's email, here is my technical assessment of the two options:
+
+Option A (Battery Extension Cabinets — VRLA):
+- Delivery 6-8 weeks from order = site delivery approx. end of March 2026
+- Requires additional floor space in UPS room: 2 × BEC per module × 8 modules = 16 additional cabinets
+- Weight: approximately 1,200 kg additional per UPS module — need structural re-check
+- Cost: approximately INR 2.8-3.5 Crores for all 8 modules
+- Confidence: HIGH — proven solution for this situation
+
+Option B (Lithium-Ion replacement):
+- Delivery 10-12 weeks from order = site delivery May 2026
+- No additional floor space required
+- Requires updated fire protection design (Li-Ion has different fire risk profile)
+- Cost: approximately INR 7-9 Crores premium over VRLA
+- Confidence: MEDIUM — longer delivery, more complex design coordination
+- RISK: Fire suppression in UPS room is FM-200 (Kidde, PKG-FP-001) — Li-Ion may require
+  different suppression agent. Need to check with Dinesh Pai at Jacobs.
+
+My recommendation: Pursue Option A. It is faster, more predictable, and structurally
+more straightforward. The weight issue needs to be checked with Kiran Bhat (structural).
+
+The programme impact of Option A is approximately 8-10 week delay from the original
+UPS delivery date, which is better than the 10-12 weeks for Option B.
+
+Rahul Desai | Jacobs India
+
+--- Email 5 of 5 ---
+From    : Kavya Reddy <k.reddy@tataprojects.com>
+To      : Ramesh Khanna <r.khanna@powergridsystems.in>
+Subject : FORMAL — Cure Notice — NCR-EL-001 — Package PKG-EL-002
+Date    : 12 January 2026, 5:00 PM
+Attachments: HYDC-01-QA-CURE-NOTICE-001.pdf
+
+Mr. Khanna,
+
+Please find attached Formal Cure Notice reference HYDC-01-QA-CURE-NOTICE-001,
+issued pursuant to:
+- Purchase Order HYDC-01-PO-EL-002, Clause 14.2 (Remediation of Non-Conformances)
+- Non-Conformance Report NCR-EL-001 (issued 20 November 2025, still OPEN)
+
+This notice requires PowerGrid Systems Pvt Ltd to:
+1. Within 5 working days: Provide written acknowledgement of all 5 deviations listed
+   in NCR-EL-001
+2. Within 10 working days: Submit Battery Remediation Proposal per Dr. Iyer's notice
+   dated 07 January 2026
+3. Within 15 working days: Submit revised Vendor Technical Submittal Rev 03 with
+   formal deviation declarations per Specification Appendix A format
+
+Failure to respond within the above timeframes may result in:
+- Invocation of purchase order penalty provisions
+- Escalation to alternate vendor (ABB Power Protection)
+
+Kavya Reddy | QA/QC Manager | Tata Projects Limited
+
+======================================================================
+EMAIL THREAD 5 — COMMISSIONING PLANNING
+======================================================================
+
+--- Email 1 of 3 ---
+From    : Sanjay Thakur <s.thakur@wsp.com>
+To      : Rohini Gupta <r.gupta@tataprojects.com>
+CC      : Vikram Sharma <v.sharma@tataprojects.com>; Anand Krishnaswamy <a.krishnaswamy@wsp.com>
+Subject : HYDC-01 — IST Planning — Key Dependencies
+Date    : 15 December 2025, 2:30 PM
+
+Rohini,
+
+I've started drafting the IST script for HYDC-01 Phase 1A (document HYDC-01-CX-SCH-001).
+Before I finalise it, I need your team's input on a few things:
+
+1. What IT load will be available at the time of IST? The IST needs to be done under
+   a realistic load. If we have less than 4 MW live IT load, we'll need temporary load banks.
+
+2. Generator start sequence confirmation — Cummins has provided their standard auto-start
+   sequence but I need the project-specific settings (start delay, load ramp rate, etc.)
+   Please get this from Prakash Rao at Cummins.
+
+3. The UPS battery situation is now critical. IST Scenario 01 (utility failure) requires
+   battery autonomy to be demonstrated. If the battery test cannot show 15 minutes, we
+   cannot safely run this scenario — we'd be running IST knowing the UPS will trip at ~10
+   minutes, which is dangerous for any live IT equipment connected at that time.
+
+I'll need written confirmation from Rahul Desai that the battery issue is resolved before
+I can issue the IST programme for approval.
+
+Sanjay
+
+--- Email 2 of 3 ---
+From    : Rohini Gupta <r.gupta@tataprojects.com>
+To      : Sanjay Thakur <s.thakur@wsp.com>
+Subject : RE: HYDC-01 — IST Planning — Key Dependencies
+Date    : 17 December 2025, 10:00 AM
+
+Sanjay,
+
+Answers below:
+
+1. IT load at IST time: Based on current customer contracts, we expect approximately
+   4.8 MW live IT load by July 2026 (one rack row per data hall × 4 halls, ~600 racks
+   at 8 kW average). We'll plan for temporary load banks to supplement to 8 MW for
+   a meaningful test. Confirm if 8 MW is sufficient or if we should target higher.
+
+2. Cummins settings: I'll get Manish Patel to contact Prakash Rao this week.
+   Will forward the auto-start specification by end of month.
+
+3. Battery situation: Completely understood. I'll flag this as a gate condition in
+   the commissioning readiness tracker. We won't schedule IST until we have written
+   confirmation from Jacobs that the 15-minute autonomy is achievable.
+
+Rohini Gupta | Commissioning Engineer | Tata Projects Ltd
+
+--- Email 3 of 3 ---
+From    : Sanjay Thakur <s.thakur@wsp.com>
+To      : Rohini Gupta <r.gupta@tataprojects.com>; Rahul Desai <r.desai@jacobs.com>
+CC      : Vikram Sharma <v.sharma@tataprojects.com>; Arjun Kapoor <a.kapoor@nxtgencloud.in>
+Subject : RE: HYDC-01 — IST Planning — Programme Risk Advisory
+Date    : 08 January 2026, 9:00 AM
+
+Team,
+
+Following yesterday's FAT failure result, I am formally advising:
+
+The current target IST date (28 June 2026) is AT RISK. The following items must be
+resolved before IST can commence:
+
+BLOCKER 1: UPS Battery — 15-minute autonomy not achieved (9m47s measured at FAT).
+           Cannot run IST Scenario 01 (utility failure) until this is fixed.
+           Current estimated resolution: late March/April 2026 (if Option A BEC chosen).
+
+BLOCKER 2: UPS N+1 Configuration — N-only currently proposed. IST Scenario 03
+           (UPS module failure) cannot be safely demonstrated without N+1.
+
+BLOCKER 3: MV Switchgear — awaiting site delivery. Installation must be complete
+           and L3 functional tests passed before IST.
+
+If BLOCKER 1 resolution takes until April 2026 and UPS installation takes 4 weeks,
+UPS functional testing would start May 2026 at earliest. This gives 6 weeks before
+the IST date — tight but potentially achievable if no further issues arise.
+
+I strongly recommend the project team issue a formal programme recovery plan addressing
+all three blockers by next meeting (MOM-014, 15 January 2026).
+
+Sanjay Thakur | WSP Global | Commissioning Authority
+
+======================================================================
+EMAIL THREAD 6 — INTERNAL PLANNING CONCERN
+======================================================================
+
+--- Email 1 of 2 ---
+From    : Nikhil Rao <n.rao@tataprojects.com>
+To      : Rajan Mehta <r.mehta@tataprojects.com>
+Subject : Confidential — Programme Concern — Need to Discuss
+Date    : 13 January 2026, 6:30 PM
+
+Rajan,
+
+I've been running scenarios all evening. I don't want to put this in writing to the
+wider team yet but I think we have a problem that's bigger than we're presenting to the client.
+
+If the PowerGrid battery remediation takes 8 weeks (Option A, per Rahul's assessment),
+that means:
+- Battery extension cabinet delivery: 16 March 2026
+- UPS with BEC installation: 6 April 2026
+- UPS L3 functional testing: 7 May 2026
+- UPS PFC (pre-functional checks): 7 May 2026
+- IST can start: 1 June 2026 at earliest (assuming no issues in functional testing)
+- IST duration: 3 weeks minimum
+- IST complete: 22 June 2026
+- Power-On: 5 July 2026 (with remediation period)
+
+That's 5 July 2026, not 25 July 2026. We have more buffer than Arjun realises.
+But — this assumes ZERO issues in functional testing and IST. If anything goes wrong
+in functional testing (and given the NCR situation, I'm not confident), we might be
+looking at late July or August.
+
+The 1 September client commitment then has very little margin.
+
+I think we should brief Arjun honestly tomorrow before MOM-014. Do you agree?
+
+Nikhil Rao | Planning Engineer | Tata Projects Ltd
+
+--- Email 2 of 2 ---
+From    : Rajan Mehta <r.mehta@tataprojects.com>
+To      : Nikhil Rao <n.rao@tataprojects.com>
+CC      : Vikram Sharma <v.sharma@tataprojects.com>
+Subject : RE: Confidential — Programme Concern — Need to Discuss
+Date    : 13 January 2026, 8:15 PM
+
+Nikhil,
+
+Your analysis is correct. I've been working through the same numbers.
+
+I've shared this with Vikram tonight. We will present the realistic scenario to Arjun
+at MOM-014 tomorrow. Vikram agrees that honest communication now is better than
+a surprise in May. The client deserves to know the real position.
+
+The key message will be: we can still make 1 September with 25+ days buffer IF
+the battery remediation is Option A (BEC) and it is ordered by 20 January 2026.
+If PowerGrid Systems delays the remediation proposal beyond 19 January, the buffer
+compresses dangerously.
+
+Please prepare the programme slides for tomorrow. Show three scenarios:
+- Optimistic (BEC ordered 20 Jan): Power-On 5 Jul 2026
+- Likely (BEC ordered 3 Feb): Power-On 20 Jul 2026
+- Pessimistic (BEC delayed or Li-Ion option): Power-On 15 Aug 2026
+
+See you in the morning.
+Rajan
+
+================================================================================
+END OF EMAIL ARCHIVE — HYDC-01-COMM-EMAIL-001
+================================================================================

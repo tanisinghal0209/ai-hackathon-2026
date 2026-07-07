@@ -1,0 +1,201 @@
+System,Subsystem,Test,Result,Engineer,Witness,Date,Status,Linked Equipment
+Electrical,UPS System,Battery Discharge Autonomy Test,FAIL,Anand Krishnaswamy,Dr. Meera Iyer,2026-01-07,Failed - Witness hold,UPS-A1-01
+Electrical,MV Switchgear,Insulation Resistance Check,PASS,Deepak Nambiar,Sanjay Thakur,2026-01-15,Completed,SWG-MV-A
+Electrical,MV Switchgear,Protection Relay Test,PASS,Deepak Nambiar,Sanjay Thakur,2026-01-15,Completed,SWG-MV-B
+Mechanical,Chilled Water Plant,Hydrostatic Test,PASS,Manish Patel,Sanjay Thakur,2026-01-12,Completed,CHL-01
+Mechanical,Acoustic Exhaust,Water Loop Chemical Verification,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-28,Completed,EQP-MEC-037
+BMS,BMS Control Network,HMI Visual Sync,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-09,Completed,EQP-BMS-073
+BMS,BMS Control Network,Alarm Escalation Protocol,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-11,Completed,EQP-BMS-061
+Mechanical,Condenser Cooling Towers,Cooling Tower GPM Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-18,Completed,EQP-MEC-021
+Mechanical,Acoustic Exhaust,Chiller Compressor Calibration,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-10-24,Completed,EQP-MEC-092
+Fire Protection,FM-200 Clean Agent System,FM-200 Enclosure Leak Test,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-22,Completed,EQP-FIR-082
+Fire Protection,VESDA Aspiration,Pre-action Sprinkler Hold,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-28,Completed,EQP-FIR-055
+Fire Protection,Pre-action Sprinklers,VESDA Detection Sweep,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-03,Completed,EQP-FIR-065
+Fire Protection,CO2 Flooding System,FM-200 Enclosure Leak Test,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-04,Completed,EQP-FIR-042
+Mechanical,Chilled Water Plant,Water Loop Chemical Verification,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-08,Completed,EQP-MEC-070
+Mechanical,Condenser Cooling Towers,CRAH Fan Velocity Sweep,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-28,Completed,EQP-MEC-035
+Electrical,Power Transformers,Battery Discharge Autonomy,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-07,Completed,EQP-ELE-014
+Mechanical,Condenser Cooling Towers,Chilled Water Hydrostatic Test,PASS,Rohini Gupta,Dr. Meera Iyer,2026-02-08,Completed,EQP-MEC-021
+BMS,BMS Server Panel,Analog Input Scaling Verify,PASS,Rohini Gupta,Dr. Meera Iyer,2025-10-24,Completed,EQP-BMS-080
+Fire Protection,CO2 Flooding System,CO2 Total Flooding Trigger,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-16,Completed,EQP-FIR-035
+BMS,BMS Control Network,Modbus Point Communication Check,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-12-16,Completed,EQP-BMS-077
+Electrical,MV Switchgear,Contact Resistance Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-20,Completed,EQP-ELE-038
+Electrical,Power Transformers,Insulation Resistance Test,PASS,Rohini Gupta,Dr. Meera Iyer,2026-02-07,Completed,EQP-ELE-092
+Mechanical,CRAH System,Cooling Tower GPM Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-25,Completed,EQP-MEC-072
+Mechanical,CRAH System,Chiller Compressor Calibration,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-19,Completed,EQP-MEC-021
+Electrical,Power Transformers,Insulation Resistance Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-21,Completed,EQP-ELE-045
+Electrical,Diesel Generators,Contact Resistance Test,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-22,Completed,EQP-ELE-035
+BMS,BMS Control Network,HMI Visual Sync,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-08,Completed,EQP-BMS-042
+Mechanical,Acoustic Exhaust,CRAH Fan Velocity Sweep,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-31,Completed,EQP-MEC-058
+Electrical,Busduct Systems,Differential Protection Trip,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-13,Completed,EQP-ELE-030
+Electrical,Power Transformers,Generator Step Load,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-20,Completed,EQP-ELE-064
+BMS,BMS Control Network,Analog Input Scaling Verify,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-01,Completed,EQP-BMS-083
+Electrical,UPS System,Battery Discharge Autonomy,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-30,Completed,EQP-ELE-046
+Mechanical,CRAH System,CRAH Fan Velocity Sweep,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-12-10,Completed,EQP-MEC-017
+BMS,BMS Server Panel,HMI Visual Sync,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-03,Completed,EQP-BMS-081
+BMS,BMS Server Panel,Analog Input Scaling Verify,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-03,Completed,EQP-BMS-054
+Electrical,UPS System,Contact Resistance Test,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-21,Completed,EQP-ELE-037
+Electrical,Busduct Systems,Contact Resistance Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-21,Completed,EQP-ELE-035
+Fire Protection,FM-200 Clean Agent System,FM-200 Enclosure Leak Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-10-24,Completed,EQP-FIR-012
+BMS,BMS Software System,Analog Input Scaling Verify,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-28,Completed,EQP-BMS-089
+BMS,BMS Control Network,HMI Visual Sync,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-11,Completed,EQP-BMS-026
+BMS,BMS Server Panel,Alarm Escalation Protocol,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-30,Completed,EQP-BMS-019
+Electrical,MV Switchgear,Insulation Resistance Test,PASS,Rohini Gupta,Dr. Meera Iyer,2026-02-16,Completed,EQP-ELE-066
+BMS,BMS Software System,Modbus Point Communication Check,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-01,Completed,EQP-BMS-038
+Fire Protection,FM-200 Clean Agent System,VESDA Detection Sweep,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-20,Completed,EQP-FIR-021
+Fire Protection,CO2 Flooding System,FM-200 Enclosure Leak Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-07,Completed,EQP-FIR-077
+Mechanical,CRAH System,CRAH Fan Velocity Sweep,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-25,Completed,EQP-MEC-021
+BMS,BMS Server Panel,Alarm Escalation Protocol,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-26,Completed,EQP-BMS-029
+Mechanical,Chilled Water Plant,Chiller Compressor Calibration,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-15,Completed,EQP-MEC-027
+BMS,BMS Server Panel,Alarm Escalation Protocol,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-06,Completed,EQP-BMS-014
+Fire Protection,FM-200 Clean Agent System,FM-200 Enclosure Leak Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-12-29,Completed,EQP-FIR-060
+Mechanical,Chilled Water Plant,CRAH Fan Velocity Sweep,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-21,Completed,EQP-MEC-087
+BMS,BMS Control Network,Alarm Escalation Protocol,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-12-10,Completed,EQP-BMS-076
+BMS,BMS Control Network,Alarm Escalation Protocol,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-06,Completed,EQP-BMS-095
+Fire Protection,FM-200 Clean Agent System,FM-200 Enclosure Leak Test,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-13,Completed,EQP-FIR-059
+Fire Protection,Pre-action Sprinklers,FM-200 Enclosure Leak Test,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-02,Completed,EQP-FIR-079
+BMS,BMS Control Network,HMI Visual Sync,PASS,Rohini Gupta,Dr. Meera Iyer,2025-10-24,Completed,EQP-BMS-020
+Electrical,LV Switchgear,Battery Discharge Autonomy,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-06,Completed,EQP-ELE-089
+BMS,BMS Software System,Alarm Escalation Protocol,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-02,Completed,EQP-BMS-031
+Fire Protection,Pre-action Sprinklers,VESDA Detection Sweep,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-12-08,Completed,EQP-FIR-055
+Electrical,Diesel Generators,Inverter Step Load,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-14,Completed,EQP-ELE-021
+Electrical,MV Switchgear,Generator Step Load,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-28,Completed,EQP-ELE-025
+Fire Protection,FM-200 Clean Agent System,Pre-action Sprinkler Hold,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-16,Completed,EQP-FIR-051
+BMS,BMS Server Panel,Alarm Escalation Protocol,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-10-23,Completed,EQP-BMS-065
+Fire Protection,VESDA Aspiration,Pre-action Sprinkler Hold,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-12-13,Completed,EQP-FIR-078
+BMS,BMS Control Network,Modbus Point Communication Check,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-10-23,Completed,EQP-BMS-084
+BMS,BMS Server Panel,Alarm Escalation Protocol,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-05,Completed,EQP-BMS-095
+Electrical,UPS System,Differential Protection Trip,PASS,Rohini Gupta,Dr. Meera Iyer,2026-02-10,Completed,EQP-ELE-077
+Fire Protection,Pre-action Sprinklers,VESDA Detection Sweep,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-16,Completed,EQP-FIR-046
+Fire Protection,Pre-action Sprinklers,FM-200 Enclosure Leak Test,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-14,Completed,EQP-FIR-091
+Mechanical,Condenser Cooling Towers,Water Loop Chemical Verification,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-02,Completed,EQP-MEC-096
+BMS,BMS Control Network,HMI Visual Sync,PASS,Rohini Gupta,Dr. Meera Iyer,2026-02-07,Completed,EQP-BMS-012
+Fire Protection,CO2 Flooding System,VESDA Detection Sweep,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-03,Completed,EQP-FIR-078
+Mechanical,CRAH System,Water Loop Chemical Verification,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-15,Completed,EQP-MEC-082
+BMS,BMS Software System,Analog Input Scaling Verify,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-12-30,Completed,EQP-BMS-048
+Electrical,Diesel Generators,Contact Resistance Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-19,Completed,EQP-ELE-015
+BMS,BMS Control Network,Modbus Point Communication Check,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-22,Completed,EQP-BMS-028
+BMS,BMS Software System,Alarm Escalation Protocol,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-12,Completed,EQP-BMS-065
+Fire Protection,CO2 Flooding System,CO2 Total Flooding Trigger,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-10,Completed,EQP-FIR-055
+BMS,BMS Server Panel,Modbus Point Communication Check,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-16,Completed,EQP-BMS-038
+Electrical,Diesel Generators,Inverter Step Load,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-15,Completed,EQP-ELE-015
+Electrical,Busduct Systems,Static Bypass Transfer,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-10-31,Completed,EQP-ELE-019
+Electrical,MV Switchgear,Generator Step Load,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-18,Completed,EQP-ELE-097
+Fire Protection,CO2 Flooding System,FM-200 Enclosure Leak Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-10-27,Completed,EQP-FIR-075
+Mechanical,CRAH System,Chiller Compressor Calibration,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-03,Completed,EQP-MEC-086
+Electrical,LV Switchgear,Inverter Step Load,PASS,Rohini Gupta,Dr. Meera Iyer,2025-10-24,Completed,EQP-ELE-050
+BMS,BMS Server Panel,Modbus Point Communication Check,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-02,Completed,EQP-BMS-046
+BMS,BMS Software System,Modbus Point Communication Check,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-11,Completed,EQP-BMS-046
+Electrical,LV Switchgear,Insulation Resistance Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-21,Completed,EQP-ELE-010
+Fire Protection,Pre-action Sprinklers,Pre-action Sprinkler Hold,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-26,Completed,EQP-FIR-018
+BMS,BMS Control Network,Modbus Point Communication Check,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-16,Completed,EQP-BMS-024
+Fire Protection,FM-200 Clean Agent System,CO2 Total Flooding Trigger,PASS,Rohini Gupta,Dr. Meera Iyer,2026-02-07,Completed,EQP-FIR-098
+Fire Protection,Pre-action Sprinklers,Pre-action Sprinkler Hold,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-18,Completed,EQP-FIR-010
+BMS,BMS Control Network,Alarm Escalation Protocol,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-31,Completed,EQP-BMS-090
+Fire Protection,VESDA Aspiration,FM-200 Enclosure Leak Test,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-30,Completed,EQP-FIR-029
+Fire Protection,VESDA Aspiration,Pre-action Sprinkler Hold,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-10-23,Completed,EQP-FIR-057
+BMS,BMS Server Panel,Analog Input Scaling Verify,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-31,Completed,EQP-BMS-055
+BMS,BMS Control Network,HMI Visual Sync,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-06,Completed,EQP-BMS-031
+Fire Protection,Pre-action Sprinklers,CO2 Total Flooding Trigger,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-20,Completed,EQP-FIR-031
+Fire Protection,VESDA Aspiration,FM-200 Enclosure Leak Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-15,Completed,EQP-FIR-094
+BMS,BMS Server Panel,Alarm Escalation Protocol,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-22,Completed,EQP-BMS-074
+BMS,BMS Server Panel,Modbus Point Communication Check,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-12-18,Completed,EQP-BMS-034
+Electrical,UPS System,Static Bypass Transfer,PASS,Rohini Gupta,Dr. Meera Iyer,2025-10-23,Completed,EQP-ELE-068
+Mechanical,Chilled Water Plant,Cooling Tower GPM Test,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-08,Completed,EQP-MEC-087
+Electrical,Diesel Generators,Static Bypass Transfer,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-07,Completed,EQP-ELE-016
+Electrical,UPS System,Insulation Resistance Test,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-22,Completed,EQP-ELE-047
+BMS,BMS Server Panel,Modbus Point Communication Check,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-03,Completed,EQP-BMS-076
+BMS,BMS Control Network,HMI Visual Sync,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-28,Completed,EQP-BMS-020
+Fire Protection,CO2 Flooding System,VESDA Detection Sweep,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-10,Completed,EQP-FIR-092
+BMS,BMS Software System,Alarm Escalation Protocol,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-03,Completed,EQP-BMS-014
+Mechanical,Condenser Cooling Towers,Cooling Tower GPM Test,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-29,Completed,EQP-MEC-085
+Mechanical,Condenser Cooling Towers,Cooling Tower GPM Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-12-30,Completed,EQP-MEC-077
+Fire Protection,CO2 Flooding System,VESDA Detection Sweep,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-10-30,Completed,EQP-FIR-090
+Electrical,UPS System,Battery Discharge Autonomy,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-13,Completed,EQP-ELE-030
+Mechanical,Condenser Cooling Towers,CRAH Fan Velocity Sweep,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-19,Completed,EQP-MEC-063
+BMS,BMS Server Panel,Alarm Escalation Protocol,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-27,Completed,EQP-BMS-072
+Fire Protection,FM-200 Clean Agent System,Pre-action Sprinkler Hold,PASS,Rohini Gupta,Dr. Meera Iyer,2026-02-14,Completed,EQP-FIR-088
+Mechanical,Condenser Cooling Towers,Water Loop Chemical Verification,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-08,Completed,EQP-MEC-072
+Electrical,MV Switchgear,Insulation Resistance Test,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-31,Completed,EQP-ELE-085
+BMS,BMS Control Network,Analog Input Scaling Verify,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-31,Completed,EQP-BMS-046
+Electrical,Power Transformers,Battery Discharge Autonomy,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-17,Completed,EQP-ELE-047
+Electrical,MV Switchgear,Insulation Resistance Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-04,Completed,EQP-ELE-045
+BMS,BMS Server Panel,HMI Visual Sync,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-01,Completed,EQP-BMS-082
+Mechanical,Acoustic Exhaust,Chilled Water Hydrostatic Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-12-15,Completed,EQP-MEC-029
+Fire Protection,VESDA Aspiration,VESDA Detection Sweep,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-15,Completed,EQP-FIR-022
+Fire Protection,VESDA Aspiration,VESDA Detection Sweep,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-12-09,Completed,EQP-FIR-020
+Electrical,Power Transformers,Static Bypass Transfer,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-07,Completed,EQP-ELE-023
+Electrical,MV Switchgear,Differential Protection Trip,PASS,Rohini Gupta,Dr. Meera Iyer,2026-02-14,Completed,EQP-ELE-090
+Mechanical,CRAH System,Chiller Compressor Calibration,PASS,Rohini Gupta,Dr. Meera Iyer,2026-02-16,Completed,EQP-MEC-048
+Electrical,UPS System,Battery Discharge Autonomy,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-01,Completed,EQP-ELE-070
+BMS,BMS Software System,Analog Input Scaling Verify,PASS,Rohini Gupta,Dr. Meera Iyer,2025-10-31,Completed,EQP-BMS-074
+Mechanical,Acoustic Exhaust,CRAH Fan Velocity Sweep,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-05,Completed,EQP-MEC-042
+Electrical,MV Switchgear,Static Bypass Transfer,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-11,Completed,EQP-ELE-073
+Mechanical,Chilled Water Plant,Water Loop Chemical Verification,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-16,Completed,EQP-MEC-039
+Mechanical,CRAH System,Chiller Compressor Calibration,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-08,Completed,EQP-MEC-017
+BMS,BMS Software System,Modbus Point Communication Check,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-14,Completed,EQP-BMS-058
+Fire Protection,VESDA Aspiration,Pre-action Sprinkler Hold,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-10-27,Completed,EQP-FIR-074
+Fire Protection,VESDA Aspiration,FM-200 Enclosure Leak Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-10-28,Completed,EQP-FIR-095
+Electrical,LV Switchgear,Contact Resistance Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-12-20,Completed,EQP-ELE-092
+BMS,BMS Control Network,HMI Visual Sync,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-27,Completed,EQP-BMS-014
+BMS,BMS Control Network,Analog Input Scaling Verify,PASS,Rohini Gupta,Dr. Meera Iyer,2026-02-07,Completed,EQP-BMS-060
+Electrical,Diesel Generators,Generator Step Load,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-07,Completed,EQP-ELE-055
+Mechanical,Condenser Cooling Towers,Water Loop Chemical Verification,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-01,Completed,EQP-MEC-097
+Mechanical,CRAH System,CRAH Fan Velocity Sweep,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-10,Completed,EQP-MEC-092
+BMS,BMS Control Network,Modbus Point Communication Check,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-11,Completed,EQP-BMS-089
+BMS,BMS Control Network,Analog Input Scaling Verify,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-04,Completed,EQP-BMS-022
+Fire Protection,FM-200 Clean Agent System,FM-200 Enclosure Leak Test,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-15,Completed,EQP-FIR-056
+Fire Protection,FM-200 Clean Agent System,CO2 Total Flooding Trigger,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-14,Completed,EQP-FIR-086
+BMS,BMS Server Panel,Alarm Escalation Protocol,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-10-29,Completed,EQP-BMS-097
+Electrical,LV Switchgear,Inverter Step Load,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-18,Completed,EQP-ELE-042
+BMS,BMS Software System,HMI Visual Sync,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-13,Completed,EQP-BMS-035
+BMS,BMS Software System,Modbus Point Communication Check,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-12-01,Completed,EQP-BMS-020
+BMS,BMS Control Network,Alarm Escalation Protocol,FAIL,Rohini Gupta,Dr. Meera Iyer,2025-12-09,Under NCR,EQP-BMS-052
+Electrical,Busduct Systems,Generator Step Load,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-19,Completed,EQP-ELE-074
+Fire Protection,CO2 Flooding System,Pre-action Sprinkler Hold,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-06,Completed,EQP-FIR-028
+BMS,BMS Software System,HMI Visual Sync,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-06,Completed,EQP-BMS-096
+Mechanical,CRAH System,Cooling Tower GPM Test,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-12,Completed,EQP-MEC-061
+Fire Protection,CO2 Flooding System,CO2 Total Flooding Trigger,FAIL,Rohini Gupta,Dr. Meera Iyer,2026-02-17,Under NCR,EQP-FIR-018
+BMS,BMS Server Panel,Analog Input Scaling Verify,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-05,Completed,EQP-BMS-060
+Fire Protection,Pre-action Sprinklers,Pre-action Sprinkler Hold,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-30,Completed,EQP-FIR-094
+BMS,BMS Control Network,HMI Visual Sync,FAIL,Sanjay Thakur,Dr. Meera Iyer,2025-12-13,Under NCR,EQP-BMS-074
+Fire Protection,VESDA Aspiration,FM-200 Enclosure Leak Test,FAIL,Sanjay Thakur,Dr. Meera Iyer,2025-11-20,Under NCR,EQP-FIR-076
+Fire Protection,VESDA Aspiration,CO2 Total Flooding Trigger,FAIL,Sanjay Thakur,Dr. Meera Iyer,2026-01-08,Under NCR,EQP-FIR-029
+BMS,BMS Server Panel,HMI Visual Sync,FAIL,Rohini Gupta,Dr. Meera Iyer,2026-01-06,Under NCR,EQP-BMS-098
+Fire Protection,CO2 Flooding System,FM-200 Enclosure Leak Test,FAIL,Rohini Gupta,Dr. Meera Iyer,2025-11-09,Under NCR,EQP-FIR-040
+Electrical,Diesel Generators,Insulation Resistance Test,FAIL,Sanjay Thakur,Dr. Meera Iyer,2026-01-30,Under NCR,EQP-ELE-061
+Mechanical,Chilled Water Plant,Chilled Water Hydrostatic Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-20,Completed,EQP-MEC-080
+BMS,BMS Software System,HMI Visual Sync,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-13,Completed,EQP-BMS-091
+Mechanical,Acoustic Exhaust,Cooling Tower GPM Test,FAIL,Rohini Gupta,Dr. Meera Iyer,2026-01-21,Under NCR,EQP-MEC-057
+Mechanical,CRAH System,Chilled Water Hydrostatic Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-08,Completed,EQP-MEC-054
+BMS,BMS Server Panel,HMI Visual Sync,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-13,Completed,EQP-BMS-017
+Mechanical,Chilled Water Plant,Cooling Tower GPM Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-08,Completed,EQP-MEC-098
+Mechanical,CRAH System,Water Loop Chemical Verification,PASS,Rohini Gupta,Dr. Meera Iyer,2025-10-27,Completed,EQP-MEC-071
+BMS,BMS Control Network,HMI Visual Sync,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-05,Completed,EQP-BMS-028
+Electrical,LV Switchgear,Battery Discharge Autonomy,FAIL,Sanjay Thakur,Dr. Meera Iyer,2026-01-19,Under NCR,EQP-ELE-045
+Fire Protection,Pre-action Sprinklers,CO2 Total Flooding Trigger,PASS,Rohini Gupta,Dr. Meera Iyer,2025-10-24,Completed,EQP-FIR-043
+Mechanical,Acoustic Exhaust,Chiller Compressor Calibration,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-13,Completed,EQP-MEC-076
+Fire Protection,FM-200 Clean Agent System,Pre-action Sprinkler Hold,FAIL,Rohini Gupta,Dr. Meera Iyer,2026-02-13,Under NCR,EQP-FIR-027
+BMS,BMS Software System,Analog Input Scaling Verify,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-14,Completed,EQP-BMS-025
+Electrical,Diesel Generators,Insulation Resistance Test,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-04,Completed,EQP-ELE-020
+Electrical,UPS System,Differential Protection Trip,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-12-22,Completed,EQP-ELE-025
+Mechanical,CRAH System,CRAH Fan Velocity Sweep,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-10,Completed,EQP-MEC-053
+Electrical,LV Switchgear,Differential Protection Trip,PASS,Rohini Gupta,Dr. Meera Iyer,2025-12-07,Completed,EQP-ELE-067
+Fire Protection,CO2 Flooding System,Pre-action Sprinkler Hold,FAIL,Sanjay Thakur,Dr. Meera Iyer,2026-02-10,Under NCR,EQP-FIR-029
+BMS,BMS Control Network,HMI Visual Sync,FAIL,Sanjay Thakur,Dr. Meera Iyer,2026-01-26,Under NCR,EQP-BMS-055
+Mechanical,Chilled Water Plant,Water Loop Chemical Verification,PASS,Rohini Gupta,Dr. Meera Iyer,2026-01-22,Completed,EQP-MEC-034
+BMS,BMS Control Network,Analog Input Scaling Verify,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-03,Completed,EQP-BMS-028
+BMS,BMS Software System,HMI Visual Sync,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-13,Completed,EQP-BMS-022
+Mechanical,Condenser Cooling Towers,Water Loop Chemical Verification,FAIL,Rohini Gupta,Dr. Meera Iyer,2025-10-30,Under NCR,EQP-MEC-025
+Mechanical,Acoustic Exhaust,Chiller Compressor Calibration,FAIL,Rohini Gupta,Dr. Meera Iyer,2026-02-12,Under NCR,EQP-MEC-032
+BMS,BMS Server Panel,Analog Input Scaling Verify,PASS,Rohini Gupta,Dr. Meera Iyer,2025-11-14,Completed,EQP-BMS-094
+BMS,BMS Server Panel,HMI Visual Sync,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-12-10,Completed,EQP-BMS-042
+Mechanical,Condenser Cooling Towers,Cooling Tower GPM Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-13,Completed,EQP-MEC-021
+Fire Protection,VESDA Aspiration,Pre-action Sprinkler Hold,FAIL,Sanjay Thakur,Dr. Meera Iyer,2026-01-06,Under NCR,EQP-FIR-083
+Mechanical,Condenser Cooling Towers,Cooling Tower GPM Test,PASS,Rohini Gupta,Dr. Meera Iyer,2026-02-15,Completed,EQP-MEC-086
+Mechanical,CRAH System,Water Loop Chemical Verification,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-18,Completed,EQP-MEC-038
+Mechanical,CRAH System,Water Loop Chemical Verification,FAIL,Rohini Gupta,Dr. Meera Iyer,2025-11-04,Under NCR,EQP-MEC-084
+BMS,BMS Software System,Alarm Escalation Protocol,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-10-27,Completed,EQP-BMS-037
+Mechanical,Chilled Water Plant,Cooling Tower GPM Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-01-31,Completed,EQP-MEC-047
+BMS,BMS Software System,HMI Visual Sync,PASS,Sanjay Thakur,Dr. Meera Iyer,2026-02-12,Completed,EQP-BMS-046
+Electrical,MV Switchgear,Contact Resistance Test,PASS,Sanjay Thakur,Dr. Meera Iyer,2025-11-09,Completed,EQP-ELE-045

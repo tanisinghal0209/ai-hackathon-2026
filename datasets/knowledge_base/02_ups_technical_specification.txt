@@ -1,0 +1,427 @@
+================================================================================
+DOCUMENT CONTROL HEADER
+================================================================================
+Project Name    : NXGEN Hyperscale Data Centre — Phase 1
+Project Code    : HYDC-01
+Document Number : HYDC-01-EL-SPEC-002
+Document Title  : Technical Specification — UPS System (Package PKG-EL-002)
+Revision        : B
+Revision Date   : 22 October 2025
+Prepared By     : Rahul Desai, Lead Electrical Engineer — Jacobs India
+Checked By      : Priya Nair, Project Director — Tata Projects
+Approved By     : Dr. Meera Iyer, Principal Engineer — NxtGen Cloud Infrastructure Ltd
+Status          : Issued for Tender / Approved for Construction
+Related PO      : HYDC-01-PO-EL-002
+================================================================================
+
+TABLE OF CONTENTS
+-----------------
+1.0   Purpose and Scope
+2.0   Referenced Standards and Codes
+3.0   Definitions and Abbreviations
+4.0   System Configuration Requirements
+5.0   Electrical Performance Requirements
+6.0   Battery System Requirements
+7.0   Bypass and Transfer Requirements
+8.0   Monitoring and Communications
+9.0   Environmental and Physical Requirements
+10.0  Factory Acceptance Test Requirements
+11.0  Vendor Submittal Requirements
+12.0  Quality and Compliance Requirements
+13.0  Installation and Commissioning Interface
+14.0  Acceptance Criteria Summary Table
+Appendix A — Deviation Declaration Format
+Appendix B — Battery Runtime Calculation Basis
+
+REVISION HISTORY
+----------------
+Rev A — 01 September 2025 — First Issue for Tender (Rahul Desai)
+Rev B — 22 October 2025 — Updated redundancy clause (REQ-UPS-001), added FAT clause 10.4 (Rahul Desai)
+
+================================================================================
+1.0  PURPOSE AND SCOPE
+================================================================================
+
+1.1  Purpose
+     This specification establishes the minimum technical requirements for the supply,
+     delivery, factory acceptance testing, and commissioning interface of the Uninterruptible
+     Power Supply (UPS) system for the NXGEN Hyperscale Data Centre, Phase 1, Project HYDC-01,
+     located at Devanahalli Industrial Area, Bengaluru North.
+
+1.2  Scope of Supply
+     The scope of this specification covers:
+     a) Eight (8) UPS modules rated at 1.6 MW each
+     b) Associated battery systems with minimum 15-minute autonomy
+     c) Static bypass switches
+     d) Maintenance bypass panels
+     e) UPS control and monitoring systems
+     f) BMS integration hardware and software
+     g) All interconnecting cabling within the UPS room
+     h) Factory acceptance testing
+     i) Documentation as listed in Section 11.0
+
+1.3  Out of Scope
+     Medium voltage incoming supplies to the UPS distribution boards (covered under
+     PKG-EL-001). Generator fuel and exhaust systems (covered under PKG-EL-003).
+
+================================================================================
+2.0  REFERENCED STANDARDS AND CODES
+================================================================================
+
+     IEC 62040-1:2017   — UPS — Part 1: Safety Requirements
+     IEC 62040-2:2016   — UPS — Part 2: Electromagnetic Compatibility
+     IEC 62040-3:2021   — UPS — Part 3: Method of Specifying Performance and Test Requirements
+     IEC 62040-4:2013   — UPS — Part 4: Environmental Aspects (Requirements and Reporting)
+     IEC 61000-4-5      — Surge Immunity Requirements
+     IEEE 1184           — Guide for Batteries for UPS Systems
+     BS EN 50272-2       — Safety Requirements for Secondary Batteries — Stationary Applications
+     NBC 2016            — National Building Code of India
+     IS:3043             — Code of Practice for Earthing
+     ASHRAE TC 9.9       — Thermal Guidelines for Data Processing Environments (2021 Edition)
+
+================================================================================
+3.0  DEFINITIONS AND ABBREVIATIONS
+================================================================================
+
+     VRLA      Valve Regulated Lead Acid (battery type)
+     BMS       Building Management System
+     CRAC      Computer Room Air Conditioner
+     HMI       Human Machine Interface
+     IGBT      Insulated Gate Bipolar Transistor
+     IT Load   The total power consumed by IT equipment in the data hall
+     kVA       Kilovolt-Ampere
+     kW        Kilowatt
+     LBS       Load Bank Switch
+     LV        Low Voltage (≤1000V)
+     MV        Medium Voltage (>1kV and ≤36kV)
+     N+1       One unit more than the minimum required for full load coverage
+     PDU       Power Distribution Unit
+     PF        Power Factor
+     PUE       Power Usage Effectiveness
+     SCADA     Supervisory Control and Data Acquisition
+     STS       Static Transfer Switch
+     THD       Total Harmonic Distortion
+     UPS       Uninterruptible Power Supply
+     VRLA      Valve Regulated Lead Acid
+
+================================================================================
+4.0  SYSTEM CONFIGURATION REQUIREMENTS
+================================================================================
+
+4.1  Redundancy Architecture
+
+     REQ-UPS-001: UPS modules shall be configured in N+1 redundancy at the power module
+     (block) level. At full design IT load, one UPS module shall be available as a
+     hot-standby spare. Loss of any single UPS module shall not cause any reduction
+     in available power to the IT load. The N+1 configuration shall be maintained as
+     a day-one commissioning requirement for Phase 1A.
+
+     COMPLIANCE NOTE: N-only (2N without the additional standby) is NOT acceptable.
+     Any proposal to defer N+1 to Phase 1B will be treated as a Critical Deviation
+     and will require written approval from NxtGen Cloud Infrastructure Ltd prior to
+     order placement.
+
+4.2  Module Rating
+     Each UPS module shall be rated at minimum 1,600 kW / 1,600 kVA at unity power factor.
+     Eight (8) modules shall be supplied for Phase 1A.
+
+4.3  Parallel Operation
+     UPS modules shall support parallel operation with load sharing within ±2% of equal
+     distribution. Parallel bus shall incorporate isolation to prevent fault propagation
+     between modules.
+
+4.4  System Availability
+     The UPS system architecture shall achieve a calculated MTBF of ≥200,000 hours at
+     the system level in the N+1 configuration.
+
+================================================================================
+5.0  ELECTRICAL PERFORMANCE REQUIREMENTS
+================================================================================
+
+     REQ-UPS-002-NOT: [Superseded — see REQ-UPS-002 below]
+
+     REQ-UPS-002: UPS battery system shall provide a minimum autonomy of fifteen (15)
+     minutes at one hundred percent (100%) of the rated IT load. This autonomy shall
+     be demonstrated under factory conditions as a witnessed test. Autonomy calculations
+     shall be submitted with the vendor technical submittal for review prior to order
+     placement.
+
+     REQ-UPS-003: UPS output voltage shall be 415V ± 1%, three-phase, four-wire,
+     50 Hz ± 0.5%. Voltage regulation under any load condition from 0 to 100% shall
+     not exceed ±1% of nominal.
+
+     REQ-UPS-004: UPS system efficiency in double conversion mode (online UPS) shall
+     be minimum ninety-six percent (96%) at fifty percent (50%) of rated load.
+     Efficiency at 25% load and 100% load shall also be declared.
+
+     REQ-UPS-005: UPS system output total harmonic distortion (THD-V) shall not exceed
+     two percent (2%) under any linear or non-linear load within specified rating.
+
+     REQ-UPS-006: UPS input power factor shall be minimum 0.99 with active front end
+     (AFE) or equivalent technology to prevent source harmonic injection exceeding
+     IEC 61000-3-12 limits.
+
+     REQ-UPS-007: UPS shall comply with IEC 62040-1, IEC 62040-2, and IEC 62040-3.
+     Performance classification shall be VFI-SS-111 per IEC 62040-3.
+     Vendor shall provide valid third-party type test certificates from a NABL-accredited
+     laboratory confirming VFI-SS-111 classification.
+
+================================================================================
+6.0  BATTERY SYSTEM REQUIREMENTS
+================================================================================
+
+6.1  Battery Technology
+     Battery technology shall be Valve Regulated Lead Acid (VRLA), sealed, maintenance-free.
+     Lithium-Ion batteries may be proposed as an alternative, subject to submission of
+     separate safety documentation and fire protection interface requirements.
+
+6.2  Autonomy Requirement
+
+     REQ-UPS-008: Battery autonomy shall be a minimum of fifteen (15) minutes at one
+     hundred percent (100%) of the rated IT load per UPS module (1,600 kW).
+
+     Autonomy shall be calculated at end-of-life battery capacity (80% of rated capacity).
+     Vendor shall submit battery sizing calculations including:
+     a) Design load (kW)
+     b) Battery string voltage (V)
+     c) Number of cells and strings
+     d) End-of-life capacity derating factor
+     e) Temperature correction factor (at 25°C and 35°C)
+     f) Autonomy at 100%, 75%, and 50% load
+
+6.3  Battery Monitoring
+     Each battery string shall be fitted with a battery monitoring system (BMS module)
+     capable of measuring:
+     a) Individual cell/block voltage
+     b) String current
+     c) Float voltage
+     d) Battery temperature per string
+     e) Internal resistance (conductance testing)
+
+6.4  Battery Room Design Interface
+     Vendor shall provide battery load calculations per IBC seismic zone II requirements
+     and battery cabinet dimensions for coordination with structural engineer.
+
+6.5  Battery Replacement Plan
+     Vendor shall declare expected battery design life and provide a battery replacement
+     cost indication as part of the total cost of ownership submission.
+
+================================================================================
+7.0  BYPASS AND TRANSFER REQUIREMENTS
+================================================================================
+
+     REQ-UPS-009: Static bypass shall synchronise with the bypass source within
+     plus or minus one Hertz (±1 Hz) frequency tolerance before executing an
+     automatic transfer to bypass.
+
+     REQ-UPS-010: Automatic transfer time from inverter output to bypass shall not
+     exceed four (4) milliseconds.
+
+     REQ-UPS-011: Manual maintenance bypass shall be provided on each UPS module
+     to allow isolation of the UPS for maintenance while maintaining supply to
+     the connected load through the bypass source.
+
+     REQ-UPS-012: Bypass source shall be metered and alarmed. Sustained bypass
+     operation exceeding five (5) minutes shall trigger a critical alarm to BMS.
+
+================================================================================
+8.0  MONITORING AND COMMUNICATIONS
+================================================================================
+
+     REQ-UPS-013: UPS shall integrate with the site Building Management System (BMS)
+     via Modbus TCP/IP protocol. Vendor shall submit a Modbus register map with the
+     vendor submittal.
+
+     REQ-UPS-014: Minimum BMS integration points shall include:
+     a) Input mains status (healthy/failed)
+     b) Output voltage (per phase)
+     c) Output current (per phase)
+     d) Load percentage
+     e) Battery voltage
+     f) Battery autonomy remaining (minutes)
+     g) Battery on discharge (alarm)
+     h) Battery low voltage (alarm)
+     i) Module fault (alarm)
+     j) Bypass active (alarm)
+     k) Overtemperature (alarm)
+     l) Module available/unavailable status
+
+     REQ-UPS-015: UPS shall include a local HMI display with minimum 7-inch colour
+     touchscreen showing real-time status of all monitored parameters.
+
+     REQ-UPS-016: UPS shall support SNMP protocol as a secondary monitoring channel
+     for integration with the data centre DCIM platform.
+
+================================================================================
+9.0  ENVIRONMENTAL AND PHYSICAL REQUIREMENTS
+================================================================================
+
+     REQ-UPS-017: UPS equipment shall be rated for continuous operation in the
+     following environmental conditions:
+     Ambient temperature: +15°C to +40°C
+     Relative humidity: 20% to 85% non-condensing
+     Altitude: Up to 1,000m above mean sea level (site elevation 910m)
+     Seismic rating: Consistent with IS:1893-2016 Zone II
+
+     REQ-UPS-018: UPS modules shall be housed in free-standing, floor-mounted cabinets
+     with IP20 minimum enclosure rating. Front access for maintenance shall be provided.
+     Rear cable entry/exit shall be supported.
+
+     REQ-UPS-019: UPS operating noise level shall not exceed 65 dB(A) at one metre
+     from any module surface.
+
+================================================================================
+10.0 FACTORY ACCEPTANCE TEST REQUIREMENTS
+================================================================================
+
+10.1 General
+     Factory Acceptance Testing (FAT) shall be conducted at the vendor's manufacturing
+     facility or an approved third-party test facility in the presence of a minimum of:
+     a) Client representative (NxtGen Cloud Infrastructure Ltd)
+     b) Commissioning Authority (WSP Global)
+     c) EPC Contractor representative (Tata Projects Ltd)
+
+10.2 FAT Minimum Test Programme
+     The following tests shall be witnessed and documented during FAT:
+
+     REQ-UPS-020: FAT shall include as a minimum:
+     a) Full load bank test at 100%, 75%, and 50% of rated load
+     b) Battery discharge test demonstrating minimum 15-minute autonomy at 100% load
+     c) Transfer to static bypass under load
+     d) Return from bypass to inverter under load
+     e) Utility failure simulation and battery ride-through verification
+     f) Static bypass synchronisation window verification (must be within ±1 Hz)
+     g) All alarm point simulation and verification
+     h) BMS Modbus connectivity test with at least 20 data points confirmed live
+
+10.3 FAT Documentation
+     Vendor shall prepare and issue a FAT procedure document minimum 4 weeks prior to
+     the scheduled FAT date. FAT reports shall be issued within 5 working days of
+     test completion. Failed test items shall be recorded and retested before
+     dispatch approval is granted.
+
+10.4 CRITICAL — Battery Discharge Test
+     The battery discharge test shall be conducted at the factory, not deferred to
+     site commissioning. Evidence of completed factory battery discharge test is a
+     mandatory condition precedent to dispatch approval. Vendors proposing to defer
+     this test to site will be treated as non-compliant per REQ-UPS-020.
+
+================================================================================
+11.0 VENDOR SUBMITTAL REQUIREMENTS
+================================================================================
+
+     Vendors shall submit the following documents within 21 days of purchase order placement:
+
+     SUB-01  Technical data sheets for UPS modules
+     SUB-02  Battery sizing calculations (per clause 6.2)
+     SUB-03  Modbus register map (per REQ-UPS-013)
+     SUB-04  Single-line diagram of proposed UPS system
+     SUB-05  Cabinet dimensional drawings (plan, elevation, section)
+     SUB-06  IEC 62040-3 type test certificate (VFI-SS-111 classification)
+     SUB-07  IEC 62040-1 safety certification
+     SUB-08  Factory acceptance test procedure (draft)
+     SUB-09  Installation, operation and maintenance manual
+     SUB-10  Recommended spare parts list
+     SUB-11  Deviation declaration schedule (Appendix A format)
+     SUB-12  Project-specific warranty document (minimum 2 years from commissioning)
+
+     Any vendor failing to submit SUB-03 (Modbus register map) and SUB-06 (IEC 62040-3
+     type test certificate) within 21 days will be placed on hold pending resolution.
+
+================================================================================
+12.0 QUALITY AND COMPLIANCE REQUIREMENTS
+================================================================================
+
+     REQ-UPS-021: Vendor shall operate a quality management system certified to
+     ISO 9001:2015. Certificate shall be current and submitted with initial submittal.
+
+     REQ-UPS-022: All deviations from this specification shall be formally declared
+     in the Deviation Declaration Schedule (Appendix A format). A declaration of
+     "no deviations" when deviations exist shall be treated as grounds for rejection
+     of the submittal and escalation to the client.
+
+     REQ-UPS-023: Vendor shall participate in a minimum of two (2) design review
+     meetings prior to FAT: one immediately after order placement and one four weeks
+     before FAT.
+
+================================================================================
+13.0 INSTALLATION AND COMMISSIONING INTERFACE
+================================================================================
+
+13.1 Installation
+     Vendor shall provide a factory-trained installation supervisor for the duration of
+     equipment installation on site. Installation supervision is included in the scope of supply.
+
+13.2 Commissioning Interface
+     Vendor shall participate in site commissioning activities including:
+     a) Pre-functional checks (visual inspection, insulation resistance, torque checks)
+     b) Functional energisation
+     c) Integrated Systems Testing (IST) — UPS portion
+     d) Load test at site with available IT load
+
+13.3 Integrated Systems Testing
+     UPS vendor shall attend IST as defined under HYDC-01-CX-SCH-001. UPS behaviour
+     during the following IST scenarios shall be demonstrated:
+     a) Utility failure — battery ride-through
+     b) Utility return — automatic retransfer
+     c) Generator start and transfer
+     d) Loss of cooling — UPS operating temperature alarm
+     e) UPS module fault — automatic load transfer to redundant module
+
+================================================================================
+14.0 ACCEPTANCE CRITERIA SUMMARY TABLE
+================================================================================
+
+     Requirement    Description                                          Minimum Value      Critical?
+     REQ-UPS-001    N+1 redundancy at module level                      Mandatory           YES
+     REQ-UPS-002    Battery autonomy at 100% IT load                    15 minutes          YES
+     REQ-UPS-003    Output voltage regulation                            415V ±1%            YES
+     REQ-UPS-004    System efficiency at 50% load                       ≥96%                NO
+     REQ-UPS-005    Output THD-V                                        ≤2%                 NO
+     REQ-UPS-006    Input power factor                                  ≥0.99               NO
+     REQ-UPS-007    IEC 62040-3 classification                          VFI-SS-111          YES
+     REQ-UPS-008    Battery autonomy (end-of-life)                      15 minutes          YES
+     REQ-UPS-009    Bypass synchronisation tolerance                    ±1 Hz               YES
+     REQ-UPS-010    Transfer time to bypass                             ≤4 ms               YES
+     REQ-UPS-020    FAT — battery discharge test at factory             Mandatory witness   YES
+
+     Items marked CRITICAL require client written acceptance of any deviation. Non-declared
+     deviations on critical items will result in rejection of the submittal.
+
+================================================================================
+APPENDIX A — DEVIATION DECLARATION FORMAT
+================================================================================
+
+     Vendors shall use the following format for all deviation declarations:
+
+     Section    : [Specification section number]
+     Requirement: [Requirement number e.g. REQ-UPS-001]
+     Description: [Full text of the requirement]
+     Proposed   : [What the vendor is offering instead]
+     Impact     : [Technical impact of the deviation]
+     Justification: [Technical justification for the deviation]
+     Classification proposed by vendor: Minor / Major / Critical
+     Client action required: [ ] Accept  [ ] Conditional Accept  [ ] Reject
+
+================================================================================
+APPENDIX B — BATTERY RUNTIME CALCULATION BASIS
+================================================================================
+
+     The following assumptions shall apply to battery runtime calculations submitted
+     by vendors:
+
+     1. Design load: 1,600 kW per UPS module (100% load)
+     2. Battery system voltage: to be declared by vendor
+     3. End-of-life capacity: 80% of nameplate rated capacity
+     4. Temperature correction: apply derating factor at 25°C ambient (per IEEE 1184)
+     5. Peukert correction: apply for high-discharge-rate VRLA cells
+     6. Depth of discharge: not to exceed 80% (to protect battery life)
+     7. Minimum terminal voltage: to be declared by vendor
+     8. Inverter efficiency during discharge: to be declared by vendor
+
+     Vendors shall provide autonomy at: 100% load, 75% load, and 50% load
+     All three values shall exceed the 15-minute minimum at 100% load.
+
+================================================================================
+END OF DOCUMENT — HYDC-01-EL-SPEC-002 REV B
+================================================================================

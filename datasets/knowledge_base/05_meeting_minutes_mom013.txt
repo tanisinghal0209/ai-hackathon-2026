@@ -1,0 +1,226 @@
+================================================================================
+MINUTES OF MEETING
+================================================================================
+Project    : NXGEN Hyperscale Data Centre — Phase 1 (HYDC-01)
+Document   : HYDC-01-PMO-MOM-013
+Meeting    : Weekly Project Coordination Meeting — No. 13
+Date       : 08 January 2026
+Time       : 09:30 — 12:45
+Location   : HYDC-01 Site Conference Room, Devanahalli Industrial Area, Bengaluru
+
+Prepared By : Rajan Mehta, Project Controls Manager
+Issued      : 09 January 2026
+Review By   : 15 January 2026
+================================================================================
+
+ATTENDEES
+---------
+Present:
+   Vikram Sharma       — Project Manager, Tata Projects Ltd (Chair)
+   Priya Nair          — Project Director, Tata Projects Ltd
+   Rajan Mehta         — Project Controls Manager, Tata Projects Ltd
+   Aditya Singh        — Procurement Manager, Tata Projects Ltd
+   Kavya Reddy         — QA/QC Manager, Tata Projects Ltd
+   Deepak Nambiar      — Site Engineer (Electrical), Tata Projects Ltd
+   Arjun Kapoor        — VP Infrastructure, NxtGen Cloud (Client Representative)
+   Dr. Meera Iyer      — Principal Engineer, NxtGen Cloud
+   Rahul Desai         — Lead Electrical Engineer, Jacobs India (by video call)
+   Anita Pillai        — Lead Mechanical Engineer, Jacobs India (by video call)
+   Sanjay Thakur       — Commissioning Authority, WSP Global (by video call)
+   Suresh Balakrishnan — General Contractor PM, L&T C&B
+
+Apologies:
+   Dinesh Agarwal      — Data Centre Consultant, Uptime Institute Representative (travel)
+
+================================================================================
+AGENDA AND DISCUSSION
+================================================================================
+
+ITEM 1 — REVIEW OF PREVIOUS MEETING ACTIONS (MOM-HYDC01-012)
+--------------------------------------------------------------
+Action 12-01: Rahul Desai to provide written recommendation on 25 kA vs 31.5 kA
+switchgear rating (RFI-EL-003). STATUS: OPEN. Rahul Desai confirmed he is
+awaiting the updated KPTCL grid connection agreement fault level report.
+Expected by 20 January 2026. This item is now 3 weeks overdue.
+
+Action 12-02: Aditya Singh to chase Schneider Electric on customs clearance timeline.
+STATUS: CLOSED. Switchgear has cleared customs (10 January 2026 — confirmed
+this morning by Schneider Electric logistics team). Site delivery expected
+15-16 January 2026.
+
+Action 12-03: PowerGrid Systems to submit formal deviation response to NCR-EL-001.
+STATUS: OPEN — CRITICAL. PowerGrid Systems have not yet formally responded to
+the Non-Conformance Report. Ramesh Khanna was contacted by email and phone on
+03 January 2026 with no substantive reply. Escalation to Vertiv regional director
+is now required.
+
+ITEM 2 — PROGRAMME UPDATE
+--------------------------
+Rajan Mehta presented the programme update (Revision 6):
+- Overall progress: 34% complete (0.5% behind plan)
+- Civil: Superstructure complete on Data Halls 1 and 2. Data Halls 3 and 4
+  structural steelwork 60% complete. No critical issues.
+- MV Switchgear (PKG-EL-001): Customs cleared. Delivery 15-16 January 2026.
+  Critical path delay reduced from 25 days to approximately 18 days.
+  Recovery plan under review (see Item 5).
+- UPS (PKG-EL-002): FAT was conducted 05-07 January 2026 at PowerGrid Systems
+  facility, Pune. DETAILED DISCUSSION UNDER ITEM 3.
+- Generators (PKG-EL-003): Manufacturing at Cummins Pune facility on schedule.
+  Delivery 28 February 2026 confirmed. No issues.
+- Chillers (PKG-ME-001): Carrier India reports 2-week delay due to compressor
+  shortage. New delivery forecast: 14 March 2026. Anita Pillai to assess impact
+  on mechanical commissioning sequence.
+- CRAH Units (PKG-ME-002): Vertiv India — on schedule, delivery 15 February 2026.
+
+Revised Power-On Forecast: 25 July 2026 (was 30 June 2026).
+Client (Arjun Kapoor) noted that a 25-day delay threatens the committed colocation
+customer go-live date of 01 September 2026. Vikram Sharma confirmed that a formal
+recovery programme would be presented at the next meeting.
+
+ITEM 3 — UPS FAT OUTCOME REPORT (PKG-EL-002)
+---------------------------------------------
+Sanjay Thakur (WSP Global, Commissioning Authority) presented the FAT outcome.
+
+FAT was conducted at PowerGrid Systems Pune facility on 05, 06, and 07 January 2026.
+Attendees: Sanjay Thakur (WSP), Deepak Nambiar (Tata Projects), Dr. Meera Iyer (NxtGen).
+
+TEST RESULTS SUMMARY:
+
+Test 1 (Visual Inspection): PASS
+Test 2 (Insulation Resistance): PASS — all values >100 MΩ
+Test 3 (Functional Energisation): PASS — HMI operational on all modules
+Test 4 (Load Bank Test): PASS — 25%, 50%, 75%, 100% load steps
+   — Efficiency at 50% load: 97.1% (exceeds REQ-UPS-004 of 96%)
+Test 5 (Bypass Transfer): PASS — transfer time <4ms confirmed
+   — However: synchronisation window measured at ±2.1 Hz (specification requires ±1 Hz)
+     This was FLAGGED as a deviation but test completed as UPS did successfully transfer.
+Test 6 (Alarm Point Simulation): PASS — all 16 required alarms verified on BMS Modbus
+Test 7 (Battery Discharge Test — Day 3): FAIL
+
+BATTERY DISCHARGE TEST DETAIL (Critical):
+The battery discharge test was conducted on 07 January 2026 at 100% rated load
+(1,600 kW per module) on Module UPS-A1-01 (representative module test).
+Measured battery autonomy: 9 minutes 47 seconds.
+Specification requirement: minimum 15 minutes (REQ-UPS-002, REQ-UPS-008).
+Result: FAIL — Shortfall of 5 minutes 13 seconds.
+
+Sanjay Thakur confirmed that this result validates the concern raised in RFI-EL-005.
+The vendor's submittal declared 10 minutes — actual measured result is 9 minutes 47 seconds,
+slightly below even the declared (non-compliant) value.
+
+Dr. Meera Iyer (NxtGen) stated that this result is completely unacceptable and the
+equipment will NOT be approved for dispatch until the battery autonomy issue is resolved.
+Options to be explored by PowerGrid Systems:
+   a) Additional battery extension cabinets to increase capacity
+   b) Full battery system redesign
+   c) Consideration of lithium-ion battery replacement
+
+PowerGrid Systems technical team (Shalini Bose, by phone) acknowledged the result
+and committed to submitting a battery remediation proposal within 7 working days
+(by 19 January 2026).
+
+Arjun Kapoor (NxtGen): "This is a critical programme issue. If the battery system
+requires redesign, we are looking at potentially 6-8 additional weeks of delay.
+I want a full impact assessment by next week."
+
+Action: Aditya Singh to issue formal hold on UPS dispatch until battery issue resolved.
+Action: PowerGrid Systems to submit battery remediation proposal by 19 January 2026.
+Action: Rajan Mehta to update programme with worst-case and best-case recovery scenarios.
+
+ITEM 4 — NCR STATUS REVIEW
+---------------------------
+Kavya Reddy presented the NCR register update.
+
+NCR-EL-001 (UPS Submittal Deviation Declaration):
+   Status: OPEN — Raised 20 November 2025
+   Finding: PowerGrid Systems declared "no deviations" when at least 5 deviations
+   identified by engineering review.
+   Latest: PowerGrid Systems verbally agreed to re-issue deviation schedule at
+   next submittal revision. Written commitment not yet received.
+   Action: Kavya Reddy to send formal NCR response deadline notice by 12 January 2026.
+
+NCR-CIV-001 (Concrete Core Sample — Data Hall 3 Slab):
+   Status: CLOSED — resolved by additional pour and retesting.
+   Closed 22 December 2025.
+
+No new NCRs raised this meeting.
+
+ITEM 5 — SCHEDULE RECOVERY PLAN DISCUSSION
+-------------------------------------------
+Vikram Sharma presented preliminary recovery options for the 18-day critical path delay:
+
+Option 1 (Extended Working Hours): Implement 10-hour shifts for MV switchgear installation
+and cable termination activities. Estimated recovery: 5-7 days.
+
+Option 2 (Parallel Commissioning Activities): Begin UPS room pre-functional checks
+and cable routing in parallel with switchgear installation. Risk: some rework if
+switchgear configuration requires changes. Estimated recovery: 3-4 days.
+
+Option 3 (Temporary Power Bypass): Engage KPTCL to provide a temporary 33 kV
+supply point for LV testing while 11 kV switchgear is being installed. Complex
+to arrange but could save 8-10 days on critical path.
+
+Combined Options 1+2 could recover 8-11 days, reducing delay from 18 to 7-10 days.
+Option 3 requires further assessment.
+
+Arjun Kapoor approved the implementation of Options 1 and 2 immediately.
+Option 3 to be assessed by Rahul Desai and presented at MOM-014.
+
+ITEM 6 — MECHANICAL UPDATE
+---------------------------
+Anita Pillai confirmed:
+- Chiller delay (2 weeks): impact assessment shows mechanical commissioning can
+  absorb the delay if chillers arrive by 14 March 2026. No critical path impact yet.
+- CRAH units (Vertiv): on schedule, delivery 15 February 2026. Pre-installation
+  checks can begin as soon as raised floor installation in Data Halls 1 and 2 is complete
+  (forecast: 20 January 2026).
+- Cooling tower foundations: civil works on schedule. Tower assembly planned February 2026.
+
+ITEM 7 — COMMISSIONING READINESS
+----------------------------------
+Sanjay Thakur presented commissioning readiness status:
+
+Pre-commissioning requirements not yet met:
+1. UPS battery issue unresolved — blocks IST sequence
+2. MV Switchgear on site but not yet installed
+3. Generators on order — not yet available for IST
+4. BMS point schedule not yet finalised (awaiting RFI-BMS-001 complete closure)
+
+Target IST date (25 July 2026) is achievable ONLY IF:
+- Battery issue resolved by February 2026
+- Switchgear installed and commissioned by April 2026
+- Generators delivered and commissioned by May 2026
+- BMS integrated by June 2026
+
+Sanjay Thakur: "The UPS battery situation is the single largest risk to commissioning.
+If battery redesign takes 6 weeks, we cannot make July. I recommend client and EPC
+jointly issue a cure notice to PowerGrid Systems."
+
+Arjun Kapoor: "Draft the cure notice. We need this resolved in writing within 7 days."
+
+================================================================================
+ACTION ITEMS FROM THIS MEETING
+================================================================================
+
+   Action No.   Description                                        Owner            Due Date
+   13-01        Issue formal hold on UPS dispatch to PowerGrid     Aditya Singh     09 Jan 2026
+   13-02        Issue NCR-EL-001 response deadline notice          Kavya Reddy      12 Jan 2026
+   13-03        PowerGrid Systems — battery remediation proposal   PowerGrid/Singh  19 Jan 2026
+   13-04        Updated programme (worst case / best case)         Rajan Mehta      15 Jan 2026
+   13-05        Recovery plan Options 1+2 — implementation         Deepak Nambiar   10 Jan 2026
+   13-06        Option 3 KPTCL bypass — feasibility assessment     Rahul Desai      20 Jan 2026
+   13-07        Chiller delay impact assessment (detailed)         Anita Pillai     20 Jan 2026
+   13-08        Draft cure notice to PowerGrid Systems             Kavya Reddy      12 Jan 2026
+   13-09        RFI-EL-003 switchgear rating — written response    Rahul Desai      20 Jan 2026
+   13-10        FAT failure formal notification to PowerGrid        Sanjay Thakur   09 Jan 2026
+
+================================================================================
+NEXT MEETING: MOM-HYDC01-014
+Date: 15 January 2026 — 09:30
+Location: HYDC-01 Site Conference Room
+
+================================================================================
+Distribution: All attendees, plus Suresh Balakrishnan (L&T C&B), Dinesh Agarwal
+================================================================================
+END OF MINUTES — HYDC-01-PMO-MOM-013
+================================================================================

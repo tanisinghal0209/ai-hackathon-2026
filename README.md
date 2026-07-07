@@ -381,37 +381,22 @@ Expected result:
 
 Implemented:
 
-- FastAPI backend structure.
-- Compliance analysis endpoint.
-- Schedule analysis endpoint.
-- Knowledge copilot endpoint with streaming.
-- Document ingestion route and Celery task.
-- Document parser, chunk metadata, entity extraction, embeddings, and hybrid retrieval logic.
-- Next.js frontend pages for dashboard, compliance, schedule, and copilot.
+- **FastAPI backend structure**: Operational compliance, schedule risk, and copilot endpoints.
+- **RAG SQLite Local Fallback**: Integrated Python-based cosine similarity vector search enabling pgvector queries to run locally on SQLite.
+- **Offline / Low-Quota Demo Mode**: Implemented environment-based (`MOCK_EMBEDDINGS` and `MOCK_LLM`) and runtime exception fallbacks to bypass rate-limited/exhausted OpenAI/Anthropic APIs and stream mock detailed response logs character-by-character.
+- **Database Seeding Workflow**: Added `backend/seed_kb_to_db.py` to index and embed 22 technical project documents and 11 registers into `backend/app.db`.
+- **Automatic Schema Initialization**: Auto-creates SQLite tables on FastAPI server startup.
+- **Synchronous Ingestion Fallback**: Bypasses Celery/Redis background queues and executes parsing and chunking synchronously in-process when Celery broker is offline.
+- **Next.js Frontend Dashboards**: Premium dark mode Apple/Linear style UI with glassmorphic cards, Framer Motion transitions, and fully functional views.
+- **Enhanced Document Library**: Displays PDF cover sheets, revision registers, signature stamps, and citations panel on selection.
+- **Compliance & Schedule Analytics**: Compliance check deviance logs, critical path calculation, float values, and automated AI mitigation responses.
 
-In progress / needs completion:
+## Roadmap / Next Steps
 
-- Backend dependency manifest.
-- Database initialization and migration workflow.
-- Production-ready PostgreSQL + pgvector setup.
-- Demo seed documents and sample EPC datasets.
-- Mock/fallback responses for offline judging.
-- Documents page in frontend.
-- Authentication and project-level access control.
-- End-to-end test coverage.
-
-## Roadmap
-
-High-impact next steps:
-
-1. Add realistic seeded data for UPS, switchgear, generators, cooling systems, RFIs, and commissioning test records.
-2. Add a demo mode that works without live API keys.
-3. Add a database migration or initialization script.
-4. Add a document management page for upload/status tracking.
-5. Connect compliance findings into schedule risk automatically.
-6. Add commissioning QA workflows for integrated systems testing.
-7. Add supply chain visibility for long-lead equipment.
-8. Create presentation deck, architecture diagram, and demo video.
+1. Connect compliance findings directly into schedule risk calculation dynamically.
+2. Integrate a production-ready PostgreSQL + pgvector setup on cloud deployment.
+3. Enhance supply chain visibility agent with multi-tier supplier tracking.
+4. Add guided commissioning QA workflows for site inspection teams.
 
 ## Project Pitch
 

@@ -1,0 +1,298 @@
+================================================================================
+VENDOR TECHNICAL SUBMITTAL — DIESEL GENERATOR SYSTEM
+FULLY COMPLIANT PACKAGE (FOR AI COMPLIANCE PASS DEMONSTRATION)
+================================================================================
+Document Reference : CIL-HYDC01-GEN-SUB-REV01
+Vendor             : Cummins India Ltd
+                     Survey 21, Balewadi, Pune — 411045
+                     Tel: +91-20-67117000
+                     Contact: Prakash Rao, Sales Engineer
+Prepared By        : Ravindra Kulkarni, Technical Proposals Manager
+Approved By        : Santosh Desai, Divisional Head — Power Systems
+Project            : NXGEN Hyperscale Data Centre — Phase 1
+Client             : NxtGen Cloud Infrastructure Ltd
+EPC Contractor     : Tata Projects Limited
+Package            : PKG-EL-003 — Diesel Generator System
+Purchase Order     : HYDC-01-PO-EL-003
+Specification Ref  : HYDC-01-EL-SPEC-004 Rev A (Generator Specification)
+Submittal Revision : 01
+Revision Date      : 10 October 2025
+================================================================================
+
+COVER LETTER
+============
+
+10 October 2025
+
+Mr. Aditya Singh
+Procurement Manager
+Tata Projects Limited — HYDC-01 Project Office
+
+Dear Mr. Singh,
+
+Subject: Vendor Technical Submittal — Diesel Generator System — Package PKG-EL-003
+         Revision 01
+
+Please find enclosed our Vendor Technical Submittal Revision 01 for the Diesel Generator
+System for the NXGEN Hyperscale Data Centre, Phase 1 project.
+
+We are pleased to offer the Cummins QSK60G18 series generator sets, representing our
+flagship product for data centre and critical facility applications. The QSK60G18 is
+proven in over 2,400 installations globally, including hyperscale data centres operated
+by three of the world's five largest cloud providers.
+
+We confirm full compliance with all requirements of Specification HYDC-01-EL-SPEC-004
+Revision A. No deviations are declared — all specification requirements are met or
+exceeded by our proposed configuration.
+
+Regards,
+Prakash Rao | Sales Engineer — Power Systems
+Cummins India Ltd | p.rao@cummins.com | +91-98199-44211
+
+================================================================================
+SECTION 1 — PROPOSED CONFIGURATION
+================================================================================
+
+1.1  Equipment Model
+     Cummins QSK60G18 — 3,500 kW Prime Rating, 3,850 kW Standby Rating
+     Manufactured at: Cummins Pune Engine Plant, Survey 21, Balewadi, Pune
+     Country of Origin: India (engine assembled in India from globally sourced components)
+
+1.2  Configuration
+     Quantity: 4 units
+     A-Bus: GEN-A-01 and GEN-A-02 (N+1 redundancy serving A-Bus load)
+     B-Bus: GEN-B-01 and GEN-B-02 (N+1 redundancy serving B-Bus load)
+
+     REQ-GENSET-001 compliance: N+1 redundancy confirmed. At full design IT load,
+     one generator per bus is available as a hot-standby spare.
+     Loss of any single generator will NOT cause loss of critical supply.
+
+1.3  Overload Capability
+     REQ-GENSET-002 compliance: Each QSK60G18 is rated for 110% overload for 1 hour
+     in every 12-hour period at an ambient temperature up to 50°C.
+     This is a standard Cummins product rating and is fully compliant.
+
+================================================================================
+SECTION 2 — ELECTRICAL PERFORMANCE
+================================================================================
+
+2.1  Ratings
+     Prime Power Rating           : 3,500 kW / 4,375 kVA at 0.8 PF, 415V, 3-phase, 50 Hz
+     Standby Power Rating         : 3,850 kW / 4,813 kVA at 0.8 PF, 415V, 3-phase, 50 Hz
+     Output Voltage               : 415V ± 0.5%, 3-phase, 4-wire, 50 Hz ± 0.5%
+     Voltage Regulation (steady)  : ±1% of nominal
+     Frequency Regulation         : ±0.25% in isochronous mode (electronic governor)
+
+2.2  Startup Performance
+     Start-to-load time           : 10 seconds maximum (cold start, -15°C to +50°C ambient)
+     Load acceptance (step)       : 100% rated load step accepted in single step
+                                    Voltage dip: <15% of nominal, recovery within 2 seconds
+                                    Frequency dip: <10% of nominal, recovery within 3 seconds
+
+     REQ-GENSET-003 compliance:
+     Remote start: YES — via DEIF AGC-4 controller with dry contact input
+     Remote stop: YES — via DEIF AGC-4 controller
+     Remote alarms: YES — all alarms available via Modbus TCP/IP (see Section 5)
+     Status monitoring: YES — Modbus TCP/IP per CM-MODBUS-QSK60-001 register map
+
+================================================================================
+SECTION 3 — ENGINE AND ALTERNATOR
+================================================================================
+
+3.1  Engine
+     Engine Make/Model     : Cummins QSK60 — 60.0L, 16-cylinder, V-type, 4-stroke diesel
+     Cooling System        : Radiator-cooled (standalone radiator included in scope)
+     Fuel System           : Electronic common rail injection, HPCR technology
+     Air Intake            : Dual turbocharged, charge air cooled
+     Lube Oil System       : Pressure-fed with full-flow filtration
+     Engine Protection     : Electronic protection for low oil pressure, high temperature,
+                             overspeed (112% rated speed), overcrank, and coolant temperature
+
+3.2  Alternator
+     Make/Model            : Stamford HCI634H (coupled to Cummins QSK60)
+     Excitation System     : Brushless, self-exciting
+     Insulation Class      : Class H (temperature rise limited to Class F)
+     IP Rating             : IP23 minimum
+     THD Voltage           : <5% at full non-linear load (per IEC 60034-1)
+     Voltage Regulation    : ±0.5% (AVR controlled, no load to full load)
+
+================================================================================
+SECTION 4 — FUEL SYSTEM
+================================================================================
+
+4.1  Fuel Type                : HSD (High Speed Diesel) to IS:1460-2000
+4.2  Day Tank (per generator) : 2,000 litre capacity, mild steel with external coating
+                                 Day tank included in scope of supply
+4.3  Bulk Fuel Storage        : 200,000 litre capacity (supplied separately by civil contractor)
+4.4  Fuel Consumption         : 890 litres/hour at 100% prime rating (declared, per BS 5514)
+4.5  Runtime at Bulk Tank     : 224 hours continuous at 100% load (>9 days)
+4.6  Fuel Transfer Pump       : Electric transfer pump (prime power from site UPS)
+
+================================================================================
+SECTION 5 — MONITORING AND COMMUNICATIONS
+================================================================================
+
+5.1  Local Control
+     DEIF AGC-4 Automatic Generator Controller (included in scope)
+     Functions: Auto-start, auto-stop, auto-transfer, parallel operation control,
+                Modbus master/slave, SCADA interface, event log (last 500 events)
+     Display: 7-inch colour touchscreen, full alarm annunciation
+
+5.2  BMS Integration
+     Protocol: Modbus TCP/IP (per REQ-GENSET-003)
+     Hardware: Ethernet port on DEIF AGC-4 controller
+     Register map reference: CM-MODBUS-QSK60-001 (submitted as SUB-09)
+
+     Required BMS integration points (per specification):
+     All the following points confirmed available via Modbus:
+     - Generator run status (running/stopped)
+     - Generator fault status (fault/healthy)
+     - Output voltage (per phase)
+     - Output current (per phase)
+     - Output frequency
+     - Load percentage
+     - Engine oil pressure
+     - Engine coolant temperature
+     - Engine speed (RPM)
+     - Battery charger status
+     - Fuel level (day tank)
+     - Remote start/stop command (write register)
+     - Mains available status
+     - Auto/Manual mode status
+
+5.3  SNMP
+     DEIF AGC-4 supports SNMP v2c and v3. MIB file provided in documentation package.
+
+================================================================================
+SECTION 6 — ENVIRONMENTAL AND PHYSICAL
+================================================================================
+
+6.1  Acoustic Enclosure
+     Cummins PowerGen acoustic canopy — weatherproof GRP enclosure
+     Noise level: 65 dB(A) at 7 metres — compliant with applicable planning consent limits
+     Canopy rating: IP23 (weather-protected), suitable for outdoor installation
+
+6.2  Exhaust System
+     Residential-grade silencer included: 35 dB(A) attenuation
+     Exhaust pipe dimensions: 400mm diameter, stainless steel flexible section
+     Rain cap and bird screen included
+
+6.3  Operating Conditions
+     Ambient temperature rating: -15°C to +55°C (site at 910m elevation — confirmed within rating)
+     Relative humidity: 5% to 95% non-condensing
+     Altitude derating: No derating required below 1,000m (site at 910m)
+
+6.4  Seismic Rating
+     Unit tested to IEEE 693-2005 seismic qualification at IS:1893-2016 Zone II equivalent.
+     Certificate: CUMMINS-SEISMIC-QSK60-2024 (submitted as SUB-07)
+
+================================================================================
+SECTION 7 — FACTORY ACCEPTANCE TEST PROGRAMME
+================================================================================
+
+7.1  Proposed FAT Date
+     10-12 February 2026 at Cummins Pune Engine Plant, Balewadi
+
+7.2  FAT Test Programme
+
+     Day 1 (10 February):
+     Test 1: Visual inspection and dimensional verification
+     Test 2: Mechanical installation inspection (coupling, mounting, clearances)
+     Test 3: Fuel system inspection and leak test
+     Test 4: Cooling system inspection
+     Test 5: Electrical system inspection (alternator, AVR, control panel wiring)
+     Test 6: Insulation resistance test (alternator windings)
+     Test 7: Functional energisation and no-load voltage/frequency check
+
+     Day 2 (11 February):
+     Test 8: Cold start from -5°C (cold soak test — facility available at Cummins)
+     Test 9: Step load test — 0% to 100% in single step (load acceptance)
+     Test 10: Load profile test — 25%, 50%, 75%, 100% load steps (15 minutes each)
+     Test 11: Fuel consumption measurement at 100% prime rating
+     Test 12: Overload test — 110% for 60 minutes (REQ-GENSET-002)
+     Test 13: Modbus connectivity test — 100% of required BMS registers verified live
+
+     Day 3 (12 February):
+     Test 14: All alarm point simulation and verification (complete alarm list)
+     Test 15: Remote start/stop via Modbus (simulated BMS command)
+     Test 16: Engine protection trip tests (simulated low oil pressure, high temperature)
+     Test 17: AGC controller function test — auto-start sequence
+     Test 18: Documentation review — all certificates, manuals, and drawings verified
+
+     NOTE: ALL tests listed above are factory tests, fully witnessed by attending parties.
+     No tests are proposed for deferral to site commissioning.
+
+================================================================================
+SECTION 8 — DOCUMENTATION PACKAGE
+================================================================================
+
+     SUB-01  Technical data sheets — INCLUDED
+     SUB-02  Engine performance curves (power vs ambient temperature) — INCLUDED
+     SUB-03  Alternator performance data — INCLUDED
+     SUB-04  Single-line diagram of proposed generator system — INCLUDED
+     SUB-05  Dimensional drawings (plan, elevation, section per unit) — INCLUDED
+     SUB-06  QSK60 engine type approval certificate (CEA, India) — INCLUDED
+     SUB-07  Seismic qualification certificate — INCLUDED
+     SUB-08  FAT procedure (CIL-HYDC01-FAT-PROC-001 Rev A) — INCLUDED
+     SUB-09  Modbus register map (CM-MODBUS-QSK60-001) — INCLUDED
+     SUB-10  Installation, operation and maintenance manual — INCLUDED
+     SUB-11  Recommended spare parts list (2-year consumable spares included in scope) — INCLUDED
+     SUB-12  Warranty document (CIL-WARRANTY-HYDC01-001) — INCLUDED
+
+================================================================================
+SECTION 9 — DEVIATION SCHEDULE
+================================================================================
+
+PowerGrid Systems Cummins India Ltd hereby confirms that the proposed Cummins QSK60G18
+diesel generator system is fully compliant with all requirements of Specification
+HYDC-01-EL-SPEC-004 Revision A.
+
+After a thorough review of all specification requirements against our proposed
+product configuration, Cummins India Ltd declares:
+
+ZERO DEVIATIONS from the project specification.
+
+Every requirement has been reviewed and confirmed compliant.
+A compliance matrix is provided at Appendix A of this submittal, with each
+specification requirement tabulated against a confirmed compliance statement.
+
+================================================================================
+APPENDIX A — COMPLIANCE MATRIX (SUMMARY)
+================================================================================
+
+Requirement      Description                                          Value Specified     Value Offered       Compliant?
+REQ-GENSET-001   N+1 redundancy for critical IT load                  N+1                 N+1 (2 per bus)     YES
+REQ-GENSET-002   110% overload for 1 hour per 12-hour period          110% / 1hr          110% / 1hr (rated)  YES
+REQ-GENSET-003   Modbus TCP/IP remote start/stop/alarm/status         Required            DEIF AGC-4 full     YES
+REQ-GENSET-004   Start-to-load time                                   ≤10 seconds         ≤10 seconds         YES
+REQ-GENSET-005   Prime power rating per unit                          3,500 kW min        3,500 kW            YES
+REQ-GENSET-006   Output voltage                                       415V ±1%            415V ±0.5%          YES (exceeds)
+REQ-GENSET-007   Acoustic canopy (outdoor installation)               Required            GRP canopy IP23     YES
+REQ-GENSET-008   FAT — all tests witnessed at factory                 Mandatory           Full programme Day 1-3 YES
+REQ-GENSET-009   Seismic qualification IS:1893-2016 Zone II          Required            IEEE 693 certified  YES
+REQ-GENSET-010   2-year warranty from commissioning                   2 years             2 years             YES
+
+COMPLIANCE SUMMARY: 10/10 requirements fully compliant. Zero deviations.
+AI COMPLIANCE AGENT EXPECTED RESULT: PASS
+
+================================================================================
+SECTION 10 — WARRANTY
+================================================================================
+
+Engine warranty     : 24 months or 2,000 operating hours (whichever earlier) from commissioning
+Alternator warranty : 24 months from date of commissioning
+Canopy warranty     : 36 months from date of commissioning
+
+Warranty document reference: CIL-WARRANTY-HYDC01-001 (submitted separately)
+
+================================================================================
+END OF VENDOR SUBMITTAL — CIL-HYDC01-GEN-SUB-REV01 (APPROVED FIRST TIME)
+================================================================================
+
+[SUBMITTAL REVIEW OUTCOME]
+Reviewed by    : Kavya Reddy, QA/QC Manager — Tata Projects Ltd
+Review Date    : 15 October 2025
+Outcome        : APPROVED — Revision 01 approved without comments
+Comments       : Complete, accurate, first-time approval. Compliance matrix well prepared.
+                 Zero deviations. Documentation package complete. FAT programme comprehensive.
+                 This submittal is the standard all other vendors should be held to.

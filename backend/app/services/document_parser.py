@@ -92,6 +92,58 @@ class DocumentParser:
         return blocks_data
 
     @staticmethod
+    def parse_txt(file_path: str) -> List[Dict[str, Any]]:
+        """
+        Parses a plain text document into a structured intermediate representation.
+        Splits by double newlines and detects section headers.
+        """
+        with open(file_path, "r", encoding="utf-8") as f:
+            content = f.read()
+            
+        paragraphs = content.split("\n\n")
+        blocks_data = []
+        current_heading = "Document Root"
+        
+        for para in paragraphs:
+            para = para.strip()
+            if not para:
+                continue
+                
+            lines = para.split("\n")
+            first_line = lines[0].strip()
+            
+            is_heading = False
+            # Header heuristic: single line, under 80 characters, and uppercase or starting with digits/indicators
+            if len(lines) == 1 and len(first_line) < 80:
+                is_heading = first_line.isupper() or \
+                             first_line.startswith("SECTION") or \
+                             first_line.startswith("==") or \
+                             bool(re.match(r'^\d+(\.\d+)*\s+', first_line))
+                             
+            if is_heading:
+                # Skip divider lines
+                if first_line.startswith("==") or first_line.startswith("--"):
+                    continue
+                current_heading = first_line
+                blocks_data.append({
+                    "type": "heading",
+                    "page_number": 1,
+                    "text": first_line,
+                    "hierarchy": current_heading,
+                    "semantic_role": "Heading"
+                })
+            else:
+                semantic_role = DocumentParser.classify_semantic_role(para)
+                blocks_data.append({
+                    "type": "paragraph",
+                    "page_number": 1,
+                    "text": para,
+                    "hierarchy": current_heading,
+                    "semantic_role": semantic_role
+                })
+        return blocks_data
+
+    @staticmethod
     def chunk_text(structured_blocks: List[Dict[str, Any]], chunk_size: int = 512, overlap: int = 50) -> List[Dict[str, Any]]:
         """
         Chunks the intermediate structured representation while preserving context.

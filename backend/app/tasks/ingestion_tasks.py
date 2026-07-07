@@ -52,6 +52,8 @@ def process_document_task(self, document_id: str, file_path: str, filename: str)
         _update_status("Parsing")
         if file_path.lower().endswith(".pdf"):
             structured_blocks = DocumentParser.parse_pdf(file_path)
+        elif file_path.lower().endswith(".txt"):
+            structured_blocks = DocumentParser.parse_txt(file_path)
         else:
             structured_blocks = []
         event_publisher.publish(

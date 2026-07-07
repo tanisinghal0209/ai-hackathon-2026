@@ -1,0 +1,247 @@
+================================================================================
+DAILY CONSTRUCTION SITE DIARY
+================================================================================
+Project     : NXGEN Hyperscale Data Centre — Phase 1 (HYDC-01)
+Document    : HYDC-01-SITE-DIARY-001
+Maintained  : Deepak Nambiar, Site Engineer — Tata Projects Ltd (TPL-006)
+              Ajay Verma, HSE Manager — Tata Projects Ltd (TPL-010)
+================================================================================
+
+NOTE: Selected diary entries reproduced for knowledge base context.
+Full diary maintained electronically in project EDMS (Aconex Ref: HYDC-01-DIARY).
+
+================================================================================
+DAILY REPORT — 07 JANUARY 2026 (FAT DAY 3)
+================================================================================
+Day Number    : 163 of construction
+Report Ref    : HYDC-01-DR-163
+Weather (Site): Bengaluru — Clear, 24°C, humidity 62%
+Weather (Pune): Clear, 22°C (FAT location — PowerGrid Systems facility)
+
+SITE MANPOWER (Bengaluru):
+L&T C&B Civil Team          : 84 workers
+Tata Projects MEP Electrical : 18 workers
+Tata Projects MEP Mechanical : 12 workers
+Kidde India Fire Protection  : 6 workers
+Total on site               : 120 workers
+
+DEEPAK NAMBIAR NOTE (written from Pune, 07 January 2026):
+"I am attending the UPS FAT in Pune today (Day 3 — battery discharge test). Site is
+being managed by Manish Patel in my absence. The battery test failed at 9 minutes 47
+seconds — 5 minutes 13 seconds short of our 15-minute requirement. This is a significant
+project issue. Dr. Meera Iyer has formally withheld dispatch approval. I will return to
+Bengaluru tomorrow. Report will be submitted by Sanjay Thakur (WSP) by 09 January 2026.
+Photographs of test setup and HMI screens taken — submitted to PHOTO-FAT archive."
+
+SITE ACTIVITIES (managed by Manish Patel):
+Civil Works:
+- Data Hall 3 and 4 raised floor installation: 40% complete (target 100% by 20 Jan)
+- UPS Room A and B fit-out: concrete floor sealing complete — room ready for equipment
+- Generator room: roof installation complete, doors fitted
+
+Electrical:
+- Cable tray installation (Activity A40): 78% complete — 2 days behind plan
+  Root cause: shortage of cable tray clips (100mm type) — expedited delivery ordered
+  Expected resolution: 09 January 2026 delivery from Polycab warehouse
+
+Mechanical:
+- CHW pipework welding: generator room distribution pipework — 35% complete
+- CRAH raised floor support frames: DH1 and DH2 — 60% complete
+
+Fire Protection:
+- Kidde India FM-200 piping: UPS Room A — 70% complete
+- FM-200 piping: UPS Room B — 30% complete
+- Generator Room CO2 system: not yet started (awaiting ceiling installation)
+
+MATERIAL DELIVERIES:
+- Nil deliveries today (site logistics — no major deliveries scheduled)
+
+SAFETY:
+- Toolbox talk conducted: hot work permit procedure (7:30 AM, attended by 45 workers)
+- Zero lost-time incidents. Zero near-misses reported.
+- COSHH inspection of diesel fuel storage: satisfactory
+
+QUALITY:
+- Weld inspection: CHW pipework weld ID WELD-DH3-047 — initial UT scan result: ACCEPT
+- Dimensional check: UPS Room B raised floor level tolerance ±3mm — PASS
+
+VISITORS:
+- Arjun Kapoor (NxtGen Cloud VP) — site visit tomorrow (08 January) confirmed
+
+OUTSTANDING ISSUES:
+1. Cable tray clip shortage — Deepak away at FAT — Manish to expedite (due 09 Jan)
+2. Raised floor completion DH3/DH4: behind by 2 days — overtime authorised for weekend
+3. Drawing HYDC-01-EL-DRG-043 (LV Distribution Layout DH1) Rev B still not issued
+   by Jacobs — impacts LV cable routing. Rahul Desai chased 3 times. OUTSTANDING 5 days.
+   ACTION: Deepak to escalate to Vikram Sharma on return from Pune.
+
+PLANNED ACTIVITIES (08 JANUARY 2026):
+- Resume cable tray installation (if clips arrive)
+- Continue CHW pipework welding (DH3 and DH4)
+- Arjun Kapoor site visit — inspection of Data Hall 1 and 2 status
+- Weekly coordination meeting (MOM-HYDC01-013) at 09:30
+
+================================================================================
+DAILY REPORT — 08 JANUARY 2026
+================================================================================
+Day Number    : 164 of construction
+Report Ref    : HYDC-01-DR-164
+Weather       : Bengaluru — Partly cloudy, 26°C, light breeze
+
+SITE MANPOWER:
+L&T C&B Civil Team          : 88 workers
+Tata Projects MEP Electrical : 20 workers (Deepak Nambiar returned from Pune 7:00 AM)
+Tata Projects MEP Mechanical : 14 workers
+Kidde India Fire Protection  : 6 workers
+Total on site               : 128 workers
+
+SITE ACTIVITIES:
+Electrical:
+- Cable tray installation: clips arrived 06:30 AM — work resumed full pace
+  Current completion: 82% — forecast to achieve 100% by 18 January 2026
+- LV switchboard room: panel base frames welded and painted, ready for equipment
+- Earthing mesh installation: Data Hall 1 — 90% complete
+
+Mechanical:
+- CHW pipework: DH3 distribution header completed. Hydrostatic pressure test
+  scheduled for 12 January 2026 on DH3 pipework.
+- Cooling tower foundations: civil works complete — steelwork erection to start 15 January
+
+Fire Protection:
+- FM-200 piping UPS Room A: 90% complete — estimated complete 09 January
+- FM-200 piping UPS Room B: 45% complete — on schedule
+
+VISITORS:
+Arjun Kapoor (NxtGen Cloud VP Infrastructure) — arrived 10:30 AM
+Escorted by Vikram Sharma and Priya Nair.
+Tour of: Data Hall 1 and 2 construction, UPS Room A and B, MV Room.
+Arjun Kapoor comments recorded by Rajan Mehta:
+"The civil works look impressive. My concern is clearly the UPS situation —
+we need the battery issue resolved by the end of this month or we have a serious
+programme problem. I'll raise this formally at the coordination meeting this morning."
+
+WEEKLY MEETING MOM-HYDC01-013:
+Held 09:30 to 12:45 in site conference room.
+Key outcomes:
+- UPS FAT failure formally recorded (see MOM-HYDC01-013)
+- Action 13-01: Formal dispatch hold on UPS equipment — ISSUED (Aditya Singh, 15:30)
+- Battery remediation proposal DUE from PowerGrid Systems: 19 January 2026
+- MV Switchgear ETA to site: 15-16 January 2026 (customs cleared 10 January)
+
+SAFETY:
+- Zero incidents. First Aid: one worker — minor abrasion from cable tray edge — treated on site.
+- Near-miss report: forklift near-miss with pedestrian in laydown area — investigated.
+  Root cause: pedestrian walkway markings faded. Immediate action: remarked with paint.
+
+DRAWING ESCALATION:
+Deepak Nambiar escalated HYDC-01-EL-DRG-043 (outstanding 6 days) to Vikram Sharma.
+Vikram Sharma to raise formally with Rahul Desai today.
+[This drawing is required before LV cable pulling (Activity A42) can be finalised]
+
+================================================================================
+DAILY REPORT — 09 JANUARY 2026
+================================================================================
+Day Number    : 165 of construction
+Report Ref    : HYDC-01-DR-165
+Weather       : Bengaluru — Clear and sunny, 28°C
+
+CRITICAL ACTIONS COMPLETED TODAY:
+1. Formal dispatch hold issued on all 8 UPS modules — HYDC-01-PROC-HOLD-001 (Action 13-01)
+   Communicated to Ramesh Khanna (PowerGrid Systems) by email and phone 09:15 AM
+2. NCR-EL-001 response deadline notice issued to PowerGrid Systems (Kavya Reddy, Action 13-02)
+3. FAT failure notification formally issued by Sanjay Thakur (WSP-HYDC01-FAT-RPT-001)
+
+SITE ACTIVITIES:
+Electrical:
+- Cable tray installation: 85% complete
+- Earthing mesh DH1: 100% COMPLETE — milestone achieved
+- Earthing mesh DH2: commenced today — 20% complete
+
+Civil:
+- Raised floor installation DH3 and DH4: 50% complete
+  Working Saturday and Sunday to recover 2-day programme delay (overtime authorised)
+
+MATERIAL DELIVERIES:
+- Polycab cable drums: 80 drums × 4-core 150mm² XLPE armoured cable delivered to laydown area
+  Delivery note: DEL-HYDC01-CABLE-001 (check against PO HYDC-01-PO-EL-005)
+  Condition: cables inspected on delivery — all drums intact, no damage observed
+  Cable received into site stores: 09 January 2026, 14:00
+
+QUALITY:
+- Cable tray continuity test sections 1-4: PASS
+- Concrete floor inspection UPS Room B: surface hardness test PASS
+
+SAFETY:
+- Safety observation tour by Ajay Verma: 7 observations logged
+  3 positive observations (good housekeeping, correct PPE use, first aid box fully stocked)
+  4 improvement required: (1) Tool storage in electrical area not labelled, (2) one worker
+  not wearing safety glasses in grinding area — immediate instruction given,
+  (3) fire extinguisher in cable store 2 years past service date — replaced same day,
+  (4) emergency exit sign in DH2 not illuminated — electrician instructed to repair
+
+OUTSTANDING ISSUES (Carried Forward):
+1. HYDC-01-EL-DRG-043: Vikram Sharma chased Rahul Desai by email and phone.
+   Rahul confirmed it would be issued by 12 January 2026. Deepak Nambiar to verify.
+   [NOTE: This is the 7th working day this drawing has been outstanding. LV cable
+   routing in DH1 cannot be finalised without it. Risk to Activity A42 start date.]
+
+================================================================================
+DAILY REPORT — 15 JANUARY 2026
+================================================================================
+Day Number    : 171 of construction
+Report Ref    : HYDC-01-DR-171
+Weather       : Bengaluru — Clear, 27°C
+
+MAJOR EVENT TODAY — MV SWITCHGEAR DELIVERY:
+MV Switchgear panels (Package PKG-EL-001, PO HYDC-01-PO-EL-001) delivered to site.
+Delivery Note: DN-SE-HYDC01-001 and DN-SE-HYDC01-002 (2 trucks × 8 panels each)
+Arrival time: Truck 1 — 08:45 AM; Truck 2 — 09:30 AM
+
+Unloading team: 12 workers + 2 cranes (25-tonne capacity each)
+All 16 panels unloaded without incident by 14:00.
+Panels inspected on receipt: no transport damage observed — all 16 panels accepted.
+Panels moved to MV Room Level 1 staging area — floor loads pre-checked acceptable.
+
+Panel serial numbers confirmed against shipping documentation (all 16 confirmed).
+
+Activity A12 (MV Switchgear Delivery): COMPLETE as of 15 January 2026.
+Activity A14 (MV Switchgear Installation) can commence 16 January 2026
+(subject to RFI-EL-003 resolution — Rahul Desai's written position expected today).
+
+RFI-EL-003 UPDATE:
+Rahul Desai issued formal written response at 11:30 AM via email to Aditya Singh.
+Decision: 31.5 kA rating MAINTAINED. 25 kA is NOT acceptable.
+Reasoning: While current KPTCL fault level is 21.4 kA, the 31.5 kA specification
+was written with 30 years of grid growth in mind. Accepting 25 kA now would require
+a specification change that the client (Dr. Meera Iyer) has not approved.
+
+IMPACT: The delivered panels are 31.5 kA — CORRECT RATING. No issue.
+The RFI was raised speculatively. The delivered equipment meets specification.
+RFI-EL-003 can be CLOSED.
+[ACTION: Rajan Mehta to close RFI-EL-003 in the RFI log]
+
+SITE ACTIVITIES:
+Electrical:
+- Cable tray: 92% complete
+- DWG HYDC-01-EL-DRG-043 issued by Jacobs India (Rahul Desai) — received 12 January
+  LV cable routing in DH1 can now proceed. Activity A42 preparation begins.
+
+Mechanical:
+- CHW pipework pressure test DH3: 6-bar held for 2 hours — PASS (witnessed by Manish Patel)
+- Cooling tower steelwork: 30% erected
+
+SAFETY:
+- Monthly safety induction for new workers: 8 new starters inducteed
+- Zero incidents today
+
+MOM-HYDC01-014 (this afternoon):
+Held 14:30 to 17:00. Key agenda items:
+- RFI-EL-003: CLOSED (switchgear delivered at correct 31.5 kA rating)
+- Battery remediation update: no proposal yet from PowerGrid Systems (due 19 Jan)
+- Programme recovery: Vikram Sharma presented three scenarios to Arjun Kapoor
+  (per Nikhil Rao's analysis in internal email 13 January 2026)
+- Honest briefing accepted by Arjun Kapoor — mitigation actions agreed
+
+================================================================================
+END OF SITE DIARY EXTRACT — HYDC-01-SITE-DIARY-001
+================================================================================

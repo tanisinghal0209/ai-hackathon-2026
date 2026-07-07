@@ -2,38 +2,115 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import {
+  LayoutDashboard,
+  BrainCircuit,
+  ShieldCheck,
+  CalendarClock,
+  AlertTriangle,
+  FolderOpen,
+  Settings,
+  ChevronsUpDown,
+  Zap
+} from 'lucide-react';
 import './Sidebar.css';
+
+const NAV_ITEMS = [
+  {
+    href: '/dashboard',
+    label: 'Dashboard',
+    icon: LayoutDashboard,
+    badge: null,
+  },
+  {
+    href: '/knowledge',
+    label: 'Knowledge Copilot',
+    icon: BrainCircuit,
+    badge: null,
+  },
+  {
+    href: '/compliance',
+    label: 'Compliance',
+    icon: ShieldCheck,
+    badge: { count: 4, type: 'critical' },
+  },
+  {
+    href: '/schedule',
+    label: 'Schedule',
+    icon: CalendarClock,
+    badge: null,
+  },
+  {
+    href: '/risks',
+    label: 'Risk Center',
+    icon: AlertTriangle,
+    badge: { count: 5, type: 'warning' },
+  },
+  {
+    href: '/documents',
+    label: 'Documents',
+    icon: FolderOpen,
+    badge: { count: 6, type: 'info' },
+  },
+  {
+    href: '/settings',
+    label: 'Settings',
+    icon: Settings,
+    badge: null,
+  },
+];
 
 export default function Sidebar() {
   const pathname = usePathname();
 
-  const links = [
-    { href: '/dashboard', label: 'Project Overview', icon: '📊' },
-    { href: '/documents', label: 'Documents', icon: '📂' },
-    { href: '/knowledge', label: 'Knowledge Copilot', icon: '🧠' },
-    { href: '/compliance', label: 'Compliance', icon: '✅' },
-    { href: '/schedule', label: 'Schedule', icon: '⏱️' },
-    { href: '/risks', label: 'Risks', icon: '⚠️' },
-    { href: '/settings', label: 'Settings', icon: '⚙️' },
-  ];
-
   return (
     <aside className="sidebar">
+      {/* Brand Header */}
       <div className="sidebar-header">
-        <h2>AI EPC</h2>
-        <p>Intelligence Platform</p>
+        <div className="sidebar-logo-icon">
+          <Zap size={16} color="white" strokeWidth={2.5} />
+        </div>
+        <div className="sidebar-brand">
+          <span className="sidebar-brand-name">EPC Intelligence</span>
+          <span className="sidebar-brand-sub">AI Platform</span>
+        </div>
       </div>
+
+      {/* Navigation */}
       <nav className="sidebar-nav">
-        {links.map(link => {
-          const isActive = pathname === link.href;
+        <span className="sidebar-section-label">Workspace</span>
+        {NAV_ITEMS.map((item) => {
+          const Icon = item.icon;
+          const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
+
           return (
-            <Link key={link.href} href={link.href} className={`nav-link ${isActive ? 'active' : ''}`}>
-              <span className="nav-icon">{link.icon}</span>
-              <span className="nav-label">{link.label}</span>
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`nav-link ${isActive ? 'active' : ''}`}
+            >
+              <span className="nav-icon">
+                <Icon size={16} strokeWidth={isActive ? 2.5 : 2} />
+              </span>
+              <span className="nav-label">{item.label}</span>
+              {item.badge && (
+                <span className={`nav-badge ${item.badge.type}`}>
+                  {item.badge.count}
+                </span>
+              )}
             </Link>
           );
         })}
       </nav>
+
+      {/* Project Footer */}
+      <div className="sidebar-footer">
+        <div className="sidebar-project-selector">
+          <span className="sidebar-project-dot" />
+          <span className="sidebar-project-name">Data Centre Alpha</span>
+          <ChevronsUpDown size={14} color="#5a5a7a" />
+        </div>
+      </div>
     </aside>
   );
 }

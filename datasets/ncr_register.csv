@@ -1,0 +1,4 @@
+NCR ID,Issue,Root Cause,Severity,Owner,Corrective Action,Status,Due Date,Linked Equipment
+PHX-DC-01-NCR-EL-001,UPS Battery Discharge Autonomy Failure at FAT,Battery sizing calculations did not apply end-of-life derating factor per Spec Rev B.,CRITICAL,Aditya Singh,Add Battery Extension Cabinets (BEC) VRLA to all modules.,OPEN,2026-01-19,UPS-A1-01
+PHX-DC-01-NCR-ME-001,Chiller Compressor Gasket Defect during Hydrostatic Test,Incorrect material grade installed at factory assembly.,MAJOR,Manish Patel,Replace with high-tensile silicone gaskets.,CLOSED,2026-01-20,CHL-01
+PHX-DC-01-NCR-CIV-001,Data Hall 3 Raised Floor Leveling Deviation,Sub-floor pedestal anchors loosened during electrical tray works.,MINOR,Deepak Nambiar,Re-level pedestals and tighten locknuts.,CLOSED,2026-01-10,EQP-CIV-003

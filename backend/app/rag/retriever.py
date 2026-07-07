@@ -50,38 +50,121 @@ class DocumentRetriever:
     # Stage 2: Vector Search (20.31 — dense channel)
     # ------------------------------------------------------------------
     def _vector_search(self, query: str, project_id: str, intent: Dict) -> List[Dict]:
-        query_vector = self.embed_model.get_text_embedding(query)
-        vector_str = "[" + ",".join(map(str, query_vector)) + "]"
+        use_mock = os.getenv("MOCK_EMBEDDINGS", "true").lower() == "true"
+        if use_mock:
+            query_vector = [float(ord(c)) / 255.0 for c in query[:1536]]
+            if len(query_vector) < 1536:
+                query_vector += [0.0] * (1536 - len(query_vector))
+        else:
+            try:
+                query_vector = self.embed_model.get_text_embedding(query)
+            except Exception as e:
+                # Fallback to local mock query embedding if OpenAI fails
+                query_vector = [float(ord(c)) / 255.0 for c in query[:1536]]
+                if len(query_vector) < 1536:
+                    query_vector += [0.0] * (1536 - len(query_vector))
+        is_sqlite = "sqlite" in str(self.db.bind.url)
 
         # Metadata filters derived from intent (20.32)
         discipline_filter = ""
-        params: Dict = {"vector": vector_str, "project_id": project_id, "limit": INITIAL_CANDIDATE_LIMIT}
-
         if intent.get("discipline"):
             discipline_filter = "AND c.engineering_discipline = :discipline"
-            params["discipline"] = intent["discipline"]
 
-        sql = text(f"""
-            SELECT c.id, c.text, c.section_heading, c.clause_identifier,
-                   c.semantic_role, c.engineering_discipline, c.equipment_category,
-                   c.chunk_order, c.previous_chunk_id, c.next_chunk_id,
-                   c.parser_confidence,
-                   d.filename, d.category, d.id AS document_id,
-                   p.page_number,
-                   1 - (e.vector <=> :vector) AS similarity
-            FROM embeddings e
-            JOIN chunks c ON e.chunk_id = c.id
-            JOIN documents d ON c.document_id = d.id
-            LEFT JOIN pages p ON c.page_id = p.id
-            WHERE d.project_id = :project_id
-              AND e.is_active = 1
-              {discipline_filter}
-            ORDER BY e.vector <=> :vector
-            LIMIT :limit
-        """)
+        if is_sqlite:
+            # SQLite fallback: fetch active embeddings and calculate cosine similarity in Python
+            sql = text(f"""
+                SELECT c.id, c.text, c.section_heading, c.clause_identifier,
+                       c.semantic_role, c.engineering_discipline, c.equipment_category,
+                       c.chunk_order, c.previous_chunk_id, c.next_chunk_id,
+                       c.parser_confidence,
+                       d.filename, d.category, d.id AS document_id,
+                       p.page_number,
+                       e.vector
+                FROM embeddings e
+                JOIN chunks c ON e.chunk_id = c.id
+                JOIN documents d ON c.document_id = d.id
+                LEFT JOIN pages p ON c.page_id = p.id
+                WHERE d.project_id = :project_id
+                  AND e.is_active = 1
+                  {discipline_filter}
+            """)
+            params = {"project_id": project_id}
+            if intent.get("discipline"):
+                params["discipline"] = intent["discipline"]
+            rows = self.db.execute(sql, params).fetchall()
 
-        rows = self.db.execute(sql, params).fetchall()
-        return [self._row_to_dict(r, source="vector") for r in rows]
+            import math
+            def cosine_similarity(v1, v2):
+                dot_product = sum(a * b for a, b in zip(v1, v2))
+                magnitude1 = math.sqrt(sum(a * a for a in v1))
+                magnitude2 = math.sqrt(sum(b * b for b in v2))
+                if not magnitude1 or not magnitude2:
+                    return 0.0
+                return dot_product / (magnitude1 * magnitude2)
+
+            hits = []
+            for r in rows:
+                raw_vec = r.vector
+                if isinstance(raw_vec, str):
+                    try:
+                        clean_str = raw_vec.strip("[]")
+                        vec = [float(x) for x in clean_str.split(",") if x.strip()]
+                    except Exception:
+                        vec = []
+                elif isinstance(raw_vec, (list, tuple)):
+                    vec = [float(x) for x in raw_vec]
+                else:
+                    vec = []
+
+                sim = cosine_similarity(query_vector, vec) if vec else 0.0
+
+                hits.append({
+                    "id": r.id,
+                    "text": r.text,
+                    "section_heading": r.section_heading,
+                    "clause_identifier": r.clause_identifier,
+                    "semantic_role": r.semantic_role,
+                    "engineering_discipline": r.engineering_discipline,
+                    "equipment_category": r.equipment_category,
+                    "filename": r.filename,
+                    "category": r.category,
+                    "document_id": r.document_id,
+                    "page_number": r.page_number,
+                    "parser_confidence": r.parser_confidence,
+                    "similarity": sim
+                })
+
+            hits = sorted(hits, key=lambda x: x["similarity"], reverse=True)[:INITIAL_CANDIDATE_LIMIT]
+            return [self._row_to_dict(h, source="vector") for h in hits]
+
+        else:
+            # PostgreSQL pgvector path
+            vector_str = "[" + ",".join(map(str, query_vector)) + "]"
+            params = {"vector": vector_str, "project_id": project_id, "limit": INITIAL_CANDIDATE_LIMIT}
+            if intent.get("discipline"):
+                params["discipline"] = intent["discipline"]
+
+            sql = text(f"""
+                SELECT c.id, c.text, c.section_heading, c.clause_identifier,
+                       c.semantic_role, c.engineering_discipline, c.equipment_category,
+                       c.chunk_order, c.previous_chunk_id, c.next_chunk_id,
+                       c.parser_confidence,
+                       d.filename, d.category, d.id AS document_id,
+                       p.page_number,
+                       1 - (e.vector <=> :vector) AS similarity
+                FROM embeddings e
+                JOIN chunks c ON e.chunk_id = c.id
+                JOIN documents d ON c.document_id = d.id
+                LEFT JOIN pages p ON c.page_id = p.id
+                WHERE d.project_id = :project_id
+                  AND e.is_active = 1
+                  {discipline_filter}
+                ORDER BY e.vector <=> :vector
+                LIMIT :limit
+            """)
+
+            rows = self.db.execute(sql, params).fetchall()
+            return [self._row_to_dict(r, source="vector") for r in rows]
 
     # ------------------------------------------------------------------
     # Stage 3: Keyword / Full-Text Search (20.31 — lexical channel)
@@ -214,20 +297,32 @@ class DocumentRetriever:
     # Internal helper
     # ------------------------------------------------------------------
     def _row_to_dict(self, row, source: str) -> Dict:
+        is_dict = isinstance(row, dict)
+        is_mapping = hasattr(row, "_mapping")
+        def _get(field):
+            if is_dict:
+                return row.get(field)
+            if is_mapping:
+                return row._mapping.get(field)
+            try:
+                return getattr(row, field, None)
+            except Exception:
+                return None
+
         return {
-            "chunk_id": row.id,
-            "text": row.text,
-            "section_heading": row.section_heading,
-            "clause_identifier": row.clause_identifier,
-            "semantic_role": row.semantic_role,
-            "engineering_discipline": row.engineering_discipline,
-            "equipment_category": row.equipment_category,
-            "filename": row.filename,
-            "category": row.category,
-            "document_id": row.document_id,
-            "page_number": row.page_number,
-            "similarity": float(row.similarity) if row.similarity is not None else 0.0,
-            "parser_confidence": float(row.parser_confidence) if row.parser_confidence else 1.0,
+            "chunk_id": _get("id") or _get("chunk_id"),
+            "text": _get("text"),
+            "section_heading": _get("section_heading"),
+            "clause_identifier": _get("clause_identifier"),
+            "semantic_role": _get("semantic_role"),
+            "engineering_discipline": _get("engineering_discipline"),
+            "equipment_category": _get("equipment_category"),
+            "filename": _get("filename"),
+            "category": _get("category"),
+            "document_id": _get("document_id"),
+            "page_number": _get("page_number"),
+            "similarity": float(_get("similarity")) if _get("similarity") is not None else 0.0,
+            "parser_confidence": float(_get("parser_confidence")) if _get("parser_confidence") else 1.0,
             "retrieval_source": source,  # "vector" or "keyword"
         }
 

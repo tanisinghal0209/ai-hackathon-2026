@@ -1,0 +1,174 @@
+================================================================================
+PROCUREMENT STATUS REGISTER
+================================================================================
+Project    : NXGEN Hyperscale Data Centre — Phase 1 (HYDC-01)
+Document   : HYDC-01-PMO-PROC-001
+Revision   : D
+Date       : 14 January 2026
+Maintained : Aditya Singh, Procurement Manager — Tata Projects Ltd
+================================================================================
+
+SUMMARY
+-------
+Total packages awarded    : 6 of 8
+Total PO value committed  : INR 178.9 Crores
+Packages with delay/risk  : 2 (PKG-EL-001, PKG-EL-002)
+Packages on hold          : 1 (PKG-EL-002 — UPS dispatch hold per Action 13-01)
+
+================================================================================
+PACKAGE: PKG-EL-001 — MEDIUM VOLTAGE SWITCHGEAR
+================================================================================
+Vendor             : Schneider Electric India Pvt Ltd
+                     Plot 28, Vadodara Electrochemical Industrial Estate, Vadodara
+Purchase Order     : HYDC-01-PO-EL-001
+PO Value           : INR 18.4 Crores
+PO Date            : 18 August 2025
+Contract Duration  : 3.5 months fabrication + delivery
+
+Scope              : 11 kV double busbar primary switchgear, A-Bus and B-Bus
+                     8 panels per bus (16 panels total, Prime Pact switchgear)
+                     Short-circuit rating specified: 31.5 kA / 3 seconds
+                     Short-circuit rating offered: 31.5 kA (per PO — vendor negotiated)
+                     NOTE: Vendor flagged that 25 kA available quicker (see RFI-EL-003)
+
+Manufacturing:
+Start              : 18 August 2025
+Complete           : 28 November 2025 (on schedule)
+FAT (unwitnessed)  : 01 December 2025 (vendor self-certification)
+Dispatch           : 05 December 2025
+
+Logistics:
+Dispatch point     : Vadodara, Gujarat
+Transport          : Road to JNPT Mumbai, then road to Bengaluru
+JNPT Arrival       : 05 December 2025
+Customs Hold       : 05 December 2025 — IGCR import classification discrepancy
+Customs Cleared    : 10 January 2026 (36 days held)
+Road to Site       : Trucked out 12 January 2026
+Expected Site      : 15-16 January 2026
+
+Critical Path Impact: YES — 25-day delay. 7 days recovered by parallel work.
+                      Net impact on Power-On: +18 days
+                      Linked RFI: RFI-PROC-001, RFI-EL-003
+
+Open Issues:
+1. RFI-EL-003 (25 kA vs 31.5 kA) — OPEN — resolution required before A14 begins
+2. Installation team readiness — civil works in MV room complete (A13 done)
+
+================================================================================
+PACKAGE: PKG-EL-002 — UPS SYSTEM
+================================================================================
+Vendor             : PowerGrid Systems Pvt Ltd (Vertiv Authorised Distributor)
+                     Plot 47, MIDC Chakan Industrial Area, Pune — 410501
+Purchase Order     : HYDC-01-PO-EL-002
+PO Value           : INR 34.7 Crores
+PO Date            : 02 September 2025
+Equipment          : 8 × Vertiv Liebert EXL S1 1600 kW UPS modules + batteries
+
+Manufacturing:
+Start              : 15 September 2025 (ex-works Columbus, Ohio USA)
+Complete           : 25 November 2025 (on schedule)
+India Port Arrival : 15 December 2025 (JNPT Mumbai)
+Port Clearance     : 28 December 2025 (no clearance issues)
+Arrived Pune WH    : 03 January 2026
+
+Factory Acceptance Test:
+FAT Date           : 05-07 January 2026 at PowerGrid Systems, Pune
+FAT Result         : PARTIAL FAIL (battery discharge test failed)
+FAT Report Ref     : PGSL-HYDC01-FAT-RPT-001 Rev A (issued by WSP Global)
+Battery Autonomy measured: 9 minutes 47 seconds (required: 15 minutes)
+Dispatch Status    : ON HOLD — formal hold issued 09 January 2026 (Action 13-01)
+
+Submittal History:
+Rev 01 (30 Oct 2025) : REJECTED — missing Modbus map, missing IEC 62040-3 cert
+Rev 02 (18 Nov 2025) : UNDER REVIEW — NCR-EL-001 raised 20 Nov 2025 (OPEN)
+Rev 03               : NOT YET SUBMITTED
+
+Open Issues:
+1. NCR-EL-001 — 5 deviations identified, vendor has not formally acknowledged — CRITICAL
+2. UPS N+1 configuration not included in base supply — CRITICAL
+3. Battery autonomy 10 min declared, 9m47s measured, 15 min required — CRITICAL
+4. Battery remediation proposal DUE 19 January 2026
+5. Dispatch hold: equipment at PowerGrid Systems Pune warehouse
+6. Estimated dispatch delay impact: +8 to +35 days (depending on remediation scope)
+
+================================================================================
+PACKAGE: PKG-EL-003 — DIESEL GENERATORS
+================================================================================
+Vendor             : Cummins India Ltd
+                     Industrial Area, Nashik Road, Nashik — 422101
+Purchase Order     : HYDC-01-PO-EL-003
+PO Value           : INR 52.1 Crores
+PO Date            : 10 September 2025
+Equipment          : 4 × Cummins QSK60G18 3,500 kW diesel generator sets
+                     2 units serving A-Bus, 2 units serving B-Bus (N+1 per bus)
+                     Acoustic enclosure, exhaust silencer, day tank included
+
+Manufacturing      : 10 September 2025 to 31 January 2026 (in progress — on schedule)
+FAT (scheduled)    : 10-12 February 2026 at Cummins Nashik facility
+Dispatch           : 15 February 2026 (forecast)
+Site Delivery      : 28 February 2026 (forecast — on critical path, no current delay)
+
+Submittal Status:
+Rev 01 (15 Oct 2025) : APPROVED — no deviations identified
+Modbus register map  : APPROVED — CM-MODBUS-QSK60-001
+
+Open Issues: NONE — package progressing on schedule
+
+================================================================================
+PACKAGE: PKG-ME-001 — CHILLER PLANT
+================================================================================
+Vendor             : Carrier India Pvt Ltd
+                     A-14, MIDC Chakan Phase 1, Pune — 410501
+Purchase Order     : HYDC-01-PO-ME-001
+PO Value           : INR 41.3 Crores
+PO Date            : 25 September 2025
+Equipment          : 4 × Carrier AquaForce 30XW-V 2,500 kW centrifugal chiller
+
+Manufacturing      : On schedule at Carrier Pune facility
+DELAY NOTICE       : 2-week delay on compressor supply from Carrier USA
+Revised Delivery   : 14 March 2026 (was 28 February 2026)
+Impact             : Mechanical commissioning (A31) delayed by 2 weeks.
+                     No critical path impact if delay does not extend beyond 14 March 2026.
+
+Submittal Status   : APPROVED Rev 01 (20 Oct 2025)
+
+Open Issues:
+1. Compressor supply delay — monitor closely. If delay extends to 4+ weeks, critical path impact.
+2. Anita Pillai (Jacobs) to provide detailed impact assessment by 20 January 2026 (Action 13-07)
+
+================================================================================
+PACKAGE: PKG-ME-002 — CRAH UNITS
+================================================================================
+Vendor             : Vertiv India Pvt Ltd (also UPS vendor through PowerGrid Systems)
+Purchase Order     : HYDC-01-PO-ME-002
+PO Value           : INR 22.8 Crores
+Equipment          : 48 × Vertiv Liebert DSE computer room air handlers
+
+Status             : ON SCHEDULE
+Delivery Forecast  : 15 February 2026
+Submittal          : APPROVED Rev 01 (01 November 2025)
+Open Issues        : NONE
+
+================================================================================
+PACKAGE: PKG-FP-001 — FIRE PROTECTION
+================================================================================
+Vendor             : Kidde India (FM-200) + Xtralis (VESDA)
+Purchase Order     : HYDC-01-PO-FP-001
+PO Value           : INR 9.6 Crores
+Status             : Equipment partially delivered, FM-200 cylinder installation in progress
+Open Issues        : NONE — installation progressing per programme (A38 at 25%)
+
+================================================================================
+SHIPMENT TRACKING LOG (ACTIVE SHIPMENTS)
+================================================================================
+
+Container  Package     Vessel / Vehicle   Last Update          Status
+---------  ----------  -----------------  -------------------  -----------------------
+N/A        PKG-EL-001  Road (Truck)       12 Jan 2026 (Pune)   EN ROUTE TO SITE
+N/A        PKG-EL-002  In warehouse       09 Jan 2026 (Pune)   ON HOLD — FAT FAIL
+N/A        PKG-ME-001  Manufacturing      14 Jan 2026          IN PRODUCTION — delay
+CMDU-2341  PKG-EL-002  JNPT — past        03 Jan 2026          CLEARED — in WH Pune
+
+================================================================================
+END OF DOCUMENT — HYDC-01-PMO-PROC-001 REV D
+================================================================================

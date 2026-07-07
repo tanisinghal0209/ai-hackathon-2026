@@ -1,0 +1,163 @@
+================================================================================
+COMMISSIONING PLAN AND READINESS TRACKER
+================================================================================
+Project    : NXGEN Hyperscale Data Centre — Phase 1A (HYDC-01)
+Document   : HYDC-01-CX-SCH-001
+Revision   : A
+Date       : 14 January 2026
+Prepared By: Sanjay Thakur, Commissioning Authority — WSP Global
+Approved By: Vikram Sharma, Project Manager — Tata Projects Ltd
+================================================================================
+
+SECTION 1 — COMMISSIONING PHILOSOPHY
+================================================================================
+
+The commissioning of HYDC-01 Phase 1A shall follow a level-by-level approach
+consistent with Uptime Institute Tier IV certification requirements:
+
+Level 1: Component Verification (Factory Acceptance Tests)
+Level 2: Pre-Functional Checks (site inspection and set-to-work)
+Level 3: Functional Performance Tests (system-level testing)
+Level 4: Integrated Systems Testing (IST — multi-system failure scenarios)
+Level 5: Ongoing Commissioning (performance validation during operation)
+
+All commissioning activities shall be recorded in accordance with:
+- REQ-CX-001 (pre-functional checks before functional testing)
+- REQ-CX-002 (IST scenarios)
+- REQ-CX-003 (commissioning record requirements)
+- REQ-CX-004 (NCR for any failed test)
+
+================================================================================
+SECTION 2 — SYSTEMS COMMISSIONING SCHEDULE
+================================================================================
+
+System                  Target Start   Target Complete  Status       Blocking Issues
+----------------------  -------------  ---------------  -----------  ----------------------------
+Civil/Structural        Jul 2025       Feb 2026         ONGOING      Minor delays DH3/DH4
+MV Switchgear (L2 PFC)  16 Jan 2026   08 Feb 2026      NOT STARTED  Awaiting site delivery A12
+MV Switchgear (L3 FPT)  09 Feb 2026   28 Feb 2026      NOT STARTED  Depends L2 complete
+Generator (L2 PFC)      28 Feb 2026   11 Mar 2026      NOT STARTED  Awaiting delivery A24
+Generator (L3 FPT)      12 Mar 2026   01 Apr 2026      NOT STARTED  Depends L2 complete
+UPS System (L2 PFC)     07 May 2026   13 May 2026      BLOCKED      Battery FAT FAIL — TBD
+UPS System (L3 FPT)     14 May 2026   09 Jun 2026      BLOCKED      Depends on battery resolution
+Chiller Plant (L2 PFC)  20 Mar 2026   06 Apr 2026      NOT STARTED  Awaiting delivery A29
+Chiller (L3 FPT)        07 Apr 2026   26 Apr 2026      NOT STARTED  Depends L2 complete
+CRAH Units (L2 PFC)     19 Jan 2026   06 Feb 2026      NOT STARTED  Ready after A34 complete
+CRAH Units (L3 FPT)     07 Feb 2026   28 Feb 2026      NOT STARTED  Depends L2 complete
+BMS Integration (L3)    10 Jun 2026   27 Jun 2026      NOT STARTED  Depends all systems L3 done
+IST (Level 4)           28 Jun 2026   15 Jul 2026      NOT STARTED  CRITICAL — UPS battery RISK
+Power-On MILESTONE      25 Jul 2026   —                TARGET       Subject to IST pass
+
+================================================================================
+SECTION 3 — INTEGRATED SYSTEMS TEST SCENARIOS
+================================================================================
+
+Per REQ-CX-002, Integrated Systems Testing shall include as a minimum:
+
+IST Scenario 01 — Utility Failure and Generator Start
+   Description: Simulate loss of KPTCL utility supply. Verify UPS battery ride-through.
+                Verify generator auto-start and pick-up. Verify retransfer on utility return.
+   Acceptance Criteria:
+   - UPS maintains continuous power supply during ride-through (no IT load interruption)
+   - Generator starts within 10 seconds of utility loss (Cummins QSK60 specification)
+   - Generator accepts full load within 30 seconds
+   - Retransfer to utility upon utility restoration — no interruption to IT load
+   - Battery autonomy during test: minimum 15 minutes available (confirm on UPS HMI)
+   DEPENDENCY: Battery autonomy issue (NCR-EL-001, RFI-EL-005) MUST be resolved
+               before this test can be safely conducted.
+
+IST Scenario 02 — Single Generator Failure (N+1 test)
+   Description: With generator system in service, fail one generator. Verify automatic
+                isolation and continued supply from redundant generator.
+   Acceptance Criteria:
+   - Remaining generator accepts full load within 5 seconds
+   - No interruption to UPS input supply
+   - No IT load interruption
+
+IST Scenario 03 — Single UPS Module Failure (N+1 test)
+   Description: With UPS system in service (N+1), fail one UPS module. Verify automatic
+                load transfer to remaining modules.
+   Acceptance Criteria:
+   - Remaining UPS modules accept full load within 200ms
+   - No IT load interruption
+   - Failed module flagged in BMS
+   DEPENDENCY: N+1 UPS configuration MUST be in place (NCR-EL-001 Deviation 1 must be resolved).
+               This test is NOT possible with N-only configuration without IT load interruption.
+
+IST Scenario 04 — Cooling Failure Response
+   Description: Fail one chiller. Verify standby chiller starts. Verify CRAH units
+                respond to raised supply water temperature.
+   Acceptance Criteria:
+   - Standby chiller starts within 60 seconds
+   - Data hall temperature rise <2°C from baseline during transition
+   - CRAH units respond automatically to control setpoint
+
+IST Scenario 05 — Fire Alarm Interface
+   Description: Simulate fire detection signal in one data hall. Verify FM-200 discharge
+                lockout, ventilation shutdown, BMS alarm, and generator run-on.
+   Acceptance Criteria:
+   - Fire alarm activates within 30 seconds of detector test signal
+   - HVAC/ventilation shutdown within 60 seconds of alarm
+   - BMS alarm registered and annunciated at NOC
+   - Generators remain running during fire condition (to maintain critical load)
+
+IST Scenario 06 — BMS Alarm Verification (Full Point Test)
+   Description: Simulate all 16 required UPS BMS alarm points. Verify each is received
+                and displayed correctly at BMS operator station.
+   Acceptance Criteria:
+   - All 16 Modbus registers verified against register map (PGSL-HYDC01-MODBUS-REG-MAP-Rev02)
+   - All alarms annunciated within 10 seconds of trigger
+   - No false alarms observed during 4-hour steady-state monitoring period
+
+================================================================================
+SECTION 4 — COMMISSIONING READINESS GATING
+================================================================================
+
+The following conditions MUST be met before Level 4 IST can commence:
+
+GATE 1 — Equipment completeness:
+   [ ] MV Switchgear installed and L3 functional tests passed (A14 complete)
+   [ ] UPS system installed and L3 functional tests passed (A22 complete) — BLOCKED
+   [ ] Generator system installed and L3 functional tests passed (A27 complete)
+   [ ] Chiller plant installed and L3 functional tests passed (A31 complete)
+   [ ] CRAH units installed and L3 functional tests passed (A35 complete)
+
+GATE 2 — Pre-functional checks complete:
+   [ ] All pre-functional checklists signed off by Tata Projects and WSP Global
+   [ ] Insulation resistance tests passed for all LV and MV cables
+   [ ] All earthing connections verified and recorded
+
+GATE 3 — Outstanding deviations cleared:
+   [ ] NCR-EL-001 formally closed (all 5 deviations resolved in writing)
+   [ ] UPS N+1 configuration confirmed in situ (physical inspection)
+   [ ] Battery autonomy 15 minutes confirmed by factory or site test
+   [ ] RFI-EL-003 (switchgear rating) formally closed
+
+GATE 4 — Documentation complete:
+   [ ] All vendor IOMs received and reviewed
+   [ ] BMS point schedule finalised and integrated
+   [ ] IST scripts reviewed and approved by NxtGen Cloud and Commissioning Authority
+   [ ] Emergency procedures reviewed and posted at site
+
+CURRENT GATE STATUS AS AT 14 JANUARY 2026:
+   GATE 1: NOT MET — UPS blocked, switchgear not yet delivered to site
+   GATE 2: NOT MET — awaiting equipment installation
+   GATE 3: NOT MET — NCR-EL-001 OPEN, RFI-EL-003 OPEN
+   GATE 4: NOT MET — IST scripts under preparation (WSP Global)
+
+================================================================================
+SECTION 5 — FAT RESULTS SUMMARY
+================================================================================
+
+Package        Vendor              FAT Date         Result      Key Issues
+-------------  -----------------   ---------------  ----------  ----------------------------
+PKG-EL-001     Schneider India     01 Dec 2025      PASS (self) Not independently witnessed
+PKG-EL-002     PowerGrid Systems   05-07 Jan 2026   FAIL        Battery test: 9m47s vs 15min
+PKG-EL-003     Cummins India       10-12 Feb 2026   SCHEDULED   No issues anticipated
+PKG-ME-001     Carrier India       TBD              NOT YET     Delivery delayed to 14 Mar
+PKG-ME-002     Vertiv India        12 Jan 2026      PASS        No issues
+PKG-FP-001     Kidde India         N/A (site)       N/A         Installation ongoing
+
+================================================================================
+END OF DOCUMENT — HYDC-01-CX-SCH-001 REV A
+================================================================================

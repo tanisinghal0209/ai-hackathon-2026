@@ -1,0 +1,21 @@
+PO Number,Vendor,Equipment,Manufacturing,Inspection,Shipment,Container,Expected Delivery,Actual Delivery,Current Status,Schedule Impact,Risk Level,Linked Activities
+PHX-DC-01-PO-EL-001,Schneider Electric India,Medium Voltage Switchgear,100%,Passed,Arrived Site,CONT-PHX-808,2025-11-12,2025-11-22,Completed,Delayed,HIGH,A130
+PHX-DC-01-PO-EL-002,PowerGrid Systems Pvt Ltd,UPS Systems,100%,Failed,Dispatch Hold,CONT-PHX-817,2025-11-12,NONE,Manufacturing Complete,Delayed,CRITICAL,A200
+PHX-DC-01-PO-EL-003,Cummins India Ltd,Diesel Generators,100%,Scheduled,In Transit,CONT-PHX-169,2025-11-12,NONE,Manufacturing Complete,Clear,LOW,A300
+PHX-DC-01-PO-EL-004,Kirloskar Electric Ltd,Power Transformers,100%,Passed,Arrived Site,CONT-PHX-681,2025-11-12,2025-11-22,Delivered Site,Clear,LOW,A520
+PHX-DC-01-PO-ME-001,Carrier India Pvt Ltd,Centrifugal Chillers,85%,Scheduled,Pending,CONT-PHX-495,2025-11-12,NONE,Delayed Manufacturing,Delayed,MEDIUM,A370
+PHX-DC-01-PO-ME-002,Vertiv India Pvt Ltd,CRAH Units,100%,Passed,In Transit,CONT-PHX-166,2025-11-12,NONE,Manufacturing Complete,Clear,LOW,A430
+PHX-DC-01-PO-GEN-007,Industrial Tech Corp 24,CRAH Units,100%,Passed,Arrived Site,CONT-PHX-GEN-007,2025-10-03,2025-09-27,Delivered Site,Clear,LOW,A510
+PHX-DC-01-PO-GEN-008,Industrial Tech Corp 31,BMS Software,100%,Passed,Arrived Site,CONT-PHX-GEN-008,2025-10-26,2025-11-14,Delivered Site,Clear,LOW,A510
+PHX-DC-01-PO-GEN-009,Industrial Tech Corp 28,Centrifugal Chillers,100%,Passed,Arrived Site,CONT-PHX-GEN-009,2025-10-06,2025-09-05,Delivered Site,Clear,LOW,A510
+PHX-DC-01-PO-GEN-010,Industrial Tech Corp 10,CCTV Systems,100%,Passed,Arrived Site,CONT-PHX-GEN-010,2025-09-17,2025-09-24,Delivered Site,Clear,LOW,A510
+PHX-DC-01-PO-GEN-011,Industrial Tech Corp 27,UPS Systems,100%,Passed,Arrived Site,CONT-PHX-GEN-011,2025-10-26,2025-10-22,Delivered Site,Clear,LOW,A510
+PHX-DC-01-PO-GEN-012,Industrial Tech Corp 19,Transformers,100%,Passed,Arrived Site,CONT-PHX-GEN-012,2025-08-27,2025-10-12,Delivered Site,Clear,LOW,A510
+PHX-DC-01-PO-GEN-013,Industrial Tech Corp 14,UPS Systems,100%,Passed,Arrived Site,CONT-PHX-GEN-013,2025-09-16,2025-10-12,Delivered Site,Clear,LOW,A510
+PHX-DC-01-PO-GEN-014,Industrial Tech Corp 8,Centrifugal Chillers,100%,Passed,Arrived Site,CONT-PHX-GEN-014,2025-10-15,2025-09-07,Delivered Site,Clear,LOW,A510
+PHX-DC-01-PO-GEN-015,Industrial Tech Corp 28,Centrifugal Chillers,100%,Passed,Arrived Site,CONT-PHX-GEN-015,2025-10-11,2025-10-04,Delivered Site,Clear,LOW,A510
+PHX-DC-01-PO-GEN-016,Industrial Tech Corp 37,Cooling Towers,100%,Passed,Arrived Site,CONT-PHX-GEN-016,2025-09-18,2025-09-30,Delivered Site,Clear,LOW,A510
+PHX-DC-01-PO-GEN-017,Industrial Tech Corp 8,Centrifugal Chillers,100%,Passed,Arrived Site,CONT-PHX-GEN-017,2025-10-22,2025-11-04,Delivered Site,Clear,LOW,A510
+PHX-DC-01-PO-GEN-018,Vertiv India Pvt Ltd,CRAH Units,100%,Passed,Arrived Site,CONT-PHX-GEN-018,2025-11-03,2025-11-05,Delivered Site,Clear,LOW,A510
+PHX-DC-01-PO-GEN-019,Industrial Tech Corp 15,CCTV Systems,100%,Passed,Arrived Site,CONT-PHX-GEN-019,2025-10-30,2025-10-08,Delivered Site,Clear,LOW,A510
+PHX-DC-01-PO-GEN-020,Industrial Tech Corp 32,Structured Cabling,100%,Passed,Arrived Site,CONT-PHX-GEN-020,2025-09-21,2025-11-13,Delivered Site,Clear,LOW,A510

@@ -15,16 +15,33 @@ Real data centre EPC documents are usually confidential, so a synthetic dataset 
 
 ## Dataset Files
 
-| File | Purpose |
-| --- | --- |
-| `project_specification_ups_switchgear.txt` | Project requirements for UPS, switchgear, generators, cooling, commissioning, and documentation. Use this for RAG ingestion and compliance testing. |
-| `vendor_submittal_ups_noncompliant.txt` | Vendor submittal with intentional deviations. Use this with the compliance agent. |
-| `schedule_activities.json` | EPC activity list with dependencies, procurement status, RFIs, and compliance issue signals. Use this with the schedule risk endpoint. |
-| `rfi_log.csv` | Example RFI register for project knowledge and schedule-risk context. |
-| `procurement_status.csv` | Example procurement tracker for long-lead equipment. |
-| `commissioning_checklist.csv` | Example commissioning QA checklist. |
-| `api_payloads/compliance_payload.json` | Ready-to-send request body for `/api/v1/compliance/analyze`. |
-| `api_payloads/schedule_payload.json` | Ready-to-send request body for `/api/v1/schedule/analyze`. |
+### Core Structured CSV Registers (in `/datasets/`)
+
+*   `vendor_register.csv`: 40 vendors with contact info, lead times, and ratings.
+*   `project_schedule.csv`: 60 Primavera-style CPM activities with float and dependencies.
+*   `equipment_register.csv`: 500 hyperscale assets with tag IDs, rooms, voltage, dimensions, and weights.
+*   `document_control_register.csv`: 300 engineering drawings, revisions, and approval statuses.
+*   `rfi_register.csv`: 50 RFIs mapping questions, answers, and linked equipment.
+*   `commissioning_register.csv`: 200 Level 1 to 5 commissioning logs.
+*   `procurement_tracker.csv`: Shipping containers, shipment logs, and customs delays.
+*   `ncr_register.csv`: NCR quality registers.
+*   `inspection_register.csv`: Checklists for MEP walkdowns.
+*   `risk_register.csv`: Risk scoring.
+*   `meeting_register.csv`: Coordination MOM registers.
+
+### RAG Technical Document Corpus (in `/datasets/knowledge_base/`)
+
+*   `01` to `22` `.txt` files containing:
+    *   `01_project_information_register.txt`: Main project master data.
+    *   `02_ups_technical_specification.txt`: 14-clause UPS specification (N+1 requirement, 15m runtime).
+    *   `03_vendor_submittal_ups_powergridsystems.txt`: The non-compliant proposal with 5 hidden deviations.
+    *   `04_rfi_log.txt` & `05_meeting_minutes_mom013.txt`: Project communication and FAT failure reports.
+    *   `06_ncr_el_001_ups_submittal.txt`: Active non-conformance logging.
+    *   `07_project_schedule_cpm.txt` & `09_procurement_status_register.txt`: Schedule path logic and delay tracking.
+    *   `11_company_profile_and_org_chart.txt` to `19_daily_site_diary.txt`: Site diary logs, TIMELINE narration, WSP/Tata Projects org chart, Cummins generator submittals, and emails.
+    *   `20_judge_demo_questions_200.txt` & `21_end_to_end_demo_story_script.txt`: Demo guides.
+    *   `22_ground_truth_and_citations_benchmark.txt`: Ground truth RAG benchmarks and adversarial questions.
+
 
 ## How to Use
 

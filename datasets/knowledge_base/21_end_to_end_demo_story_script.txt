@@ -1,0 +1,134 @@
+================================================================================
+END-TO-END DEMO SCRIPT & ENGINEERING STORY
+================================================================================
+Document     : HYDC-01-DEMO-SCRIPT-001
+Title        : The "Hollywood Demo" — Board-Level Executive Narrative
+Prepared For : AI Hackathon Live Demonstration
+Subject      : Project HYDC-01 (NXGEN Hyperscale Data Centre Phase 1)
+================================================================================
+
+EXECUTIVE SUMMARY FOR THE JUDGES
+--------------------------------
+This platform does not just search text. It understands cause and effect across a 
+complex, 6-month enterprise engineering project. 
+
+The story we are about to trace is not a single document. It is a cascading chain 
+of events spanning specifications, vendor submittals, emails, factory tests, schedule 
+updates, and risk registers. 
+
+By following this exact script during your live demo, you will show the judges that 
+the AI Knowledge Copilot, Compliance Agent, and Schedule Risk Engine can navigate a 
+real-world engineering crisis from root cause to resolution.
+
+================================================================================
+THE ENGINEERING STORY (THE TRUTH)
+================================================================================
+
+In August 2025, Tata Projects issued a specification (Rev A) for the UPS system. 
+In October, they issued Revision B, which subtly clarified that the 15-minute 
+battery autonomy requirement must be calculated at the "end-of-life" condition 
+(80% capacity). 
+
+The vendor, PowerGrid Systems, failed to notice this stricter requirement. They 
+submitted their technical package (Rev 02) declaring "10 minutes autonomy" and, 
+crucially, checked the box stating "No deviations." 
+
+The QA Manager (Kavya Reddy) and Lead Engineer (Rahul Desai) caught this and raised 
+NCR-EL-001. However, due to commercial pressure, the equipment proceeded to its 
+Factory Acceptance Test (FAT) in January 2026. 
+
+At the FAT, the battery discharge test failed catastrophically at 9 minutes 47 seconds.
+The client representative (Dr. Meera Iyer) immediately issued a dispatch hold. 
+
+Because the UPS cannot be dispatched, the installation (Activity A16) is delayed. 
+Because installation is delayed, the Integrated Systems Test (IST) cannot safely 
+demonstrate a utility failure scenario. 
+
+This pushes the project's "Power-On" date from June 30 to July 25, leaving only a 
+37-day buffer before the client's non-negotiable bank tenant go-live on September 1. 
+
+A formal Risk (RISK-01) is raised, and the team is now forced to procure Battery 
+Extension Cabinets (Option A) to resolve the shortfall, costing an additional INR 
+2.8 to 4.5 Crores.
+
+================================================================================
+THE LIVE DEMO SCRIPT (STEP-BY-STEP)
+================================================================================
+
+[DEMO PHASE 1: THE COMPLIANCE AGENT]
+Show how the AI catches what human engineers often miss.
+
+1. Speaker: "Let's start at the beginning. Vendors often submit hundreds of pages 
+   of technical data and simply declare they are compliant. We are going to upload 
+   the vendor's UPS submittal and ask the AI Compliance Agent to evaluate it against 
+   our project specification."
+   
+2. Action: Upload `02_ups_technical_specification.txt` and `03_vendor_submittal_ups_powergridsystems.txt`.
+   
+3. Prompt to AI: "Analyze the vendor submittal for the UPS against the project 
+   specification. Identify any deviations, list them by severity, and tell me if 
+   the vendor accurately declared them."
+   
+4. Expected AI Output: The AI will identify 5 deviations (N-only config, 10-minute 
+   runtime, ±2Hz sync, deferral of load bank test, missing Modbus conductance). 
+   Crucially, it will point out that the vendor falsely declared "No deviations" 
+   in Section 9, which violates REQ-UPS-022.
+
+
+[DEMO PHASE 2: THE KNOWLEDGE COPILOT - TRACING CAUSALITY]
+Show how the AI connects emails, FAT reports, and NCRs.
+
+1. Speaker: "So the vendor tried to slip a non-compliant battery past us. Did it 
+   get caught during testing? Let's ask the Knowledge Copilot, which has read every 
+   email, meeting minute, and test report on the project."
+   
+2. Action: Ensure all 15+ knowledge base documents are accessible to the Copilot.
+   
+3. Prompt to AI: "What exactly happened during the UPS Factory Acceptance Test regarding 
+   the battery? Provide specific measurements, who was present, and what formal action 
+   was taken immediately after."
+   
+4. Expected AI Output: The AI will cite the `18_fat_report_ups_powergridsystems.txt`, 
+   state the exact failure time (9m47s), mention Dr. Meera Iyer and Sanjay Thakur, 
+   and cite the subsequent dispatch hold and Cure Notice from the `12_project_email_archive.txt`.
+
+
+[DEMO PHASE 3: THE SCHEDULE RISK ENGINE - UNDERSTANDING IMPACT]
+Show how a technical failure translates to schedule and commercial risk.
+
+1. Speaker: "An engineering failure in a factory in Pune is a problem. But how does 
+   that affect our critical path in Bengaluru? And more importantly, how does it affect 
+   our client's business?"
+   
+2. Prompt to AI: "Trace the schedule and commercial impact of the UPS battery FAT 
+   failure. How does it affect commissioning, what is the new Power-On forecast, 
+   and what is the ultimate risk to the client's business?"
+   
+3. Expected AI Output: The AI will connect the FAT failure to the delay in UPS 
+   installation. It will reference the `10_commissioning_plan_and_tracker.txt` to explain 
+   that IST Scenario 01 (Utility Failure) cannot be run without 15-minute autonomy. 
+   It will trace this to the revised Power-On date of July 25, and cite `16_risk_register.txt` 
+   (RISK-05) explaining the 37-day buffer to the September 1 bank go-live and the 
+   associated Liquidated Damages (LD) threat.
+
+
+[DEMO PHASE 4: THE EXECUTIVE SUMMARY]
+Show the AI synthesizing complex data for leadership.
+
+1. Speaker: "I'm the Project Director, and I have a board meeting in 10 minutes. I 
+   need a clear, concise summary of the project's health based on everything that 
+   has happened."
+   
+2. Prompt to AI: "Write a one-paragraph executive briefing for the NxtGen Cloud board 
+   of directors. Summarize the overall project health, the critical risk regarding 
+   the UPS system, the schedule compression for the September 1 go-live, and the 
+   recommended remediation path."
+   
+3. Expected AI Output: A highly polished, C-level summary that synthesizes the 34% 
+   completion status, the 18-day critical path delay, the battery FAT failure, the 
+   37-day buffer to go-live, and the recommendation to proceed with Option A (Battery 
+   Extension Cabinets) to mitigate further delays.
+
+================================================================================
+END OF DEMO SCRIPT
+================================================================================

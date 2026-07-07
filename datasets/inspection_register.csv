@@ -1,0 +1,4 @@
+Inspection ID,Inspector,Area,Equipment,Checklist,Status,Comments,Linked NCR,Date
+IR-EL-043,Deepak Nambiar,UPS Room A,UPS-A1-01,Level 1 Structural and Cabling,FAILED,Battery autonomy is insufficient. Modbus map missing.,PHX-DC-01-NCR-EL-001,2026-01-07
+IR-EL-047,Deepak Nambiar,MV Room Level 1,SWG-MV-A,Visual and Dimensions Check,PASSED,All panels inspected on site delivery. No damage.,NONE,2026-01-15
+IR-ME-012,Manish Patel,Central Plant Room,CHL-01,Weld UT Scan & Piping,PASSED,CHW pipework hydrostatic pressure test complete. Weld UT result accepted.,NONE,2026-01-12

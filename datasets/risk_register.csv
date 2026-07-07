@@ -1,0 +1,5 @@
+Risk ID,Category,Probability,Impact,Mitigation,Owner,Status,Linked Procurement,Linked Schedule,Linked Vendor,Linked RFI
+RISK-01,Procurement / Technical,5,5,Procure Battery Extension Cabinets to bridge the 5-minute autonomy deficit. Negotiate cost offset with vendor.,Aditya Singh,MATERIALISED,PHX-DC-01-PO-EL-002,A200,VND-EL-001,RFI-EL-005
+RISK-02,Technical / Procurement,4,5,"Verify addition of 9th UPS module in the battery remediation proposal. If rejected, engage alternate vendor ABB.",Aditya Singh,ACTIVE,PHX-DC-01-PO-EL-002,A200,VND-EL-001,RFI-EL-001
+RISK-03,Technical / Design,3,4,Obtain formal waiver or rating confirmation from Jacobs engineering. KPTCL fault level connection data indicates 21.4 kA maximum.,Rahul Desai,ACTIVE,PHX-DC-01-PO-EL-001,A160,VND-EL-002,RFI-EL-003
+RISK-04,Procurement / Schedule,2,4,Pre-fabricate CHW piping hookups to accelerate Chiller installation on site. Monitor Carrier weekly shipping logs.,Manish Patel,ACTIVE,PHX-DC-01-PO-ME-001,A370,VND-ME-001,NONE

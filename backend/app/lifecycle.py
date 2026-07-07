@@ -5,7 +5,7 @@ from fastapi import FastAPI
 
 from app.config.config import settings
 from app.core.logging import configure_logging
-from app.database.session import engine
+from app.database.session import engine, Base
 from app.prompts.registry import PromptRegistry
 
 
@@ -18,6 +18,9 @@ async def lifespan(app: FastAPI):
     Deterministic startup/shutdown lifecycle for shared infrastructure.
     """
     configure_logging()
+
+    # Automatically create database tables for local SQLite development
+    Base.metadata.create_all(bind=engine)
 
     missing = settings.validate_startup()
     if missing:

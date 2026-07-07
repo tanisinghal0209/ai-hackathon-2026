@@ -20,9 +20,11 @@ export const useProjectStore = create<ProjectState>((set) => ({
 
 interface UIState {
   sidebarCollapsed: boolean;
+  rightPanelOpen: boolean;
   theme: 'dark' | 'light';
   notifications: string[];
   toggleSidebar: () => void;
+  toggleRightPanel: () => void;
   toggleTheme: () => void;
   addNotification: (msg: string) => void;
   clearNotifications: () => void;
@@ -30,9 +32,11 @@ interface UIState {
 
 export const useUIStore = create<UIState>((set) => ({
   sidebarCollapsed: false,
+  rightPanelOpen: false,
   theme: 'dark',
   notifications: [],
   toggleSidebar: () => set((state) => ({ sidebarCollapsed: !state.sidebarCollapsed })),
+  toggleRightPanel: () => set((state) => ({ rightPanelOpen: !state.rightPanelOpen })),
   toggleTheme: () => set((state) => ({ theme: state.theme === 'dark' ? 'light' : 'dark' })),
   addNotification: (msg) => set((state) => ({ notifications: [...state.notifications, msg] })),
   clearNotifications: () => set({ notifications: [] }),

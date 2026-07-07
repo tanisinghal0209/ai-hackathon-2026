@@ -1,0 +1,266 @@
+================================================================================
+FACTORY ACCEPTANCE TEST REPORT — UPS SYSTEM
+================================================================================
+Document     : WSP-HYDC01-FAT-RPT-001
+Report Title : Factory Acceptance Test Report — UPS System — Package PKG-EL-002
+Vendor       : PowerGrid Systems Pvt Ltd / Vertiv Liebert EXL S1 1600 kW
+Test Location: PowerGrid Systems Pvt Ltd, Plot 47, MIDC Chakan, Pune
+Test Dates   : 05, 06, 07 January 2026
+Report Date  : 09 January 2026
+Prepared By  : Sanjay Thakur, Lead CxA — WSP Global (WSP-001)
+               Anand Krishnaswamy, Commissioning Engineer — WSP Global (WSP-002)
+================================================================================
+
+ATTENDEES
+---------
+Party                        Name                      Role
+---------------------------  ------------------------  --------------------------------
+Commissioning Authority      Sanjay Thakur             Lead CxA (WSP Global)
+Commissioning Authority      Anand Krishnaswamy        Commissioning Engineer (WSP Global)
+EPC Contractor               Deepak Nambiar            Site Engineer — Electrical (Tata Projects)
+Client Representative        Dr. Meera Iyer            Principal Engineer (NxtGen Cloud)
+Vendor                       Ramesh Khanna             Technical Sales Director (PowerGrid Systems)
+Vendor                       Shalini Bose              Application Engineer (PowerGrid Systems)
+Vertiv Regional Tech         Aditya Kumar              Regional Applications Engineer (Vertiv APAC)
+
+================================================================================
+EXECUTIVE SUMMARY
+================================================================================
+
+Factory Acceptance Testing of the Vertiv Liebert EXL S1 UPS system (Package PKG-EL-002)
+was conducted over three days at the PowerGrid Systems Pvt Ltd test facility in Pune.
+
+MODULE TESTED: Representative module UPS-A1-01 (tested on behalf of all 8 modules)
+
+OVERALL FAT RESULT: FAIL
+
+The UPS system passed most functional tests satisfactorily. However, two significant
+non-conformances were identified:
+
+1. CRITICAL FAIL — Battery Discharge Test (Day 3):
+   Measured autonomy: 9 minutes 47 seconds
+   Required (REQ-UPS-002, REQ-UPS-008): 15 minutes minimum
+   Shortfall: 5 minutes 13 seconds (35% deficit)
+
+2. NON-CONFORMANCE — Bypass Synchronisation Window (Day 2):
+   Measured synchronisation window: ±2.1 Hz
+   Required (REQ-UPS-009): ±1 Hz maximum
+   While the bypass transfer was successfully achieved under controlled test conditions,
+   the measured window exceeds the specified limit.
+
+DISPATCH DECISION: WITHHELD — Equipment shall not be dispatched to site until the
+battery autonomy issue is resolved and a revised FAT is successfully completed.
+
+================================================================================
+TEST RESULTS — DAY 1 (05 JANUARY 2026)
+================================================================================
+
+TEST 1 — VISUAL INSPECTION AND DIMENSIONAL CHECK
+Date/Time   : 05 Jan 2026, 09:15
+Engineer    : Anand Krishnaswamy
+Result      : PASS
+
+Observations:
+- Cabinet dimensions confirmed against submitted drawings (PGSL-HYDC01-DIM-001)
+- Paint finish: RAL 7035 light grey — consistent with specification
+- All nameplate data legible — model, serial number, rating confirmed
+- Front access confirmed: all modules accessible from front face
+- Busbar connections: copper, tinned — visually satisfactory
+- Cable entry glands: bottom cable entry — confirmed per specification
+- Serial Numbers confirmed:
+  UPS-A1-01: EXLS1-1600-INDIA-20250821-001
+  (Representative module; all 8 modules bear sequential serial numbers 001-008)
+
+TEST 2 — INSULATION RESISTANCE MEASUREMENT (PRE-ENERGISATION)
+Date/Time   : 05 Jan 2026, 10:30
+Engineer    : Deepak Nambiar (Tata Projects) with Shalini Bose (PowerGrid)
+Test Voltage: 1,000V DC (Megger MIT1020)
+Result      : PASS
+
+Measurements recorded:
+Input wiring (Line to Earth): Phase A = 487 MΩ, Phase B = 521 MΩ, Phase C = 499 MΩ
+Output wiring (Line to Earth): Phase A = 541 MΩ, Phase B = 512 MΩ, Phase C = 508 MΩ
+Battery wiring (+ to Earth): 312 MΩ, (- to Earth): 298 MΩ
+All values >100 MΩ — satisfactory per IEEE 43-2000
+
+TEST 3 — FUNCTIONAL ENERGISATION AND HMI VERIFICATION
+Date/Time   : 05 Jan 2026, 14:00
+Engineer    : Sanjay Thakur, Anand Krishnaswamy
+Result      : PASS
+
+- UPS energised without incident from test supply
+- HMI touchscreen functional — all screens navigable
+- Input voltage displayed correctly on HMI (all 3 phases)
+- Output voltage displayed correctly on HMI (all 3 phases within 415V ±0.5%)
+- Battery voltage displayed on HMI
+- No startup fault alarms observed
+- UPS entered double-conversion (online) mode within 15 seconds of energisation
+
+================================================================================
+TEST RESULTS — DAY 2 (06 JANUARY 2026)
+================================================================================
+
+TEST 4 — LOAD BANK TEST — LOAD STEPS
+Date/Time   : 06 Jan 2026, 09:00 — 14:30
+Load Bank   : Cressall Resistive Load Bank (3 × 600 kW units)
+Engineer    : Sanjay Thakur, Anand Krishnaswamy, Shalini Bose
+Result      : PASS
+
+Load Step    Load (kW)  % of Rated  Duration    Output V (avg)  Frequency    Efficiency   Result
+-----------  ---------  ----------  ----------  --------------  -----------  -----------  ------
+No Load      0          0%          10 min      415.2V          50.01 Hz     N/A          PASS
+Step 1       400        25%         15 min      414.9V          50.00 Hz     94.4%        PASS
+Step 2       800        50%         30 min      415.1V          50.01 Hz     97.1%        PASS
+Step 3       1,200      75%         15 min      415.0V          50.00 Hz     96.9%        PASS
+Step 4       1,600      100%        15 min      414.8V          50.01 Hz     96.8%        PASS
+
+Notes:
+- Efficiency at 50% load: 97.1% — EXCEEDS REQ-UPS-004 of minimum 96% at 50% load
+- Output voltage regulation: all values within ±0.5% — within specification (±1%)
+- Frequency stability: excellent — within ±0.02 Hz throughout
+- UPS cooling fan noise measured at 1m: 62 dB(A) — within REQ-UPS-019 limit of 65 dB(A)
+- No thermal alarms during any load step
+
+TEST 5 — BYPASS TRANSFER TEST UNDER 100% LOAD
+Date/Time   : 06 Jan 2026, 15:00
+Engineer    : Sanjay Thakur
+Result      : PASS (WITH NON-CONFORMANCE ON SYNCHRONISATION WINDOW)
+
+Transfer Time (Inverter to Bypass): 3.2 ms — WITHIN REQ-UPS-010 limit of 4ms — PASS
+Transfer Time (Bypass to Inverter): 3.8 ms — WITHIN limit — PASS
+
+Bypass Source Synchronisation Window:
+Method: Measured by digital oscilloscope while incrementally varying bypass source frequency
+Measured synchronisation window: ±2.1 Hz
+Required per REQ-UPS-009: ±1 Hz maximum
+Result: NON-CONFORMANCE
+
+Sanjay Thakur note: "The UPS successfully transferred to bypass during the test because
+the bypass source was at 50.00 Hz (stable utility supply). The non-conformance means
+that under field conditions — such as during generator operation where frequency may
+be 49.0-51.0 Hz — the bypass transfer may be blocked if the inverter output is outside
+±2.1 Hz of the bypass source. This represents a potential operational risk under
+non-ideal conditions, consistent with the classification in NCR-EL-001."
+
+TEST 6 — ALARM POINT SIMULATION
+Date/Time   : 06 Jan 2026, 16:30
+Engineer    : Anand Krishnaswamy, Shalini Bose
+Result      : PASS
+
+All 16 Modbus alarm registers (1000-1015) verified against PowerGrid Systems
+Modbus register map (PGSL-HYDC01-MODBUS-REG-MAP-Rev02.xlsx):
+
+Register  Description                  Simulated?  BMS Received?  Correct Value?  Result
+--------  ---------------------------  ----------  -------------   --------------  ------
+1000      Input mains status           YES         YES             Correct (1)     PASS
+1001-1003 Output voltage per phase     YES         YES             Correct         PASS
+1004-1006 Output current per phase     YES         YES             Correct         PASS
+1007      Load percentage              YES         YES             100%            PASS
+1008      Battery voltage              YES         YES             Correct         PASS
+1009      Battery autonomy (minutes)   YES         YES             Correct         PASS
+1010      Battery on discharge         YES         YES             Correct (1)     PASS
+1011      Battery low voltage alarm    YES         YES             Correct (1)     PASS
+1012      Module fault alarm           YES         YES             Correct (1)     PASS
+1013      Bypass active alarm          YES         YES             Correct (1)     PASS
+1014      Overtemperature alarm        YES         YES             Correct (1)     PASS
+1015      Module available status      YES         YES             Correct (0)     PASS
+
+Battery conductance/resistance: NOT IN REGISTER MAP — optional add-on (noted, not tested)
+
+================================================================================
+TEST RESULTS — DAY 3 (07 JANUARY 2026)
+================================================================================
+
+TEST 7 — BATTERY DISCHARGE TEST AT 100% LOAD
+Date/Time   : 07 Jan 2026, 09:00 (start of discharge)
+Engineer    : All parties present — Sanjay Thakur, Dr. Meera Iyer, Deepak Nambiar
+Test Setup  : UPS-A1-01 loaded to 1,600 kW. Utility input isolated. Battery discharging.
+Result      : CRITICAL FAIL
+
+Battery Configuration at test:
+- 20 strings × 80 blocks × 12V (EnerSys DataSafe HX, 100 Ah at C10 rate)
+- String voltage at start of test: 968V DC
+- Battery temperature: 24.8°C (approximately ambient)
+
+Discharge Test Data Log:
+Time (min:sec)  Battery V  Load (kW)  UPS Output Status    Comments
+--------------  ---------  ---------  -------------------  ---------------------------
+00:00           968V       1,600      Normal               Test commenced
+01:00           951V       1,600      Normal               Discharge progressing
+02:00           934V       1,600      Normal
+03:00           917V       1,600      Normal               Battery low voltage pre-alarm
+04:00           901V       1,600      Normal
+05:00           886V       1,600      Normal               Discharge rate accelerating
+06:00           871V       1,600      Normal
+07:00           888V       1,600      Normal               [Note: reading at 07:00 anomalous — logger re-synced]
+08:00           865V       1,600      Normal
+09:00           856V       1,600      Normal               Battery low voltage alarm active
+09:47           847V       1,600      TRANSFER TO BYPASS   UPS protective shutdown — min terminal V reached
+N/A             N/A        N/A        Bypass              Battery minimum terminal voltage 847V = 10.6V per 12V block
+
+Measured autonomy: 9 minutes 47 seconds (at 100% rated load, 24.8°C, end-of-life 80% capacity)
+Required autonomy: 15 minutes minimum (REQ-UPS-002, REQ-UPS-008)
+Shortfall: 5 minutes 13 seconds
+Result: CRITICAL FAIL
+
+Sanjay Thakur (WSP Global) formal statement for record:
+"The battery discharge test result of 9 minutes 47 seconds is categorically below the
+specification requirement of 15 minutes. The test was conducted correctly, under
+appropriate conditions, and with independent instrumentation. The result is not
+attributable to test methodology error. The battery system as currently configured
+is undersized for the project specification requirement. Dispatch approval is withheld."
+
+Dr. Meera Iyer (NxtGen Cloud) formal statement for record:
+"NxtGen Cloud Infrastructure Ltd does not accept this result. The equipment will not
+leave this facility until a revised battery system capable of delivering 15 minutes
+minimum autonomy at 100% IT load has been supplied and successfully tested."
+
+Ramesh Khanna (PowerGrid Systems) acknowledged the result verbally.
+No written response submitted at time of test.
+
+================================================================================
+NON-CONFORMANCE SUMMARY
+================================================================================
+
+NCF-01 (CRITICAL):
+Description: Battery discharge autonomy below specification
+Requirement: REQ-UPS-002, REQ-UPS-008 — 15 minutes minimum at 100% load
+Measured:    9 minutes 47 seconds
+Shortfall:   5 minutes 13 seconds
+Action:      Battery remediation required before dispatch. See NCR-EL-001.
+
+NCF-02 (MAJOR):
+Description: Bypass synchronisation window exceeds specification
+Requirement: REQ-UPS-009 — ±1 Hz maximum
+Measured:    ±2.1 Hz
+Action:      Vendor to provide technical justification. Classify as Major Deviation
+             in revised deviation schedule. Engineering assessment to confirm acceptability.
+
+================================================================================
+DISPATCH RECOMMENDATION
+================================================================================
+
+Based on the FAT results above, the Commissioning Authority recommends:
+
+DISPATCH: WITHHELD
+
+Conditions for dispatch approval:
+1. Battery system remediation implemented and tested — measured autonomy ≥15 min at 100% load
+2. NCF-02 (synchronisation window) formally addressed with engineering assessment accepted
+3. Revised FAT conducted for battery system with all attending parties present
+4. Written approval from NxtGen Cloud Infrastructure Ltd (Dr. Meera Iyer)
+5. Written approval from Commissioning Authority (WSP Global — Sanjay Thakur)
+
+================================================================================
+SIGNATURES
+================================================================================
+
+Sanjay Thakur, Lead CxA, WSP Global:         [Signed] — 09 January 2026
+Anand Krishnaswamy, CxE, WSP Global:         [Signed] — 09 January 2026
+Deepak Nambiar, Site Engineer, Tata Projects: [Signed] — 09 January 2026
+Dr. Meera Iyer, Principal Engineer, NxtGen:   [Signed] — 09 January 2026
+Ramesh Khanna, PowerGrid Systems:            [SIGNATURE WITHHELD — vendor disputes NCF-02 classification]
+
+================================================================================
+END OF FAT REPORT — WSP-HYDC01-FAT-RPT-001
+================================================================================

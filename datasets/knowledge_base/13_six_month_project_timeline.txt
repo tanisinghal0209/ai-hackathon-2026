@@ -1,0 +1,376 @@
+================================================================================
+SIX-MONTH PROJECT CHRONOLOGICAL TIMELINE
+HYDC-01 — NXGEN HYPERSCALE DATA CENTRE PHASE 1
+================================================================================
+Document     : HYDC-01-PMO-TIMELINE-001
+Period       : July 2025 — January 2026
+Prepared By  : Rajan Mehta, Project Controls Manager — Tata Projects Ltd
+Date         : 14 January 2026
+================================================================================
+
+This timeline is the master truth document of the HYDC-01 project.
+Every future document must remain consistent with events recorded here.
+Cause-and-effect chains are marked with [→] to trace how one event leads to another.
+
+================================================================================
+JULY 2025 — PROJECT LAUNCH
+================================================================================
+
+15 Jul 2025 — CONTRACT AWARD
+   NxtGen Cloud Infrastructure Ltd awards EPC contract to Tata Projects Ltd.
+   Contract value: INR 487 Crores. Project code: HYDC-01.
+   Vikram Sharma appointed Project Manager. Priya Nair as Project Director.
+   [→ All project documents begin referencing HYDC-01 from this date]
+
+18 Jul 2025 — PROJECT KICKOFF MEETING (MOM-HYDC01-001)
+   First formal coordination meeting. Attendees: full project team + NxtGen Cloud.
+   Arjun Kapoor announces the 1 September 2026 bank customer go-live commitment.
+   [→ ALL programme decisions henceforth measured against this date]
+
+22 Jul 2025 — DESIGN REVIEW MEETING (MOM-HYDC01-002)
+   Jacobs India presents 60% design drawings. Rahul Desai presents electrical SLD.
+   Key decision: 2N UPS architecture confirmed (N+1 per power module, 2N at facility).
+   [→ This decision will later conflict with PowerGrid Systems' N-only proposal]
+
+28 Jul 2025 — SITE POSSESSION
+   L&T C&B takes possession of 6.2-acre Phase 1 site at Devanahalli.
+   Survey pegs installed. Temporary access road construction begins.
+   Activity A1 (Site Establishment) commenced.
+
+================================================================================
+AUGUST 2025 — PROCUREMENT LAUNCH
+================================================================================
+
+01 Aug 2025 — SPECIFICATIONS ISSUED FOR TENDER
+   Jacobs India issues 5 technical specifications:
+   HYDC-01-EL-SPEC-001 (MV Switchgear), HYDC-01-EL-SPEC-002 (UPS Rev A),
+   HYDC-01-ME-SPEC-001 (Chillers), HYDC-01-ME-SPEC-002 (CRAH Units)
+   [→ These specifications become the compliance reference for all vendor submittals]
+
+07 Aug 2025 — PILING WORKS BEGIN
+   L&T C&B commences piling works (Activity A3). 320 piles across Phase 1 footprint.
+   Geotechnical conditions better than expected — piling progresses ahead of schedule.
+
+14 Aug 2025 — UPS TENDER ISSUED
+   Tata Projects issues UPS tender (PKG-EL-002) to:
+   - PowerGrid Systems Pvt Ltd (Vertiv authorised distributor)
+   - ABB Power Protection India
+   Tender closing: 05 September 2025.
+
+18 Aug 2025 — MV SWITCHGEAR PO PLACED
+   PO HYDC-01-PO-EL-001 placed with Schneider Electric India.
+   Value: INR 18.4 Crores. Delivery date: 30 November 2025.
+   [→ Schneider commences manufacturing at Vadodara facility]
+
+22 Aug 2025 — GENERATOR TENDER ISSUED
+   PKG-EL-003 (4 × 3.5 MW Diesel Generators) issued to Cummins India and Caterpillar India.
+
+================================================================================
+SEPTEMBER 2025 — PROCUREMENT AND DESIGN INTENSIFICATION
+================================================================================
+
+02 Sep 2025 — GROUND SLAB COMMENCED (DH1 AND DH2)
+   L&T C&B pours ground slab for Data Halls 1 and 2 (Activity A4). On schedule.
+
+05 Sep 2025 — UPS TENDERS RECEIVED
+   Both tender responses received:
+   - PowerGrid Systems: INR 34.7 Crores — BUT proposes N-only configuration (page 3 of quotation)
+   - ABB Power Protection: INR 42.1 Crores — N+1 configuration compliant
+   [→ PowerGrid Systems is cheaper but technically non-compliant on redundancy]
+
+10 Sep 2025 — GENERATOR PO PLACED
+   PO HYDC-01-PO-EL-003 placed with Cummins India Ltd. Value: INR 52.1 Crores.
+   Cummins commences manufacturing QSK60G18 generator sets at Nashik facility.
+
+12 Sep 2025 — UPS N+1 ISSUE DISCOVERED
+   Aditya Singh reviews PowerGrid Systems quotation and forwards to Rahul Desai.
+   Rahul immediately identifies N-only proposal as unacceptable.
+   [→ RFI-EL-001 raised 08 October 2025]
+
+15 Sep 2025 — STRUCTURAL STEELWORK COMMENCES (DH1 AND DH2)
+   Fabricated steelwork arrives on site. Erection begins (Activity A6).
+   L&T C&B working extended hours to recover 3-day piling delay.
+
+19 Sep 2025 — UPS BUDGET NEGOTIATION RESOLVED
+   Arjun Kapoor approves increased budget of INR 38.8 Crores for N+1 UPS.
+   Civil package savings (INR 6.2 Crores) offset the increase.
+   [→ PO HYDC-01-PO-EL-002 placed 02 September 2025 with N+1 explicitly required]
+
+25 Sep 2025 — CHILLER PO PLACED
+   PO HYDC-01-PO-ME-001 placed with Carrier India. Value: INR 41.3 Crores.
+
+================================================================================
+OCTOBER 2025 — SPECIFICATION REVISION AND VENDOR ENGAGEMENT
+================================================================================
+
+01 Oct 2025 — SPECIFICATION REV B ISSUED
+   Rahul Desai issues HYDC-01-EL-SPEC-002 Revision B incorporating:
+   - Clarification of REQ-UPS-008 (battery autonomy at end-of-life condition)
+   - Additional FAT clause 10.4 (mandatory factory battery discharge test)
+   [→ Revision B creates the stricter battery requirement that PowerGrid Systems
+      will later fail to meet]
+
+02 Oct 2025 — ROOF INSTALLATION BEGINS (DH1 AND DH2)
+   Structural steelwork complete. Roofing panels installation starts (Activity A8).
+
+08 Oct 2025 — RFI-EL-001 RAISED
+   Rahul Desai formally raises RFI-EL-001 seeking written confirmation that N+1
+   is mandatory from Day 1. Dr. Meera Iyer responds within 48 hours.
+   [→ RFI-EL-001 closed 14 October 2025]
+
+14 Oct 2025 — RFI-EL-001 CLOSED
+   Confirmed: N+1 mandatory, no deferral. This closes the informal N+1 debate.
+
+15 Oct 2025 — RFI-EL-002 RAISED (Battery Autonomy Clarification)
+   Sanjay Thakur (WSP Global) raises RFI-EL-002 seeking clarification on
+   battery autonomy calculation basis (new vs end-of-life condition).
+   [→ Response will shape how vendors size their battery systems]
+
+20 Oct 2025 — RFI-EL-002 CLOSED
+   15-minute autonomy confirmed at end-of-life (80% capacity) condition.
+   This is more demanding than the interpretation used by PowerGrid Systems in
+   their initial battery sizing calculations.
+   [→ PowerGrid Systems receives Spec Rev B with this requirement confirmed.
+      Their battery autonomy (10 min) is now confirmed non-compliant.]
+
+22 Oct 2025 — CRAH PO PLACED
+   PO HYDC-01-PO-ME-002 placed with Vertiv India. Value: INR 22.8 Crores.
+
+25 Oct 2025 — STRUCTURAL STEELWORK COMPLETE (DH1 AND DH2)
+   Milestone achieved. Activity A6 complete.
+
+30 Oct 2025 — UPS VENDOR SUBMITTAL REV 01 RECEIVED
+   PowerGrid Systems submits Revision 01. Immediate issues identified:
+   - Modbus register map MISSING
+   - IEC 62040-3 certificate MISSING
+   - Deviation schedule incomplete (±2 Hz sync issue not formally declared)
+   [→ Kavya Reddy prepares rejection notice]
+
+================================================================================
+NOVEMBER 2025 — SUBMITTAL CRISIS AND CONSTRUCTION PROGRESS
+================================================================================
+
+01 Nov 2025 — CRAH UNIT FABRICATION COMPLETE
+   Vertiv India confirms CRAH units complete at factory. On schedule for
+   15 February 2026 site delivery.
+
+03 Nov 2025 — UPS SUBMITTAL REV 01 FORMALLY REJECTED
+   Kavya Reddy issues formal rejection notice. 10-working-day resubmission deadline set.
+   [→ PowerGrid Systems must resubmit by 17 November 2025]
+
+05 Nov 2025 — EMAIL — RAMESH KHANNA DISPUTES ±2 HZ FINDING
+   PowerGrid Systems maintains ±2 Hz is "industry standard." Rahul Desai
+   and Sanjay Thakur reject this argument in email thread 2.
+   [→ Disagreement will resurface at FAT]
+
+10 Nov 2025 — ROOF INSTALLATION COMPLETE (ALL DATA HALLS)
+   Milestone: Activity A10 complete. Building weathertight.
+   Interior fit-out and MEP rough-in can now proceed in parallel.
+
+18 Nov 2025 — UPS VENDOR SUBMITTAL REV 02 RECEIVED
+   PowerGrid Systems resubmits. Modbus map and IEC certificate now included.
+   Deviation schedule STILL declares "No deviations."
+   [→ Kavya Reddy escalates to Rahul Desai for full technical review]
+
+20 Nov 2025 — NCR-EL-001 RAISED
+   After Rahul Desai's technical review identifies 5 deviations, Kavya Reddy
+   raises Non-Conformance Report NCR-EL-001.
+   [→ This NCR will remain OPEN for weeks, creating ongoing compliance tension]
+
+22 Nov 2025 — RFI-EL-003 RAISED (Switchgear Short-Circuit Rating)
+   Deepak Nambiar raises RFI-EL-003 — Schneider offers 25 kA, spec requires 31.5 kA.
+   [→ This RFI will remain OPEN, creating procurement uncertainty]
+
+25 Nov 2025 — NCR-EL-001 ISSUED TO VENDOR
+   Formal NCR document sent to Ramesh Khanna. Vendor verbally acknowledges (phone)
+   but does not respond formally in writing.
+   [→ NCR-EL-001 remains OPEN]
+
+28 Nov 2025 — MV SWITCHGEAR MANUFACTURING COMPLETE
+   Schneider Electric confirms switchgear panels manufactured at Vadodara.
+   Panels loaded for dispatch. En route to JNPT Mumbai by road.
+   [→ Original site delivery target: 20 December 2025]
+
+================================================================================
+DECEMBER 2025 — CUSTOMS CRISIS AND COMMISSIONING PLANNING
+================================================================================
+
+02 Dec 2025 — RFI-BMS-001 CLOSED
+   BMS Modbus point list confirmed. Controls contractor (Siemens BT) can proceed.
+
+05 Dec 2025 — SWITCHGEAR CUSTOMS HOLD
+   MV switchgear panels arrive at JNPT Mumbai. Customs HOLD issued immediately
+   due to incorrect HS code on IGCR certificate.
+   [→ This begins a 36-day customs clearance crisis]
+
+07 Dec 2025 — UPS ROOM CIVIL WORKS COMPLETE
+   Activity A20 (UPS room civil and raised floor) complete.
+   UPS room ready for equipment when delivery is authorised.
+
+08 Dec 2025 — CABLE TRAY INSTALLATION BEGINS
+   Activity A40 (cable tray and containment) commences across all data halls.
+
+08 Dec 2025 — CUSTOMS CRISIS EMAIL CHAIN BEGINS
+   Vijay Nambiar notifies Aditya Singh of customs hold. Aditya escalates.
+   Rajan Mehta issues impact assessment — worst case 25-day critical path delay.
+   [→ Power-On forecast moves from 30 Jun to 25 Jul 2026]
+
+10 Dec 2025 — RFI-PROC-001 RAISED
+   Aditya Singh formally raises procurement RFI on switchgear delay.
+   Critical path impact confirmed: 25 days.
+
+10 Dec 2025 — FIRE PROTECTION INSTALLATION BEGINS
+   Kidde India commences FM-200 piping installation in UPS room (Activity A38).
+
+15 Dec 2025 — RFI-CX-001 CLOSED
+   IST sequence confirmed by Rahul Desai and Sanjay Thakur:
+   Generator start within 10 seconds, battery ride-through minimum 15 minutes.
+   IST target date: 15 July 2026.
+   [→ IST plan now formally conflicts with UPS battery non-compliance]
+
+15 Dec 2025 — COMMISSIONING PLANNING EMAIL THREAD
+   Sanjay Thakur emails Rohini Gupta on IST dependencies. Critical blocker noted:
+   battery autonomy issue must be resolved before IST can be safely conducted.
+
+17 Dec 2025 — RECOVERY PLAN MOM-HYDC01-012
+   Meeting 12 discusses switchgear delay recovery options. Options 1+2 approved.
+   Action items assigned. Customs clearance tracker established (daily updates from Vijay Nambiar).
+
+19 Dec 2025 — GENERATOR MANUFACTURING CONFIRMED ON SCHEDULE
+   Cummins India confirms QSK60 generator sets on schedule at Nashik facility.
+   FAT date: 10-12 February 2026. Delivery: 28 February 2026.
+
+22 Dec 2025 — NCR-CIV-001 CLOSED
+   Concrete core sample non-conformance on Data Hall 3 slab resolved.
+   Additional pour and retesting confirmed acceptable.
+
+28 Dec 2025 — UPS EQUIPMENT ARRIVES INDIA (PORT JNPT)
+   PowerGrid Systems confirms UPS modules cleared customs and delivered to
+   their Pune warehouse on 28 December 2025. Ready for FAT.
+   [→ FAT scheduled: 05-07 January 2026]
+
+================================================================================
+JANUARY 2026 — THE TURNING POINT
+================================================================================
+
+03 Jan 2026 — FAT DATE CONFIRMED
+   WSP Global (Sanjay Thakur) and NxtGen Cloud (Dr. Meera Iyer) confirm attendance.
+   Tata Projects (Deepak Nambiar) confirmed. PowerGrid Systems notified.
+
+05-06 Jan 2026 — UPS FAT DAYS 1 AND 2
+   Tests 1-9 conducted (visual, insulation, load bank, bypass transfer, alarms).
+   Load bank test PASSES at all load levels. Efficiency exceeds specification.
+   Bypass transfer PASSES (<4ms transfer time).
+   Synchronisation window MEASURED at ±2.1 Hz (spec: ±1 Hz) — NON-CONFORMANCE noted.
+   [→ Sanjay Thakur records this formally in FAT observation log]
+
+07 Jan 2026 — UPS FAT DAY 3 — THE BATTERY TEST
+   Battery discharge test conducted at 1,600 kW on Module UPS-A1-01.
+   Time to minimum terminal voltage: 9 minutes 47 seconds.
+   Required: 15 minutes minimum.
+   RESULT: FAIL — CRITICAL TEST FAILURE.
+   Dr. Meera Iyer issues verbal dispatch hold immediately.
+   [→ Sanjay Thakur issues formal FAT failure notification (email thread 4)]
+   [→ This failure event cascades through programme, IST readiness, and commercial risk]
+
+07 Jan 2026 — FORMAL FAT FAILURE NOTIFICATION
+   Sanjay Thakur issues WSP-HYDC01-FAT-OBSERVATION-001.pdf at 6:30 PM.
+   Dispatch withheld. Equipment on hold at Pune warehouse.
+
+09 Jan 2026 — DR. MEERA IYER FORMAL NOTICE TO POWERGRIDSYSTEMS
+   Written demand for Battery Remediation Proposal within 7 working days.
+   [→ PowerGrid Systems initiates internal assessment of Option A (BEC) and Option B (Li-Ion)]
+
+10 Jan 2026 — CUSTOMS CLEARANCE GRANTED — MV SWITCHGEAR
+   After 36 days, JNPT customs grants clearance for Schneider MV switchgear.
+   Panels loaded onto trucks for Bengaluru.
+   [→ Site delivery: 15-16 January 2026. Critical path partially recovered.]
+
+09 Jan 2026 — UPS DISPATCH HOLD ISSUED
+   Aditya Singh issues formal procurement hold on UPS equipment (Action 13-01).
+
+08 Jan 2026 — WEEKLY MEETING MOM-HYDC01-013
+   FAT failure presented to full project team. Arjun Kapoor attends.
+   Battery remediation proposal required by 19 January 2026.
+   Cure notice to be issued. Recovery programme mandated.
+   [→ Most consequential meeting of the project to date]
+
+09 Jan 2026 — POWERGRIDSYSTEMS INITIAL RESPONSE
+   Ramesh Khanna acknowledges battery failure in email. Identifies two options:
+   Option A (BEC — 6-8 weeks) and Option B (Li-Ion — 10-12 weeks).
+
+12 Jan 2026 — RAHUL DESAI TECHNICAL ASSESSMENT
+   Jacobs India recommends Option A (Battery Extension Cabinets). Faster, proven.
+   Structural and fire protection coordination needed.
+
+12 Jan 2026 — FORMAL CURE NOTICE ISSUED
+   Kavya Reddy issues Cure Notice HYDC-01-QA-CURE-NOTICE-001 to PowerGrid Systems.
+
+13 Jan 2026 — INTERNAL PLANNING CONCERN
+   Nikhil Rao emails Rajan Mehta with realistic programme scenarios.
+   Honest assessment: Power-On could be 5 July (optimistic) to 15 August (pessimistic).
+   Decision: Vikram Sharma to brief Arjun Kapoor honestly at MOM-014.
+
+14 Jan 2026 — DATA DATE (CURRENT STATUS)
+   PROJECT STATUS AT TIME OF KNOWLEDGE BASE COMPILATION:
+   - Overall progress: 34% complete
+   - Critical path delay: 18 days
+   - UPS: FAT FAILED, dispatch on hold, battery remediation proposal DUE 19 Jan 2026
+   - MV Switchgear: EN ROUTE to site (delivery 15-16 Jan 2026)
+   - Generators: On schedule, FAT 10-12 Feb 2026
+   - Chillers: 2-week delay, delivery 14 March 2026
+   - NCR-EL-001: OPEN — vendor response overdue
+   - RFI-EL-003: OPEN — switchgear rating decision pending
+
+================================================================================
+UPCOMING MILESTONES (FORECAST)
+================================================================================
+
+15 Jan 2026 — MV Switchgear arrives on site (A12 complete)
+15 Jan 2026 — MOM-HYDC01-014 — Recovery programme presentation
+19 Jan 2026 — Battery Remediation Proposal DUE from PowerGrid Systems
+20 Jan 2026 — RFI-EL-003 response DUE from Rahul Desai
+20 Jan 2026 — BEC order placed (if Option A approved)
+28 Feb 2026 — Generator delivery to site (A24) — ON SCHEDULE
+14 Mar 2026 — Chiller delivery to site (A29) — 2-WEEK DELAY
+27 Mar 2026 — Battery Extension Cabinets delivery (if ordered 20 Jan)
+Apr 2026    — UPS room fit-out and installation
+May 2026    — UPS functional testing
+Jun 2026    — BMS integration testing
+28 Jun 2026 — IST start (ASPIRATIONAL — depends on all blockers resolved)
+25 Jul 2026 — Power-On Phase 1A (CURRENT FORECAST — may slip)
+25 Aug 2026 — Client Acceptance (CURRENT FORECAST)
+01 Sep 2026 — Bank customer go-live commitment (CLIENT-FACING FIXED DATE)
+
+================================================================================
+CAUSE-AND-EFFECT SUMMARY (FOR AI TRACING)
+================================================================================
+
+Event Chain 1 — UPS Battery Crisis:
+Spec Rev A issued (Aug 2025)
+→ Spec Rev B clarifies end-of-life battery calc (Oct 2025)
+→ PowerGrid Systems fails to resize battery system for Rev B requirement
+→ Submittal Rev 01 submitted with 10-minute autonomy (Oct 2025)
+→ Submittal rejected (missing docs)
+→ Submittal Rev 02 with same 10-minute autonomy + "no deviations" declared
+→ NCR-EL-001 raised (Nov 2025)
+→ FAT Day 3: Battery test FAILS at 9m47s (Jan 2026)
+→ Dispatch hold issued
+→ Battery remediation required (6-8 weeks min)
+→ UPS installation delayed to April 2026
+→ IST delayed, Power-On moves to July 2026
+→ Buffer to bank customer go-live: 37 days
+
+Event Chain 2 — Switchgear Customs Crisis:
+Switchgear PO placed (Aug 2025)
+→ Manufacturing complete on schedule (Nov 2025)
+→ JNPT customs hold — HS code issue (Dec 2025)
+→ 36-day clearance delay
+→ Site delivery delayed 20 Dec → 16 Jan (25-day delay)
+→ Switchgear installation (A14) delayed 3 weeks
+→ Critical path extended 18 days
+→ Power-On moved from 30 Jun to 25 Jul 2026
+
+================================================================================
+END OF TIMELINE — HYDC-01-PMO-TIMELINE-001
+================================================================================

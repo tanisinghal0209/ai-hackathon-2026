@@ -1,0 +1,400 @@
+================================================================================
+VENDOR TECHNICAL SUBMITTAL
+================================================================================
+Document Reference : PGSL-HYDC01-UPS-SUB-REV02
+Vendor             : PowerGrid Systems Pvt Ltd
+                     Plot 47, MIDC Chakan Industrial Area, Pune — 410501
+                     Tel: +91-20-66304500
+                     Contact: Ramesh Khanna, Technical Sales Director
+Prepared By        : Shalini Bose, Application Engineer
+Approved By        : Ramesh Khanna, Technical Sales Director
+Project            : NXGEN Hyperscale Data Centre — Phase 1
+Client             : NxtGen Cloud Infrastructure Ltd
+EPC Contractor     : Tata Projects Limited
+Package            : PKG-EL-002 — UPS System
+Purchase Order     : HYDC-01-PO-EL-002
+Specification Ref  : HYDC-01-EL-SPEC-002 Rev B
+Submittal Revision : 02
+Revision Date      : 18 November 2025
+Previous Revision  : 01 (30 October 2025 — rejected, missing Modbus register map)
+================================================================================
+
+COVER LETTER
+============
+
+18 November 2025
+
+Mr. Rajan Mehta
+Project Controls Manager
+Tata Projects Limited — HYDC-01 Site Office
+Devanahalli Industrial Area, Bengaluru North
+
+Dear Mr. Mehta,
+
+Subject: Revised Vendor Technical Submittal — UPS System — Package PKG-EL-002
+         Revision 02 — Responding to Review Comments on Revision 01
+
+Please find enclosed our Revised Vendor Technical Submittal (Revision 02) for the
+Uninterruptible Power Supply (UPS) system for the NXGEN Hyperscale Data Centre,
+Phase 1 project.
+
+Revision 02 incorporates the following changes from the rejected Revision 01:
+- Section 7.0: Modbus TCP/IP register map now included (as required by REQ-UPS-013)
+- Section 8.0: IEC 62040-3 performance classification updated with reference to
+  our type test certificate PGSL-TT-062040-2024
+- Section 11.0: Deviation schedule revised and updated
+
+We are confident that our Vertiv Liebert EXL S1 1000/1600 kW system represents the
+optimal technical and commercial solution for this project.
+
+We look forward to your review and approval.
+
+Yours sincerely,
+Ramesh Khanna
+Technical Sales Director
+PowerGrid Systems Pvt Ltd
+
+================================================================================
+SECTION 1 — PROPOSED UPS SYSTEM
+================================================================================
+
+1.1  Equipment Model
+     Vertiv Liebert EXL S1 — 1600 kW / 1600 kVA
+     Supplied through PowerGrid Systems Pvt Ltd (Authorised Vertiv Distributor)
+     Country of Origin: USA (manufactured at Vertiv Columbus OH facility)
+     Shipping: Ex-works Columbus, Ohio — Indian port clearance through JNPT Mumbai
+
+1.2  Proposed Configuration
+
+     The proposed UPS configuration for Package PKG-EL-002 consists of eight (8)
+     Vertiv Liebert EXL S1 1600 kW modules arranged as follows:
+
+     Power Module A (Data Halls 1 and 2):
+     — UPS-A1-01 through UPS-A1-04: Four (4) units in parallel
+     — Configuration: N parallel operation
+     — Installed capacity: 6,400 kW
+     — Design IT load served: 6,000 kW
+     — Note: This configuration provides N redundancy for the served IT load.
+       Additional hot-standby module is not included within the current proposal scope.
+       Vendor can provide pricing for an additional N+1 module separately upon request.
+
+     Power Module B (Data Halls 3 and 4):
+     — UPS-B1-01 through UPS-B1-04: Four (4) units in parallel
+     — Configuration: N parallel operation (same as Module A)
+
+     [NOTE FOR AI COMPLIANCE AGENT: REQ-UPS-001 requires N+1 redundancy, meaning one
+     additional module beyond the minimum required for full load coverage must be
+     installed and available as a hot standby. The proposed configuration above provides
+     N redundancy only. The vendor has NOT included an additional standby module.
+     This is a CRITICAL DEVIATION — the vendor has not declared it as such.]
+
+1.3  System Architecture Diagram
+     Refer to Drawing PGSL-HYDC01-SLD-001 Rev A — Proposed UPS System Single Line Diagram
+     (submitted separately with this package)
+
+================================================================================
+SECTION 2 — BATTERY SYSTEM
+================================================================================
+
+2.1  Battery Technology
+     Battery Type: Valve Regulated Lead Acid (VRLA), Absorbed Glass Mat (AGM)
+     Supplier: EnerSys — DataSafe HX range
+     Nominal Block Voltage: 12V
+     Nominal Capacity per Block: 100 Ah (C10 rate)
+
+2.2  Battery Configuration per UPS Module
+     Battery strings per module: 20 strings
+     Cells/blocks per string: 80 × 12V blocks
+     String voltage: 960V DC (nominal)
+     Total battery capacity per module: 2,000 Ah
+
+2.3  Declared Battery Autonomy
+
+     At 100% IT load (1,600 kW / 1,666 kVA at 0.96 PF): 10 minutes
+     At 75% IT load (1,200 kW):                          14 minutes
+     At 50% IT load (800 kW):                            22 minutes
+
+     Autonomy calculation basis:
+     — End-of-life capacity: 80% of nameplate
+     — Temperature: 25°C
+     — Inverter efficiency during discharge: 96%
+     — Minimum battery terminal voltage: 864V DC (10.8V per 12V block)
+     — Peukert correction factor: 1.08
+
+     [NOTE FOR AI COMPLIANCE AGENT: REQ-UPS-002 and REQ-UPS-008 require a MINIMUM
+     AUTONOMY OF 15 MINUTES at 100% IT load. The declared autonomy at 100% load is
+     10 minutes — a shortfall of 5 minutes. This is a CRITICAL DEVIATION.
+     The vendor has declared the deviation only indirectly through the autonomy
+     table above and has not formally classified it in the deviation schedule.]
+
+2.4  Battery Monitoring
+     Each battery string is monitored by the EnerSys SentryModular battery monitoring
+     system, providing:
+     — Individual block voltage monitoring
+     — String current
+     — Float voltage
+     — Battery temperature per string
+     Battery monitoring communicates to UPS HMI via internal CAN bus.
+
+     Note: Individual block internal resistance measurement (conductance testing) is
+     provided as an optional add-on. This capability is not included in the base offer.
+     [MINOR DEVIATION — REQ-UPS-013 requires battery monitoring to communicate
+     all required parameters including internal resistance to BMS. This is not
+     addressed in the base offer.]
+
+2.5  Battery Room Requirements
+     Vendor confirms that battery cabinet dimensions and seismic calculations will be
+     provided at detailed design stage, at least 8 weeks before site delivery.
+
+================================================================================
+SECTION 3 — ELECTRICAL PERFORMANCE
+================================================================================
+
+3.1  Output Voltage
+     Nominal output voltage: 415V, 3-phase, 4-wire, 50 Hz
+     Voltage regulation (static): ±1% of nominal
+     Voltage regulation (dynamic, step load): ±5% recovering within 100ms
+
+3.2  System Efficiency
+     At 100% load (double conversion mode): 96.8%
+     At 50% load (double conversion mode):  97.1%
+     At 25% load (double conversion mode):  94.2%
+     ECO mode efficiency (at 100% load):    99.1%
+
+     All declared efficiencies are per IEC 62040-3 test methodology.
+
+3.3  Input Power Factor
+     Input power factor: 0.99 with active front end (AFE) rectifier at ≥25% load.
+     Active harmonic filter is integrated; THD-I at input ≤3% under full load.
+
+3.4  Output Harmonic Distortion
+     Output voltage THD-V: ≤2% with linear loads, ≤5% with non-linear loads
+     (per IEC 62040-3)
+
+3.5  Standards Compliance
+
+     IEC 62040-1:2017  — Confirmed compliant. Certificate PGSL-IEC62040-1-2024.
+     IEC 62040-2:2016  — Confirmed compliant. Certificate PGSL-IEC62040-2-2024.
+     IEC 62040-3:2021  — Performance classification: VFI-SS-111
+                          Type test certificate: PGSL-TT-062040-2024
+                          Issued by: TÜV Rheinland (NABL accredited laboratory)
+
+================================================================================
+SECTION 4 — BYPASS AND TRANSFER
+================================================================================
+
+4.1  Static Bypass
+     Static bypass is provided on each UPS module using high-speed SCR (thyristor) switches.
+     Transfer time from inverter to bypass: <4 milliseconds under all load conditions.
+
+4.2  Bypass Source Synchronisation
+
+     The UPS inverter continuously monitors the bypass source frequency. Automatic
+     transfer to bypass is initiated when the inverter output is within synchronisation
+     window of the bypass source.
+
+     Synchronisation window: ±2 Hz
+
+     [NOTE FOR AI COMPLIANCE AGENT: REQ-UPS-009 specifies that synchronisation
+     tolerance shall not exceed ±1 Hz. The vendor is offering ±2 Hz, which exceeds
+     the specified limit. This is a MAJOR DEVIATION. The vendor has NOT declared
+     this in the deviation schedule below. This means the deviation schedule
+     declaration of "no deviations" is itself a non-compliance per REQ-UPS-022.]
+
+4.3  Maintenance Bypass
+     Manual maintenance bypass panel is included on each module, factory-installed.
+     Maintenance bypass allows complete isolation of UPS inverter while maintaining
+     supply through bypass source.
+
+4.4  Sustained Bypass Alarm
+     Sustained bypass operation alarm: triggered after 5 minutes on bypass.
+     Alarm transmitted via Modbus to BMS.
+
+================================================================================
+SECTION 5 — MONITORING AND COMMUNICATIONS
+================================================================================
+
+5.1  BMS Integration
+     Protocol: Modbus TCP/IP (per REQ-UPS-013)
+     Hardware: Gigabit Ethernet port on UPS controller card
+     Modbus register map: See Appendix A of this submittal
+
+5.2  Modbus Register Map (Summary)
+     Full register map provided in Appendix A. Key registers include:
+
+     Register 1000 — Input mains status (0=OK, 1=Fault)
+     Register 1001 — Output voltage Phase A (V, ×0.1)
+     Register 1002 — Output voltage Phase B (V, ×0.1)
+     Register 1003 — Output voltage Phase C (V, ×0.1)
+     Register 1004 — Output current Phase A (A, ×0.1)
+     Register 1005 — Output current Phase B (A, ×0.1)
+     Register 1006 — Output current Phase C (A, ×0.1)
+     Register 1007 — Load percentage (%, integer)
+     Register 1008 — Battery voltage (V, ×0.1)
+     Register 1009 — Battery autonomy remaining (minutes, integer)
+     Register 1010 — Battery on discharge (0=No, 1=Yes)
+     Register 1011 — Battery low voltage alarm (0=Clear, 1=Active)
+     Register 1012 — Module fault alarm (0=Clear, 1=Active)
+     Register 1013 — Bypass active alarm (0=Clear, 1=Active)
+     Register 1014 — Overtemperature alarm (0=Clear, 1=Active)
+     Register 1015 — Module available status (0=Unavailable, 1=Available)
+
+     NOTE: Battery internal resistance monitoring (conductance) is NOT included
+     in the base Modbus register map. Available as optional extra.
+
+5.3  SNMP
+     SNMP v2c and v3 supported via the same Ethernet port. Vertiv-branded MIB file
+     provided with equipment documentation. DCIM integration is supported.
+
+5.4  HMI
+     7-inch colour touchscreen on each module front panel. Displays all operating
+     parameters in real-time. Remote HMI extension option available.
+
+================================================================================
+SECTION 6 — ENVIRONMENTAL AND PHYSICAL
+================================================================================
+
+6.1  Operating Conditions
+     Temperature: 0°C to +40°C continuous operation
+     Humidity: 5% to 95% non-condensing
+     Altitude: Up to 1,000m above mean sea level (site at 910m — within rating)
+
+6.2  Physical Dimensions (per module)
+     Height: 2,050 mm
+     Width: 850 mm
+     Depth: 1,100 mm
+     Weight (without batteries): 920 kg
+     Weight (with VRLA battery complement): 3,400 kg
+
+6.3  Noise Level
+     Operating noise level: 62 dB(A) at 1m — within REQ-UPS-019 limit of 65 dB(A).
+
+6.4  Cooling
+     Internal fan cooling, forced air. Air inlet: front. Air exhaust: top.
+     Minimum clearance requirement: 600mm front, 200mm sides, 300mm rear.
+
+================================================================================
+SECTION 7 — FACTORY ACCEPTANCE TEST PROGRAMME
+================================================================================
+
+7.1  Proposed FAT Schedule
+     FAT Date: 05 January 2026 (at PowerGrid Systems test facility, Pune)
+     FAT Procedure Reference: PGSL-HYDC01-FAT-PROC-001 Rev A
+
+7.2  Proposed FAT Test Programme
+
+     Test 1:   Visual inspection and dimensional check
+     Test 2:   Insulation resistance measurement (pre-energisation)
+     Test 3:   Functional energisation and HMI verification
+     Test 4:   Load bank test — 25%, 50%, 75%, 100% load steps
+     Test 5:   Efficiency measurement at each load step
+     Test 6:   Bypass transfer test under 100% load
+     Test 7:   Return from bypass to inverter under 100% load
+     Test 8:   Utility failure simulation — battery ride-through
+     Test 9:   Alarm point simulation (all alarms per register map)
+     Test 10:  Modbus connectivity verification — spot-check minimum 10 registers
+
+     Battery Discharge Test: Not included in factory FAT programme.
+     Vendor proposes to conduct battery discharge test at site during commissioning
+     phase to minimise factory time.
+
+     [NOTE FOR AI COMPLIANCE AGENT: REQ-UPS-020 explicitly requires battery discharge
+     test to be conducted at the factory as a WITNESSED test. The vendor is proposing
+     to defer this test to site commissioning. This is classified as a MAJOR DEVIATION.
+     The dispatch of equipment without factory-witnessed battery discharge test
+     violates clause 10.4 of Specification HYDC-01-EL-SPEC-002 Rev B.]
+
+7.3  FAT Duration
+     Estimated FAT duration: 2 days (09:00 to 18:00 each day)
+     Maximum 3 attendees per party (client, EPC, CxA)
+
+================================================================================
+SECTION 8 — DOCUMENTATION PACKAGE
+================================================================================
+
+     SUB-01  Technical data sheets — INCLUDED (see Section 1)
+     SUB-02  Battery sizing calculations — INCLUDED (see Section 2.3)
+     SUB-03  Modbus register map — INCLUDED (see Appendix A)
+     SUB-04  Single-line diagram — INCLUDED separately (PGSL-HYDC01-SLD-001)
+     SUB-05  Cabinet dimensional drawings — INCLUDED separately
+     SUB-06  IEC 62040-3 type test certificate — INCLUDED (cert PGSL-TT-062040-2024)
+     SUB-07  IEC 62040-1 safety certification — INCLUDED (cert PGSL-IEC62040-1-2024)
+     SUB-08  FAT procedure — INCLUDED (PGSL-HYDC01-FAT-PROC-001 Rev A)
+     SUB-09  IOM manual — INCLUDED (Vertiv Liebert EXL S1 IOM, Part Number 164201793-001)
+     SUB-10  Spare parts list — INCLUDED separately
+     SUB-11  Deviation schedule — INCLUDED (see Section 9 below)
+     SUB-12  Warranty document — INCLUDED separately (PGSL-WARRANTY-HYDC01-001)
+
+================================================================================
+SECTION 9 — DEVIATION SCHEDULE
+================================================================================
+
+     Per REQ-UPS-022, all deviations from Specification HYDC-01-EL-SPEC-002 Rev B
+     must be formally declared below.
+
+     PowerGrid Systems Pvt Ltd hereby declares the following:
+
+     No deviations from the specification are declared for this submittal.
+     The proposed Vertiv Liebert EXL S1 system is fully compliant with all
+     requirements of HYDC-01-EL-SPEC-002 Revision B.
+
+     [NOTE FOR AI COMPLIANCE AGENT: This declaration is FALSE. The following
+     deviations have been identified through analysis of this submittal against
+     the specification:
+
+     CRITICAL DEVIATION 1 — REQ-UPS-001 (Redundancy):
+     Specification requires N+1 redundancy (N modules for load + 1 hot standby).
+     Vendor is offering N-only configuration. Critical — single module failure
+     causes loss of supply to IT load.
+
+     CRITICAL DEVIATION 2 — REQ-UPS-002 / REQ-UPS-008 (Battery Autonomy):
+     Specification requires 15-minute minimum autonomy at 100% IT load.
+     Vendor declares 10 minutes. Shortfall = 5 minutes. Critical — does not meet
+     fundamental specification requirement.
+
+     MAJOR DEVIATION 3 — REQ-UPS-009 (Bypass Synchronisation):
+     Specification requires ±1 Hz synchronisation tolerance.
+     Vendor offers ±2 Hz. This creates a risk of transfer failure if bypass source
+     frequency drifts.
+
+     MAJOR DEVIATION 4 — REQ-UPS-020 (FAT Battery Discharge Test):
+     Specification explicitly requires witnessed battery discharge test at factory.
+     Vendor proposes to defer this test to site commissioning.
+
+     MINOR DEVIATION 5 — REQ-UPS-013 (Modbus — Battery Internal Resistance):
+     Battery conductance/resistance monitoring not included in base Modbus register
+     map. Available as optional add-on only.
+
+     REGULATORY VIOLATION — REQ-UPS-022:
+     Vendor has declared "no deviations" when at least 4 significant deviations exist.
+     This itself constitutes non-compliance per REQ-UPS-022 and is grounds for
+     rejection of the submittal per the specification.]
+
+================================================================================
+SECTION 10 — WARRANTY
+================================================================================
+
+     Product warranty: 2 years from date of commissioning (or 30 months from date
+     of dispatch, whichever is earlier), covering defects in materials and workmanship.
+
+     Battery warranty: 2 years from date of commissioning. Battery capacity falling
+     below 80% of rated within the warranty period will be treated as a defect.
+
+     Warranty document reference: PGSL-WARRANTY-HYDC01-001
+
+================================================================================
+APPENDIX A — MODBUS REGISTER MAP (FULL)
+================================================================================
+
+     [Full 200+ register Modbus map attached as separate spreadsheet document
+     PGSL-HYDC01-MODBUS-REG-MAP-Rev02.xlsx]
+
+     Register range 1000-1099: UPS status and alarms
+     Register range 1100-1199: Measurement values (voltages, currents, power)
+     Register range 1200-1299: Battery parameters
+     Register range 1300-1399: Module configuration parameters (read-only)
+     Register range 1400-1499: Command registers (write — password protected)
+
+================================================================================
+END OF VENDOR SUBMITTAL — PGSL-HYDC01-UPS-SUB-REV02
+================================================================================

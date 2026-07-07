@@ -1,0 +1,149 @@
+================================================================================
+CORPORATE PROFILE
+================================================================================
+Document    : CORP-PROFILE-001
+Company     : Tata Projects Limited — Digital Infrastructure Business Unit
+Revision    : A
+Date        : 01 January 2026
+================================================================================
+
+COMPANY OVERVIEW
+================================================================================
+
+Company Name         : Tata Projects Limited
+Business Unit        : Digital Infrastructure & Critical Facilities Division
+Parent Group         : Tata Group
+Headquarters         : A-Wing, Voltas House, Dr. B.A. Road, Dadar, Mumbai — 400033
+Year Established     : 1979 (Digital Infrastructure BU formed 2018)
+Listed Exchange      : BSE and NSE (Tata Projects Ltd)
+Annual Revenue       : INR 14,200 Crores (FY2024-25)
+Employees (Global)   : 12,400 (Data Centre BU: 480)
+Offices              : Mumbai (HQ), Bengaluru, Hyderabad, Delhi, Chennai, Dubai, Singapore
+
+Tagline              : "Building Tomorrow. Engineering Trust."
+Mission              : To deliver world-class engineering, procurement, and construction
+                       solutions that power the digital economy of Asia and the Middle East.
+Vision               : To be Asia's most trusted EPC partner for critical infrastructure
+                       by 2030, delivering Tier IV facilities on schedule and on budget.
+
+Quality Certification     : ISO 9001:2015 (Certificate: TRL-QMS-2024-01)
+Environmental Cert        : ISO 14001:2015
+Safety Certification      : ISO 45001:2018
+Data Centre Expertise     : Uptime Institute Accredited Tier Designer (ATDD)
+                            BICSI Registered Telecommunications Project Manager
+
+================================================================================
+DIGITAL INFRASTRUCTURE BUSINESS UNIT — LEADERSHIP
+================================================================================
+
+Name                     Title                              EmpID    Email
+-----------------------  ---------------------------------  -------  ----------------------------------------
+Priya Nair               Divisional Director — DC & CI      TPL-001  p.nair@tataprojects.com
+Vikram Sharma            Project Manager — HYDC-01          TPL-002  v.sharma@tataprojects.com
+Rajan Mehta              Project Controls Manager           TPL-003  r.mehta@tataprojects.com
+Aditya Singh             Procurement Manager                TPL-004  a.singh@tataprojects.com
+Kavya Reddy              QA/QC Manager                      TPL-005  k.reddy@tataprojects.com
+Deepak Nambiar           Site Engineer — Electrical         TPL-006  d.nambiar@tataprojects.com
+Shreya Joshi             Document Controller                TPL-007  s.joshi@tataprojects.com
+Nikhil Rao               Planning Engineer                  TPL-008  n.rao@tataprojects.com
+Sunita Krishnan          Contracts Manager                  TPL-009  s.krishnan@tataprojects.com
+Ajay Verma               Safety Manager (HSE)               TPL-010  a.verma@tataprojects.com
+Manish Patel             Site Engineer — Mechanical         TPL-011  m.patel@tataprojects.com
+Rohini Gupta             Commissioning Engineer             TPL-012  r.gupta@tataprojects.com
+Suresh Iyer              Finance Controller                 TPL-013  s.iyer@tataprojects.com
+Pradeep Nair             IT / Digital Engineering           TPL-014  p.nair2@tataprojects.com
+
+================================================================================
+CLIENT ORGANISATION — NXTGEN CLOUD INFRASTRUCTURE LTD
+================================================================================
+
+Name                     Title                              EmpID    Email
+-----------------------  ---------------------------------  -------  ----------------------------------------
+Arjun Kapoor             VP Infrastructure Delivery         NXT-001  a.kapoor@nxtgencloud.in
+Dr. Meera Iyer           Principal Engineer — DC Tech        NXT-002  m.iyer@nxtgencloud.in
+Siddharth Malhotra       Commercial Director                NXT-003  s.malhotra@nxtgencloud.in
+Preethi Sunderarajan     Technical Programme Manager        NXT-004  p.sunderarajan@nxtgencloud.in
+Ravi Chandrasekar        Head of Operations                 NXT-005  r.chandrasekar@nxtgencloud.in
+
+================================================================================
+DESIGN CONSULTANT — JACOBS ENGINEERING INDIA PVT LTD
+================================================================================
+
+Name                     Title                              EmpID    Email
+-----------------------  ---------------------------------  -------  ----------------------------------------
+Rahul Desai              Lead Electrical Engineer           JAC-001  r.desai@jacobs.com
+Anita Pillai             Lead Mechanical Engineer           JAC-002  a.pillai@jacobs.com
+Kiran Bhat               Structural Engineer                JAC-003  k.bhat@jacobs.com
+Pooja Acharya            BMS / Controls Engineer            JAC-004  p.acharya@jacobs.com
+Dinesh Pai               Fire Protection Engineer           JAC-005  d.pai@jacobs.com
+
+================================================================================
+INDEPENDENT COMMISSIONING AUTHORITY — WSP GLOBAL
+================================================================================
+
+Name                     Title                              EmpID    Email
+-----------------------  ---------------------------------  -------  ----------------------------------------
+Sanjay Thakur            Lead CxA — Data Centres            WSP-001  s.thakur@wsp.com
+Anand Krishnaswamy       Commissioning Engineer             WSP-002  a.krishnaswamy@wsp.com
+
+================================================================================
+KEY VENDORS — HYDC-01 PROJECT PERSONNEL
+================================================================================
+
+Company                  Name                 Title                  Email
+-----------------------  -------------------  ---------------------  ------------------------------------
+PowerGrid Systems        Ramesh Khanna        Technical Sales Dir     r.khanna@powergridsystems.in
+PowerGrid Systems        Shalini Bose         Application Engineer   s.bose@powergridsystems.in
+Schneider Electric India Vijay Nambiar        Project Manager        v.nambiar@se.com
+Cummins India Ltd        Prakash Rao          Sales Engineer          p.rao@cummins.com
+Carrier India            Sunit Mehrotra       Project Engineer       s.mehrotra@carrier.com
+Vertiv India             Arun Desai           Technical Manager      a.desai@vertiv.com
+
+================================================================================
+DOCUMENT CONTROL STANDARDS
+================================================================================
+
+All project documents shall be:
+- Uploaded to project Aconex within 2 working days of issue
+- Numbered per convention: HYDC-01-[DISC]-[TYPE]-[SEQ]
+- Controlled by Shreya Joshi, Document Controller (TPL-007)
+- QA reviewed before client issue per ITP HYDC-01-QA-ITP-001
+
+Document status codes:
+  IFT    — Issued for Tender
+  IFC    — Issued for Construction
+  IFR    — Issued for Review
+  AFC    — Approved for Construction
+  ASBUILT — As-Built Record
+
+================================================================================
+QUALITY POLICY STATEMENT
+================================================================================
+
+Tata Projects Digital Infrastructure Division is committed to delivering data centre
+facilities that meet or exceed client specifications, applicable codes and standards,
+and Uptime Institute Tier certification requirements.
+
+Our Quality Management System (ISO 9001:2015) requires that:
+1. All vendor submittals are reviewed against project specifications before approval
+2. Non-conformances are reported, tracked, and closed per the NCR procedure
+3. Factory Acceptance Tests are independently witnessed for all critical packages
+4. Commissioning is conducted by an Independent Commissioning Authority
+5. No equipment is dispatched without written dispatch authorisation
+
+Signed: Kavya Reddy, QA/QC Manager — TPL-005
+
+================================================================================
+PROJECT DELIVERY METHODOLOGY — HYDC-01 SPECIFIC
+================================================================================
+
+Phase 1: Design and Engineering (Jul–Sep 2025) — COMPLETE
+Phase 2: Procurement (Aug–Nov 2025) — ONGOING (critical issues on PKG-EL-002)
+Phase 3: Construction (Aug 2025–Apr 2026) — ONGOING (34% complete)
+Phase 4: Pre-commissioning (Mar–May 2026) — NOT STARTED
+Phase 5: Commissioning (May–Jul 2026) — NOT STARTED (at risk — UPS battery)
+Phase 6: Client Acceptance (Aug 2026) — NOT STARTED
+
+================================================================================
+END OF CORPORATE PROFILE — CORP-PROFILE-001
+================================================================================

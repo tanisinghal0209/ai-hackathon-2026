@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, Text, Float, JSON
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, backref
 from pgvector.sqlalchemy import Vector
 from datetime import datetime
 import uuid
@@ -80,7 +80,7 @@ class Chunk(Base):
 
     page = relationship("Page")
     document = relationship("Document")
-    children = relationship("Chunk", backref="parent", primaryjoin="Chunk.id == Chunk.parent_chunk_id", foreign_keys="Chunk.parent_chunk_id")
+    children = relationship("Chunk", backref=backref("parent", remote_side="Chunk.id"), primaryjoin="Chunk.id == Chunk.parent_chunk_id", foreign_keys="Chunk.parent_chunk_id")
 
 
 # 20.25: Engineering entity extracted from a chunk

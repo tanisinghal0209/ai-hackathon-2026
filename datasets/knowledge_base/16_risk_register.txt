@@ -1,0 +1,271 @@
+================================================================================
+PROJECT RISK REGISTER
+================================================================================
+Project     : NXGEN Hyperscale Data Centre — Phase 1 (HYDC-01)
+Document    : HYDC-01-PMO-RISK-001
+Revision    : D
+Date        : 14 January 2026
+Owner       : Vikram Sharma, Project Manager — Tata Projects Ltd
+Reviewed By : Priya Nair, Project Director
+Approved By : Arjun Kapoor, Client Representative — NxtGen Cloud Infrastructure Ltd
+================================================================================
+
+SCORING GUIDE
+-------------
+Probability : 1=Rare  2=Unlikely  3=Possible  4=Likely  5=Almost Certain
+Impact      : 1=Negligible  2=Minor  3=Moderate  4=Major  5=Catastrophic
+Risk Score  : Probability × Impact (1-5 = Green, 6-14 = Amber, 15-25 = Red)
+Status      : OPEN / ACTIVE / MITIGATED / CLOSED / MATERIALISED
+
+================================================================================
+RISK-01 | UPS BATTERY AUTONOMY NON-COMPLIANCE
+================================================================================
+Risk ID          : RISK-01
+Category         : Procurement / Technical
+Status           : MATERIALISED — ACTIVE REMEDIATION
+Date Raised      : 20 November 2025
+Date Materialised: 07 January 2026 (FAT battery test FAIL)
+
+Description      : UPS vendor (PowerGrid Systems, VND-EL-001) has declared 10-minute
+                   battery autonomy against a specification requirement of 15 minutes
+                   (REQ-UPS-002, REQ-UPS-008). FAT on 07 January 2026 confirmed
+                   actual measured autonomy of 9 minutes 47 seconds — 35% below requirement.
+
+Probability      : 5 (Almost Certain — MATERIALISED)
+Impact           : 5 (Catastrophic — blocks IST, delays Power-On, threatens client SLA)
+Risk Score       : 25 — RED (CRITICAL)
+
+Programme Impact : +8 to +35 days on critical path (depending on remediation solution)
+                   Power-On forecast: 25 July 2026 (subject to battery remediation speed)
+Commercial Impact: Potential liquidated damages if Power-On exceeds 15 August 2026
+                   Client bank go-live: 1 September 2026 — 37-day buffer
+Financial Impact : Battery remediation cost: INR 2.8–4.5 Crores additional
+
+Owner            : Aditya Singh (Procurement), PowerGrid Systems (Vendor)
+Linked Documents : NCR-EL-001, RFI-EL-005, MOM-HYDC01-013, HYDC-01-PO-EL-002
+Linked Equipment : UPS-A1-01 to UPS-B1-04 (all 8 UPS modules)
+Linked Activities: A17 (Battery Remediation Design), A18 (BEC Procurement), A19 (Delivery), A21 (Install)
+
+Mitigation Status:
+Cure Notice issued 12 January 2026 (HYDC-01-QA-CURE-NOTICE-001).
+Battery Remediation Proposal due 19 January 2026 from PowerGrid Systems.
+Option A (Battery Extension Cabinets) recommended by Jacobs India — 6-8 week lead time.
+Option B (Lithium-Ion replacement) — 10-12 weeks, fire protection redesign needed.
+Formal dispatch hold on all 8 UPS modules until battery issue resolved.
+
+================================================================================
+RISK-02 | UPS N+1 REDUNDANCY NOT SUPPLIED
+================================================================================
+Risk ID          : RISK-02
+Category         : Technical / Procurement
+Status           : ACTIVE — NOT YET RESOLVED
+Date Raised      : 12 September 2025
+
+Description      : PowerGrid Systems' original quotation and vendor submittal both
+                   proposed N-only UPS configuration. N+1 was explicitly required in
+                   PO HYDC-01-PO-EL-002 but the physical supply of a 9th (hot-standby)
+                   UPS module has not been confirmed in writing. NCR-EL-001 remains open.
+
+Probability      : 4 (Likely — not yet formally corrected in revised submittal)
+Impact           : 5 (Catastrophic — Tier IV fault tolerance cannot be demonstrated without N+1)
+Risk Score       : 20 — RED (CRITICAL)
+
+Programme Impact : If N+1 module requires separate procurement, additional 4-6 weeks
+Owner            : Aditya Singh (Procurement Manager)
+Linked Documents : RFI-EL-001, NCR-EL-001, HYDC-01-PO-EL-002, MOM-HYDC01-013
+
+Mitigation: Battery Remediation Proposal (due 19 Jan 2026) must confirm N+1 module inclusion.
+            If not included, alternate vendor (ABB Power Protection) to be engaged.
+
+================================================================================
+RISK-03 | MV SWITCHGEAR SHORT-CIRCUIT RATING — RFI OPEN
+================================================================================
+Risk ID          : RISK-03
+Category         : Technical / Design
+Status           : ACTIVE — RFI-EL-003 OPEN
+Date Raised      : 22 November 2025
+
+Description      : Schneider Electric India can deliver 25 kA rated switchgear immediately,
+                   but specification requires 31.5 kA (REQ-SWG-002). 31.5 kA requires
+                   additional 6 weeks manufacturing. Current fault level from KPTCL:
+                   21.4 kA (within 25 kA). Decision pending from Jacobs India.
+
+Probability      : 3 (Possible — engineer may accept 25 kA given current fault level data)
+Impact           : 4 (Major — if rejected, additional 6-week delay on critical path)
+Risk Score       : 12 — AMBER
+
+Programme Impact : +6 weeks on critical path if 31.5 kA required and current panels rejected
+Owner            : Rahul Desai (Jacobs India), Aditya Singh (Procurement)
+Linked Documents : RFI-EL-003, HYDC-01-EL-SPEC-003, KPTCL connection agreement Aug 2025
+Linked Equipment : SWG-MV-A, SWG-MV-B
+Linked Activity  : A14 (MV Switchgear Installation)
+
+Mitigation: Rahul Desai to provide written technical justification by 20 January 2026.
+            If 25 kA accepted, risk reduces to CLOSED. If rejected, programme revised.
+
+================================================================================
+RISK-04 | CHILLER DELIVERY DELAY — POSSIBLE CRITICAL PATH IMPACT
+================================================================================
+Risk ID          : RISK-04
+Category         : Procurement / Schedule
+Status           : ACTIVE — MONITORING
+Date Raised      : 06 January 2026
+
+Description      : Carrier India has declared 2-week delivery delay for PKG-ME-001
+                   (4 × AquaForce 30XW-V centrifugal chillers) due to compressor
+                   supply shortage from Carrier USA. New delivery: 14 March 2026.
+                   Current schedule shows no critical path impact at 2-week delay level.
+                   However, any further delay beyond 14 March 2026 would impact
+                   mechanical commissioning (A31) and ultimately IST (A54).
+
+Probability      : 2 (Unlikely — Carrier has confirmed 14 March)
+Impact           : 4 (Major — if delay extends to 4+ weeks)
+Risk Score       : 8 — AMBER
+
+Owner            : Anita Pillai (Jacobs India), Manish Patel (Tata Projects)
+Linked Documents : MOM-HYDC01-013 Action 13-07, HYDC-01-PO-ME-001
+Linked Equipment : CHL-01 to CHL-04
+Linked Activity  : A29 (Chiller Delivery), A30 (Installation), A31 (Commissioning)
+
+Mitigation: Weekly delivery update required from Sunit Mehrotra (Carrier India).
+            Anita Pillai to provide detailed impact assessment by 20 January 2026.
+            Pre-position chiller installation team and pre-fabricate CHW pipework connections.
+
+================================================================================
+RISK-05 | CLIENT GO-LIVE DATE COMPRESSION
+================================================================================
+Risk ID          : RISK-05
+Category         : Commercial / Programme
+Status           : ACTIVE — ESCALATED
+Date Raised      : 08 January 2026 (escalated from background concern to formal risk)
+
+Description      : The bank tenant's committed go-live date is 1 September 2026.
+                   Current Power-On forecast is 25 July 2026, giving 37 calendar days
+                   buffer for performance validation and client acceptance.
+                   This buffer has reduced from 90 days (original plan) to 37 days
+                   due to accumulated delays. If Power-On slips to August 2026,
+                   the bank tenant's go-live is threatened, triggering potential
+                   liquidated damages under NxtGen Cloud's tenant agreement.
+
+Probability      : 3 (Possible — depends on battery remediation timeline)
+Impact           : 5 (Catastrophic — commercial and reputational consequences for client)
+Risk Score       : 15 — RED
+
+Financial Impact : NxtGen Cloud LD exposure: USD 2.5 million (per tenant SLA)
+                   Tata Projects LD exposure under EPC contract: INR 24 Crores (cap)
+Owner            : Vikram Sharma (PM), Arjun Kapoor (Client)
+Linked Documents : HYDC-01-PMO-SCH-006 Rev 6, MOM-HYDC01-013, RISK-01, RISK-02
+
+Mitigation:
+Option 1: Order battery extension cabinets by 20 January 2026 (optimistic delivery 27 March)
+Option 2: Implement recovery measures — Options 1 and 2 from MOM-013 Item 5
+Option 3: Negotiate temporary power arrangement with KPTCL for parallel commissioning
+Honest brief to Arjun Kapoor planned at MOM-014 (15 January 2026) — three scenarios presented
+
+================================================================================
+RISK-06 | BMS INTEGRATION — MODBUS POINT LIST NOT FINALISED
+================================================================================
+Risk ID          : RISK-06
+Category         : Engineering / Commissioning
+Status           : OPEN — MONITORING
+Date Raised      : 12 November 2025
+
+Description      : The BMS Modbus integration point list for UPS and generator alarms
+                   has not been fully finalised. RFI-BMS-001 has been closed, but
+                   the UPS battery internal resistance / conductance monitoring is not
+                   included in the base PowerGrid Systems Modbus register map (requires
+                   optional add-on). This is a minor specification deviation (NCR-EL-001,
+                   Deviation 5) but may affect ongoing battery health monitoring
+                   capability post-commissioning.
+
+Probability      : 3 (Possible — vendor has not committed to including conductance monitoring)
+Impact           : 2 (Minor — affects monitoring completeness, not core operation)
+Risk Score       : 6 — AMBER
+
+Owner            : Pooja Acharya (Jacobs India, BMS/Controls), Siemens BT
+Linked Documents : RFI-BMS-001, NCR-EL-001 Deviation 5, PGSL-HYDC01-MODBUS-REG-MAP-Rev02
+Linked Equipment : UPS-A1-01 to UPS-B1-04
+
+Mitigation: Clarify with PowerGrid Systems whether conductance monitoring can be added
+            to base scope at no additional cost as part of battery remediation resolution.
+            If not available, document as known limitation in commissioning records.
+
+================================================================================
+RISK-07 | FIRE PROTECTION — LITHIUM-ION BATTERY OPTION INCOMPATIBILITY
+================================================================================
+Risk ID          : RISK-07
+Category         : Design / Safety
+Status           : CONDITIONAL — triggered only if battery Option B (Li-Ion) is selected
+Date Raised      : 12 January 2026 (Rahul Desai technical assessment email)
+
+Description      : If the battery remediation for the UPS system proceeds with Lithium-Ion
+                   batteries (Option B), the existing FM-200 clean agent fire suppression
+                   system in the UPS rooms (PKG-FP-001, Kidde India) may be inadequate.
+                   Lithium-Ion thermal runaway fires require different suppression strategies.
+                   This would require fire protection redesign for UPS rooms.
+
+Probability      : 1 (Rare — only relevant if Option B is selected)
+Impact           : 5 (Catastrophic — safety-critical, potential Tier IV certification impact)
+Risk Score       : 5 — GREEN (conditional)
+
+Owner            : Dinesh Pai (Jacobs India, Fire Protection), Rahul Desai
+Trigger Condition: This risk becomes AMBER (score 15) immediately if Option B (Li-Ion) is selected
+Linked Documents : MOM-HYDC01-013 Action 13-03, HYDC-01-FP-SPEC-001, HYDC-01-PO-FP-001
+Linked Equipment : All 8 UPS modules, FM200-DH1/DH2
+
+Mitigation: If Option B is selected, commission an immediate fire protection review.
+            Dinesh Pai to assess Li-Ion fire risk and alternative suppression requirements.
+            This assessment should be completed before any Li-Ion procurement decision.
+
+================================================================================
+RISK-08 | KPTCL UTILITY SUPPLY COMMISSIONING READINESS
+================================================================================
+Risk ID          : RISK-08
+Category         : External / Regulatory
+Status           : OPEN — MONITORING
+Date Raised      : 01 August 2025
+
+Description      : The KPTCL (Karnataka Power Transmission Corporation Ltd) permanent
+                   110 kV utility connection requires a final energisation permit from
+                   KPTCL, BESCOM (distribution licensee), and the Karnataka Electrical
+                   Inspectorate. This permit process typically takes 8-12 weeks from
+                   application. Application has not yet been submitted (awaiting completion
+                   of MV switchgear installation).
+
+Probability      : 2 (Unlikely — process is well understood, no current regulatory issues)
+Impact           : 5 (Catastrophic — without utility supply, Power-On is impossible)
+Risk Score       : 10 — AMBER
+
+Owner            : Deepak Nambiar (Site Engineer), Aditya Singh (Procurement)
+Linked Activity  : A14 (MV Switchgear Installation) — permit application cannot be filed
+                   until switchgear is installed and inspected
+Target Application Date: 15 February 2026 (after A14 complete)
+Target Permit Date: 30 April 2026 (assumed 10-week process)
+
+Mitigation: Pre-engage KPTCL liaison officer. Prepare all permit documentation in advance.
+            Engage Karnataka Electrical Inspectorate for pre-inspection advisory visit.
+
+================================================================================
+RISK REGISTER SUMMARY DASHBOARD
+================================================================================
+
+Risk ID  Description                               Prob  Impact  Score  Status         Owner
+-------  ----------------------------------------  ----  ------  -----  -------------  ------------------
+RISK-01  UPS Battery Autonomy Non-Compliance        5     5       25     MATERIALISED   Aditya Singh / PowerGrid
+RISK-02  UPS N+1 Redundancy Not Supplied            4     5       20     ACTIVE         Aditya Singh
+RISK-05  Client Go-Live Date Compression            3     5       15     ESCALATED      Vikram Sharma
+RISK-03  MV Switchgear Rating — RFI Open            3     4       12     ACTIVE         Rahul Desai
+RISK-08  KPTCL Utility Permit                       2     5       10     MONITORING     Deepak Nambiar
+RISK-04  Chiller Delivery Delay                     2     4       8      MONITORING     Anita Pillai
+RISK-06  BMS Modbus — Conductance Monitoring        3     2       6      OPEN           Pooja Acharya
+RISK-07  Li-Ion Battery / Fire Protection (Cond.)  1     5       5      CONDITIONAL    Dinesh Pai
+
+Overall Project Risk Status: RED
+Number of Red Risks: 3 (RISK-01, RISK-02, RISK-05)
+Number of Amber Risks: 3 (RISK-03, RISK-04, RISK-08)
+Most Critical Risk: RISK-01 (UPS Battery — MATERIALISED)
+Dominant Risk Driver: Package PKG-EL-002 (UPS System — PowerGrid Systems)
+
+================================================================================
+END OF DOCUMENT — HYDC-01-PMO-RISK-001 REV D
+================================================================================

@@ -1,0 +1,326 @@
+# HYDC-01 AI PLATFORM — JUDGE DEMO QUESTION BANK
+## 200 Questions for Hackathon Demonstration
+### Document: HYDC-01-DEMO-Q-001 | Prepared: January 2026
+
+> These questions are designed so that answering them REQUIRES the AI to synthesize
+> information from multiple documents simultaneously. A strong answer will cite
+> specific document references, requirement numbers, engineer names, and dates.
+
+---
+
+## SECTION A — KNOWLEDGE COPILOT (Project Intelligence)
+
+### A1 — Project Overview
+1. What is the full name and project code of this data centre project?
+2. Who is the EPC contractor and who is the client?
+3. What is the project's Uptime Institute Tier classification target?
+4. What is the total IT load capacity being installed in Phase 1?
+5. What is the contract value and who approved the contract award?
+6. Where is the project located and what is the site area?
+7. What are the seismic and wind zone ratings for the project site?
+8. What is the design Power Usage Effectiveness (PUE) target?
+9. Who is the Lead Electrical Engineer on this project?
+10. Who is the Independent Commissioning Authority?
+
+### A2 — Engineering Architecture
+11. Describe the UPS electrical architecture for Phase 1A in detail.
+12. What redundancy level has been designed into the generator system?
+13. How many medium voltage switchgear panels are being installed and at what voltage?
+14. What is the chilled water cooling philosophy for this data centre?
+15. What type of fire suppression system is installed in the data halls?
+16. How many CRAH units are being installed and at what capacity each?
+17. What is the battery technology selected for the UPS system?
+18. Describe the N+1 arrangement for the chiller plant.
+19. What is the IT load power density (kW per rack) design standard?
+20. What monitoring protocol is used to integrate UPS with the Building Management System?
+
+### A3 — Project Personnel
+21. Who is the Project Manager and who does he report to?
+22. Who is responsible for Quality Assurance on this project?
+23. Who is the Procurement Manager and what is his email?
+24. Name the client representative and their organisation.
+25. Which engineering firm is providing MEP design consultancy?
+26. Who represents the commissioning authority at site?
+27. Who is the Site Engineer responsible for electrical works?
+28. Who is the Planning Engineer maintaining the project schedule?
+29. Name the Lead Mechanical Engineer and her organisation.
+30. Who is the document controller for HYDC-01?
+
+### A4 — Vendors and Suppliers
+31. Which vendor is supplying the UPS system and what is their vendor ID?
+32. What is the performance rating of PowerGrid Systems on this project?
+33. Which vendor received an 'A' (Excellent) rating and why?
+34. Who is the technical contact at Cummins India Ltd?
+35. What alternative UPS vendor was considered if PowerGrid Systems failed to comply?
+36. Who manufactures the cooling towers and what type are they?
+37. Which vendor is supplying the FM-200 fire suppression system?
+38. What is the total purchase order value for the generator package?
+39. Who supplies the CRAH units and what is their overall rating?
+40. Which vendor has the lowest compliance score and what score did they receive?
+
+---
+
+## SECTION B — COMPLIANCE AGENT
+
+### B1 — UPS Specification Compliance
+41. What is the UPS redundancy requirement per the specification?
+42. What does REQ-UPS-001 specify and does the vendor comply?
+43. What is the minimum battery autonomy required at 100% IT load?
+44. What requirement number covers battery autonomy and what does it say?
+45. What synchronisation tolerance is required for static bypass?
+46. What efficiency must the UPS achieve at 50% load in double conversion mode?
+47. What IEC standard must the UPS system comply with and to what performance class?
+48. Does the vendor's proposed UPS meet REQ-UPS-007 (IEC 62040-3 classification)?
+49. What Modbus protocol is required for BMS integration and which requirement states this?
+50. List all the critical deviations found in the PowerGrid Systems UPS submittal.
+51. List all the major deviations found in the PowerGrid Systems UPS submittal.
+52. What deviation is classified as minor in NCR-EL-001 and why is it minor?
+53. Why is the vendor's declaration of "no deviations" itself a non-compliance?
+54. Which specification requirement governs the deviation declaration process?
+55. What FAT tests are mandatory per the specification and cannot be deferred?
+56. Does the vendor comply with REQ-UPS-009 on bypass synchronisation? Explain.
+57. What is the difference between what the vendor declared and what was measured at FAT?
+58. Which requirements would the Cummins generator submittal pass or fail?
+59. Compare the compliance scores of PowerGrid Systems and Cummins India.
+60. If you had to reject or approve the UPS submittal, what would your decision be and why?
+
+### B2 — Generator Specification Compliance
+61. What is the generator overload capability requirement?
+62. What remote monitoring capabilities are required for the generator system?
+63. Does the Cummins submittal declare any deviations?
+64. What was the result of the Cummins generator submittal review?
+65. How many generator sets are required and in what redundancy arrangement?
+
+### B3 — Commissioning Specification Compliance
+66. What pre-conditions must be met before Level 4 IST can commence?
+67. Which IST scenarios are currently blocked and why?
+68. What commissioning requirement states that pre-functional checks must precede functional testing?
+69. What must commissioning records capture per REQ-CX-003?
+70. What happens when a commissioning test fails per REQ-CX-004?
+
+---
+
+## SECTION C — SCHEDULE AND PROGRAMME
+
+### C1 — Schedule Status
+71. What is the current overall project completion percentage?
+72. How many days is the project currently behind on the critical path?
+73. What was the original Power-On date and what is the current forecast?
+74. What caused the critical path delay and by how many days?
+75. Which activity is currently the dominant constraint on the critical path?
+76. What is the client's non-negotiable go-live date and how much buffer remains?
+77. How much buffer exists between the current Power-On forecast and the bank customer go-live?
+78. What recovery measures have been approved and what time can they recover?
+79. In Nikhil Rao's optimistic scenario, when is Power-On achieved?
+80. In Nikhil Rao's pessimistic scenario, when is Power-On achieved?
+
+### C2 — Activity Tracking
+81. What is the status of Activity A12 (MV Switchgear Delivery)?
+82. What must happen before Activity A14 (switchgear installation) can begin?
+83. Why is Activity A16 (UPS Battery FAT) marked as FAILED?
+84. What activities are blocked by the UPS battery issue?
+85. When is generator delivery scheduled and what activity does it correspond to?
+86. What is the float on the chiller delivery and what risk does it carry?
+87. How long is the IST period and what activity number is it?
+88. What is Activity A54 and when is it currently scheduled?
+89. Which activities are on the critical path relating to the UPS sub-system?
+90. What activities must complete before the KPTCL utility permit can be applied for?
+
+### C3 — Delays and Causes
+91. What caused the MV switchgear delivery delay?
+92. How many days was the switchgear held in customs and at which port?
+93. What was the HS code issue that caused the customs delay?
+94. How many days of the switchgear delay have been recovered and how?
+95. What caused the chiller delivery delay and by how many weeks?
+96. What schedule risk is rated AMBER relating to the chiller?
+97. On what date did the switchgear clear customs?
+98. On what date did the switchgear arrive on site?
+99. What date did Activity A13 (MV Switchgear Room Preparation) complete?
+100. When was the first on-site delivery milestone achieved?
+
+---
+
+## SECTION D — PROCUREMENT INTELLIGENCE
+
+### D1 — Purchase Orders
+101. What is the purchase order number for the UPS system?
+102. What is the total value of PO HYDC-01-PO-EL-002?
+103. On what date was the UPS purchase order placed?
+104. What is the purchase order number for the generator package?
+105. What explicit requirement was incorporated into PO HYDC-01-PO-EL-002 regarding redundancy?
+106. Which packages have been formally placed and which are still outstanding?
+107. What is the total committed procurement value across all packages?
+108. What is the PO for the MV switchgear and who is the vendor?
+109. Why did the UPS budget increase from INR 34.7 Crores to INR 38.8 Crores?
+110. Who approved the UPS budget increase?
+
+### D2 — Delivery and Logistics
+111. What is the current delivery status of all 8 UPS modules?
+112. Why has dispatch of the UPS equipment been withheld?
+113. Who issued the formal dispatch hold and on what date?
+114. What document reference is the dispatch hold?
+115. What delivery date was originally planned for the UPS and what is the current forecast?
+116. Where are the UPS modules currently located?
+117. What is the current shipment status of the chiller plant?
+118. Who is the logistics contact at Schneider Electric India?
+119. What container number cleared JNPT customs for the UPS equipment?
+120. What two road deliveries brought the switchgear to site on 15 January?
+
+### D3 — Procurement Performance
+121. Which procurement package poses the highest current risk to the project?
+122. Rank all 6 procurement packages by risk level.
+123. Which package is progressing with zero issues?
+124. What does a vendor compliance score of 23/100 indicate?
+125. What consequence has Tata Projects communicated to PowerGrid Systems for the delay?
+
+---
+
+## SECTION E — RFIs AND QUERIES
+
+### E1 — RFI Status
+126. How many RFIs have been raised and how many are currently open?
+127. List all open RFIs and their current status.
+128. Which RFI is most critical to the project schedule?
+129. What is RFI-EL-001 about and was it resolved?
+130. What is the status of RFI-EL-003 and what decision is needed?
+131. Which engineer raised RFI-EL-002 and what was their concern?
+132. What was the outcome of RFI-EL-002?
+133. What is RFI-EL-005 about and what was the key engineering response?
+134. What is RFI-BMS-001 about and has it been resolved?
+135. What is RFI-PROC-001 and what was the estimated programme impact?
+136. Which RFI was raised specifically to clarify the battery autonomy calculation basis?
+137. Who raised the RFI about the generator IST sequence?
+138. In which meeting were open RFIs reviewed as the first agenda item?
+139. What action was raised in MOM-013 relating to RFI-EL-003?
+140. Was RFI-EL-003 ultimately resolved favourably or unfavourably for the project?
+
+---
+
+## SECTION F — NCRs AND QUALITY
+
+### F1 — NCR Status
+141. How many NCRs are currently open on this project?
+142. What is NCR-EL-001 about and when was it raised?
+143. Who raised NCR-EL-001 and who is it raised against?
+144. How many deviations does NCR-EL-001 identify?
+145. What corrective action is required within 7 working days per NCR-EL-001?
+146. What preventive action has been recommended to prevent future submittal issues?
+147. Has NCR-EL-001 been formally acknowledged by the vendor?
+148. What is the status of NCR-CIV-001 and how was it resolved?
+149. What was Kavya Reddy's role in identifying the UPS deviations?
+150. What formal action was taken after NCR-EL-001 had been open for 8 weeks?
+
+### F2 — Quality Process
+151. What quality management system certification does Tata Projects hold?
+152. What is the quality policy statement for this project?
+153. Describe the submittal review process on this project.
+154. Who is responsible for issuing non-conformance reports?
+155. What happens when a vendor declares "no deviations" when deviations exist?
+
+---
+
+## SECTION G — FAT AND COMMISSIONING
+
+### G1 — FAT Results
+156. What was the overall result of the UPS Factory Acceptance Test?
+157. On what dates was the UPS FAT conducted and at which location?
+158. Who attended the UPS FAT on behalf of each party?
+159. What was the measured battery discharge time and what was required?
+160. Why exactly did the battery test fail at 9 minutes 47 seconds?
+161. What was the measured bypass synchronisation window and how does it compare to specification?
+162. Which tests passed at the UPS FAT?
+163. What efficiency was measured at 50% load and how does it compare to specification?
+164. What formal statement did Dr. Meera Iyer make at the conclusion of the FAT?
+165. Who withheld their signature from the FAT report and why?
+
+### G2 — Commissioning Readiness
+166. What are the four commissioning gates that must pass before IST can commence?
+167. Which commissioning gates are currently satisfied?
+168. Describe IST Scenario 01 — what needs to happen and what are the acceptance criteria?
+169. Why cannot IST Scenario 03 (UPS module failure) be run in the current configuration?
+170. What is the target IST start date and is it achievable?
+171. What IT load is expected to be available during IST?
+172. What is the Level 1 to Level 5 commissioning hierarchy used on this project?
+173. Who leads the IST as Commissioning Authority?
+174. Which commissioning scenario involves the fire alarm interface?
+175. What must happen before Rohini Gupta can schedule IST on the programme?
+
+---
+
+## SECTION H — RISK INTELLIGENCE
+
+### H1 — Risk Assessment
+176. What is the highest-rated risk on this project?
+177. Which risk has materialised and what was the triggering event?
+178. Which risk becomes critical only if Option B (Lithium-Ion) is selected?
+179. What is the risk score for RISK-05 and what does it mean?
+180. How many risks are currently rated RED?
+181. Which single vendor is responsible for the most project risks?
+182. What financial exposure does NxtGen Cloud face under their tenant SLA?
+183. What is the Tata Projects LD cap under the EPC contract?
+184. What KPTCL-related risk could stop Power-On even if all other issues are resolved?
+185. What mitigation was approved at MOM-013 for the switchgear delay?
+
+---
+
+## SECTION I — CAUSAL REASONING (Multi-Document Synthesis)
+
+186. Trace the complete chain of events from the UPS specification being issued to the
+     FAT battery test failure.
+
+187. Explain why the bank tenant's 1 September 2026 go-live is at risk. What is the
+     chain of causes?
+
+188. PowerGrid Systems declared "no deviations" in their submittal. What is the
+     consequence of this decision on the project?
+
+189. What would have happened if RFI-EL-001 had not been raised?
+
+190. Why did Sanjay Thakur flag the battery autonomy concern in email before the FAT,
+     and was his concern validated?
+
+191. What decision did Arjun Kapoor make in September 2025 that prevented a worse
+     situation from occurring?
+
+192. How does the switchgear customs delay connect to the UPS battery problem in terms
+     of combined programme impact?
+
+193. Why can IST not be conducted even after the UPS is delivered and installed?
+     What two things must be confirmed first?
+
+194. If PowerGrid Systems chooses Option B (Lithium-Ion battery), what new risk does
+     this create and which engineer must assess it?
+
+195. The site diary records that drawing HYDC-01-EL-DRG-043 was outstanding for 7 days.
+     What activity does this threaten and when was it finally resolved?
+
+---
+
+## SECTION J — DEMO SHOWSTOPPER QUESTIONS
+
+*These are questions that will make the judges lean forward.*
+
+196. If I upload a new vendor submittal right now, can you tell me in 30 seconds
+     whether it complies with the project specification?
+
+197. Which single event poses the greatest risk to the 1 September 2026 bank
+     customer go-live date, and what must happen by what date to prevent it?
+
+198. Given everything that has happened, write me a one-paragraph executive briefing
+     for a board meeting that summarises the project health, the critical risks,
+     and the recommended actions.
+
+199. If I told you that PowerGrid Systems just submitted their battery remediation
+     proposal and they are proposing 12 additional VRLA battery blocks per module
+     instead of full Battery Extension Cabinets, would that resolve the autonomy problem?
+     Show your reasoning.
+
+200. We have a new vendor who claims their UPS provides "15 minutes autonomy at rated
+     load." Is this sufficient to meet REQ-UPS-008? What additional information would
+     you need to confirm compliance?
+
+---
+
+*End of Judge Demo Question Bank — HYDC-01-DEMO-Q-001*
+*Total: 200 questions across 10 sections*
+*Prepared for AI hackathon demonstration — NXGEN Hyperscale Data Centre Phase 1*

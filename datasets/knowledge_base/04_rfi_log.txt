@@ -1,0 +1,333 @@
+================================================================================
+REQUEST FOR INFORMATION LOG
+================================================================================
+Project    : NXGEN Hyperscale Data Centre — Phase 1 (HYDC-01)
+Document   : HYDC-01-PMO-RFI-LOG-001
+Revision   : F
+Date       : 14 January 2026
+Maintained : Rajan Mehta, Project Controls Manager — Tata Projects Ltd
+================================================================================
+
+LEGEND
+Status: OPEN / CLOSED / ON HOLD / SUPERSEDED
+Priority: CRITICAL (blocks construction/procurement) / HIGH / MEDIUM / LOW
+
+================================================================================
+RFI-EL-001
+================================================================================
+Number     : RFI-EL-001
+Subject    : UPS Redundancy Configuration — N+1 Clarification
+Raised By  : Aditya Singh, Procurement Manager — Tata Projects Ltd
+Raised To  : Rahul Desai, Lead Electrical Engineer — Jacobs India
+Date Raised: 08 October 2025
+Priority   : CRITICAL
+Status     : CLOSED
+
+Question:
+PowerGrid Systems has submitted a quotation (pre-order, during tender) in which they
+have proposed N-only UPS configuration for Phase 1A citing cost and space reasons.
+They argue that N+1 can be retrofitted at Phase 1B. Please confirm the minimum
+acceptable configuration for Phase 1A from Day 1.
+
+Engineering Context:
+Specification REQ-UPS-001 states N+1 at module level. However, there has been
+informal discussion about phasing redundancy to reduce capex. This RFI seeks
+formal written confirmation of the requirement to avoid any ambiguity during
+procurement.
+
+Affected Equipment: UPS-A1-01 through UPS-A1-04 (Power Module A), UPS-B1-01 through UPS-B1-04
+Referenced Documents: HYDC-01-EL-SPEC-002 Rev B, PKG-EL-002 scope document
+
+Response (by Rahul Desai, 14 October 2025):
+N+1 redundancy is a mandatory Day 1 requirement for Phase 1A. There is no provision
+for deferral to Phase 1B. The specification language in REQ-UPS-001 is unambiguous.
+Any vendor proposing N-only configuration must be formally rejected. If PowerGrid
+Systems cannot supply N+1 within the budget, the alternate vendor (ABB Power Protection)
+should be approached. This response has been reviewed by Dr. Meera Iyer (NxtGen Cloud)
+who confirms the client position.
+
+Closed By  : Rajan Mehta
+Close Date : 14 October 2025
+Action     : Procurement Manager to issue formal N+1 requirement in PO HYDC-01-PO-EL-002
+
+================================================================================
+RFI-EL-002
+================================================================================
+Number     : RFI-EL-002
+Subject    : Battery Autonomy Calculation Basis — End of Life vs New
+Raised By  : Sanjay Thakur, Commissioning Authority — WSP Global
+Raised To  : Rahul Desai, Lead Electrical Engineer — Jacobs India
+Date Raised: 15 October 2025
+Priority   : HIGH
+Status     : CLOSED
+
+Question:
+Specification REQ-UPS-008 states minimum 15-minute autonomy at full IT load. Please
+confirm whether this requirement applies at new (100% capacity) or end-of-life
+(80% capacity) battery condition, and at what ambient temperature.
+
+Response (by Rahul Desai, 20 October 2025):
+The 15-minute autonomy requirement applies at end-of-life battery condition (80% of
+rated capacity) at 25°C ambient temperature. This is consistent with IEEE 1184
+best practice and Uptime Institute Tier IV design guidelines. Vendors must provide
+calculations demonstrating 15-minute autonomy under these conditions, not new battery
+conditions. This has been incorporated into Specification Rev B (see Appendix B).
+
+Closed By  : Rajan Mehta
+Close Date : 22 October 2025
+
+================================================================================
+RFI-EL-003
+================================================================================
+Number     : RFI-EL-003
+Subject    : MV Switchgear Short-Circuit Rating — 25 kA vs 31.5 kA
+Raised By  : Deepak Nambiar, Site Engineer — Tata Projects Ltd
+Raised To  : Rahul Desai, Lead Electrical Engineer — Jacobs India
+Date Raised: 22 November 2025
+Priority   : CRITICAL
+Status     : OPEN
+
+Question:
+Schneider Electric India has indicated that their Prime Pact 11 kV switchgear can be
+supplied with 25 kA short-circuit withstand rating within the current delivery window,
+but supply of 31.5 kA units (as specified in REQ-SWG-002) will require an additional
+6 weeks of manufacturing time. The current schedule already has the switchgear delivery
+on the critical path (see activity A3 in the programme). Can we accept 25 kA?
+
+Engineering Context:
+The site utility fault level is declared as 21.4 kA at 11 kV by KPTCL (Karnataka Power
+Transmission Corporation Ltd) in their technical connection agreement dated August 2025.
+The specified 31.5 kA provides margin against future grid reinforcement. The 25 kA unit
+would be marginally above the current fault level but with no growth margin.
+
+Affected Equipment : SWG-MV-A, SWG-MV-B (11 kV switchgear, both buses)
+Referenced Documents: HYDC-01-EL-SPEC-003 (MV Switchgear Spec), KPTCL connection agreement
+Linked Activity    : A3 — MV Switchgear Installation (critical path)
+
+Response: AWAITING — Jacobs India review and NxtGen Cloud Infrastructure formal acceptance required.
+          Procurement release cannot be authorised until this RFI is resolved.
+          Tracking in weekly coordination meetings (MOM-HYDC01-012, MOM-HYDC01-013).
+
+Raised By   : Deepak Nambiar / Aditya Singh
+Follow-Up   : Due 28 January 2026 (action: Rahul Desai)
+Note        : Every week this RFI remains open, the switchgear delivery slips further.
+              Current forecast delay: 21 days on critical path.
+
+================================================================================
+RFI-EL-004
+================================================================================
+Number     : RFI-EL-004
+Subject    : UPS Vendor Submittal Revision 01 — Rejection Notice
+Raised By  : Kavya Reddy, QA/QC Manager — Tata Projects Ltd
+Raised To  : Ramesh Khanna, Technical Sales Director — PowerGrid Systems Pvt Ltd
+Date Raised: 05 November 2025
+Priority   : HIGH
+Status     : CLOSED
+
+Question:
+Submittal Revision 01 (PGSL-HYDC01-UPS-SUB-REV01, 30 October 2025) has been reviewed
+and is hereby rejected for the following reasons:
+1. Modbus TCP/IP register map not included (required per REQ-UPS-013, SUB-03)
+2. IEC 62040-3 performance classification not confirmed with type test certificate
+3. Deviation schedule declared "no deviations" but the proposed bypass synchronisation
+   window of ±2 Hz contradicts REQ-UPS-009 (±1 Hz limit)
+
+Vendor is required to resubmit within 10 working days addressing all three items.
+
+Response (by Ramesh Khanna, 18 November 2025):
+Revision 02 submitted addressing items 1 and 2. Item 3 (±2 Hz vs ±1 Hz) — vendor
+position is that the ±2 Hz synchronisation window is industry standard for all
+modern UPS systems and the IEC 62040-3 standard does not mandate ±1 Hz. Vendor
+maintains deviation schedule declares "no deviations" as the proposed synchronisation
+window does not represent a performance limitation.
+
+Note: Engineering team does not accept vendor's position on item 3. Formal deviation
+review meeting scheduled for 08 January 2026.
+
+Closed By  : Kavya Reddy (closed as addressed — item 3 escalated separately)
+Close Date : 25 November 2025
+
+================================================================================
+RFI-EL-005
+================================================================================
+Number     : RFI-EL-005
+Subject    : Battery Discharge Test at Factory vs Site
+Raised By  : Sanjay Thakur, Commissioning Authority — WSP Global
+Raised To  : Ramesh Khanna — PowerGrid Systems / Rahul Desai — Jacobs India
+Date Raised: 25 November 2025
+Priority   : CRITICAL
+Status     : OPEN
+
+Question:
+PowerGrid Systems has proposed in their FAT programme (PGSL-HYDC01-FAT-PROC-001 Rev A)
+to defer the battery discharge test to site commissioning. Specification clause 10.4
+and REQ-UPS-020 explicitly require this test to be conducted at the factory as a
+witnessed test. This is a condition precedent to dispatch approval. The commissioning
+authority cannot accept dispatch of equipment without factory-witnessed battery
+autonomy verification.
+
+Please confirm the project's position and whether an exception can be granted.
+
+Engineering Context:
+If battery autonomy at site is found to be less than 15 minutes (as the vendor has
+declared in their submittal — 10 minutes at 100% load), discovering this at site
+instead of factory creates significant project impact: potential re-procurement of
+additional battery cabinets, revised structural loading calculations, revised electrical
+cabling, and delay to commissioning.
+
+Affected Equipment: All 8 UPS modules (UPS-A1-01 to UPS-A1-04, UPS-B1-01 to UPS-B1-04)
+Referenced Documents: HYDC-01-EL-SPEC-002 Rev B Clause 10.4, REQ-UPS-020
+
+Response from Jacobs (Rahul Desai, 02 December 2025):
+No exception will be granted. The factory battery discharge test is mandatory per
+clause 10.4. PowerGrid Systems must include this test in their FAT programme before
+dispatch approval is issued. Additionally, the commissioning authority has flagged
+that the vendor's declared 10-minute autonomy at 100% load represents a separate
+critical non-compliance with REQ-UPS-002.
+
+Response from PowerGrid Systems (Ramesh Khanna, 10 December 2025):
+Battery discharge test has been added to FAT programme (Revision B of PGSL-HYDC01-FAT-PROC-001).
+Battery test is now scheduled for the 3rd day of FAT (07 January 2026 — one additional day added).
+
+Current Status: OPEN — FAT rescheduled to 05-07 January 2026. Awaiting confirmation
+of battery discharge test outcome. If autonomy measured at less than 15 minutes at
+factory, additional battery extension cabinets will be required — impact TBD.
+
+Consequence: If battery test fails (autonomy <15 min), equipment dispatch will be
+blocked, delaying site delivery and impacting commissioning schedule (currently planned
+June 2026 Power-On).
+
+================================================================================
+RFI-BMS-001
+================================================================================
+Number     : RFI-BMS-001
+Subject    : BMS Modbus Point List — UPS and Generator Alarm Integration
+Raised By  : Deepak Nambiar, Site Engineer — Tata Projects Ltd
+Raised To  : Rahul Desai, Lead Electrical Engineer — Jacobs India
+Date Raised: 12 November 2025
+Priority   : MEDIUM
+Status     : CLOSED
+
+Question:
+The controls contractor (Siemens Building Technologies) requires a confirmed list
+of Modbus registers for UPS and generator BMS integration before they can finalise
+their BMS point schedule. PowerGrid Systems (UPS) have now provided their register
+map in Submittal Rev 02. Please provide the subset of required registers and confirm
+the Cummins generator Modbus specification.
+
+Response (by Rahul Desai, 02 December 2025):
+Required BMS integration registers for UPS confirmed as registers 1000-1015 per
+PowerGrid Systems Modbus map (PGSL-HYDC01-MODBUS-REG-MAP-Rev02.xlsx). Note that
+battery internal resistance (conductance) monitoring is not included in base offer —
+this is flagged for discussion at next design review.
+
+Cummins generator Modbus specification: refer to Cummins NETA document CM-MODBUS-QSK60-001,
+submitted by Cummins India as part of PKG-EL-003 submittal. BMS contractor to
+coordinate directly with Cummins site engineer.
+
+Closed By  : Rajan Mehta
+Close Date : 05 December 2025
+
+================================================================================
+RFI-CX-001
+================================================================================
+Number     : RFI-CX-001
+Subject    : IST Sequence — Generator Start and UPS Transfer Coordination
+Raised By  : Sanjay Thakur, Commissioning Authority — WSP Global
+Raised To  : Rahul Desai, Lead Electrical Engineer / Vikram Sharma, Project Manager
+Date Raised: 20 November 2025
+Priority   : HIGH
+Status     : CLOSED
+
+Question:
+For the Integrated Systems Testing (IST) required under REQ-CX-002, please confirm
+the sequence of events for the "utility failure — generator start" scenario.
+Specifically:
+a) What is the target generator start-to-load time?
+b) What is the expected UPS battery ride-through period before generator pick-up?
+c) What load will be connected during IST at Phase 1A Power-On?
+
+Response (by Sanjay Thakur and Rahul Desai, 15 December 2025):
+IST sequence confirmed:
+a) Generator start-to-load acceptance: maximum 10 seconds (Cummins QSK60 specification)
+b) UPS battery ride-through period: minimum 15 minutes (per REQ-UPS-002/008) — if battery
+   autonomy test fails, IST cannot be conducted until battery issue is resolved
+c) IT load at IST time: estimated 4.8 MW live IT load (40% of Phase 1A design load)
+   Supplemented by temporary load banks to simulate full design load for testing
+
+IST script reference: HYDC-01-CX-SCH-001 (under preparation by WSP Global).
+Target IST date: 15 July 2026 (subject to all pre-functional checks complete).
+
+Closed By  : Rajan Mehta
+Close Date : 18 December 2025
+
+================================================================================
+RFI-QA-001
+================================================================================
+Number     : RFI-QA-001
+Subject    : NCR-EL-001 — Non-Conformance on UPS Submittal Deviation Declaration
+Raised By  : Kavya Reddy, QA/QC Manager — Tata Projects Ltd
+Raised To  : Ramesh Khanna — PowerGrid Systems / Aditya Singh — Procurement
+Date Raised: 20 November 2025
+Priority   : HIGH
+Status     : OPEN
+
+Question:
+Submittal Rev 02 (PGSL-HYDC01-UPS-SUB-REV02) has been reviewed. The deviation
+schedule in Section 9 declares "no deviations." However, technical review by Jacobs
+India has identified the following discrepancies requiring formal acknowledgement:
+
+1. N-only vs N+1 configuration (REQ-UPS-001) — CRITICAL
+2. 10-min autonomy vs 15-min requirement (REQ-UPS-002/008) — CRITICAL  
+3. ±2 Hz sync window vs ±1 Hz (REQ-UPS-009) — MAJOR
+4. Battery discharge test deferred from factory to site (REQ-UPS-020) — MAJOR
+5. Battery conductance monitoring not in base scope (REQ-UPS-013) — MINOR
+
+The QA/QC Manager is raising Non-Conformance Report NCR-EL-001 against this submittal.
+The vendor must formally acknowledge each deviation and classify them per Appendix A
+of the specification within 5 working days.
+
+Response from PowerGrid Systems: PENDING as at 14 January 2026
+NCR Status: OPEN — NCR-EL-001 raised 20 November 2025
+
+================================================================================
+RFI-PROC-001
+================================================================================
+Number     : RFI-PROC-001
+Subject    : MV Switchgear Customs Clearance Delay — Impact Assessment
+Raised By  : Aditya Singh, Procurement Manager — Tata Projects Ltd
+Raised To  : Vikram Sharma, Project Manager — Tata Projects Ltd
+Date Raised: 10 December 2025
+Priority   : CRITICAL
+Status     : OPEN
+
+Question:
+Schneider Electric India has informed us that the 11 kV MV switchgear panels
+(PO HYDC-01-PO-EL-001) have cleared manufacturing at their Vadodara facility
+on schedule (28 November 2025). However, the equipment has been held at JNPT
+Mumbai for customs clearance since 05 December 2025 due to an import classification
+discrepancy on the IGCR certificate. Original ETA to site was 20 December 2025.
+Current forecast clearance: 10 January 2026 (best case). Site delivery: 15-17 January 2026.
+
+This delays site delivery by approximately 25-27 days. As switchgear installation
+(Activity A3) is on the critical path, please confirm schedule impact and mitigation.
+
+Referenced Activity  : A3 — MV Switchgear Installation
+Critical Path Impact : YES — current delay = 25 days on critical path
+Linked Activity      : A4 — Switchgear Installation and testing (depends on A3)
+                       A6 — First energisation (depends on A4)
+
+Response (by Rajan Mehta, 15 December 2025):
+Schedule impact confirmed: 25-day delay on critical path. Power-On date moves from
+30 June 2026 to 25 July 2026 (forecast). Options being evaluated:
+1. Accelerate parallel activities to reduce float erosion
+2. Negotiate with KPTCL to provide temporary grid connection bypass for testing
+3. Pre-position downstream equipment in advance of switchgear arrival to minimise
+   installation lag
+
+Formal recovery plan to be presented at weekly coordination meeting MOM-HYDC01-014.
+
+================================================================================
+END OF DOCUMENT — RFI LOG HYDC-01-PMO-RFI-LOG-001 REV F
+(14 January 2026 — 8 RFIs recorded, 5 closed, 3 open)
+================================================================================
