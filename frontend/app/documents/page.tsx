@@ -499,7 +499,7 @@ export default function DocumentsPage() {
               ['Category', selected?.category || 'Specification'],
               ['Pages', selected?.page_count || '—'],
               ['Size', formatBytes(selected?.file_size)],
-              ['Status', <span style={{ color: sc.color }}>{sc.label}</span>],
+              ['Status', <span key="status-badge" style={{ color: sc.color }}>{sc.label}</span>],
             ].map(([label, val], i) => (
               <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: '0.78rem' }}>
                 <span style={{ color: '#5a5a7a' }}>{label as string}</span>

@@ -121,7 +121,7 @@ export default function SchedulePage() {
             </div>
             <div style={{ textAlign: 'center' }}>
               <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#d0d0e0', marginBottom: '6px' }}>No Schedule Loaded</h3>
-              <p style={{ fontSize: '0.82rem', color: '#5a5a7a' }}>Click "Analyze Schedule" to run CPM logic and generate AI risk mitigations</p>
+              <p style={{ fontSize: '0.82rem', color: '#5a5a7a' }}>Click &quot;Analyze Schedule&quot; to run CPM logic and generate AI risk mitigations</p>
             </div>
           </motion.div>
         )}

@@ -90,7 +90,7 @@ export default function KnowledgePage() {
                 return newMessages;
               });
             } else if (data.event === 'citations') {
-              const enrichedCitations = data.chunks.map((c: any) => ({
+              const enrichedCitations = data.chunks.map((c: { filename?: string; similarity?: number; clause_identifier?: string; page_number?: number; text?: string }) => ({
                 filename: c.filename || 'specification.pdf',
                 similarity: c.similarity || 0.85,
                 clause: c.clause_identifier || 'Clause 4.2.3',
@@ -384,7 +384,7 @@ export default function KnowledgePage() {
             }}>
               <strong>Clause Text:</strong>
               <p style={{ marginTop: '0.5rem', fontStyle: 'italic' }}>
-                "{selectedCitation.text}"
+                &quot;{selectedCitation.text}&quot;
               </p>
             </div>
 
