@@ -1,4 +1,5 @@
 import json
+from sse_starlette.sse import ServerSentEvent
 from app.rag.retriever import DocumentRetriever
 from app.llm.prompt_builder import PromptAssemblyService
 from sqlalchemy.orm import Session
@@ -14,19 +15,19 @@ class KnowledgeCopilotService:
     async def stream_answer(self, project_id: str, question: str):
         """
         Implements Chapter 16.7 (Streaming Responses) and 17.1 (RAG Engine).
-        Yields SSE formatted strings.
+        Yields ServerSentEvent objects — sse_starlette formats them as 'data: {...}\\r\\n\\r\\n'.
         """
         start_time = time.time()
         
         # 1. Retrieve Context (Yield metadata first)
-        yield f"data: {json.dumps({'event': 'retrieval_started'})}\n\n"
+        yield ServerSentEvent(data=json.dumps({'event': 'retrieval_started'}))
         retrieved_chunks = self.retriever.retrieve_context(question, project_id)
         
         if not retrieved_chunks:
-            yield f"data: {json.dumps({'event': 'error', 'message': 'Insufficient evidence found.'})}\n\n"
+            yield ServerSentEvent(data=json.dumps({'event': 'error', 'message': 'Insufficient evidence found.'}))
             return
             
-        yield f"data: {json.dumps({'event': 'citations', 'chunks': retrieved_chunks})}\n\n"
+        yield ServerSentEvent(data=json.dumps({'event': 'citations', 'chunks': retrieved_chunks}))
         
         # 2. Assemble Prompt
         full_prompt = self.prompt_builder.assemble_prompt(question, retrieved_chunks)
@@ -43,11 +44,11 @@ class KnowledgeCopilotService:
             
             async for chunk in stream:
                 if chunk.type == "content_block_delta" and chunk.delta.text:
-                    yield f"data: {json.dumps({'event': 'text', 'content': chunk.delta.text})}\n\n"
+                    yield ServerSentEvent(data=json.dumps({'event': 'text', 'content': chunk.delta.text}))
             
             # 4. Final Metadata
             processing_time = int((time.time() - start_time) * 1000)
-            yield f"data: {json.dumps({'event': 'completed', 'processing_time_ms': processing_time})}\n\n"
+            yield ServerSentEvent(data=json.dumps({'event': 'completed', 'processing_time_ms': processing_time}))
             
         except Exception as e:
-            yield f"data: {json.dumps({'event': 'error', 'message': str(e)})}\n\n"
+            yield ServerSentEvent(data=json.dumps({'event': 'error', 'message': str(e)}))

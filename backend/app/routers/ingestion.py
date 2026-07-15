@@ -113,3 +113,25 @@ def list_documents(db: Session = Depends(get_db)):
         for doc in docs
     ]
 
+@router.delete("/{document_id}")
+def delete_document(document_id: str, db: Session = Depends(get_db)):
+    """
+    Delete a document by ID — removes DB record and any stored file.
+    Returns 200 even if the document wasn't in the DB (idempotent), so the
+    frontend can safely call this for any document including static mock docs.
+    """
+    document_repository = DocumentRepository(db)
+    doc = document_repository.get_by_id(document_id)
+
+    if doc:
+        # Remove physical file if it still exists on disk
+        if doc.storage_path and os.path.exists(doc.storage_path):
+            try:
+                os.remove(doc.storage_path)
+            except OSError:
+                pass  # File already gone — not fatal
+        document_repository.delete(doc)
+
+    return {"message": "Document deleted.", "document_id": document_id}
+
+
