@@ -1,5 +1,5 @@
 -- =====================================================================
--- AI EPC Intelligence Platform — Database Schema
+-- NexusEPC AI — Database Schema
 -- Run this ONCE in the Supabase SQL Editor (Project -> SQL Editor -> New query)
 -- It creates the pgvector extension and every table used by app/models/core.py
 -- =====================================================================

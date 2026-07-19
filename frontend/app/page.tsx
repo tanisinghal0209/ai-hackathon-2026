@@ -58,7 +58,7 @@ export default function LandingPage() {
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
         }}>
-          AI EPC Project Intelligence Platform
+          NexusEPC AI — AI Platform for Data Centre EPC
         </h1>
 
         <p style={{

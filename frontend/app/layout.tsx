@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Intelligence Platform - Data Centre EPC",
+  title: "NexusEPC AI — AI Platform for Data Centre EPC",
   description: "AI-powered EPC project intelligence platform for data centre construction",
 };
 

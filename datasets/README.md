@@ -1,6 +1,6 @@
 # Demo Dataset
 
-This folder contains a synthetic EPC dataset for demonstrating the AI Intelligence Platform without needing confidential project files.
+This folder contains a synthetic EPC dataset for demonstrating NexusEPC AI without needing confidential project files.
 
 ## Why synthetic data?
 

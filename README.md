@@ -1,4 +1,4 @@
-# AI Intelligence Platform — Data Centre EPC Delivery
+# NexusEPC AI — AI Platform for Data Centre EPC
 
 > **Hackathon Entry · Industrial Intelligence / Infrastructure Construction / Quality Management**
 

@@ -18,7 +18,7 @@ app.add_middleware(
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to the AI Intelligence Platform API"}
+    return {"message": "Welcome to the NexusEPC AI API"}
 
 from app.routers import ingestion, health, copilot, compliance, schedule
 app.include_router(ingestion.router, prefix=settings.API_V1_STR + "/ingestion", tags=["ingestion"])
