@@ -164,12 +164,12 @@ export default function DashboardPage() {
         gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
         gap: '16px'
       }}>
-        <KPICard title="Total Documents" value={157} icon={FolderOpen} href="/documents" trend={{ value: '+12 today', up: true }} delay={0} />
-        <KPICard title="Compliance Score" value={92} suffix="%" icon={ShieldCheck} state="success" trend={{ value: '+2% this week', up: true }} delay={1} />
-        <KPICard title="Critical Risks" value={5} icon={AlertTriangle} state="critical" trend={{ value: '-3 resolved', up: false }} delay={2} />
-        <KPICard title="Open RFIs" value={12} icon={FileText} state="warning" delay={3} />
-        <KPICard title="Processing Queue" value={6} icon={Cpu} trend={{ value: 'Active uploads', up: true }} delay={4} />
-        <KPICard title="Schedule Delay" value={8} suffix=" days" icon={CalendarClock} state="warning" delay={5} />
+        <KPICard title="Documents Indexed" value={14} icon={FolderOpen} href="/documents" trend={{ value: '+2 this week', up: true }} delay={0} />
+        <KPICard title="Compliance Score" value={50} suffix="%" icon={ShieldCheck} state="warning" trend={{ value: '4 of 8 passed', up: false }} delay={1} />
+        <KPICard title="Critical Risks" value={3} icon={AlertTriangle} state="critical" trend={{ value: '2 in progress', up: false }} delay={2} />
+        <KPICard title="Open RFIs" value={3} icon={FileText} state="warning" trend={{ value: 'RFI-EL-002 / EL-003 / ME-001', up: false }} delay={3} />
+        <KPICard title="Total Findings" value={8} icon={Cpu} trend={{ value: '2 Critical · 2 Major · 4 Passed', up: false }} delay={4} />
+        <KPICard title="Schedule Delay" value={8} suffix=" days" icon={CalendarClock} state="warning" trend={{ value: 'MV switchgear delivery', up: false }} delay={5} />
       </div>
 
       {/* Main grid: Charts area + Activity feed */}
@@ -202,9 +202,9 @@ export default function DashboardPage() {
           {/* Simulated mini-gantt bars */}
           {[
             { label: 'Civil Works', pct: 85, color: '#10b981' },
-            { label: 'Electrical Installation', pct: 60, color: '#3b82f6' },
-            { label: 'HVAC & Mechanical', pct: 45, color: '#8b5cf6' },
-            { label: 'Commissioning', pct: 10, color: '#f59e0b', delayed: true },
+            { label: 'Electrical Installation', pct: 55, color: '#3b82f6' },
+            { label: 'HVAC & Mechanical', pct: 40, color: '#8b5cf6' },
+            { label: 'Commissioning (IST)', pct: 0, color: '#f59e0b', delayed: true },
             { label: 'Handover & Handback', pct: 0, color: '#5a5a7a' },
           ].map((item, i) => (
             <div key={i} style={{ marginBottom: '12px' }}>
@@ -357,9 +357,9 @@ export default function DashboardPage() {
             </Link>
           </div>
           {[
-            { id: 'REQ-UPS-002', label: 'Battery runtime shortfall', severity: 'Critical', color: '#ef4444' },
-            { id: 'REQ-UPS-001', label: 'Redundancy config mismatch', severity: 'Major', color: '#f59e0b' },
-            { id: 'REQ-GEN-003', label: 'Generator output tolerance', severity: 'Minor', color: '#3b82f6' },
+            { id: 'REQ-UPS-002', label: 'Battery autonomy shortfall — 10 min vs 15 min', severity: 'Critical', color: '#ef4444' },
+            { id: 'REQ-UPS-001', label: 'UPS redundancy N+1 mismatch — N topology proposed', severity: 'Critical', color: '#ef4444' },
+            { id: 'REQ-ME-001', label: 'Chiller COP 5.87 vs 6.1 required at site conditions', severity: 'Major', color: '#f59e0b' },
           ].map((f, i) => (
             <motion.div
               key={i}

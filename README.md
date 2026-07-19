@@ -19,10 +19,10 @@ This platform adds an AI intelligence layer over EPC project data so teams can:
 
 ## Live Features
 
-### 🏠 Project Dashboard
+### Project Dashboard
 Real-time project health overview with KPI cards (documents indexed, compliance score, critical risks, open RFIs, schedule delay), animated project timeline progress bars per discipline (Civil, Electrical, HVAC, Commissioning), and a live activity feed showing document indexing and compliance events.
 
-### 🤖 Knowledge Copilot (RAG AI)
+### Knowledge Copilot (RAG AI)
 Conversational AI over all project documents. Ask any technical or contractual question and receive a streamed answer with document citations (filename, clause, similarity score, page number). Powered by a hybrid retrieval pipeline: vector similarity + keyword search + reranking + context assembly.
 
 **Example questions:**
@@ -30,7 +30,7 @@ Conversational AI over all project documents. Ask any technical or contractual q
 - *"Which clauses define switchgear fault withstand rating?"*
 - *"What are the IST commissioning requirements?"*
 
-### 🛡️ Compliance Review (Specification Compliance Agent)
+### Compliance Review (Specification Compliance Agent)
 AI agent that compares project specifications against vendor submittals and generates structured deviation reports. Each finding is classified by:
 - Requirement ID (e.g. `REQ-UPS-001`, `REQ-MV-001`)
 - Compliance status: `Equivalent / Partial Match / Contradictory / Missing`
@@ -41,7 +41,7 @@ AI agent that compares project specifications against vendor submittals and gene
 
 Filter findings by severity. 8 requirements checked across Electrical, Mechanical, and Civil disciplines.
 
-### 📅 Schedule Intelligence (Predictive Risk Engine)
+### Schedule Intelligence (Predictive Risk Engine)
 Deterministic CPM critical path analysis combined with AI semantic risk reasoning:
 - Builds a directed acyclic graph from schedule activities + dependencies
 - Calculates ES, EF, LS, LF, Float, Critical Path
@@ -49,7 +49,7 @@ Deterministic CPM critical path analysis combined with AI semantic risk reasonin
 - Generates cascading **impact analysis** + actionable **mitigation strategies** per activity
 - Interactive Gantt chart with animated bars (red = critical path, blue = float)
 
-### 📁 Document Library
+### Document Library
 Unified technical documentation workspace with 14+ pre-loaded engineering documents:
 - Unique cover pages per document (title, discipline stamp, revision, team sign-offs)
 - Page navigation: Cover → Revision History → Technical Content sections
@@ -57,7 +57,7 @@ Unified technical documentation workspace with 14+ pre-loaded engineering docume
 - **Upload**: drag-and-drop pipeline animation → backend ingestion → live polling → auto-append on index
 - **Delete**: hover-reveal trash icon → confirmation modal → instant removal
 
-### ⚠️ Risk Center
+### Risk Center
 9 risks across 4 disciplines (Electrical, Mechanical, Procurement, Civil) with:
 - Probability/impact assessment
 - Risk evidence and mitigation strategy
@@ -65,7 +65,13 @@ Unified technical documentation workspace with 14+ pre-loaded engineering docume
 - Compliance link per risk item
 - Category tab filtering
 
-### ⚙️ Settings
+### Secure Access Portal & Auth Guard
+A premium glassmorphic authentication screen with custom glowing inputs, session caching, and prefilled credentials shortcuts for testing roles. Secured via a Next.js `WithAuth` router hook that intercepts unauthorized requests to dashboard modules.
+
+### Interactive Profile Menu
+A custom profile dropdown located on the Top Navigation Bar. Displays current logged-in user name, email address, and a glowing role badge from the session. Features a functional log-out action clearing credentials and routing to login.
+
+### Settings
 Platform configuration toggles for AI features and notifications.
 
 ---
@@ -145,15 +151,22 @@ flowchart LR
 │       └── tasks/               # Celery ingestion pipeline
 ├── frontend/
 │   ├── app/
-│   │   ├── dashboard/           # Project overview + KPIs
-│   │   ├── knowledge/           # Knowledge Copilot (SSE streaming RAG)
-│   │   ├── compliance/          # Compliance Review UI
-│   │   ├── schedule/            # Schedule Intelligence + Gantt
-│   │   ├── documents/           # Document Library + upload + delete
-│   │   ├── risks/               # Risk Center
-│   │   └── settings/            # Settings page
-│   └── lib/
-│       └── projectData.ts       # Shared data layer (documents, compliance, risks)
+│   │   ├── (workspace)/         # Protected layout route group
+│   │   │   ├── compliance/      # Compliance Review UI
+│   │   │   ├── dashboard/       # Project overview + KPIs
+│   │   │   ├── documents/       # Document Library + upload + delete
+│   │   │   ├── knowledge/       # Knowledge Copilot (SSE streaming RAG)
+│   │   │   ├── risks/           # Risk Center
+│   │   │   ├── schedule/        # Schedule Intelligence + Gantt
+│   │   │   ├── settings/        # Settings page
+│   │   │   └── layout.tsx       # Sidebar, NavBars, and Panels UI shell
+│   │   ├── login/               # Premium Glassmorphic Login Portal
+│   │   ├── page.tsx             # Entry route redirect logic
+│   │   └── layout.tsx           # Global HTML wrapper (minimal context)
+│   ├── components/              # Sidebar, TopNavBar, RightPanel, StatusBar, withAuth guard
+│   ├── lib/
+│   │   └── projectData.ts       # Shared data layer (documents, compliance, risks)
+│   └── store/                   # UI state store (Zustand)
 ├── datasets/                    # Synthetic EPC demo datasets
 ├── documentation/               # SRS chapters
 ├── prompts/                     # Prompt version files

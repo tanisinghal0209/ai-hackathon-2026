@@ -1,7 +1,18 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 export default function LandingPage() {
+  const [targetPath, setTargetPath] = useState('/login');
+
+  useEffect(() => {
+    const token = localStorage.getItem('auth_token');
+    if (token) {
+      setTargetPath('/dashboard');
+    }
+  }, []);
+
   return (
     <div style={{
       minHeight: '80vh',
@@ -67,7 +78,7 @@ export default function LandingPage() {
           justifyContent: 'center',
           gap: '1rem',
         }}>
-          <Link href="/dashboard" style={{
+          <Link href={targetPath} style={{
             display: 'inline-flex',
             alignItems: 'center',
             padding: '0.875rem 2rem',
@@ -79,7 +90,7 @@ export default function LandingPage() {
             transition: 'all 0.2s ease',
             boxShadow: '0 4px 12px rgba(99, 102, 241, 0.3)',
           }}>
-            Enter Workspace 🚀
+            Enter Workspace
           </Link>
         </div>
       </div>

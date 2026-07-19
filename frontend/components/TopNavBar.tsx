@@ -1,11 +1,45 @@
 "use client";
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 import {
   Search, Bell, ChevronDown, User, Command,
-  FileText, ShieldCheck, CalendarClock, AlertTriangle, FolderOpen, BrainCircuit, X
+  FileText, ShieldCheck, CalendarClock, AlertTriangle, BrainCircuit, X, Building2, Check
 } from 'lucide-react';
 import { useUIStore } from '@/store/store';
+
+const PROJECTS = [
+  {
+    id: 'alpha',
+    name: 'Data Centre Alpha',
+    location: 'Mumbai, Maharashtra',
+    capacity: '150 MW · Tier IV',
+    status: 'Active',
+    statusColor: '#10b981',
+    docs: 157,
+    compliance: 92,
+  },
+  {
+    id: 'beta',
+    name: 'Data Centre Beta',
+    location: 'Hyderabad, Telangana',
+    capacity: '80 MW · Tier III',
+    status: 'Planning',
+    statusColor: '#f59e0b',
+    docs: 43,
+    compliance: 78,
+  },
+  {
+    id: 'gamma',
+    name: 'Data Centre Gamma',
+    location: 'Chennai, Tamil Nadu',
+    capacity: '40 MW · Tier III',
+    status: 'Pre-FEED',
+    statusColor: '#6366f1',
+    docs: 12,
+    compliance: 100,
+  },
+];
 
 const SEARCH_INDEX = [
   { label: 'UPS Specification v2.pdf', type: 'Document', href: '/documents', icon: FileText },
@@ -32,12 +66,48 @@ const MOCK_NOTIFICATIONS = [
 ];
 
 export default function TopNavBar() {
+  const router = useRouter();
   const { toggleRightPanel } = useUIStore();
   const [query, setQuery] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
+  const [projectOpen, setProjectOpen] = useState(false);
+  const [activeProject, setActiveProject] = useState(PROJECTS[0]);
   const searchRef = useRef<HTMLDivElement>(null);
+  const projectRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Profile details dropdown state
+  const profileRef = useRef<HTMLDivElement>(null);
+  const [showProfile, setShowProfile] = useState(false);
+  const [userEmail, setUserEmail] = useState('admin@epc.ai');
+  const [userRole, setUserRole] = useState('Administrator');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const email = localStorage.getItem('user_email') || 'admin@epc.ai';
+      const role = localStorage.getItem('user_role') || 'Administrator';
+      setUserEmail(email);
+      setUserRole(role);
+    }
+  }, []);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (profileRef.current && !profileRef.current.contains(event.target as Node)) {
+        setShowProfile(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('auth_token');
+    localStorage.removeItem('user_email');
+    localStorage.removeItem('user_role');
+    router.replace('/login');
+  };
 
   const filtered = query.length > 0
     ? SEARCH_INDEX.filter(item =>
@@ -69,6 +139,9 @@ export default function TopNavBar() {
         setSearchOpen(false);
         setQuery('');
       }
+      if (projectRef.current && !projectRef.current.contains(e.target as Node)) {
+        setProjectOpen(false);
+      }
     };
     document.addEventListener('mousedown', handler);
     return () => document.removeEventListener('mousedown', handler);
@@ -87,26 +160,105 @@ export default function TopNavBar() {
         {/* Breadcrumb separator */}
         <span style={{ color: '#2a2a40', fontSize: '1.2rem' }}>/</span>
 
-        {/* Project chip */}
-        <button style={{
-          display: 'flex', alignItems: 'center', gap: '6px',
-          background: 'rgba(255,255,255,0.04)',
-          border: '1px solid rgba(255,255,255,0.07)',
-          borderRadius: '8px',
-          padding: '4px 10px',
-          color: '#a0a0b0',
-          fontSize: '0.8125rem',
-          fontWeight: 500,
-          cursor: 'pointer',
-          transition: 'all 180ms ease'
-        }}
-          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.07)')}
-          onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.04)')}
-        >
-          <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#10b981', boxShadow: '0 0 6px rgba(16,185,129,0.6)', display: 'block' }} />
-          Data Centre Alpha
-          <ChevronDown size={12} />
-        </button>
+        {/* Project switcher */}
+        <div ref={projectRef} style={{ position: 'relative' }}>
+          <button
+            onClick={() => setProjectOpen(p => !p)}
+            style={{
+              display: 'flex', alignItems: 'center', gap: '6px',
+              background: projectOpen ? 'rgba(255,255,255,0.07)' : 'rgba(255,255,255,0.04)',
+              border: '1px solid rgba(255,255,255,0.07)',
+              borderRadius: '8px',
+              padding: '4px 10px',
+              color: '#a0a0b0',
+              fontSize: '0.8125rem',
+              fontWeight: 500,
+              cursor: 'pointer',
+              transition: 'all 180ms ease'
+            }}
+            onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.07)')}
+            onMouseLeave={e => (e.currentTarget.style.background = projectOpen ? 'rgba(255,255,255,0.07)' : 'rgba(255,255,255,0.04)')}
+          >
+            <span style={{ width: 7, height: 7, borderRadius: '50%', background: activeProject.statusColor, boxShadow: `0 0 6px ${activeProject.statusColor}99`, display: 'block' }} />
+            {activeProject.name}
+            <motion.div animate={{ rotate: projectOpen ? 180 : 0 }} transition={{ duration: 0.18 }}>
+              <ChevronDown size={12} />
+            </motion.div>
+          </button>
+
+          <AnimatePresence>
+            {projectOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -8, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -8, scale: 0.97 }}
+                transition={{ duration: 0.15, ease: [0, 0, 0.2, 1] }}
+                style={{
+                  position: 'absolute',
+                  top: 'calc(100% + 8px)',
+                  left: 0,
+                  width: 280,
+                  background: 'rgba(14, 14, 22, 0.97)',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  borderRadius: '14px',
+                  boxShadow: '0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(99,102,241,0.1)',
+                  overflow: 'hidden',
+                  zIndex: 500,
+                  backdropFilter: 'blur(20px)',
+                }}
+              >
+                <div style={{ padding: '10px 14px 8px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                  <span style={{ fontSize: '0.65rem', color: '#5a5a7a', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Switch Project</span>
+                </div>
+                <div style={{ padding: '6px' }}>
+                  {PROJECTS.map(proj => (
+                    <button
+                      key={proj.id}
+                      onClick={() => { setActiveProject(proj); setProjectOpen(false); }}
+                      style={{
+                        width: '100%', textAlign: 'left',
+                        display: 'flex', alignItems: 'center', gap: '10px',
+                        padding: '10px 10px', borderRadius: '8px',
+                        background: activeProject.id === proj.id ? 'rgba(99,102,241,0.08)' : 'transparent',
+                        border: '1px solid transparent',
+                        cursor: 'pointer', transition: 'all 130ms ease',
+                      }}
+                      onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.05)')}
+                      onMouseLeave={e => (e.currentTarget.style.background = activeProject.id === proj.id ? 'rgba(99,102,241,0.08)' : 'transparent')}
+                    >
+                      <div style={{
+                        width: 32, height: 32, borderRadius: '8px', flexShrink: 0,
+                        background: `${proj.statusColor}18`,
+                        border: `1px solid ${proj.statusColor}30`,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center'
+                      }}>
+                        <Building2 size={14} color={proj.statusColor} strokeWidth={2} />
+                      </div>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ fontSize: '0.825rem', fontWeight: 600, color: '#d0d0e0', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          {proj.name}
+                        </div>
+                        <div style={{ fontSize: '0.68rem', color: '#5a5a7a', marginTop: '1px' }}>{proj.location}</div>
+                        <div style={{ display: 'flex', gap: '6px', marginTop: '4px' }}>
+                          <span style={{ fontSize: '0.62rem', padding: '1px 6px', borderRadius: '999px', background: `${proj.statusColor}18`, color: proj.statusColor, fontWeight: 600 }}>{proj.status}</span>
+                          <span style={{ fontSize: '0.62rem', color: '#4a4a6a' }}>{proj.capacity}</span>
+                        </div>
+                      </div>
+                      {activeProject.id === proj.id && (
+                        <Check size={14} color="#6366f1" strokeWidth={2.5} style={{ flexShrink: 0 }} />
+                      )}
+                    </button>
+                  ))}
+                </div>
+                <div style={{ padding: '8px 14px 10px', borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', gap: '12px' }}>
+                  <span style={{ fontSize: '0.68rem', color: '#5a5a7a' }}>{activeProject.docs} docs indexed</span>
+                  <span style={{ fontSize: '0.68rem', color: '#5a5a7a' }}>·</span>
+                  <span style={{ fontSize: '0.68rem', color: activeProject.compliance >= 90 ? '#10b981' : '#f59e0b' }}>{activeProject.compliance}% compliant</span>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
 
       {/* Centre — Command Search */}
@@ -332,16 +484,122 @@ export default function TopNavBar() {
         </button>
 
         {/* Avatar */}
-        <button style={{
-          width: 32, height: 32,
-          background: 'linear-gradient(135deg, #6366f1, #3b82f6)',
-          border: 'none', borderRadius: '8px',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          cursor: 'pointer',
-          boxShadow: '0 0 10px rgba(99,102,241,0.3)'
-        }}>
-          <User size={15} color="white" strokeWidth={2} />
-        </button>
+        <div ref={profileRef} style={{ position: 'relative' }}>
+          <button 
+            onClick={() => setShowProfile(!showProfile)}
+            style={{
+              width: 32, height: 32,
+              background: 'linear-gradient(135deg, #6366f1, #3b82f6)',
+              border: 'none', borderRadius: '8px',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              cursor: 'pointer',
+              boxShadow: '0 0 10px rgba(99,102,241,0.3)'
+            }}
+          >
+            <User size={15} color="white" strokeWidth={2} />
+          </button>
+          
+          <AnimatePresence>
+            {showProfile && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.15 }}
+                style={{
+                  position: 'absolute',
+                  top: '40px',
+                  right: 0,
+                  width: '240px',
+                  background: 'rgba(15, 23, 42, 0.95)',
+                  backdropFilter: 'blur(16px)',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  borderRadius: '10px',
+                  padding: '16px',
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
+                  zIndex: 1000,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '12px'
+                }}
+              >
+                {/* Header details */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{
+                    width: 36, height: 36,
+                    borderRadius: '50%',
+                    background: 'rgba(99,102,241,0.15)',
+                    border: '1px solid rgba(99,102,241,0.3)',
+                    color: '#a5b4fc',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontWeight: 600,
+                    fontSize: '0.9rem'
+                  }}>
+                    {userEmail.charAt(0).toUpperCase()}
+                  </div>
+                  <div style={{ overflow: 'hidden' }}>
+                    <div style={{ fontSize: '0.875rem', fontWeight: 600, color: '#f8fafc', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
+                      {userEmail.split('@')[0].replace(/^\w/, (c) => c.toUpperCase())}
+                    </div>
+                    <div style={{ fontSize: '0.75rem', color: '#94a3b8', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
+                      {userEmail}
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Role Badge */}
+                <div style={{
+                  display: 'inline-flex',
+                  alignSelf: 'flex-start',
+                  padding: '2px 8px',
+                  background: 'rgba(13, 148, 136, 0.1)',
+                  border: '1px solid rgba(13, 148, 136, 0.2)',
+                  borderRadius: '4px',
+                  color: '#2dd4bf',
+                  fontSize: '0.7rem',
+                  fontWeight: 600,
+                  textTransform: 'uppercase'
+                }}>
+                  {userRole}
+                </div>
+                
+                <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
+                
+                {/* Logout Button */}
+                <button
+                  onClick={handleLogout}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    padding: '8px',
+                    background: 'rgba(239, 68, 68, 0.1)',
+                    border: '1px solid rgba(239, 68, 68, 0.2)',
+                    borderRadius: '6px',
+                    color: '#fca5a5',
+                    fontSize: '0.8125rem',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    transition: 'all 0.2s'
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.background = 'rgba(239, 68, 68, 0.2)';
+                    e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.3)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.background = 'rgba(239, 68, 68, 0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.2)';
+                  }}
+                >
+                  Log Out
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );

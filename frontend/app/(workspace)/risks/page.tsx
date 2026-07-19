@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AlertTriangle, TrendingUp, TrendingDown, Minus, Shield, Zap, Target, FileText } from 'lucide-react';
-import { RISKS, DOCUMENTS, getDocById, getCategories, getRisksByCategory, type Risk } from '../../lib/projectData';
+import { RISKS, DOCUMENTS, getDocById, getCategories, getRisksByCategory, type Risk } from '@/lib/projectData';
 
 const SEVERITY_STYLES: Record<string, { bg: string; border: string; color: string; badgeBg: string }> = {
   Critical: { bg: 'rgba(239,68,68,0.06)', border: 'rgba(239,68,68,0.3)',  color: '#ef4444', badgeBg: 'rgba(239,68,68,0.15)' },

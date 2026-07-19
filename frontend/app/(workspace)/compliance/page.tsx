@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShieldCheck, AlertTriangle, XCircle, Clock, ChevronRight, FileText, Zap, ExternalLink } from 'lucide-react';
-import { COMPLIANCE_FINDINGS, DOCUMENTS, getDocById, type ComplianceFinding } from '../../lib/projectData';
+import { COMPLIANCE_FINDINGS, DOCUMENTS, getDocById, type ComplianceFinding } from '@/lib/projectData';
 
 const SEVERITY_CONFIG: Record<string, { bg: string; border: string; color: string; badge: string; label: string }> = {
   Critical: { bg: 'rgba(239,68,68,0.06)', border: 'rgba(239,68,68,0.25)', color: '#ef4444', badge: 'rgba(239,68,68,0.15)', label: 'Critical' },

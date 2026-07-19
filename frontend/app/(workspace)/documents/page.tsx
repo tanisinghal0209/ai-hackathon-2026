@@ -2,7 +2,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Upload, Search, FileText, Check, Loader, ChevronLeft, ChevronRight, BookOpen, Trash2, AlertCircle } from 'lucide-react';
-import { DOCUMENTS, TEAM, PROJECT, getDocById, type DocMeta } from '../../lib/projectData';
+import { DOCUMENTS, TEAM, PROJECT, getDocById, type DocMeta } from '@/lib/projectData';
 
 const PIPELINE_STEPS = ['Uploading', 'Validation', 'Parsing', 'Chunking', 'Embedding', 'Indexing', 'Ready'];
 
