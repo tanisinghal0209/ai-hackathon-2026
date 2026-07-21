@@ -10,7 +10,7 @@ interface ProjectState {
 }
 
 export const useProjectStore = create<ProjectState>((set) => ({
-  currentProjectId: 'default-project',
+  currentProjectId: 'alpha',
   selectedDocumentId: null,
   selectedActivityId: null,
   setCurrentProject: (id) => set({ currentProjectId: id }),

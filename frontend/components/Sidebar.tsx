@@ -71,8 +71,8 @@ export default function Sidebar() {
           <Zap size={16} color="white" strokeWidth={2.5} />
         </div>
         <div className="sidebar-brand">
-          <span className="sidebar-brand-name">EPC Intelligence</span>
-          <span className="sidebar-brand-sub">AI Platform</span>
+          <span className="sidebar-brand-name">NexusEPC AI</span>
+          <span className="sidebar-brand-sub">Platform</span>
         </div>
       </div>
 

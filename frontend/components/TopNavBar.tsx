@@ -4,9 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import {
   Search, Bell, ChevronDown, User, Command,
-  FileText, ShieldCheck, CalendarClock, AlertTriangle, BrainCircuit, X, Building2, Check
+  FileText, ShieldCheck, CalendarClock, AlertTriangle, BrainCircuit, X, Building2, Check, Sun, Moon
 } from 'lucide-react';
-import { useUIStore } from '@/store/store';
+import { useUIStore, useProjectStore } from '@/store/store';
 
 const PROJECTS = [
   {
@@ -67,12 +67,24 @@ const MOCK_NOTIFICATIONS = [
 
 export default function TopNavBar() {
   const router = useRouter();
-  const { toggleRightPanel } = useUIStore();
+  const { theme, toggleTheme, toggleRightPanel } = useUIStore();
+  const { currentProjectId, setCurrentProject } = useProjectStore();
   const [query, setQuery] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
   const [projectOpen, setProjectOpen] = useState(false);
   const [activeProject, setActiveProject] = useState(PROJECTS[0]);
+  const [notificationsList, setNotificationsList] = useState(MOCK_NOTIFICATIONS);
+
+  const handleMarkAllRead = () => {
+    setNotificationsList([]);
+  };
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+  }, [theme]);
   const searchRef = useRef<HTMLDivElement>(null);
   const projectRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -152,8 +164,8 @@ export default function TopNavBar() {
       {/* Left — Logo wordmark */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{ fontSize: '0.875rem', fontWeight: 700, color: '#6366f1', letterSpacing: '-0.01em' }}>
-            EPC<span style={{ color: '#3b82f6' }}>.ai</span>
+          <span style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>
+            Nexus<span style={{ color: '#6366f1' }}>EPC AI</span>
           </span>
         </div>
 
@@ -214,7 +226,7 @@ export default function TopNavBar() {
                   {PROJECTS.map(proj => (
                     <button
                       key={proj.id}
-                      onClick={() => { setActiveProject(proj); setProjectOpen(false); }}
+                      onClick={() => { setActiveProject(proj); setCurrentProject(proj.id); setProjectOpen(false); }}
                       style={{
                         width: '100%', textAlign: 'left',
                         display: 'flex', alignItems: 'center', gap: '10px',
@@ -405,13 +417,15 @@ export default function TopNavBar() {
             onMouseLeave={e => { e.currentTarget.style.background = notifOpen ? 'rgba(255,255,255,0.07)' : 'transparent'; e.currentTarget.style.color = '#707090'; }}
           >
             <Bell size={16} strokeWidth={2} />
-            <span style={{
-              position: 'absolute', top: 6, right: 6,
-              width: 7, height: 7,
-              background: '#ef4444',
-              borderRadius: '50%',
-              boxShadow: '0 0 6px rgba(239,68,68,0.7)'
-            }} />
+            {notificationsList.length > 0 && (
+              <span style={{
+                position: 'absolute', top: 6, right: 6,
+                width: 7, height: 7,
+                background: '#ef4444',
+                borderRadius: '50%',
+                boxShadow: '0 0 6px rgba(239,68,68,0.7)'
+              }} />
+            )}
           </button>
 
           <AnimatePresence>
@@ -424,37 +438,52 @@ export default function TopNavBar() {
                 style={{
                   position: 'absolute', top: 'calc(100% + 8px)', right: 0,
                   width: 340,
-                  background: 'rgba(14, 14, 22, 0.97)',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  background: 'var(--bg-elevated)',
+                  border: 'var(--glass-border)',
                   borderRadius: '14px',
-                  boxShadow: '0 20px 60px rgba(0,0,0,0.7)',
+                  boxShadow: 'var(--shadow-xl)',
                   overflow: 'hidden',
                   zIndex: 500,
                   backdropFilter: 'blur(20px)',
                 }}
               >
-                <div style={{ padding: '14px 16px', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontWeight: 600, fontSize: '0.875rem' }}>Notifications</span>
-                  <span style={{ fontSize: '0.7rem', color: '#6366f1', cursor: 'pointer' }}>Mark all read</span>
+                <div style={{ padding: '14px 16px', borderBottom: 'var(--glass-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontWeight: 600, fontSize: '0.875rem', color: 'var(--text-primary)' }}>Notifications</span>
+                  {notificationsList.length > 0 ? (
+                    <span
+                      onClick={handleMarkAllRead}
+                      style={{ fontSize: '0.7rem', color: '#6366f1', cursor: 'pointer', fontWeight: 600 }}
+                    >
+                      Mark all read
+                    </span>
+                  ) : (
+                    <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>0 Unread</span>
+                  )}
                 </div>
                 <div style={{ padding: '8px' }}>
-                  {MOCK_NOTIFICATIONS.map(n => (
-                    <div key={n.id} style={{
-                      padding: '10px 10px', borderRadius: '8px', marginBottom: '4px',
-                      background: n.critical ? 'rgba(239,68,68,0.04)' : 'transparent',
-                      border: n.critical ? '1px solid rgba(239,68,68,0.1)' : '1px solid transparent',
-                      cursor: 'pointer', transition: 'background 130ms ease'
-                    }}
-                      onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.03)')}
-                      onMouseLeave={e => (e.currentTarget.style.background = n.critical ? 'rgba(239,68,68,0.04)' : 'transparent')}
-                    >
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '3px' }}>
-                        <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#d0d0e0' }}>{n.title}</span>
-                        <span style={{ fontSize: '0.65rem', color: '#5a5a7a' }}>{n.time}</span>
+                  {notificationsList.length > 0 ? (
+                    notificationsList.map(n => (
+                      <div key={n.id} style={{
+                        padding: '10px 10px', borderRadius: '8px', marginBottom: '4px',
+                        background: n.critical ? 'rgba(239,68,68,0.08)' : 'transparent',
+                        border: n.critical ? '1px solid rgba(239,68,68,0.2)' : '1px solid transparent',
+                        cursor: 'pointer', transition: 'background 130ms ease'
+                      }}
+                        onMouseEnter={e => (e.currentTarget.style.background = 'var(--bg-hover)')}
+                        onMouseLeave={e => (e.currentTarget.style.background = n.critical ? 'rgba(239,68,68,0.08)' : 'transparent')}
+                      >
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '3px' }}>
+                          <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-primary)' }}>{n.title}</span>
+                          <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>{n.time}</span>
+                        </div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{n.body}</div>
                       </div>
-                      <div style={{ fontSize: '0.75rem', color: '#707090' }}>{n.body}</div>
+                    ))
+                  ) : (
+                    <div style={{ padding: '24px 16px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.8rem' }}>
+                      No unread notifications
                     </div>
-                  ))}
+                  )}
                 </div>
               </motion.div>
             )}
@@ -481,6 +510,25 @@ export default function TopNavBar() {
         >
           <BrainCircuit size={14} strokeWidth={2} />
           AI Copilot
+        </button>
+
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          style={{
+            width: 32, height: 32,
+            background: 'rgba(255, 255, 255, 0.05)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '8px',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            cursor: 'pointer', color: theme === 'dark' ? '#f59e0b' : '#6366f1',
+            transition: 'all 180ms ease'
+          }}
+          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'; }}
+          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)'; }}
+        >
+          {theme === 'dark' ? <Sun size={15} strokeWidth={2} /> : <Moon size={15} strokeWidth={2} />}
         </button>
 
         {/* Avatar */}

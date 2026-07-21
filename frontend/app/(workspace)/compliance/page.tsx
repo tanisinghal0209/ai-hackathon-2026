@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShieldCheck, AlertTriangle, XCircle, Clock, ChevronRight, FileText, Zap, ExternalLink } from 'lucide-react';
-import { COMPLIANCE_FINDINGS, DOCUMENTS, getDocById, type ComplianceFinding } from '@/lib/projectData';
+import { COMPLIANCE_FINDINGS, DOCUMENTS, getDocById, getComplianceByProject, type ComplianceFinding } from '@/lib/projectData';
+import { useProjectStore } from '@/store/store';
 
 const SEVERITY_CONFIG: Record<string, { bg: string; border: string; color: string; badge: string; label: string }> = {
   Critical: { bg: 'rgba(239,68,68,0.06)', border: 'rgba(239,68,68,0.25)', color: '#ef4444', badge: 'rgba(239,68,68,0.15)', label: 'Critical' },
@@ -23,22 +24,29 @@ function StatCard({ icon: Icon, label, value, color }: { icon: React.ElementType
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-      style={{ background: 'rgba(20,20,32,0.85)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '12px', padding: '14px 16px', display: 'flex', alignItems: 'center', gap: '12px', backdropFilter: 'blur(12px)', boxShadow: '0 4px 16px rgba(0,0,0,0.25)' }}
+      style={{ background: 'var(--bg-surface)', border: 'var(--glass-border)', borderRadius: '12px', padding: '14px 16px', display: 'flex', alignItems: 'center', gap: '12px', backdropFilter: 'blur(12px)', boxShadow: 'var(--shadow-card)' }}
     >
       <span style={{ width: 34, height: 34, borderRadius: '8px', background: `${color}18`, border: `1px solid ${color}28`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
         <Icon size={15} color={color} strokeWidth={2} />
       </span>
       <div>
-        <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#f1f1f4', lineHeight: 1 }}>{value}</div>
-        <div style={{ fontSize: '0.72rem', color: '#5a5a7a', marginTop: '3px' }}>{label}</div>
+        <div style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1 }}>{value}</div>
+        <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '3px' }}>{label}</div>
       </div>
     </motion.div>
   );
 }
 
 export default function CompliancePage() {
-  const [findings, setFindings] = useState<ComplianceFinding[]>(COMPLIANCE_FINDINGS);
-  const [selected, setSelected] = useState<ComplianceFinding>(COMPLIANCE_FINDINGS[0]);
+  const { currentProjectId } = useProjectStore();
+  const [findings, setFindings] = useState<ComplianceFinding[]>(() => getComplianceByProject(currentProjectId));
+  const [selected, setSelected] = useState<ComplianceFinding>(() => getComplianceByProject(currentProjectId)[0] || COMPLIANCE_FINDINGS[0]);
+
+  React.useEffect(() => {
+    const list = getComplianceByProject(currentProjectId);
+    setFindings(list);
+    if (list.length > 0) setSelected(list[0]);
+  }, [currentProjectId]);
   const [loading, setLoading] = useState(false);
   const [filterSeverity, setFilterSeverity] = useState<string>('All');
 

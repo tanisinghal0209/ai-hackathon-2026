@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AlertTriangle, TrendingUp, TrendingDown, Minus, Shield, Zap, Target, FileText } from 'lucide-react';
-import { RISKS, DOCUMENTS, getDocById, getCategories, getRisksByCategory, type Risk } from '@/lib/projectData';
+import { RISKS, DOCUMENTS, getDocById, getCategories, getRisksByCategory, getRisksByProject, type Risk } from '@/lib/projectData';
+import { useProjectStore } from '@/store/store';
 
 const SEVERITY_STYLES: Record<string, { bg: string; border: string; color: string; badgeBg: string }> = {
   Critical: { bg: 'rgba(239,68,68,0.06)', border: 'rgba(239,68,68,0.3)',  color: '#ef4444', badgeBg: 'rgba(239,68,68,0.15)' },
@@ -56,11 +57,11 @@ function ProbabilityMatrix({ probability, impact }: { probability: number; impac
 }
 
 export default function RisksPage() {
+  const { currentProjectId } = useProjectStore();
+  const allRisks = getRisksByProject(currentProjectId);
   const categories = getCategories();
   const [selectedCatName, setSelectedCatName] = useState<string>(categories[0].name);
-  const [selectedRisk, setSelectedRisk] = useState<Risk>(getRisksByCategory(categories[0].name)[0]);
-
-  const allRisks = RISKS;
+  const [selectedRisk, setSelectedRisk] = useState<Risk>(() => allRisks[0] || RISKS[0]);
   const critCount     = allRisks.filter(r => r.severity === 'Critical').length;
   const highCount     = allRisks.filter(r => r.severity === 'High').length;
   const medCount      = allRisks.filter(r => r.severity === 'Medium').length;
@@ -75,8 +76,8 @@ export default function RisksPage() {
       {/* Header */}
       <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexShrink: 0 }}>
         <div>
-          <h1 style={{ fontSize: '1.6rem', fontWeight: 700, letterSpacing: '-0.02em', color: '#f1f1f4' }}>Risk Center</h1>
-          <p style={{ color: '#5a5a7a', fontSize: '0.82rem', marginTop: '3px' }}>
+          <h1 style={{ fontSize: '1.6rem', fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--text-primary)' }}>Risk Center</h1>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem', marginTop: '3px' }}>
             Predictive risk intelligence — {allRisks.length} risks across {categories.length} disciplines
           </p>
         </div>
@@ -94,7 +95,7 @@ export default function RisksPage() {
           return (
             <motion.div
               key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}
-              style={{ background: 'rgba(20,20,32,0.85)', border: `1px solid ${card.color}25`, borderRadius: '12px', padding: '14px 16px', display: 'flex', alignItems: 'center', gap: '12px', backdropFilter: 'blur(12px)', boxShadow: '0 4px 16px rgba(0,0,0,0.25)', position: 'relative', overflow: 'hidden' }}
+              style={{ background: 'var(--bg-surface)', border: `1px solid ${card.color}25`, borderRadius: '12px', padding: '14px 16px', display: 'flex', alignItems: 'center', gap: '12px', backdropFilter: 'blur(12px)', boxShadow: 'var(--shadow-card)', position: 'relative', overflow: 'hidden' }}
             >
               {card.pulse && (
                 <motion.div animate={{ scale: [1, 1.6, 1], opacity: [0.4, 0, 0.4] }} transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
@@ -104,8 +105,8 @@ export default function RisksPage() {
                 <Icon size={15} color={card.color} strokeWidth={2} />
               </span>
               <div>
-                <div style={{ fontSize: '1.5rem', fontWeight: 700, color: '#f1f1f4', lineHeight: 1 }}>{card.value}</div>
-                <div style={{ fontSize: '0.72rem', color: '#5a5a7a', marginTop: '3px' }}>{card.label}</div>
+                <div style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1 }}>{card.value}</div>
+                <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '3px' }}>{card.label}</div>
               </div>
             </motion.div>
           );
@@ -116,7 +117,7 @@ export default function RisksPage() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', flexShrink: 0 }}>
         {categories.map((cat) => {
           const isSelected = selectedCatName === cat.name;
-          const trendMap = { Up: { icon: TrendingUp, color: '#ef4444' }, Down: { icon: TrendingDown, color: '#10b981' }, Stable: { icon: Minus, color: '#5a5a7a' } };
+          const trendMap = { Up: { icon: TrendingUp, color: '#ef4444' }, Down: { icon: TrendingDown, color: '#10b981' }, Stable: { icon: Minus, color: 'var(--text-muted)' } };
           const T = trendMap[cat.trend];
           const catRisksForCard = getRisksByCategory(cat.name);
           const hasCritical = catRisksForCard.some(r => r.severity === 'Critical');
@@ -126,8 +127,8 @@ export default function RisksPage() {
               onClick={() => { setSelectedCatName(cat.name); setSelectedRisk(getRisksByCategory(cat.name)[0]); }}
               whileHover={{ y: -1 }}
               style={{
-                background: isSelected ? 'rgba(99,102,241,0.1)' : 'rgba(20,20,32,0.85)',
-                border: `1px solid ${isSelected ? 'rgba(99,102,241,0.3)' : hasCritical ? 'rgba(239,68,68,0.2)' : 'rgba(255,255,255,0.06)'}`,
+                background: isSelected ? 'var(--bg-active)' : 'var(--bg-surface)',
+                border: `1px solid ${isSelected ? 'rgba(99,102,241,0.3)' : hasCritical ? 'rgba(239,68,68,0.2)' : 'var(--glass-border)'}`,
                 borderRadius: '10px', padding: '10px 12px', cursor: 'pointer',
                 display: 'flex', flexDirection: 'column', gap: '4px', textAlign: 'left',
                 backdropFilter: 'blur(12px)', transition: 'all 180ms ease'

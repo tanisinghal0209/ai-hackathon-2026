@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CalendarClock, Zap, AlertTriangle, Clock, GitBranch, Package, FileText, ChevronRight } from 'lucide-react';
+import { getScheduleByProject } from '@/lib/projectData';
+import { useProjectStore } from '@/store/store';
 
 const DUMMY_SCHEDULE = [
   { id: "A1", name: "Site Clearance", duration: 5, predecessors: [], procurement_status: "Clear" },
@@ -50,6 +52,7 @@ const MOCK_REPORT: ScheduleReport = {
 };
 
 export default function SchedulePage() {
+  const { currentProjectId } = useProjectStore();
   const [loading, setLoading] = useState(false);
   const [report, setReport] = useState<ScheduleReport | null>(null);
   const [selectedActivity, setSelectedActivity] = useState<Activity | null>(null);
@@ -58,11 +61,12 @@ export default function SchedulePage() {
     setLoading(true);
     setReport(null);
     setSelectedActivity(null);
+    const sched = getScheduleByProject(currentProjectId);
     try {
       const res = await fetch('http://localhost:8000/api/v1/schedule/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ activities: DUMMY_SCHEDULE }),
+        body: JSON.stringify({ activities: sched }),
       });
       const data = await res.json();
       if (data.data) {
@@ -87,8 +91,8 @@ export default function SchedulePage() {
       {/* Header */}
       <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexShrink: 0 }}>
         <div>
-          <h1 style={{ fontSize: '1.6rem', fontWeight: 700, letterSpacing: '-0.02em', color: '#f1f1f4' }}>Schedule Intelligence</h1>
-          <p style={{ color: '#5a5a7a', fontSize: '0.82rem', marginTop: '3px' }}>CPM critical path analysis with AI-powered risk mitigation</p>
+          <h1 style={{ fontSize: '1.6rem', fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--text-primary)' }}>Schedule Intelligence</h1>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem', marginTop: '3px' }}>CPM critical path analysis with AI-powered risk mitigation</p>
         </div>
         <motion.button
           whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
@@ -114,24 +118,24 @@ export default function SchedulePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'rgba(15,15,24,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '14px', gap: '16px' }}
+            style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-surface)', border: 'var(--glass-border)', borderRadius: '14px', gap: '16px' }}
           >
             <div style={{ width: 56, height: 56, background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <CalendarClock size={24} color="#6366f1" />
             </div>
             <div style={{ textAlign: 'center' }}>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#d0d0e0', marginBottom: '6px' }}>No Schedule Loaded</h3>
-              <p style={{ fontSize: '0.82rem', color: '#5a5a7a' }}>Click &quot;Analyze Schedule&quot; to run CPM logic and generate AI risk mitigations</p>
+              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '6px' }}>No Schedule Loaded</h3>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Click &quot;Analyze Schedule&quot; to run CPM logic and generate AI risk mitigations</p>
             </div>
           </motion.div>
         )}
 
         {loading && (
           <motion.div key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(15,15,24,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '14px' }}>
+            style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-surface)', border: 'var(--glass-border)', borderRadius: '14px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
               <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1.2, ease: 'linear' }} style={{ width: 32, height: 32, border: '3px solid rgba(99,102,241,0.2)', borderTopColor: '#6366f1', borderRadius: '50%' }} />
-              <span style={{ fontSize: '0.875rem', color: '#a0a0b0' }}>Running deterministic CPM graph traversal…</span>
+              <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Running deterministic CPM graph traversal…</span>
             </div>
           </motion.div>
         )}
@@ -140,10 +144,10 @@ export default function SchedulePage() {
           <motion.div key="report" initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ flex: 1, display: 'grid', gridTemplateColumns: '1fr 320px', gap: '14px', overflow: 'hidden', minHeight: 0 }}>
 
             {/* LEFT: Gantt + Activity Table */}
-            <div style={{ background: 'rgba(15,15,24,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '12px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-              <div style={{ padding: '14px 16px', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexShrink: 0 }}>
-                <span style={{ fontSize: '0.9rem', fontWeight: 600, color: '#d0d0e0' }}>Gantt Chart</span>
-                <div style={{ display: 'flex', gap: '12px', fontSize: '0.72rem', color: '#5a5a7a' }}>
+            <div style={{ background: 'var(--bg-surface)', border: 'var(--glass-border)', borderRadius: '12px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+              <div style={{ padding: '14px 16px', borderBottom: 'var(--glass-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexShrink: 0 }}>
+                <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)' }}>Gantt Chart</span>
+                <div style={{ display: 'flex', gap: '12px', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><span style={{ width: 10, height: 6, background: '#ef4444', borderRadius: '2px', display: 'block' }} /> Critical Path</span>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><span style={{ width: 10, height: 6, background: '#3b82f6', borderRadius: '2px', display: 'block' }} /> Non-Critical</span>
                   <span style={{ fontWeight: 600, color: '#10b981' }}>Total: {report.project_duration} days</span>
@@ -158,7 +162,7 @@ export default function SchedulePage() {
                     <div />
                     <div style={{ display: 'flex', position: 'relative', height: '18px' }}>
                       {[0, 10, 20, 30, MAX_DAYS].map(d => (
-                        <span key={d} style={{ position: 'absolute', left: `${(d / MAX_DAYS) * 100}%`, fontSize: '0.6rem', color: '#4a4a6a', transform: 'translateX(-50%)' }}>d{d}</span>
+                        <span key={d} style={{ position: 'absolute', left: `${(d / MAX_DAYS) * 100}%`, fontSize: '0.6rem', color: 'var(--text-muted)', transform: 'translateX(-50%)' }}>d{d}</span>
                       ))}
                     </div>
                   </div>
@@ -172,12 +176,12 @@ export default function SchedulePage() {
                       <div
                         key={act.id}
                         onClick={() => setSelectedActivity(act)}
-                        style={{ display: 'grid', gridTemplateColumns: '130px 1fr', alignItems: 'center', marginBottom: '6px', cursor: 'pointer', padding: '4px', borderRadius: '6px', background: isSelected ? 'rgba(99,102,241,0.08)' : 'transparent', transition: 'background 130ms ease' }}
+                        style={{ display: 'grid', gridTemplateColumns: '130px 1fr', alignItems: 'center', marginBottom: '6px', cursor: 'pointer', padding: '4px', borderRadius: '6px', background: isSelected ? 'var(--bg-active)' : 'transparent', transition: 'background 130ms ease' }}
                       >
-                        <div style={{ fontSize: '0.75rem', color: isSelected ? '#a5b4fc' : '#a0a0b0', fontWeight: isSelected ? 600 : 400, paddingRight: '8px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        <div style={{ fontSize: '0.75rem', color: isSelected ? '#6366f1' : 'var(--text-secondary)', fontWeight: isSelected ? 600 : 400, paddingRight: '8px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                           {act.id}. {act.name}
                         </div>
-                        <div style={{ position: 'relative', height: '18px', background: 'rgba(255,255,255,0.03)', borderRadius: '4px', overflow: 'visible' }}>
+                        <div style={{ position: 'relative', height: '18px', background: 'var(--bg-hover)', borderRadius: '4px', overflow: 'visible' }}>
                           <motion.div
                             initial={{ width: 0, opacity: 0 }}
                             animate={{ width: `${width}%`, opacity: 1 }}
@@ -202,9 +206,9 @@ export default function SchedulePage() {
                 {/* Activity Table */}
                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.78rem' }}>
                   <thead>
-                    <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                    <tr style={{ borderBottom: 'var(--glass-border)' }}>
                       {['ID', 'Activity', 'ES→EF', 'Float', 'Status'].map(h => (
-                        <th key={h} style={{ padding: '6px 8px', color: '#5a5a7a', fontWeight: 600, textAlign: 'left', textTransform: 'uppercase', fontSize: '0.65rem', letterSpacing: '0.05em' }}>{h}</th>
+                        <th key={h} style={{ padding: '6px 8px', color: 'var(--text-muted)', fontWeight: 600, textAlign: 'left', textTransform: 'uppercase', fontSize: '0.65rem', letterSpacing: '0.05em' }}>{h}</th>
                       ))}
                     </tr>
                   </thead>
@@ -212,17 +216,17 @@ export default function SchedulePage() {
                     {report.activities.map((act) => {
                       const isSelected = selectedActivity?.id === act.id;
                       return (
-                        <tr key={act.id} onClick={() => setSelectedActivity(act)} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)', cursor: 'pointer', background: isSelected ? 'rgba(99,102,241,0.06)' : 'transparent', transition: 'background 130ms ease' }}>
-                          <td style={{ padding: '7px 8px', fontFamily: 'var(--font-mono)', color: '#5a5a7a', fontSize: '0.7rem' }}>{act.id}</td>
-                          <td style={{ padding: '7px 8px', color: '#c0c0d0', fontWeight: 500 }}>
+                        <tr key={act.id} onClick={() => setSelectedActivity(act)} style={{ borderBottom: 'var(--glass-border)', cursor: 'pointer', background: isSelected ? 'var(--bg-active)' : 'transparent', transition: 'background 130ms ease' }}>
+                          <td style={{ padding: '7px 8px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', fontSize: '0.7rem' }}>{act.id}</td>
+                          <td style={{ padding: '7px 8px', color: 'var(--text-primary)', fontWeight: 500 }}>
                             {act.name}
                             {act.procurement_status === 'Delayed' && <span style={{ marginLeft: '6px', fontSize: '0.62rem', background: 'rgba(245,158,11,0.15)', color: '#f59e0b', padding: '1px 5px', borderRadius: '4px' }}>Delayed</span>}
                             {act.open_rfis ? <span style={{ marginLeft: '4px', fontSize: '0.62rem', background: 'rgba(239,68,68,0.15)', color: '#ef4444', padding: '1px 5px', borderRadius: '4px' }}>RFI</span> : null}
                           </td>
-                          <td style={{ padding: '7px 8px', color: '#707090' }}>D{act.es}→D{act.ef}</td>
-                          <td style={{ padding: '7px 8px', color: act.is_critical ? '#ef4444' : '#707090', fontWeight: act.is_critical ? 600 : 400 }}>{act.float}d</td>
+                          <td style={{ padding: '7px 8px', color: 'var(--text-muted)' }}>D{act.es}→D{act.ef}</td>
+                          <td style={{ padding: '7px 8px', color: act.is_critical ? '#ef4444' : 'var(--text-secondary)', fontWeight: act.is_critical ? 600 : 400 }}>{act.float}d</td>
                           <td style={{ padding: '7px 8px' }}>
-                            <span style={{ fontSize: '0.65rem', fontWeight: 700, padding: '2px 7px', borderRadius: '999px', background: act.is_critical ? 'rgba(239,68,68,0.15)' : 'rgba(156,163,175,0.1)', color: act.is_critical ? '#ef4444' : '#707090' }}>
+                            <span style={{ fontSize: '0.65rem', fontWeight: 700, padding: '2px 7px', borderRadius: '999px', background: act.is_critical ? 'rgba(239,68,68,0.15)' : 'rgba(156,163,175,0.1)', color: act.is_critical ? '#ef4444' : 'var(--text-muted)' }}>
                               {act.is_critical ? 'Critical' : 'Float'}
                             </span>
                           </td>
@@ -242,16 +246,16 @@ export default function SchedulePage() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 12 }}
                 transition={{ duration: 0.2 }}
-                style={{ background: 'rgba(15,15,24,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '12px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
+                style={{ background: 'var(--bg-surface)', border: 'var(--glass-border)', borderRadius: '12px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
               >
-                <div style={{ padding: '14px', borderBottom: '1px solid rgba(255,255,255,0.05)', fontSize: '0.72rem', fontWeight: 600, color: '#707090', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                <div style={{ padding: '14px', borderBottom: 'var(--glass-border)', fontSize: '0.72rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                   Activity Intelligence
                 </div>
                 {selectedActivity && (
                   <div style={{ flex: 1, overflowY: 'auto', padding: '14px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
                     <div>
-                      <div style={{ fontSize: '0.7rem', color: '#5a5a7a', fontFamily: 'var(--font-mono)', marginBottom: '4px' }}>{selectedActivity.id}</div>
-                      <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#d0d0e0' }}>{selectedActivity.name}</div>
+                      <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', marginBottom: '4px' }}>{selectedActivity.id}</div>
+                      <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)' }}>{selectedActivity.name}</div>
                       <span style={{ display: 'inline-block', marginTop: '6px', padding: '2px 8px', borderRadius: '999px', fontSize: '0.65rem', fontWeight: 700, background: selectedActivity.is_critical ? 'rgba(239,68,68,0.15)' : 'rgba(59,130,246,0.15)', color: selectedActivity.is_critical ? '#ef4444' : '#3b82f6' }}>
                         {selectedActivity.is_critical ? 'Critical Path' : `${selectedActivity.float}d Float`}
                       </span>
@@ -264,12 +268,12 @@ export default function SchedulePage() {
                         { icon: Package, label: 'Procurement', val: selectedActivity.procurement_status || 'Clear' },
                         { icon: FileText, label: 'Open RFIs', val: selectedActivity.open_rfis || 0 },
                       ].map(({ icon: Icon, label, val }, i) => (
-                        <div key={i} style={{ padding: '8px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '7px' }}>
+                        <div key={i} style={{ padding: '8px', background: 'var(--bg-hover)', border: 'var(--glass-border)', borderRadius: '7px' }}>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '4px' }}>
-                            <Icon size={11} color="#5a5a7a" />
-                            <span style={{ fontSize: '0.65rem', color: '#5a5a7a' }}>{label}</span>
+                            <Icon size={11} color="var(--text-muted)" />
+                            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>{label}</span>
                           </div>
-                          <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#c0c0d0' }}>{val}</div>
+                          <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)' }}>{val}</div>
                         </div>
                       ))}
                     </div>
@@ -280,19 +284,19 @@ export default function SchedulePage() {
                           <div style={{ fontSize: '0.7rem', color: '#ef4444', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600, marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '4px' }}>
                             <AlertTriangle size={11} /> Impact Analysis
                           </div>
-                          <p style={{ fontSize: '0.8rem', color: '#a0a0b0', lineHeight: 1.65 }}>{mitigation.impact_analysis}</p>
+                          <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>{mitigation.impact_analysis}</p>
                         </div>
-                        <div style={{ padding: '12px', background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.18)', borderRadius: '8px' }}>
+                        <div style={{ padding: '12px', background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.25)', borderRadius: '8px' }}>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '6px' }}>
                             <Zap size={11} color="#10b981" />
                             <span style={{ fontSize: '0.7rem', color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>Mitigation</span>
                           </div>
-                          <p style={{ fontSize: '0.8rem', color: '#6ee7b7', lineHeight: 1.65 }}>{mitigation.mitigation_strategy}</p>
+                          <p style={{ fontSize: '0.8rem', color: 'var(--text-primary)', lineHeight: 1.65 }}>{mitigation.mitigation_strategy}</p>
                         </div>
                       </>
                     )}
                     {!mitigation && (
-                      <div style={{ padding: '20px', textAlign: 'center', color: '#4a4a6a', fontSize: '0.8rem' }}>
+                      <div style={{ padding: '20px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.8rem' }}>
                         No active risk warnings for this activity.
                       </div>
                     )}

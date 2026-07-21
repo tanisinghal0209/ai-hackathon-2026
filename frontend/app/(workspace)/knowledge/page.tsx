@@ -83,11 +83,13 @@ export default function KnowledgePage() {
             
             if (data.event === 'text') {
               setMessages(prev => {
-                const newMessages = [...prev];
-                const lastIdx = newMessages.length - 1;
-                newMessages[lastIdx].content += data.content;
-                newMessages[lastIdx].stage = 'Synthesizing Response';
-                return newMessages;
+                if (prev.length === 0) return prev;
+                const lastIdx = prev.length - 1;
+                return prev.map((msg, idx) =>
+                  idx === lastIdx
+                    ? { ...msg, content: msg.content + data.content, stage: 'Synthesizing Response' }
+                    : msg
+                );
               });
             } else if (data.event === 'citations') {
               const enrichedCitations = data.chunks.map((c: { filename?: string; similarity?: number; clause_identifier?: string; page_number?: number; text?: string }) => ({
@@ -99,11 +101,13 @@ export default function KnowledgePage() {
               }));
               
               setMessages(prev => {
-                const newMessages = [...prev];
-                const lastIdx = newMessages.length - 1;
-                newMessages[lastIdx].citations = enrichedCitations;
-                newMessages[lastIdx].stage = 'Validating Citations';
-                return newMessages;
+                if (prev.length === 0) return prev;
+                const lastIdx = prev.length - 1;
+                return prev.map((msg, idx) =>
+                  idx === lastIdx
+                    ? { ...msg, citations: enrichedCitations, stage: 'Validating Citations' }
+                    : msg
+                );
               });
 
               // Automatically select the first citation for display in the right panel
@@ -117,22 +121,25 @@ export default function KnowledgePage() {
 
       // Mark completed
       setMessages(prev => {
-        const newMessages = [...prev];
-        const lastIdx = newMessages.length - 1;
-        newMessages[lastIdx].stage = 'Completed';
-        newMessages[lastIdx].tokens = 240;
-        newMessages[lastIdx].latency = '1.8s';
-        return newMessages;
+        if (prev.length === 0) return prev;
+        const lastIdx = prev.length - 1;
+        return prev.map((msg, idx) =>
+          idx === lastIdx
+            ? { ...msg, stage: 'Completed', tokens: 240, latency: '1.8s' }
+            : msg
+        );
       });
 
     } catch (err) {
       console.error(err);
       setMessages(prev => {
-        const newMessages = [...prev];
-        const lastIdx = newMessages.length - 1;
-        newMessages[lastIdx].content = 'An error occurred while connecting to the Knowledge Copilot.';
-        newMessages[lastIdx].stage = undefined;
-        return newMessages;
+        if (prev.length === 0) return prev;
+        const lastIdx = prev.length - 1;
+        return prev.map((msg, idx) =>
+          idx === lastIdx
+            ? { ...msg, content: 'An error occurred while connecting to the Knowledge Copilot.', stage: undefined }
+            : msg
+        );
       });
     } finally {
       setLoading(false);

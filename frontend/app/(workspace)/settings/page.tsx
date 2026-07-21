@@ -9,7 +9,7 @@ function ToggleSwitch({ value, onChange }: { value: boolean; onChange: (v: boole
       onClick={() => onChange(!value)}
       style={{
         width: 36, height: 20, borderRadius: '999px', cursor: 'pointer', border: 'none',
-        background: value ? '#6366f1' : 'rgba(255,255,255,0.1)',
+        background: value ? '#6366f1' : 'var(--bg-hover)',
         position: 'relative', transition: 'background 200ms ease',
         boxShadow: value ? '0 0 8px rgba(99,102,241,0.4)' : 'none', flexShrink: 0
       }}
@@ -26,7 +26,7 @@ function RangeInput({ value, min, max, onChange, unit }: { value: number; min: n
     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
       <input type="range" min={min} max={max} value={value} onChange={e => onChange(Number(e.target.value))}
         style={{ flex: 1, accentColor: '#6366f1', height: '4px', cursor: 'pointer' }} />
-      <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#a5b4fc', minWidth: '40px', textAlign: 'right' }}>{value}{unit}</span>
+      <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#6366f1', minWidth: '40px', textAlign: 'right' }}>{value}{unit}</span>
     </div>
   );
 }
@@ -36,13 +36,13 @@ function Section({ icon: Icon, title, children }: { icon: React.ElementType; tit
     <motion.div
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
-      style={{ background: 'rgba(20,20,32,0.85)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '14px', overflow: 'hidden', backdropFilter: 'blur(12px)', boxShadow: '0 4px 24px rgba(0,0,0,0.3)' }}
+      style={{ background: 'var(--bg-surface)', border: 'var(--glass-border)', borderRadius: '14px', overflow: 'hidden', backdropFilter: 'blur(12px)', boxShadow: 'var(--shadow-card)' }}
     >
-      <div style={{ padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <div style={{ padding: '16px 20px', borderBottom: 'var(--glass-border)', display: 'flex', alignItems: 'center', gap: '10px' }}>
         <span style={{ width: 30, height: 30, borderRadius: '7px', background: 'rgba(99,102,241,0.12)', border: '1px solid rgba(99,102,241,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Icon size={14} color="#a5b4fc" strokeWidth={2} />
+          <Icon size={14} color="#6366f1" strokeWidth={2} />
         </span>
-        <span style={{ fontSize: '0.875rem', fontWeight: 600, color: '#d0d0e0' }}>{title}</span>
+        <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-primary)' }}>{title}</span>
       </div>
       <div style={{ padding: '20px' }}>{children}</div>
     </motion.div>
@@ -51,10 +51,10 @@ function Section({ icon: Icon, title, children }: { icon: React.ElementType; tit
 
 function SettingRow({ label, sub, children }: { label: string; sub?: string; children: React.ReactNode }) {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: 'var(--glass-border)' }}>
       <div>
-        <div style={{ fontSize: '0.85rem', color: '#c0c0d0', fontWeight: 500 }}>{label}</div>
-        {sub && <div style={{ fontSize: '0.72rem', color: '#5a5a7a', marginTop: '2px' }}>{sub}</div>}
+        <div style={{ fontSize: '0.85rem', color: 'var(--text-primary)', fontWeight: 500 }}>{label}</div>
+        {sub && <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '2px' }}>{sub}</div>}
       </div>
       {children}
     </div>
@@ -74,8 +74,8 @@ export default function SettingsPage() {
   const [saved, setSaved] = useState(false);
 
   const selectStyle: React.CSSProperties = {
-    background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.08)',
-    color: '#d0d0e0', padding: '6px 10px', borderRadius: '7px', fontSize: '0.8rem',
+    background: 'var(--bg-hover)', border: 'var(--glass-border)',
+    color: 'var(--text-primary)', padding: '6px 10px', borderRadius: '7px', fontSize: '0.8rem',
     outline: 'none', cursor: 'pointer', minWidth: '220px'
   };
 

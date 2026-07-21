@@ -31,6 +31,7 @@ export const TEAM = {
 // ─── Documents ──────────────────────────────────────────────────────────────
 
 export interface DocMeta {
+  projectId?: string;
   document_id: string;
   filename: string;
   title: string;
@@ -448,6 +449,7 @@ export const DOCUMENTS: DocMeta[] = [
 // ─── Compliance Findings ─────────────────────────────────────────────────────
 
 export interface ComplianceFinding {
+  projectId?: string;
   requirement_id: string;
   requirement_description: string;
   source_document_id: string;   // which SPEC doc this comes from
@@ -562,6 +564,7 @@ export const COMPLIANCE_FINDINGS: ComplianceFinding[] = [
 // ─── Risk Register ───────────────────────────────────────────────────────────
 
 export interface Risk {
+  projectId?: string;
   id: string;
   name: string;
   category: string;
@@ -725,4 +728,251 @@ export function getCategories(): { name: string; icon: string; count: number; av
     const openActions = risks.filter(r => r.status !== 'Resolved').length;
     return { ...cat, count: risks.length, avgSeverity, openActions };
   });
+}
+
+// ─── Multi-Project Datasets (Beta & Gamma) ──────────────────────────────────
+
+DOCUMENTS.push(
+  {
+    projectId: 'beta',
+    document_id: 'doc-beta-001',
+    filename: 'HYD-DC-02-EL-SPEC-001_Transformer_Spec.pdf',
+    title: 'TECHNICAL SPECIFICATION FOR 33kV/11kV POWER TRANSFORMERS',
+    category: 'Specification',
+    status: 'indexed',
+    page_count: 18,
+    file_size: 18450,
+    rev: 'A',
+    discipline: 'Electrical',
+    prepared_by: 'electrical_engineer',
+    checked_by: 'lead_mep',
+    approved_by: 'project_manager',
+    doc_ref: 'HYD-DC-02-EL-SPEC-001',
+    date_issued: '12 Nov 2025',
+    ai_chunks: 34,
+    stamp: 'APPROVED FOR CONSTRUCTION',
+    controlled_copy: 'HYD-DC-02-CC-012',
+    abstract: 'Specification covering design, manufacturing, testing, and supply of 33kV oil-immersed transformers with ONAN/ONAF cooling for Data Centre Beta.',
+    sections: [
+      { heading: '1. SCOPE OF SUPPLY', body: 'Supply of 2 x 25MVA 33/11kV dual secondary ONAN/ONAF transformers with OLTC.' },
+      { heading: '2. PERFORMANCE CRITERIA', body: 'Impedance voltage 10% ±0.5%. Maximum temperature rise 50°C for oil and 55°C for winding.' }
+    ],
+    related_requirements: ['REQ-HYD-001'],
+    related_risks: ['R-HYD-01']
+  },
+  {
+    projectId: 'beta',
+    document_id: 'doc-beta-002',
+    filename: 'HYD-DC-02-HVAC-SUB-001_Chiller_Submittal.pdf',
+    title: 'VENDOR SUBMITTAL FOR WATER-COOLED CENTRIFUGAL CHILLERS',
+    category: 'Submittal',
+    status: 'indexed',
+    page_count: 32,
+    file_size: 29400,
+    rev: '0',
+    discipline: 'Mechanical',
+    prepared_by: 'mechanical_engineer',
+    checked_by: 'lead_mep',
+    approved_by: 'qa_manager',
+    doc_ref: 'HYD-DC-02-HVAC-SUB-001',
+    date_issued: '05 Dec 2025',
+    ai_chunks: 48,
+    stamp: 'ISSUED FOR REVIEW',
+    controlled_copy: 'HYD-DC-02-CC-018',
+    abstract: 'Vendor technical submission from Trane for 4 x 1200TR water-cooled chillers operating with R-1234ze eco-refrigerant.',
+    sections: [
+      { heading: '1. EQUIPMENT DATASHEET', body: 'Trane CenTraVac 1200TR, 415V/3ph/50Hz, IPLV 0.320 kW/ton, N+1 arrangement.' }
+    ],
+    related_requirements: ['REQ-HYD-002'],
+    related_risks: []
+  },
+  {
+    projectId: 'gamma',
+    document_id: 'doc-gamma-001',
+    filename: 'CHE-DC-03-CIV-SPEC-001_Foundation_Spec.pdf',
+    title: 'STRUCTURAL FOUNDATION & SEISMIC DESIGN SPECIFICATION',
+    category: 'Specification',
+    status: 'indexed',
+    page_count: 14,
+    file_size: 14200,
+    rev: 'A',
+    discipline: 'Civil',
+    prepared_by: 'civil_engineer',
+    checked_by: 'lead_mep',
+    approved_by: 'project_manager',
+    doc_ref: 'CHE-DC-03-CIV-SPEC-001',
+    date_issued: '20 Dec 2025',
+    ai_chunks: 22,
+    stamp: 'APPROVED FOR CONSTRUCTION',
+    controlled_copy: 'CHE-DC-03-CC-005',
+    abstract: 'Civil specification for deep pile foundations and Zone III seismic compliance for Data Centre Gamma (Chennai).',
+    sections: [
+      { heading: '1. PILE FOUNDATION CRITERIA', body: 'Bored cast-in-situ piles 800mm diameter, minimum M40 grade concrete.' }
+    ],
+    related_requirements: ['REQ-CHE-001'],
+    related_risks: ['R-CHE-01']
+  }
+);
+
+COMPLIANCE_FINDINGS.push(
+  {
+    projectId: 'beta',
+    requirement_id: 'REQ-HYD-001',
+    requirement_description: '33kV Transformers shall have ONAN/ONAF dual cooling rating with max 55°C winding rise.',
+    source_document_id: 'doc-beta-001',
+    vendor_document_id: 'doc-beta-001',
+    vendor_value: 'Siemens 25MVA: ONAN rating 20MVA, ONAF rating 25MVA. Winding rise 52°C confirmed.',
+    compliance_status: 'Compliant',
+    severity: 'Passed',
+    confidence: 0.96,
+    explanation: 'Submittal datasheet meets all temperature rise and dual cooling requirements.',
+    recommendation: 'Approve submittal for manufacturing clearance.'
+  },
+  {
+    projectId: 'gamma',
+    requirement_id: 'REQ-CHE-001',
+    requirement_description: 'Pile foundations shall withstand Zone III seismic load with zero differential settlement.',
+    source_document_id: 'doc-gamma-001',
+    vendor_document_id: 'doc-gamma-001',
+    vendor_value: 'Bored piles 800mm: Load capacity 350 MT. Seismic analysis confirms compliance.',
+    compliance_status: 'Compliant',
+    severity: 'Passed',
+    confidence: 0.94,
+    explanation: 'Geotechnical soil report confirms load capacity and seismic safety factor > 2.5.',
+    recommendation: 'Proceed with pile load test at site.'
+  }
+);
+
+RISKS.push(
+  {
+    projectId: 'beta',
+    id: 'R-HYD-01',
+    name: '33kV Substation ROW clearance delay',
+    category: 'Electrical',
+    severity: 'High',
+    driver: 'State DISCOM Right-Of-Way approval pending',
+    evidence: 'Substation application submitted 10 Nov 2025. Joint inspection pending by Telangana State Electricity Board.',
+    mitigation: 'Engage liaison officer for expediting DISCOM inspection. Pre-commission temporary 11kV line for site works.',
+    probability: 65,
+    impact: 75,
+    related_requirement: 'REQ-HYD-001',
+    related_document_ids: ['doc-beta-001'],
+    status: 'In Progress'
+  },
+  {
+    projectId: 'gamma',
+    id: 'R-CHE-01',
+    name: 'Monsoon dewatering capacity limit',
+    category: 'Civil',
+    severity: 'Medium',
+    driver: 'High water table in coastal Chennai zone',
+    evidence: 'Geotechnical report indicates groundwater table at -1.5m below ground level during northeast monsoon.',
+    mitigation: 'Deploy high-capacity wellpoint dewatering system with diesel backup pumps. Construct perimeter cutoff diaphragm wall.',
+    probability: 50,
+    impact: 60,
+    related_requirement: 'REQ-CHE-001',
+    related_document_ids: ['doc-gamma-001'],
+    status: 'Open'
+  }
+);
+
+export function getDocumentsByProject(projectId: string): DocMeta[] {
+  if (!projectId || projectId === 'alpha') {
+    return DOCUMENTS.filter(d => !d.projectId || d.projectId === 'alpha');
+  }
+  return DOCUMENTS.filter(d => d.projectId === projectId);
+}
+
+export function getComplianceByProject(projectId: string): ComplianceFinding[] {
+  if (!projectId || projectId === 'alpha') {
+    return COMPLIANCE_FINDINGS.filter(c => !c.projectId || c.projectId === 'alpha');
+  }
+  return COMPLIANCE_FINDINGS.filter(c => c.projectId === projectId);
+}
+
+export function getRisksByProject(projectId: string): Risk[] {
+  if (!projectId || projectId === 'alpha') {
+    return RISKS.filter(r => !r.projectId || r.projectId === 'alpha');
+  }
+  return RISKS.filter(r => r.projectId === projectId);
+}
+
+export function getScheduleByProject(projectId: string) {
+  if (projectId === 'beta') {
+    return [
+      { id: "B1", name: "Site Land Grading", duration: 7, predecessors: [], procurement_status: "Clear" },
+      { id: "B2", name: "33kV Substation Civil Works", duration: 14, predecessors: ["B1"], procurement_status: "Delayed", open_rfis: 1 },
+      { id: "B3", name: "25MVA Transformer Delivery", duration: 20, predecessors: ["B1"], procurement_status: "Clear" },
+      { id: "B4", name: "Transformer Erection & Testing", duration: 8, predecessors: ["B2", "B3"], procurement_status: "Clear" },
+      { id: "B5", name: "Building Energization", duration: 5, predecessors: ["B4"], procurement_status: "Clear" }
+    ];
+  }
+  if (projectId === 'gamma') {
+    return [
+      { id: "G1", name: "Geotechnical Piling", duration: 12, predecessors: [], procurement_status: "Clear" },
+      { id: "G2", name: "Diaphragm Wall Construction", duration: 15, predecessors: ["G1"], procurement_status: "Clear" },
+      { id: "G3", name: "Basement Excavation & Dewatering", duration: 10, predecessors: ["G2"], compliance_issues: 1 },
+      { id: "G4", name: "Raft Foundation Pour", duration: 8, predecessors: ["G3"], procurement_status: "Clear" }
+    ];
+  }
+  // Default Alpha schedule
+  return [
+    { id: "A1", name: "Site Clearance", duration: 5, predecessors: [], procurement_status: "Clear" },
+    { id: "A2", name: "Foundation Pour", duration: 10, predecessors: ["A1"], procurement_status: "Clear" },
+    { id: "A3", name: "Switchgear Procurement", duration: 15, predecessors: [], procurement_status: "Delayed", open_rfis: 1 },
+    { id: "A4", name: "Switchgear Installation", duration: 5, predecessors: ["A2", "A3"], procurement_status: "Clear" },
+    { id: "A5", name: "UPS Delivery & Install", duration: 7, predecessors: ["A2"], compliance_issues: 1 },
+    { id: "A6", name: "Integrated Systems Testing", duration: 10, predecessors: ["A4", "A5"], procurement_status: "Clear" }
+  ];
+}
+
+export function getTimelineByProject(projectId: string) {
+  if (projectId === 'beta') {
+    return [
+      { label: 'Civil Works', pct: 95, color: '#10b981' },
+      { label: 'Electrical Installation', pct: 70, color: '#3b82f6' },
+      { label: 'HVAC & Mechanical', pct: 60, color: '#8b5cf6' },
+      { label: 'Commissioning (IST)', pct: 25, color: '#f59e0b', delayed: true },
+      { label: 'Handover & Handback', pct: 5, color: '#5a5a7a' },
+    ];
+  }
+  if (projectId === 'gamma') {
+    return [
+      { label: 'Civil Works', pct: 45, color: '#10b981' },
+      { label: 'Electrical Installation', pct: 20, color: '#3b82f6' },
+      { label: 'HVAC & Mechanical', pct: 10, color: '#8b5cf6' },
+      { label: 'Commissioning (IST)', pct: 0, color: '#f59e0b', delayed: true },
+      { label: 'Handover & Handback', pct: 0, color: '#5a5a7a' },
+    ];
+  }
+  // Default Alpha
+  return [
+    { label: 'Civil Works', pct: 85, color: '#10b981' },
+    { label: 'Electrical Installation', pct: 55, color: '#3b82f6' },
+    { label: 'HVAC & Mechanical', pct: 40, color: '#8b5cf6' },
+    { label: 'Commissioning (IST)', pct: 0, color: '#f59e0b', delayed: true },
+    { label: 'Handover & Handback', pct: 0, color: '#5a5a7a' },
+  ];
+}
+
+export function getDashboardStatsByProject(projectId: string) {
+  if (projectId === 'beta') {
+    return {
+      scheduleDelayDays: 14,
+      scheduleDelayReason: '33kV Substation Civil Works',
+      totalFindingsSummary: '1 Critical · 1 Major · 2 Passed',
+    };
+  }
+  if (projectId === 'gamma') {
+    return {
+      scheduleDelayDays: 5,
+      scheduleDelayReason: 'Piling & Dewatering Wall',
+      totalFindingsSummary: '1 Critical · 1 Major · 1 Passed',
+    };
+  }
+  return {
+    scheduleDelayDays: 8,
+    scheduleDelayReason: 'MV switchgear delivery',
+    totalFindingsSummary: '2 Critical · 2 Major · 4 Passed',
+  };
 }

@@ -126,7 +126,7 @@ export default function LoginPage() {
             letterSpacing: '0.05em',
             textTransform: 'uppercase'
           }}>
-            EPC Security Portal
+            NexusEPC AI Security Portal
           </div>
         </div>
 

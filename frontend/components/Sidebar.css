@@ -6,8 +6,8 @@
 .sidebar {
   width: 240px;
   min-width: 240px;
-  background: rgba(12, 12, 20, 0.95);
-  border-right: 1px solid rgba(255, 255, 255, 0.055);
+  background: var(--bg-surface);
+  border-right: var(--glass-border);
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -30,7 +30,7 @@
 
 .sidebar-header {
   padding: 20px 16px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: var(--glass-border);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -59,10 +59,7 @@
 .sidebar-brand-name {
   font-size: 0.875rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #f1f1f4, #a0a0b0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
   letter-spacing: -0.01em;
   white-space: nowrap;
   overflow: hidden;
@@ -71,7 +68,7 @@
 
 .sidebar-brand-sub {
   font-size: 0.65rem;
-  color: #4a4a6a;
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 500;
@@ -92,7 +89,7 @@
   padding: 8px 8px 4px;
   font-size: 0.65rem;
   font-weight: 600;
-  color: #3a3a5a;
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -103,7 +100,7 @@
   gap: 10px;
   padding: 8px 10px;
   border-radius: 8px;
-  color: #707090;
+  color: var(--text-secondary);
   font-size: 0.875rem;
   font-weight: 500;
   transition: all 180ms cubic-bezier(0.0, 0.0, 0.2, 1);
@@ -185,7 +182,7 @@
 
 .sidebar-footer {
   padding: 12px 8px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: var(--glass-border);
 }
 
 .sidebar-project-selector {
@@ -193,16 +190,16 @@
   align-items: center;
   gap: 8px;
   padding: 8px 10px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--bg-hover);
+  border: var(--glass-border);
   border-radius: 8px;
   cursor: pointer;
   transition: all 180ms ease;
 }
 
 .sidebar-project-selector:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: var(--bg-active);
+  border-color: rgba(99, 102, 241, 0.3);
 }
 
 .sidebar-project-dot {
@@ -217,7 +214,7 @@
 .sidebar-project-name {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #a0a0b0;
+  color: var(--text-secondary);
   flex: 1;
   white-space: nowrap;
   overflow: hidden;

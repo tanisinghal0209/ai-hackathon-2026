@@ -2,7 +2,8 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Upload, Search, FileText, Check, Loader, ChevronLeft, ChevronRight, BookOpen, Trash2, AlertCircle } from 'lucide-react';
-import { DOCUMENTS, TEAM, PROJECT, getDocById, type DocMeta } from '@/lib/projectData';
+import { DOCUMENTS, TEAM, PROJECT, getDocById, getDocumentsByProject, type DocMeta } from '@/lib/projectData';
+import { useProjectStore } from '@/store/store';
 
 const PIPELINE_STEPS = ['Uploading', 'Validation', 'Parsing', 'Chunking', 'Embedding', 'Indexing', 'Ready'];
 
@@ -242,8 +243,15 @@ function ContentPage({ doc, page }: { doc: DocMeta; page: number }) {
 }
 
 export default function DocumentsPage() {
-  const [documents, setDocuments] = useState<DocMeta[]>(DOCUMENTS);
-  const [selected, setSelected] = useState<DocMeta>(DOCUMENTS[0]);
+  const { currentProjectId } = useProjectStore();
+  const [documents, setDocuments] = useState<DocMeta[]>(() => getDocumentsByProject(currentProjectId));
+  const [selected, setSelected] = useState<DocMeta>(() => getDocumentsByProject(currentProjectId)[0] || DOCUMENTS[0]);
+
+  React.useEffect(() => {
+    const list = getDocumentsByProject(currentProjectId);
+    setDocuments(list);
+    if (list.length > 0) setSelected(list[0]);
+  }, [currentProjectId]);
   const [search, setSearch] = useState('');
   const [catFilter, setCatFilter] = useState('All');
   const [zoom, setZoom] = useState(100);
@@ -424,8 +432,8 @@ export default function DocumentsPage() {
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexShrink: 0 }}>
         <div>
-          <h1 style={{ fontSize: '1.6rem', fontWeight: 700, letterSpacing: '-0.02em', color: '#f1f1f4' }}>Document Library</h1>
-          <p style={{ color: '#5a5a7a', fontSize: '0.82rem', marginTop: '3px' }}>
+          <h1 style={{ fontSize: '1.6rem', fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--text-primary)' }}>Document Library</h1>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem', marginTop: '3px' }}>
             {documents.length} documents · Unified technical documentation workspace
           </p>
         </div>
@@ -443,13 +451,13 @@ export default function DocumentsPage() {
             }}
           >
             <Upload size={13} strokeWidth={2.5} />
-            {uploading ? 'Processing...' : 'Upload Document'}
+            {uploading ? 'Processing Upload…' : 'Upload Document'}
           </motion.button>
-          <input ref={fileRef} type="file" accept=".pdf,.csv,.txt" onChange={e => e.target.files?.[0] && handleUpload(e.target.files[0])} style={{ display: 'none' }} />
+          <input ref={fileRef} type="file" accept=".pdf,.doc,.docx,.txt" style={{ display: 'none' }} onChange={e => { const f = e.target.files?.[0]; if (f) handleUpload(f); }} />
         </div>
       </div>
 
-      {/* Upload Pipeline */}
+      {/* Ingestion progress */}
       <AnimatePresence>
         {uploading && (
           <motion.div
@@ -463,18 +471,18 @@ export default function DocumentsPage() {
               {PIPELINE_STEPS.map((step, i) => (
                 <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', position: 'relative' }}>
                   {i < PIPELINE_STEPS.length - 1 && (
-                    <div style={{ position: 'absolute', top: '11px', left: '50%', right: '-50%', height: '2px', background: i < pipelineStep ? '#6366f1' : 'rgba(255,255,255,0.06)', zIndex: 0 }} />
+                    <div style={{ position: 'absolute', top: '11px', left: '50%', right: '-50%', height: '2px', background: i < pipelineStep ? '#6366f1' : 'var(--bg-hover)', zIndex: 0 }} />
                   )}
                   <div style={{
                     width: 24, height: 24, borderRadius: '50%', zIndex: 1,
-                    background: i < pipelineStep ? '#6366f1' : i === pipelineStep ? 'rgba(99,102,241,0.3)' : 'rgba(255,255,255,0.05)',
-                    border: `2px solid ${i <= pipelineStep ? '#6366f1' : 'rgba(255,255,255,0.1)'}`,
+                    background: i < pipelineStep ? '#6366f1' : i === pipelineStep ? 'rgba(99,102,241,0.3)' : 'var(--bg-hover)',
+                    border: `2px solid ${i <= pipelineStep ? '#6366f1' : 'var(--glass-border)'}`,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     boxShadow: i === pipelineStep ? '0 0 10px rgba(99,102,241,0.5)' : 'none'
                   }}>
                     {i < pipelineStep ? <Check size={12} color="white" /> : i === pipelineStep ? <Loader size={11} color="#a5b4fc" style={{ animation: 'spin 1s linear infinite' }} /> : null}
                   </div>
-                  <span style={{ fontSize: '0.62rem', color: i <= pipelineStep ? '#a5b4fc' : '#4a4a6a', whiteSpace: 'nowrap' }}>{step}</span>
+                  <span style={{ fontSize: '0.62rem', color: i <= pipelineStep ? '#a5b4fc' : 'var(--text-muted)', whiteSpace: 'nowrap' }}>{step}</span>
                 </div>
               ))}
             </div>
@@ -486,19 +494,19 @@ export default function DocumentsPage() {
       <div style={{ flex: 1, display: 'grid', gridTemplateColumns: '280px 1fr 260px', gap: '14px', overflow: 'hidden', minHeight: 0 }}>
 
         {/* LEFT: Document list */}
-        <div style={{ background: 'rgba(15,15,24,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '12px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+        <div style={{ background: 'var(--bg-surface)', border: 'var(--glass-border)', borderRadius: '12px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
           {/* Search + filter */}
-          <div style={{ padding: '12px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '7px', padding: '6px 10px', marginBottom: '8px' }}>
-              <Search size={13} color="#5a5a7a" />
-              <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search documents..." style={{ flex: 1, background: 'none', border: 'none', outline: 'none', color: '#d0d0e0', fontSize: '0.8rem' }} />
+          <div style={{ padding: '12px', borderBottom: 'var(--glass-border)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--bg-hover)', border: 'var(--glass-border)', borderRadius: '7px', padding: '6px 10px', marginBottom: '8px' }}>
+              <Search size={13} color="var(--text-muted)" />
+              <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search documents..." style={{ flex: 1, background: 'none', border: 'none', outline: 'none', color: 'var(--text-primary)', fontSize: '0.8rem' }} />
             </div>
             <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
               {['All', 'Specification', 'Submittal', 'Testing Report', 'NCR', 'Schedule'].map(cat => (
                 <button key={cat} onClick={() => setCatFilter(cat)} style={{
                   padding: '3px 8px', borderRadius: '5px', fontSize: '0.62rem', fontWeight: 600, cursor: 'pointer', border: 'none',
-                  background: catFilter === cat ? 'rgba(99,102,241,0.2)' : 'rgba(255,255,255,0.04)',
-                  color: catFilter === cat ? '#a5b4fc' : '#5a5a7a'
+                  background: catFilter === cat ? 'rgba(99,102,241,0.2)' : 'var(--bg-hover)',
+                  color: catFilter === cat ? '#6366f1' : 'var(--text-muted)'
                 }}>{cat}</button>
               ))}
             </div>
@@ -515,7 +523,7 @@ export default function DocumentsPage() {
                   onClick={() => { setSelected(doc); setPage(1); }}
                   style={{
                     padding: '9px 10px', borderRadius: '8px', marginBottom: '3px', cursor: 'pointer',
-                    background: isSelected ? 'rgba(99,102,241,0.1)' : 'transparent',
+                    background: isSelected ? 'var(--bg-active)' : 'transparent',
                     border: `1px solid ${isSelected ? 'rgba(99,102,241,0.25)' : 'transparent'}`,
                     transition: 'all 130ms ease',
                     position: 'relative',
@@ -525,11 +533,11 @@ export default function DocumentsPage() {
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
                     <div style={{ width: 3, height: 36, background: dc, borderRadius: '2px', flexShrink: 0, marginTop: '2px' }} />
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#c0c0d0', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{doc.filename}</div>
-                      <div style={{ fontSize: '0.65rem', color: '#5a5a7a', marginTop: '2px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{doc.discipline}</div>
+                      <div style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{doc.filename}</div>
+                      <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '2px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{doc.discipline}</div>
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px' }}>
                         <span style={{ fontSize: '0.6rem', padding: '1px 6px', borderRadius: '999px', background: s.bg, color: s.color, fontWeight: 600 }}>{s.label}</span>
-                        <span style={{ fontSize: '0.6rem', color: '#5a5a7a' }}>{doc.page_count}p</span>
+                        <span style={{ fontSize: '0.6rem', color: 'var(--text-muted)' }}>{doc.page_count}p</span>
                       </div>
                     </div>
                     {/* Trash button — appears on hover via CSS class */}
@@ -558,31 +566,31 @@ export default function DocumentsPage() {
         </div>
 
         {/* CENTRE: Document Viewer */}
-        <div style={{ background: 'rgba(15,15,24,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '12px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+        <div style={{ background: 'var(--bg-surface)', border: 'var(--glass-border)', borderRadius: '12px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
           {/* Toolbar */}
-          <div style={{ padding: '8px 14px', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(0,0,0,0.15)', flexShrink: 0 }}>
+          <div style={{ padding: '8px 14px', borderBottom: 'var(--glass-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-elevated)', flexShrink: 0 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <button onClick={() => setPage(p => Math.max(1, p - 1))} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.07)', color: '#a0a0b0', borderRadius: '5px', padding: '3px 6px', cursor: 'pointer' }}>
+              <button onClick={() => setPage(p => Math.max(1, p - 1))} style={{ background: 'var(--bg-hover)', border: 'var(--glass-border)', color: 'var(--text-secondary)', borderRadius: '5px', padding: '3px 6px', cursor: 'pointer' }}>
                 <ChevronLeft size={13} />
               </button>
-              <span style={{ fontSize: '0.78rem', color: '#a0a0b0' }}>Page {page} of {selected?.page_count || 10}</span>
-              <button onClick={() => setPage(p => Math.min(selected?.page_count || 10, p + 1))} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.07)', color: '#a0a0b0', borderRadius: '5px', padding: '3px 6px', cursor: 'pointer' }}>
+              <span style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>Page {page} of {selected?.page_count || 10}</span>
+              <button onClick={() => setPage(p => Math.min(selected?.page_count || 10, p + 1))} style={{ background: 'var(--bg-hover)', border: 'var(--glass-border)', color: 'var(--text-secondary)', borderRadius: '5px', padding: '3px 6px', cursor: 'pointer' }}>
                 <ChevronRight size={13} />
               </button>
             </div>
-            <div style={{ fontSize: '0.72rem', color: '#5a5a7a', display: 'flex', alignItems: 'center', gap: '4px', maxWidth: '260px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+            <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '4px', maxWidth: '260px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               <BookOpen size={12} />
               {selected?.filename}
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <button onClick={() => setZoom(z => Math.max(60, z - 10))} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.07)', color: '#a0a0b0', borderRadius: '5px', padding: '3px 7px', cursor: 'pointer', fontSize: '0.85rem' }}>−</button>
-              <span style={{ fontSize: '0.72rem', color: '#a0a0b0', minWidth: '36px', textAlign: 'center' }}>{zoom}%</span>
-              <button onClick={() => setZoom(z => Math.min(200, z + 10))} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.07)', color: '#a0a0b0', borderRadius: '5px', padding: '3px 7px', cursor: 'pointer', fontSize: '0.85rem' }}>+</button>
+              <button onClick={() => setZoom(z => Math.max(60, z - 10))} style={{ background: 'var(--bg-hover)', border: 'var(--glass-border)', color: 'var(--text-secondary)', borderRadius: '5px', padding: '3px 7px', cursor: 'pointer', fontSize: '0.85rem' }}>−</button>
+              <span style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', minWidth: '36px', textAlign: 'center' }}>{zoom}%</span>
+              <button onClick={() => setZoom(z => Math.min(200, z + 10))} style={{ background: 'var(--bg-hover)', border: 'var(--glass-border)', color: 'var(--text-secondary)', borderRadius: '5px', padding: '3px 7px', cursor: 'pointer', fontSize: '0.85rem' }}>+</button>
             </div>
           </div>
 
           {/* Page Canvas */}
-          <div style={{ flex: 1, overflow: 'auto', background: 'rgba(0,0,0,0.35)', display: 'flex', justifyContent: 'center', padding: '24px' }}>
+          <div style={{ flex: 1, overflow: 'auto', background: 'var(--bg-canvas)', display: 'flex', justifyContent: 'center', padding: '24px' }}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={`${selected?.document_id}-${page}`}
@@ -593,7 +601,7 @@ export default function DocumentsPage() {
                 style={{
                   width: `${zoom * 5}px`, minHeight: `${zoom * 7}px`,
                   background: '#fafafa', color: '#333',
-                  boxShadow: '0 12px 40px rgba(0,0,0,0.6)',
+                  boxShadow: 'var(--shadow-card)',
                   padding: '40px', fontSize: '0.875rem', lineHeight: 1.7,
                   borderRadius: '4px', position: 'relative'
                 }}
@@ -611,8 +619,8 @@ export default function DocumentsPage() {
         {/* RIGHT: Metadata + Links */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', overflow: 'hidden' }}>
           {/* Metadata */}
-          <div style={{ background: 'rgba(15,15,24,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '12px', padding: '14px', flexShrink: 0 }}>
-            <div style={{ fontSize: '0.72rem', fontWeight: 600, color: '#707090', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '10px' }}>Metadata</div>
+          <div style={{ background: 'var(--bg-surface)', border: 'var(--glass-border)', borderRadius: '12px', padding: '14px', flexShrink: 0 }}>
+            <div style={{ fontSize: '0.72rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '10px' }}>Metadata</div>
             {[
               ['Discipline', selected?.discipline],
               ['Category', selected?.category],
@@ -623,17 +631,17 @@ export default function DocumentsPage() {
               ['Issued', selected?.date_issued],
               ['Status', <span key="s" style={{ color: sc.color }}>{sc.label}</span>],
             ].map(([label, val], i) => (
-              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: '0.77rem' }}>
-                <span style={{ color: '#5a5a7a' }}>{label as string}</span>
-                <span style={{ color: '#c0c0d0', fontWeight: 500 }}>{val as React.ReactNode}</span>
+              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', borderBottom: 'var(--glass-border)', fontSize: '0.77rem' }}>
+                <span style={{ color: 'var(--text-muted)' }}>{label as string}</span>
+                <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{val as React.ReactNode}</span>
               </div>
             ))}
           </div>
 
           {/* Linked Compliance */}
           {selected?.related_requirements && selected.related_requirements.length > 0 && (
-            <div style={{ background: 'rgba(15,15,24,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '12px', padding: '14px', flexShrink: 0 }}>
-              <div style={{ fontSize: '0.72rem', fontWeight: 600, color: '#707090', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>Compliance Requirements</div>
+            <div style={{ background: 'var(--bg-surface)', border: 'var(--glass-border)', borderRadius: '12px', padding: '14px', flexShrink: 0 }}>
+              <div style={{ fontSize: '0.72rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>Compliance Requirements</div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
                 {selected.related_requirements.map(req => (
                   <span key={req} style={{ fontSize: '0.62rem', padding: '2px 7px', borderRadius: '4px', background: `${disciplineColor}15`, color: disciplineColor, border: `1px solid ${disciplineColor}30`, fontFamily: 'monospace' }}>
